@@ -304,14 +304,14 @@ nav>div:first-child {
     background: var(--nav-bg) !important;
     color: #ffffff !important;
     opacity: 1 !important;
-    visibility: visible !important;
+    visibility: hidden !important;
 }
 
 body.light-mode #mobile-menu {
     background: var(--nav-bg) !important;
     color: #ffffff !important;
     opacity: 1 !important;
-    visibility: visible !important;
+    visibility: hidden !important;
 }
 
 #mobile-menu > div:nth-child(2) {
@@ -323,6 +323,7 @@ body.light-mode #mobile-menu {
 
 #mobile-menu.active {
     transform: translateX(0) !important;
+    visibility: visible !important;
 }
 
 #mobile-menu-overlay {
@@ -333,12 +334,14 @@ body.light-mode #mobile-menu {
     z-index: 55;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 #mobile-menu-overlay.active {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
 }
 
 
