@@ -512,7 +512,7 @@ body.light-mode footer .text-white {
     color: #0d1b2a !important;
 }
 
-/* Placeholder for removed a[href="contact.html"] ghost styling */
+/* Placeholder for removed a[href="contact"] ghost styling */
 
 
 /* Section h2s with text-white on the light background (e.g. "Így utazhatsz velünk") */
@@ -612,8 +612,8 @@ body.light-mode #campProjectsBtn p.text-gray-300 {
 }
 
 /* Future projects card (also a dark overlay card on the projects page) */
-body.light-mode a[href="future-projects.html"] h3,
-body.light-mode a[href="future-projects.html"] p.text-gray-300 {
+body.light-mode a[href="future-projects"] h3,
+body.light-mode a[href="future-projects"] p.text-gray-300 {
     background: none;
     -webkit-text-fill-color: unset;
     color: #ffffff !important;
@@ -655,7 +655,7 @@ body.light-mode #futureProjectsBtn .text-neon-cyan {
     color: #ffffff !important;
 }
 
-body.light-mode a[href="future-projects.html"] h3.gradient-text {
+body.light-mode a[href="future-projects"] h3.gradient-text {
     background: none !important;
     -webkit-text-fill-color: #ffffff !important;
     color: #ffffff !important;
