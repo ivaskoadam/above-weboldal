@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation - Jövőbeli Projektek">
+    <title id="page-title-tag">Jövőbeli Tevékenységek | ABOVE Foundation</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#00FFF0',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1d21;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 188, 212, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.1);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(0, 188, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 188, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 188, 212, 0.6);
+            }
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                document.body.classList.remove('light-mode');
+            } else if (saved === 'light') {
+                document.body.classList.add('light-mode');
+            } else {
+                const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                if (isIndex) {
+                    document.body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+        })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-12 lg:h-10 w-auto group-hover:opacity-80 transition duration-300">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kezdőlap</a>
+                    <a href="projects.html" class="text-neon-cyan font-semibold transition duration-300">Tevékenységek</a>
+
+                    <a href="about.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Rólunk</a>
+                    <a href="contact.html"
+                        class="glass-strong px-6 py-2 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                        Kapcsolat
+                    </a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
+                        title="Switch language / Nyelv váltása" role="button" tabindex="0"
+                        onmouseenter="this.style.transform='scale(1.15)'"
+                        onmouseleave="this.style.transform='scale(1)'">
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8" style="background-color: #0f1d21; background-image: var(--nav-bg, none); opacity: 1 !important; z-index: 9999 !important; visibility: visible !important;">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="index.html" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full px-6 pt-32 pb-16">
+        <div class="max-w-4xl mx-auto w-full">
+            <div class="glass-strong rounded-3xl p-12 text-center fade-in visible">
+                <div class="mb-8 p-6 glass rounded-full inline-block">
+                    <i class="fas fa-rocket text-6xl text-neon-cyan"></i>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-montserrat font-bold gradient-text mb-6">Jövőbeli Projektek</h1>
+
+                <p class="text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+                    Jelenleg nincsenek jövőbeli projektek. Itt fogjuk közzétenni őket, amint elérhetővé válnak.
+                </p>
+
+                <a href="projects.html"
+                    class="inline-flex items-center gap-2 glass-strong px-8 py-3 rounded-full text-[#1099b3] hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Vissza a projektekhez</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-neon-cyan/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="md:ml-8 lg:ml-12 text-left">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                    <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                        <li><a href="projects.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a></li>
+
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <div class="md:justify-self-end md:mr-8 lg:mr-12 text-left">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-right">Kapcsolat</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="mailto:info@abovefoundation.eu" class="hover:text-neon-cyan transition duration-300"><i class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle
+        (function () {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+            
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+            
+            btn.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-mode');
+                icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+        })();
+        // Smooth Page Transitions
+        setTimeout(() => {
+            document.body.classList.add('page-loaded');
+        }, 50);
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                    e.preventDefault();
+                    document.body.classList.remove('page-loaded');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 150);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        window.pageTitleEn = 'Future Projects | ABOVE Foundation';
+        window.pageTitleHu = 'Jövőbeli Tevékenységek | ABOVE Foundation';
+        window.pageTranslations = {
+            'Jövőbeli Projektek':   'Future Projects',
+            'Jelenleg nincsenek jövőbeli projektek. Itt fogjuk közzétenni őket, amint elérhetővé válnak.': 'There are currently no future projects. We will publish them here as soon as they become available.',
+            'Vissza a projektekhez': 'Back to Projects',
+        };
+    </script>
+    <script src="lang.js"></script>
+</body>
+
+</html>

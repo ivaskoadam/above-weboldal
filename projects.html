@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation Tevékenységek - Globális és helyi kezdeményezéseink">
+    <title id="page-title-tag">Tevékenységek | ABOVE Foundation</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/images/favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#00FFF0',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1d21;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 188, 212, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.1);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.8),
+                0 0 20px rgba(0, 188, 212, 0.6),
+                0 0 30px rgba(0, 188, 212, 0.4),
+                0 0 40px rgba(0, 188, 212, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .animated-gradient {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.1) 0%, rgba(0, 255, 240, 0.05) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 188, 212, 0.3);
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(0, 188, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 188, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card-overlay {
+            background: linear-gradient(180deg, rgba(5, 10, 11, 0.3) 0%, rgba(5, 10, 11, 0.9) 100%);
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 188, 212, 0.6);
+            }
+        }
+    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="">
+    <script>
+            (function () {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'dark') {
+                    document.body.classList.remove('light-mode');
+                } else if (saved === 'light') {
+                    document.body.classList.add('light-mode');
+                } else {
+                    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                    if (isIndex) {
+                        document.body.classList.add('light-mode');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.body.classList.remove('light-mode');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                }
+            })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-12 lg:h-10 w-auto group-hover:opacity-80 transition duration-300">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kezdőlap</a>
+                    <a href="projects.html" class="text-neon-cyan font-semibold transition duration-300">Tevékenységek</a>
+
+                    <a href="about.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Rólunk</a>
+                    <a href="contact.html"
+                        class="glass-strong px-6 py-2 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                        Kapcsolat
+                    </a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
+                        title="Switch language / Nyelv váltása" role="button" tabindex="0"
+                        onmouseenter="this.style.transform='scale(1.15)'"
+                        onmouseleave="this.style.transform='scale(1)'">
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8" style="background-color: #0f1d21; background-image: var(--nav-bg, none); opacity: 1 !important; z-index: 9999 !important; visibility: visible !important;">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="index.html" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects.html"
+                class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+    <div id="app-content" class="page-transition-wrapper">
+        <!-- Page Header -->
+        <section class="pt-24 md:pt-32 pb-12 md:pb-16 px-6">
+            <div class="max-w-7xl mx-auto text-center">
+                <h1 class="text-4xl md:text-7xl font-montserrat font-bold gradient-text mb-4 md:mb-6 fade-in">
+                    Tevékenységeink</h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto fade-in">Globális hatás, helyi érintés</p>
+            </div>
+        </section>
+
+
+        <!-- Projects Landing Page -->
+        <section id="projectsLanding" class="py-12 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <p class="text-gray-400 text-lg">Válaszd ki a kategóriát a részletek megtekintéséhez!</p>
+                </div>
+
+                <!-- Project Categories -->
+                <div class="grid md:grid-cols-2 gap-8">
+
+                    <!-- Foreign Projects -->
+                    <div id="foreignProjectsBtn"
+                        class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer">
+                        <div class="relative h-96">
+                            <img id="foreignBgImg" src="" alt="" aria-hidden="true"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/70 transition duration-300">
+                            </div>
+                            <div class="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+
+                                <div class="mb-4">
+                                    <i class="fas fa-globe-americas text-6xl text-neon-teal mb-4"></i>
+                                </div>
+                                <h3 class="text-4xl font-montserrat font-bold mb-4 text-neon-teal">Külföldi Projektek
+                                </h3>
+                                <p class="text-gray-300 text-lg mb-6">
+                                    Fedezd fel a világot! Erasmus+ utak, nemzetközi élmények és új kultúrák, ahol
+                                    bővítheted a látóköröd. Utazz velünk!
+                                </p>
+                                <div class="flex items-center text-neon-teal font-semibold">
+                                    <span>Részletek megtekintése</span>
+                                    <i
+                                        class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Domestic Projects -->
+                    <div id="domesticProjectsBtn"
+                        class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer">
+                        <div class="relative h-96">
+                            <img id="domesticBgImg" src="" alt="" aria-hidden="true"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/70 transition duration-300">
+                            </div>
+                            <div class="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+
+                                <div class="mb-4">
+                                    <i class="fas fa-home text-6xl text-neon-teal mb-4"></i>
+                                </div>
+                                <h3 class="text-4xl font-montserrat font-bold mb-4 text-neon-teal">Hazai Kezdeményezések
+                                </h3>
+                                <p class="text-gray-300 text-lg mb-6">
+                                    Építs közösséget itthon! Workshopok, önkéntes lehetőségek és hazai projektek, ahol
+                                    formálhatod a jövőt.
+                                </p>
+                                <div class="flex items-center text-neon-teal font-semibold">
+                                    <span>Részletek megtekintése</span>
+                                    <i
+                                        class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition duration-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom row -->
+                <div class="grid md:grid-cols-2 gap-8 mt-16">
+                    <!-- Future Projects -->
+                    <a href="future-projects.html" id="futureProjectsBtn" class="block group">
+                        <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative cursor-pointer h-full">
+                            <div class="relative h-full min-h-[400px]">
+                                <img src="assets/images/vision_1.webp" alt="Jövőbeli Projektek" aria-hidden="true"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/70 transition duration-300">
+                                </div>
+                                <div class="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+                                    <div class="mb-4">
+                                        <i class="fas fa-rocket text-6xl text-neon-cyan mb-4"></i>
+                                    </div>
+                                    <h3 class="text-4xl font-montserrat font-bold mb-4 text-neon-cyan">Jövőbeli Projektek</h3>
+                                    <p class="text-gray-300 text-lg mb-6">
+                                        Folyamatosan dolgozunk új lehetőségeken és programokon, hogy még több fiatalnak
+                                        nyújthassunk életre szóló élményeket.
+                                    </p>
+                                    <div class="flex items-center text-neon-cyan font-semibold">
+                                        <span>Részletek megtekintése</span>
+                                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition duration-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Camps (Táborok) -->
+                    <a href="nyari_tabor.html" id="campProjectsBtn" class="block group">
+                        <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative cursor-pointer h-full">
+                            <div class="relative h-full min-h-[400px]">
+                                <img src="assets/images/gearup_csolnok_3.jpg" alt="Táborok" aria-hidden="true"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 group-hover:from-black/70 transition duration-300">
+                                </div>
+                                <div class="relative z-10 p-6 md:p-8 h-full flex flex-col justify-end">
+                                    <div class="mb-4">
+                                        <i class="fas fa-campground text-6xl text-neon-teal mb-4"></i>
+                                    </div>
+                                    <h3 class="text-4xl font-montserrat font-bold mb-4 text-neon-teal">Táborok</h3>
+                                    <p class="text-gray-300 text-lg mb-6">
+                                        Felejthetetlen nyári élmények, ahol játszva tanulhatsz, és életre szóló barátságokat köthetsz a természet ölelésében.
+                                    </p>
+                                    <div class="flex items-center text-neon-teal font-semibold">
+                                        <span>Részletek megtekintése</span>
+                                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition duration-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Foreign Projects Detail View (Hidden by default) -->
+        <section id="foreignProjectsView" class="py-12 px-6 hidden">
+            <div class="max-w-7xl mx-auto">
+                <!-- Back Button -->
+                <button id="backToProjects"
+                    class="glass-strong px-6 py-3 rounded-full text-[#1099b3] hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold mb-8 flex items-center gap-2">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Vissza a projektekhez</span>
+                </button>
+
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-montserrat font-bold gradient-text mb-4">Külföldi Projektek
+                    </h2>
+                    <p class="text-gray-400 text-lg">Kattints egy projektre a részletek megtekintéséhez</p>
+                </div>
+
+                <!-- Foreign Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+
+
+
+                    <!-- Project Card 1 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="reunion">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-reunion.webp" type="image/webp">
+                                <img src="assets/images/project-reunion.png" alt="Reunion Island Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">From EU to YOU</h3>
+                                <p class="text-gray-300 text-sm">Franciaország, Réunion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="spain">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-spain.webp" type="image/webp">
+                                <img src="assets/images/project-spain.png" alt="Spain Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">The Green Sparkle</h3>
+                                <p class="text-gray-300 text-sm">Spanyolország, Sojuela</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="greece">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-greece.webp" type="image/webp">
+                                <img src="assets/images/project-greece.png" alt="Greece Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">EcoCamp</h3>
+                                <p class="text-gray-300 text-sm">Görögország, Cob-farm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="cyprus">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-cyprus.webp" type="image/webp">
+                                <img src="assets/images/project-cyprus.jpg" alt="Cyprus Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Young Star, Wise Mentor
+                                </h3>
+                                <p class="text-gray-300 text-sm">Ciprus, Páfosz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="bulgaria">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-bulgaria.webp" type="image/webp">
+                                <img src="assets/images/project-bulgaria.jpg" alt="Bulgaria Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">My yEUth story 1.0</h3>
+                                <p class="text-gray-300 text-sm">Bulgária, Várna</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="sdgames">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-sdgames.webp" type="image/webp">
+                                <img src="assets/images/project-sdgames.jpg" alt="SDGames Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">SDGames</h3>
+                                <p class="text-gray-300 text-sm">Spanyolország, Biar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 7 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="tem">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-tem.webp" type="image/webp">
+                                <img src="assets/images/project-tem.jpg" alt="The European Mindset Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">The European Mindset</h3>
+                                <p class="text-gray-300 text-sm">Hollandia, Nijhuizum</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 8 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="entrepreneurial">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-entrepreneurial.webp" type="image/webp">
+                                <img src="assets/images/project-entrepreneurial.jpg"
+                                    alt="The Entrepreneurial Method Project" class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">The Entrepreneurial
+                                    Method</h3>
+                                <p class="text-gray-300 text-sm">Ciprus, Páfosz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 9 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="shift">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-shift.webp" type="image/webp">
+                                <img src="assets/images/project-shift.jpg" alt="Shift Perspectives Project"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Shift Perspectives</h3>
+                                <p class="text-gray-300 text-sm">Csehország, Brno</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 10 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="erasmuslab">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-erasmus-lab.webp" type="image/webp">
+                                <img src="assets/images/project-erasmus-lab.jpg" alt="Erasmus4Democracy Project Lab"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Erasmus4Democracy Project
+                                    Lab</h3>
+                                <p class="text-gray-300 text-sm">Norvégia, Drammen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 11 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="eyes">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-eyes.webp" type="image/webp">
+                                <img src="assets/images/project-eyes.webp"
+                                    alt="EYES – Entrepreneurial Youth Education Seminar"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">EYES</h3>
+                                <p class="text-gray-300 text-sm">Magyarország, Kékkút</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 12 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="entrepreneurialjourney">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-entrepreneurial-journey.webp" type="image/webp">
+                                <img src="assets/images/project-entrepreneurial-journey.webp"
+                                    alt="Entrepreneurial Journey" class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Entrepreneurial Journey
+                                </h3>
+                                <p class="text-gray-300 text-sm">Románia, Erdély</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 13 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="digy">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-digy.webp" type="image/webp">
+                                <img src="assets/images/project-digy.webp" alt="DIGY in YOUth"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">DIGY in YOUth</h3>
+                                <p class="text-gray-300 text-sm">Lettország, Riga</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 14 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="breakingwalls">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-breaking-walls.webp" type="image/webp">
+                                <img src="assets/images/project-breaking-walls.webp"
+                                    alt="Breaking Walls, Building Bridges" class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2 line-clamp-1">Breaking
+                                    Walls, Building Bridges</h3>
+                                <p class="text-gray-300 text-sm">Ciprus, Páfosz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 15 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="fireworks">
+                        <div class="relative h-80">
+                            <picture>
+                                <source srcset="assets/images/project-fireworks.webp" type="image/webp">
+                                <img src="assets/images/project-fireworks.webp" alt="FIREWORKS"
+                                    class="w-full h-full object-cover">
+                            </picture>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">FIREWORKS</h3>
+                                <p class="text-gray-300 text-sm">Portugália, Faro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 16 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="selfctrl">
+                        <div class="relative h-80">
+                            <img src="assets/images/selfctrl-gallery-5.jpg" alt="selfCTRL"
+                                class="w-full h-full object-cover object-[center_40%]">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">selfCTRL</h3>
+                                <p class="text-gray-300 text-sm">Észak-Macedónia, Krushevó</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 17 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="routesroots">
+                        <div class="relative h-80">
+                            <img src="assets/images/routes-roots-gallery-1.jpg" alt="Routes &amp; Roots"
+                                class="w-full h-full object-cover object-center">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Routes &amp; Roots</h3>
+                                <p class="text-gray-300 text-sm">Spanyolország, Navaluenga</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 18 -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="fireworks2">
+                        <div class="relative h-80">
+                            <img src="assets/images/fireworks_2_1.jpg" alt="FIREWORKS II"
+                                class="w-full h-full object-cover object-[center_30%]">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">FIREWORKS II</h3>
+                                <p class="text-gray-300 text-sm">Portugália, Faro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Domestic Projects Detail View (Hidden by default) -->
+        <section id="domesticProjectsView" class="py-12 px-6 hidden">
+            <div class="max-w-7xl mx-auto">
+                <button id="backToProjectsDomestic"
+                    class="glass-strong px-6 py-3 rounded-full text-[#1099b3] hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold mb-8 flex items-center gap-2">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Vissza a projektekhez</span>
+                </button>
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-montserrat font-bold gradient-text mb-4">Hazai Kezdeményezések
+                    </h2>
+                    <p class="text-gray-400 text-lg">Kattints egy projektre a részletek megtekintéséhez</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer domestic-project-card"
+                        data-domestic-project="beke">
+                        <div class="relative h-80">
+                            <img src="assets/images/gearup_csolnok_1.jpg" alt="Béke egy Békés bolygóért!"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-teal/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Béke egy Békés bolygóért!
+                                </h3>
+                                <p class="text-gray-300 text-sm">Hazai ifjúsági projekt · 2025–2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lépj ki, kapcsolódj be! -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer domestic-project-card"
+                        data-domestic-project="lepjki">
+                        <div class="relative h-80 bg-gradient-to-br from-green-900/40 to-teal-900/40">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <picture>
+                                    <img src="assets/images/project-lepjki.png" alt="Lépj ki, kapcsolódj be!"
+                                        class="h-44 w-auto object-contain opacity-100 transition-transform duration-500 group-hover:scale-105">
+                                </picture>
+                            </div>
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/5 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Lépj ki, kapcsolódj be!
+                                </h3>
+                                <p class="text-gray-300 text-sm">Hazai élményprogram · 2025–2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Youth Council Exchange -->
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer domestic-project-card"
+                        data-domestic-project="yce">
+                        <div class="relative h-80">
+                            <img src="assets/images/yce_1.jpg" alt="Youth Council Exchange"
+                                class="w-full h-full object-cover object-[center_40%] transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/5 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Youth Council Exchange
+                                </h3>
+                                <p class="text-gray-300 text-sm">Hazai ifjúsági projekt · 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domestic Project Modals -->
+        <!-- Béke egy Békés bolygóért! -->
+        <div id="domesticProjectModalBeke"
+            class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+                <button
+                    class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="p-4 md:p-8">
+
+                    <!-- Cover Image -->
+                    <div class="rounded-2xl overflow-hidden mb-6">
+                        <img src="assets/images/gearup_csolnok_1.jpg" alt="Béke egy Békés bolygóért!"
+                            class="w-full h-72 object-cover object-center">
+                    </div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-neon-teal/20 text-neon-teal text-sm font-bold">Hazai
+                            Projekt</span>
+                        <p class="text-gray-400 text-sm">GEARUP/HU018/2025 · 2025.06.01 – 2026.05.31</p>
+                    </div>
+                    <h2 class="text-4xl font-montserrat font-bold gradient-text mb-6">Béke egy Békés bolygóért!</h2>
+                    <div class="space-y-6 text-gray-300 leading-relaxed">
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Miről szól a
+                                projekt?</h3>
+                            <p>Ez nem egy tanóra, hanem egy kalandos, közösségi és természetközeli élmény, ahol tényleg
+                                számít, mit gondolsz a jövőről! Felhívjuk a figyelmet arra, hogy a környezeti
+                                fenntarthatóság nem érhető el erős intézményrendszerek és hatékony nemzetközi
+                                együttműködés nélkül.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Céljaink</h3>
+                            <p>A környezeti fenntarthatósági célok és a jól működő intézményrendszerek összefüggéseinek
+                                tudatosítása online és offline ismeretterjesztéssel, valamint a fiatalok digitális
+                                kompetenciafejlesztése által növeljük aktív társadalmi részvételüket.</p>
+                            <ul class="mt-3 space-y-2 list-disc list-inside">
+                                <li>Béke egy Békés bolygóért!</li>
+                                <li>Erős intézményekkel a hatékony környezeti fenntarthatóság megvalósításáért</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Főbb aktivitások
+                            </h3>
+                            <p class="font-semibold" style="color: #1099b3;">Projektmegvalósítás időszaka: 2025. június
+                                01. – 2026. május 31.</p>
+                            <ul class="mt-3 space-y-2 list-disc list-inside">
+                                <li>Helyzetfelmérő és promóciós középiskolai workshopok</li>
+                                <li>4 podcast epizód a felmért érdeklődés szerint</li>
+                                <li>2 egész délutános edukációs workshop</li>
+                                <li>Ismeretterjesztő ifjúsági tábor</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Haladás</h3>
+                            <p>Sikeresen lezajlott a projekt bemutató előadásai a bonyhádi Petőfi Sándor Evangélikus
+                                Gimnáziumban, a fehérvári Vasvári Pál Gimnáziumban, a budapesti Német Nemzetiségi
+                                Gimnázium 12.b osztályánál, a Móricz Zsigmond Gimnáziumban és a veszprémi Lovassy László
+                                Gimnáziumban.</p>
+                            <p class="mt-3">Elstartolt podcastunk is – első epizódunkban Dr. Gondola Csaba körforgásos
+                                gazdaságért és klímapolitikáért felelős államtitkárral beszélgettünk az EU és
+                                Magyarország szerepéről a klímapolitikában.</p>
+                            <a href="https://www.youtube.com/watch?v=gxGX1PObYec" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-sm">
+                                <i class="fab fa-youtube"></i> Epizód 01 meghallgatása
+                            </a>
+                        </div>
+                        <!-- Photo Gallery -->
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-4" style="color: #1099b3;">Fotógaléria</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/gearup_csolnok_1.jpg" alt="Béke galeria 1"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/gearup_csolnok_2.jpg" alt="Béke galeria 2"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/gearup_csolnok_3.jpg" alt="Béke galeria 3"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/gearup_csolnok_4.jpg" alt="Béke galeria 4"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/gearup_csolnok_5.jpg" alt="Béke galeria 5"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/10 pt-4">
+                            <div class="flex items-center gap-6 mb-4 flex-wrap">
+                                <picture>
+                                    <source srcset="assets/images/logo-hand.webp" type="image/webp">
+                                    <img src="assets/images/logo-hand.png" alt="HAND Szövetség"
+                                        class="h-16 w-auto object-contain">
+                                </picture>
+                                <picture>
+                                    <source srcset="assets/images/logo-gearup.webp" type="image/webp">
+                                    <img src="assets/images/logo-gearup.png" alt="Gear UP!"
+                                        class="h-16 w-auto object-contain">
+                                </picture>
+                            </div>
+                            <p class="text-sm text-gray-500">Projektünk a HAND Szövetség által partnerségben
+                                megvalósított „Gear UP!" projekt keretein belül valósul meg (GEARUP/HU018/2025).</p>
+                            <p class="mt-1 text-sm text-gray-500">Jelen oldal az Európai Unió társfinanszírozásával
+                                valósult meg. Tartalma az ABOVE Alapítvány kizárólagos felelősségét képezi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lépj ki, kapcsolódj be! -->
+        <div id="domesticProjectModalLepjKi"
+            class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+                <button
+                    class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="p-8">
+                    <!-- Project Poster/Logo Banner -->
+                    <div
+                        class="rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-green-900/40 to-teal-900/40 flex items-center justify-center py-10">
+                        <img src="assets/images/project-lepjki.png" alt="Lépj ki, kapcsolódj be!"
+                            class="h-56 w-auto object-contain drop-shadow-2xl">
+                    </div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Hazai
+                            Projekt</span>
+                        <p class="text-gray-400 text-sm">2025-1-HU01-KA154-YOU-000301535 · 2025 – 2026</p>
+                    </div>
+                    <h2 class="text-4xl font-montserrat font-bold gradient-text mb-6">Lépj ki, kapcsolódj be!</h2>
+                    <div class="space-y-6 text-gray-300 leading-relaxed">
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Miről szól a
+                                projekt?</h3>
+                            <p>Ez nem egy tanóra, hanem egy kalandos, közösségi és természetközeli élmény, ahol tényleg
+                                számít, mit gondolsz a jövőről! Képzeld el: túrák, tábortűz, jófej emberek, izgalmas
+                                feladatok, beszélgetések a világról, jövőről, meg arról, hogy mihez kezdjünk vele.</p>
+                            <p class="mt-3">Egy különleges program vár rád, ahol minden költséget mi állunk: szállás,
+                                étkezés, utazás, élmények – mindez közösségi szolgálat igazolásával együtt!</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Röviden a lényeg
+                            </h3>
+                            <p class="font-semibold" style="color: #1099b3;">Projektmegvalósítás időszaka: 2025.
+                                szeptember – 2026. május</p>
+                            <ul class="mt-3 space-y-2 list-disc list-inside">
+                                <li>Havi 1 program – természetben, közösségben, jó társaságban</li>
+                                <li>Garantált jó hangulat, személyes és szakmai fejlődés!</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Kiket várunk?
+                            </h3>
+                            <p>10-10 középiskolást (16–18 éves) Eger és Veszprém környékéről:</p>
+                            <ul class="mt-3 space-y-2 list-disc list-inside">
+                                <li>akiket érdekel a természet, a közösségi gondolkodás és a valódi tettek</li>
+                                <li>akik szeretnének kimozdulni, gondolkodni és formálni a jövőt</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Mit nyersz?</h3>
+                            <ul class="mt-3 space-y-2 list-disc list-inside">
+                                <li>Egyedi természetbeli élmények és új tudás a fenntarthatóságról</li>
+                                <li>Kommunikációs és csapatmunka tapasztalat</li>
+                                <li>Beleszólás a döntéshozatalba</li>
+                                <li>Közösségi szolgálat igazolása (megállapodás megléte/készítése esetén)</li>
+                                <li>És egy olyan közösség, amely hosszú távon is inspirál!</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Mikor mi
+                                történik?</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="glass-strong p-5 rounded-2xl border border-white/5">
+                                    <h4 class="font-bold mb-2" style="color: #1099b3;">Utánkövető workshop-sorozat</h4>
+                                    <p class="text-sm text-gray-400 mb-2 italic">2025. november – 2026. február (havi 1
+                                        workshop)</p>
+                                    <ul class="text-sm space-y-1 list-disc list-inside">
+                                        <li>Tapasztalatok feldolgozása</li>
+                                        <li>Szakmai kommunikáció</li>
+                                        <li>Döntéshozók bevonása</li>
+                                        <li>Javaslatcsomag készítése</li>
+                                    </ul>
+                                </div>
+                                <div class="glass-strong p-5 rounded-2xl border border-white/5">
+                                    <h4 class="font-bold mb-2" style="color: #1099b3;">Guide készítése és online fórum
+                                    </h4>
+                                    <p class="text-sm text-gray-400 mb-2 italic">2026. március</p>
+                                    <p class="text-sm">Nyomtatható és online verzió a diákok tapasztalatainak és
+                                        javaslatainak összefoglalásával.</p>
+                                </div>
+                                <div class="glass-strong p-5 rounded-2xl border border-white/5">
+                                    <h4 class="font-bold mb-2" style="color: #1099b3;">Kerekasztal-beszélgetés</h4>
+                                    <p class="text-sm text-gray-400 mb-2 italic">2026. április – Corvinus Egyetem</p>
+                                    <p class="text-sm">Fiatalok, döntéshozók, szakértők és érdeklődők közös párbeszéde.
+                                    </p>
+                                </div>
+                                <div class="glass-strong p-5 rounded-2xl border border-white/5">
+                                    <h4 class="font-bold mb-2" style="color: #1099b3;">Online kampány és zárás</h4>
+                                    <p class="text-sm text-gray-400 mb-2 italic">2026. május – július</p>
+                                    <p class="text-sm">Social media, interaktív tartalmak, országos láthatóság és záró
+                                        értékelés a fiatalokkal.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/10 pt-4">
+                            <p class="text-xs text-gray-500 text-center">Jelen oldal az Európai Unió
+                                társfinanszírozásával valósult meg (2025-1-HU01-KA154-YOU-000301535). Tartalma az ABOVE
+                                Alapítvány kizárólagos felelősségét képezi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Youth Council Exchange -->
+        <div id="domesticProjectModalYce"
+            class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+                <button
+                    class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="p-4 md:p-8">
+                    <!-- Cover Image -->
+                    <div class="rounded-2xl overflow-hidden mb-6">
+                        <img src="assets/images/yce_1.jpg" alt="Youth Council Exchange"
+                            class="w-full h-72 object-cover object-[center_40%]">
+                    </div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Hazai
+                            Projekt</span>
+                        <p class="text-gray-400 text-sm">Magyarország, Budapest · 2026</p>
+                    </div>
+                    <h2 class="text-4xl font-montserrat font-bold gradient-text mb-6">Youth Council Exchange</h2>
+                    <div class="space-y-6 text-gray-300 leading-relaxed">
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Miről szól a
+                                projekt?</h3>
+                            <p>Március közepén Budapesten töltöttünk 4 napot az ABOVE Foundation által szervezett
+                                Erasmus+ Youth Council Exchange keretében. ✨</p>
+                            <p class="mt-3">A projekt fókuszában az ifjúsági érdekképviselet érvényesítése állt – olyan
+                                témák, amik manapság mindannyiunk életét érintik, akár akarjuk, akár nem. 📱💡</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Főbb aktivitások
+                            </h3>
+                            <p class="font-semibold" style="color: #1099b3;">A 4 nap alatt többek között:</p>
+                            <ul class="mt-3 space-y-2 list-disc list-inside">
+                                <li>Workshopokon vettük górcső alá a fiatalok lehetőségeit érdekképviseletben – lokális
+                                    problémáktól a nemzeti és nemzetközi ügyekig</li>
+                                <li>Interaktív módszerekkel dolgoztunk – csapatjátékok, közös alkotás és brainstorming
+                                </li>
+                            </ul>
+                            <p class="mt-3">Nem csak elméletben: interaktív játékokon és workshopokon keresztül néztük
+                                meg, hogyan tudunk mi is változást elérni – akár helyben, akár nemzetközi szinten. 📈
+                            </p>
+                        </div>
+                        <div>
+                            <p>Emellett rengeteg klassz emberrel ismerkedhettünk meg Dániából és Spanyolországból, a
+                                workshopok pedig mindannyiunkat közelebb vittek ahhoz, hogy megtaláljuk az utat a
+                                fiatalok érvényesülése felé. 🌍👔</p>
+                        </div>
+                        <!-- Photo Gallery -->
+                        <div>
+                            <h3 class="text-xl font-montserrat font-bold mb-4" style="color: #1099b3;">Fotógaléria</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/yce_1.jpg" alt="YCE foto 1"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/yce_2.jpg" alt="YCE foto 2"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/yce_3.jpg" alt="YCE foto 3"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/yce_4.jpg" alt="YCE foto 4"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                                <div class="rounded-xl overflow-hidden cursor-pointer group relative hover-lift">
+                                    <img src="assets/images/yce_5.jpg" alt="YCE foto 5"
+                                        class="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+                                        loading="lazy">
+                                    <div
+                                        class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Modal -->
+        <div id="projectModal"
+            class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+                <!-- Close Button -->
+                <button id="closeModal"
+                    class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Project Image -->
+                    <div class="rounded-2xl overflow-hidden mb-6">
+                        <img id="modalImage" src="" alt="Project" class="w-full h-96 object-cover object-[center_25%]">
+                    </div>
+
+                    <!-- Location -->
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-map-marker-alt text-neon-cyan"></i>
+                        <span id="modalLocation" class="text-gray-400"></span>
+                    </div>
+
+                    <!-- Project Name -->
+                    <h2 id="modalTitle" class="text-4xl font-montserrat font-bold mb-6" style="color:#1099B3;"></h2>
+
+                    <!-- Project Description -->
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-montserrat font-bold" style="color:#1099B3;">Élménybeszámoló</h3>
+                        <p id="modalDescription" class="text-gray-300 text-lg leading-relaxed"></p>
+                    </div>
+
+                    <!-- Photo Gallery (hidden by default, shown for projects with photos) -->
+                    <div id="modalGallery" class="space-y-4 mt-8 hidden">
+                        <h3 class="text-2xl font-montserrat font-bold" style="color:#1099B3;">Fotógaléria</h3>
+                        <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <!-- Gallery images will be inserted here dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- EU / Erasmus+ Footnote -->
+                    <div class="mt-10 pt-5 border-t border-white/10">
+                        <div class="flex flex-row items-center gap-8 mb-4">
+                            <img src="assets/images/logo-eu-cofunded.webp" alt="Az Európai Unió társfinanszírozásával"
+                                class="h-16 w-auto object-contain">
+                            <img src="assets/images/logo-erasmus-plus.webp" alt="Erasmus+"
+                                class="h-16 w-auto object-contain">
+                        </div>
+                        <p class="text-xs text-gray-500 leading-relaxed">
+                            Jelen oldal az Európai Unió társfinanszírozásával valósult meg. A kifejtett nézetek és
+                            vélemények azonban kizárólag a szerző(k) álláspontját tükrözik, és nem feltétlenül egyeznek
+                            meg az Európai Unió vagy az Európai Oktatási és Ifjúsági Végrehajtó Ügynökség (EACEA)
+                            hivatalos álláspontjával. Sem az Európai Unió, sem az EACEA nem vonható felelősségre
+                            miattuk.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="imageLightbox"
+        class="fixed inset-0 bg-black/95 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+        <!-- Close Button -->
+        <button id="closeLightbox"
+            class="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center bg-[#1099B3] text-black hover:opacity-80 transition duration-300 z-10 shadow-lg">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+
+        <!-- Prev Button -->
+        <button id="prevLightbox"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center bg-[#1099B3] text-black hover:opacity-80 transition duration-300 z-10 shadow-lg">
+            <i class="fas fa-chevron-left text-2xl"></i>
+        </button>
+
+        <!-- Next Button -->
+        <button id="nextLightbox"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center bg-[#1099B3] text-black hover:opacity-80 transition duration-300 z-10 shadow-lg">
+            <i class="fas fa-chevron-right text-2xl"></i>
+        </button>
+
+        <!-- Image Container -->
+        <div class="max-w-7xl max-h-full flex items-center justify-center">
+            <img id="lightboxImage" src="" alt="Full size image"
+                class="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-neon-cyan/20 mt-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+
+                <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex flex-col items-center">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                    <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                        <li><a href="projects.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a></li>
+
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end md:mr-8 lg:mr-12 text-center md:text-right">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center md:text-right">
+                        Kapcsolat</h4>
+                    <ul class="space-y-2 text-gray-400 flex flex-col items-center md:items-end">
+                        <li><a href="mailto:info@abovefoundation.eu"
+                                class="hover:text-neon-cyan transition duration-300"><i
+                                    class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Random background images for category cards
+        (function () {
+            var foreignCovers = [
+                'assets/images/project-reunion.webp',
+                'assets/images/project-spain.webp',
+                'assets/images/project-greece.webp',
+                'assets/images/project-cyprus.jpg',
+                'assets/images/project-bulgaria.jpg',
+                'assets/images/project-sdgames.jpg',
+                'assets/images/project-tem.jpg',
+                'assets/images/project-entrepreneurial.jpg',
+                'assets/images/project-shift.jpg',
+                'assets/images/project-erasmus-lab.jpg',
+                'assets/images/project-eyes.webp',
+                'assets/images/project-entrepreneurial-journey.webp',
+                'assets/images/project-digy.webp',
+                'assets/images/project-breaking-walls.webp',
+                'assets/images/project-fireworks.webp',
+                'assets/images/selfctrl-gallery-5.jpg',
+                'assets/images/routes-roots-gallery-1.jpg',
+                'assets/images/fireworks_2_1.jpg'
+            ];
+            var domesticCovers = [
+                'assets/images/gearup_csolnok_1.jpg',
+                'assets/images/yce_1.jpg'
+            ];
+            var foreignImg = document.getElementById('foreignBgImg');
+            var domesticImg = document.getElementById('domesticBgImg');
+            if (foreignImg) {
+                foreignImg.src = foreignCovers[Math.floor(Math.random() * foreignCovers.length)];
+            }
+            if (domesticImg) {
+                domesticImg.src = domesticCovers[Math.floor(Math.random() * domesticCovers.length)];
+            }
+        })();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+
+        // Scroll Fade In Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle
+        (function () {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+
+            const updateIcon = (isLight) => {
+                icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                icon.style.transform = 'rotate(360deg)';
+                setTimeout(() => { icon.style.transform = 'rotate(0deg)'; }, 500);
+            };
+
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+
+            btn.addEventListener('click', () => {
+                const toggleTheme = () => {
+                    const isLight = document.body.classList.toggle('light-mode');
+                    updateIcon(isLight);
+                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                };
+
+                if (document.startViewTransition) {
+                    document.startViewTransition(toggleTheme);
+                } else {
+                    toggleTheme();
+                }
+            });
+        })();
+
+        // Project Navigation - Switch between landing and detail views
+        const projectsLanding = document.getElementById('projectsLanding');
+        const foreignProjectsView = document.getElementById('foreignProjectsView');
+        const foreignProjectsBtn = document.getElementById('foreignProjectsBtn');
+        const domesticProjectsBtn = document.getElementById('domesticProjectsBtn');
+        const backToProjects = document.getElementById('backToProjects');
+
+        // Show foreign projects detail view
+        foreignProjectsBtn.addEventListener('click', () => {
+            projectsLanding.classList.add('hidden');
+            foreignProjectsView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Show domestic projects detail view
+        const domesticProjectsView = document.getElementById('domesticProjectsView');
+        domesticProjectsBtn.addEventListener('click', () => {
+            projectsLanding.classList.add('hidden');
+            domesticProjectsView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Back to projects landing (domestic)
+        document.getElementById('backToProjectsDomestic').addEventListener('click', () => {
+            domesticProjectsView.classList.add('hidden');
+            projectsLanding.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Domestic project card modal
+        document.querySelectorAll('.domestic-project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectKey = card.getAttribute('data-domestic-project');
+                let modalId = 'domesticProjectModalBeke';
+                if (projectKey === 'lepjki') {
+                    modalId = 'domesticProjectModalLepjKi';
+                }
+                if (projectKey === 'yce') {
+                    modalId = 'domesticProjectModalYce';
+                }
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close logic for domestic modals
+        document.querySelectorAll('.close-domestic-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.fixed').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close when clicking outside modal
+        const domesticModals = [
+            document.getElementById('domesticProjectModalBeke'),
+            document.getElementById('domesticProjectModalLepjKi'),
+            document.getElementById('domesticProjectModalYce')
+        ];
+        domesticModals.forEach(modal => {
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+
+        // YCE modal – gallery lightbox (same mechanism as foreign project modals)
+        (function () {
+            var ycePhotos = [
+                'assets/images/yce_1.jpg',
+                'assets/images/yce_2.jpg',
+                'assets/images/yce_3.jpg',
+                'assets/images/yce_4.jpg',
+                'assets/images/yce_5.jpg'
+            ];
+            var yceModal = document.getElementById('domesticProjectModalYce');
+            if (!yceModal) return;
+            yceModal.querySelectorAll('.rounded-xl.hover-lift').forEach(function (item, index) {
+                item.addEventListener('click', function () {
+                    currentGalleryPhotos = ycePhotos;
+                    currentGalleryIndex = index;
+                    document.getElementById('lightboxImage').src = ycePhotos[index];
+                    document.getElementById('imageLightbox').classList.remove('hidden');
+                });
+            });
+        })();
+
+        // Béke modal – gallery lightbox
+        (function () {
+            var bekePhotos = [
+                'assets/images/gearup_csolnok_1.jpg',
+                'assets/images/gearup_csolnok_2.jpg',
+                'assets/images/gearup_csolnok_3.jpg',
+                'assets/images/gearup_csolnok_4.jpg',
+                'assets/images/gearup_csolnok_5.jpg'
+            ];
+            var bekeModal = document.getElementById('domesticProjectModalBeke');
+            if (!bekeModal) return;
+            bekeModal.querySelectorAll('.rounded-xl.hover-lift').forEach(function (item, index) {
+                item.addEventListener('click', function () {
+                    currentGalleryPhotos = bekePhotos;
+                    currentGalleryIndex = index;
+                    document.getElementById('lightboxImage').src = bekePhotos[index];
+                    document.getElementById('imageLightbox').classList.remove('hidden');
+                });
+            });
+        })();
+
+        // Back to projects landing
+        backToProjects.addEventListener('click', () => {
+            foreignProjectsView.classList.add('hidden');
+            projectsLanding.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Project Modal Functionality
+        const projectModal = document.getElementById('projectModal');
+        const closeModal = document.getElementById('closeModal');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        // Project data
+        const projectData = {
+            "reunion": {
+                image: "assets/images/project-reunion.webp",
+                objectPosition: "center 60%",
+                location: "Franciaország, Réunion",
+                title: "From EU to YOU",
+                description: "2024. május 20 és 29. között 5 magyar fiatalnak volt lehetősége ellátogatni Reunion szigetére, hogy a \"From E.U. to You!\" Erasmus+ ifjúsági cserén részt vegyenek olasz, görög, bolgár és francia kortársaikkal együtt.\n\nTi tudjátok, hogy hol van Réunion? Egy vulkáni sziget az Indiai-óceánban Madagaszkártól keletre, Franciaország tengeren túli területe. A program keretein belül tanulhattunk arról, hogy milyen a különböző országok hozzáállása az EU-hoz, megismerhettük a helyi, reunioni fiatalok gondolatait is a témában és azt a kérdést is kitárgyalhattuk, hogy mit tehetünk az EU szkepticizmus ellen. Sok új, tanulságos nézőpontot hallhattunk egymástól. A saját projektünket is megtervezhettük, amelyben a június 9-i választáson való részvételre buzdító anyagokat készítettünk.\n\nA szabadidőnkben meglátogattuk a sziget egzotikus helyeit, kirándultunk, sokat fürdőztünk az óceánban és néhányan egy eldugott vízesést is felfedeztek a hegyekben. Különösen érdekes volt megismerni a helyi, szigeti kulturát és egy az EU többi részétől 10.000+ kilométerre fekvő uniós terület lakosainak gondolatait az európával kapcsolatos kérdésekben.\n\nEzt segítette, hogy a projekt során helyi lakosokkal és turistákkal is készítettünk interjúkat, így első kézből ismerhettük meg különböző gondolatokat. Köszönjük a lehetőséget a Youth Bridges Budapest csapatának, akik e projekt partnerei voltak, kiválóan megszervezték az utazást, a programokat és minden támogatást megadtak a résztvevőknek.",
+                shortDescription: "2024. május 20 és 29. között 5 magyar fiatalnak volt lehetősége ellátogatni Reunion szigetére, hogy a \"From E.U. to You!\" Erasmus+ ifjúsági cserén részt vegyenek olasz, görög, bolgár és francia kortársaikkal együtt.",
+                gallery: [
+                    "assets/images/reunion/photo2.webp",
+                    "assets/images/reunion/photo3.webp",
+                    "assets/images/reunion/photo4.webp",
+                    "assets/images/reunion/photo5.webp"
+                ]
+            },
+            "spain": {
+                image: "assets/images/project-spain.webp",
+                objectPosition: "center 70%",
+                location: "Spanyolország, Sojuela",
+                title: "The Green Sparkle",
+                shortDescription: "A Green Sparkle Erasmus+ képzésikurzus sikeresen lezárult egy inspiráló és élményekkel teli hét után a gyönyörű Sojuela városában.",
+                description: "A Green Sparkle Erasmus+ képzésikurzus sikeresen lezárult egy inspiráló és élményekkel teli hét után a gyönyörű Sojuela városában. A program Európa különböző országaiból érkező fiatalokat hozott össze, akik közösen tanultak, együttműködtek és cselekedtek egy zöldebb jövő érdekében. A természet közelsége és a barátságos légkör tökéletes hátteret adott ahhoz, hogy a csapat gyorsan összekovácsolódjon és átélje a projekt szellemét.\n\nA hét során a résztvevők számos olyan tevékenységben vettek részt, amelyek a csapatmunkát, a kreativitást és a vezetői készségeket fejlesztették. Az első napok az ismerkedésről és a bizalomépítésről szóltak, segítve, hogy mindenki otthonosan érezze magát a csoportban. A képzés előrehaladtával a fiatalok ötleteltek, terveket készítettek, majd bemutatták saját projektjeiket, amelyek a fenntarthatóságot és a környezettudatosságot népszerűsítették.\n\nA foglalkozások során nyitott párbeszéd, kulturális csere és kölcsönös támogatás jellemezte a légkört, így valóban befogadó tanulási környezet alakult ki. A műhelymunkákon túl a közösségi és kulturális élmények is gazdagították a hetet. Az egyik legemlékezetesebb pillanat a hagyományos spanyol ételek, különösen a finom croquetas közös megkóstolása volt, egy tartalmas nap után. A kurzus végére a résztvevők új barátságokkal, értékes tudással és megújult motivációval tértek haza, hogy saját közösségükben is pozitív változásokat indítsanak el.",
+                gallery: [
+                    "assets/images/spain-gallery-1.webp",
+                    "assets/images/spain-gallery-2.webp",
+                    "assets/images/spain-gallery-3.webp",
+                    "assets/images/spain-gallery-4.webp",
+                    "assets/images/spain-gallery-5.webp"
+                ]
+            },
+            "greece": {
+                image: "assets/images/project-greece.webp",
+                objectPosition: "center center",
+                location: "Görögország, Cob-farm",
+                title: "EcoCamp",
+                shortDescription: "2024. június végén 5 magyar fiatal utazott el Görögországba az ABOVE-val, a festői mediterrán tájjal körbevett Cob-farmra, hogy részt vegyen a júliusba átnyúló, 16 napig tartó Erasmus+ projekten.",
+                description: "2024. június végén 5 magyar fiatal utazott el Görögországba az ABOVE-val, a festői mediterrán tájjal körbevett Cob-farmra, hogy részt vegyen a júliusba átnyúló, 16 napig tartó Erasmus+ projekten. Témája a környezetünk erőforrásainak fenntartható felhasználása volt. A magyar, spanyol, olasz, szerb, bolgár és görög résztvevők a projekt ideje alatt egyszerű körülmények között éltek: sátorban aludtak, vegán étrendet követtek, nem termeltek szemetet, és ezáltal személyesen is megtapasztalhatták, milyen valóban fenntartható életmódot folytatni.\n\nA projekt első felében elméleti és gyakorlati órák során sajátíthatták el a permakultúra alapjait és a természetes alapanyagok felhasználásának különböző módjait. Ültettek cukkinit és káposztát a talaj minőségének megőrzésére odafigyelve, építettek egy padot és egy boltívet vályogból, kenyeret sütöttek, tartós ételeket raktak el, szappant és fogkrémet is készítettek. A két szabadnap alatt elmentek a tengerpartra, és meglátogattak egy vízesést is.\n\nA program második felében kisebb csapatokban dolgoztak alacsony technológiájú projekteken. Építettek napelemes fűtőrendszert, extra hatékony kályhát, aszalót, napelemes lámpákat és egy csirketraktort is. Mindezek természetes, illetve használt vagy leselejtezett alapanyagokból készültek, és a későbbiekben is nagy hasznukat veszik majd a farmon. Mindeközben a közösségi lét egy, számukra új formájával is megismerkedtek. Lehetőséget kaptak arra, hogy saját workshopokat is tartsanak, valamint szinte minden nap saját közösségépítő programokat szerveztek, amelyek hatására egy olyan szeretetteljes és összetartó közösség jött létre, amely felejthetetlen emlékekkel gazdagított, és amely, bár fájdalmas volt otthagyni, örökre szól.",
+                gallery: [
+                    "assets/images/ecocamp-gallery-2.webp",
+                    "assets/images/ecocamp-gallery-3.webp",
+                    "assets/images/ecocamp-gallery-4.webp",
+                    "assets/images/ecocamp-gallery-5.webp",
+                    "assets/images/ecocamp-gallery-6.webp"
+                ]
+            },
+            "cyprus": {
+                image: "assets/images/project-cyprus.webp",
+                objectPosition: "center center",
+                location: "Ciprus, Páfosz",
+                title: "Young Star, Wise Mentor",
+                shortDescription: "2025 április 30. és május 7. között különböző európai országok fiataljai – Albániából, Szlovéniából, Ciprusról, Lengyelországból, Törökországból és Magyarországról – gyűltek össze a gyönyörű Páfoszban, Cipruson.",
+                description: "2025 április 30. és május 7. között különböző európai országok fiataljai – Albániából, Szlovéniából, Ciprusról, Lengyelországból, Törökországból és Magyarországról – gyűltek össze a gyönyörű Páfoszban, Cipruson. Az Erasmus+ projekt témája a mentorálás, a mentális egészség és a személyes fejlődés volt.\n\nA program során a résztvevőink felfedezték, hogyan válhatnak bölcs és támogató mentorokká, megtanulták, hogyan gondoskodjanak saját mentális jólétükről, és gyakorolták a SMART célok kitűzését a személyes és szakmai fejlődés érdekében. Lehetőségünk volt saját projektötleteket is kidolgozni és bemutatni, hasznos anyagok és útmutatások segítségével gyakorlati tapasztalatot szerezve a projektmenedzsmentben.\n\nEz a képzés nemcsak a tanulásról szólt, hanem a soft skillek fejlesztéséről, nemzetközi partnerségek és barátságok építéséről, valamint új perspektívák felfedezéséről is. Az itt szerzett tapasztalatok és élmények mind hozzájárultak ahhoz, hogy még elkötelezettebbek legyünk az ifjúság támogatása iránt. Összességében egy felejthetetlen élmény volt, amely sok inspirációt adott a jövőbeni projekjeinkhez. Nagy köszönet a szervezőcsapatnak és az Európai Uniónak, hogy társfinanszírozást biztosítottak ehhez az inspiráló lehetőséghez!",
+                gallery: [
+                    "assets/images/cyprus-gallery-1.webp",
+                    "assets/images/cyprus-gallery-2.webp",
+                    "assets/images/cyprus-gallery-3.webp",
+                    "assets/images/cyprus-gallery-4.webp",
+                    "assets/images/cyprus-gallery-5.webp"
+                ]
+            },
+            "bulgaria": {
+                image: "assets/images/project-bulgaria.webp",
+                objectPosition: "center 45%",
+                location: "Bulgária, Várna",
+                title: "My yEUth story 1.0",
+                shortDescription: "A My yEUth Story 1.0 egy inspiráló és élményekben gazdag ifjúsági csereprogram volt, amelyet 2025. május 6. és 12. között rendeztek meg Varnában, Bulgáriában.",
+                description: "A My yEUth Story 1.0 egy inspiráló és élményekben gazdag ifjúsági csereprogram volt, amelyet 2025. május 6. és 12. között rendeztek meg Varnában, Bulgáriában. A projekt során hat magyar résztvevő csatlakozott fiatalokhoz más európai országokból, hogy együtt fedezzék fel az Európai Ifjúsági Célok témakörét, miközben interaktív workshopokon és kreatív tanulási módszereken keresztül bővítették tudásukat és fejlesztették önismeretüket.\n\nA program egyik fő célja az volt, hogy a fiatalok fejlesszék történetmesélési és kommunikációs készségeiket, hiszen ezek kulcsfontosságúak a véleményformálásban és az aktív társadalmi részvételben. A beszédközpontú, együttműködésre épülő feladatok nemcsak önbizalmat adtak, hanem lehetőséget is teremtettek arra, hogy mindenki megossza saját történetét és kulturális hátterét.\n\nA hét során a résztvevők nemcsak új tudást szereztek, hanem életre szóló barátságokat is kialakítottak. A közös feladatok, a beszélgetésekkel teli esték és a csapatmunka során mindenki megtapasztalhatta, milyen sokat ad a különböző kultúrák találkozása és az egymástól való tanulás. A program mellett jutott idő arra is, hogy felfedezze Varna hangulatos utcáit és a tengerpart nyugalmát, ami még emlékezetesebbé tette az egész hetet. Hatalmas köszönet illeti a FoundationECE szervezőcsapatát ezért a fantasztikus projektért – fiataljaink számára ez a hét nemcsak hasznos, hanem rendkívül inspiráló és felejthetetlen interkulturális élményt is jelentett!",
+                gallery: [
+                    "assets/images/bulgaria-gallery-1.webp",
+                    "assets/images/bulgaria-gallery-2.webp",
+                    "assets/images/bulgaria-gallery-3.webp",
+                    "assets/images/bulgaria-gallery-4.webp",
+                    "assets/images/bulgaria-gallery-5.webp"
+                ]
+            },
+            "sdgames": {
+                image: "assets/images/project-sdgames.webp",
+                objectPosition: "center 45%",
+                location: "Spanyolország, Biar",
+                title: "SDGames",
+                shortDescription: "A tréningen töltött hat nap igazán inspiráló és izgalmas volt, mivel rengeteg workshopon vettünk részt, amelyek a Sustainable Development Goal-okról szóltak.",
+                description: "A tréningen töltött hat nap igazán inspiráló és izgalmas volt, mivel rengeteg workshopon vettünk részt, amelyek a Sustainable Development Goal-okról szóltak. Megismerkedtünk számos különböző nemzetiségű emberrel, akik mind különböző perspektívákat hoztak magukkal. Készítettünk egy társasjáték prototípust egy óra alatt, majd két nap alatt egy kidolgozottabbat is, amely szintén az SDG témáját dolgozta fel. Ezek a kreatív feladatok nagyban hozzájárultak a csapatmunkánk fejlesztéséhez és a témák mélyebb megértéséhez.\n\nKülönleges élmény volt megismerni a spanyol kultúrát, hiszen sok spanyol ételt is megkóstoltunk. Az egész program tele volt inspiráló pillanatokkal, és rengeteg ötletet gyűjtöttünk a jövőbeni projektjeinkhez. A workshopok során nemcsak új ismereteket szereztünk, hanem új barátságokat is kötöttünk, amelyek remélhetőleg hosszú távon is megmaradnak.\n\nAz itt szerzett tapasztalatok és élmények mind hozzájárultak ahhoz, hogy még elkötelezettebbek legyünk a fenntarthatóság iránt. Összességében egy felejthetetlen élmény volt, amely sok inspirációt adott a jövőbeni projekjeinkhez.",
+                gallery: [
+                    "assets/images/sdgames-gallery-1.webp",
+                    "assets/images/sdgames-gallery-2.webp",
+                    "assets/images/sdgames-gallery-3.webp",
+                    "assets/images/sdgames-gallery-4.webp",
+                    "assets/images/sdgames-gallery-5.webp"
+                ]
+            },
+            "tem": {
+                image: "assets/images/project-tem.webp",
+                location: "Hollandia, Nijhuizum",
+                title: "The European Mindset",
+                shortDescription: "Az Erasmus+ ifjúsági csereprogram, „The European Mindset” során résztvevőink európai értékekről beszélgettek, megismerkedtek az Európai Unió intézményeinek működésével, valamint nézőpontokat és tapasztalatokat cseréltek.",
+                description: "Az Erasmus+ ifjúsági csereprogram, „The European Mindset” során résztvevőink európai értékekről beszélgettek, megismerkedtek az Európai Unió intézményeinek működésével, valamint nézőpontokat és tapasztalatokat cseréltek. A program inspiráló fiatalokat hozott össze Görögországból, Magyarországról, Olaszországból, Litvániából, Spanyolországból és Hollandiából.\n\nA résztvevők elmondása szerint az egész hét csodálatos volt: számos fantasztikus workshopon vehettek részt, nagyszerű társaságban, kényelmes szálláson, finom ételek mellett. A projekt hangulata egészen különleges volt, amihez a helyszín is nagyban hozzájárult: Nijhuizum, egy kis holland falu, amelyet csak tehenek és végtelen síkság vesz körül. Mivel a TEM projekt társszervezője az ABOVE volt, csapatunk tagjai lehetőséget kaptak arra, hogy kipróbálják magukat facilitátorként. Szakértők segítségével sikeres foglalkozásokat terveztek és vezettek, miközben fejlesztették készségeiket és értékes tapasztalatokra tettek szert.\n\nSzerencsére az időjárás is kegyes volt: a nap legtöbbször sütött, így számos foglalkozást és beszélgetést a szabadban tarthattak meg. A projekt közepén a résztvevők egy egynapos kirándulás keretében ellátogattak Amszterdamba, hogy felfedezzék a házigazda ország fővárosát. Hálásak vagyunk a lehetőségért a holland partnerünknek, a TotElkeTaal csapatának.",
+                gallery: [
+                    "assets/images/tem-gallery-1.webp",
+                    "assets/images/tem-gallery-2.webp",
+                    "assets/images/tem-gallery-3.webp",
+                    "assets/images/tem-gallery-4.webp"
+                ]
+            },
+            "entrepreneurial": {
+                image: "assets/images/project-entrepreneurial.webp",
+                location: "Ciprus, Páfosz",
+                title: "The Entrepreneurial Method",
+                shortDescription: "A Neci EU és az IZUM Ifjúsági Klub közös erőfeszítéseinek köszönhetően szervezetünknek lehetősége nyílt részt venni egy Erasmus+ programban Cipruson, amely a kommunikációs és vállalkozói készségek fejlesztésére összpontosított.",
+                description: "A Neci EU és az IZUM Ifjúsági Klub közös erőfeszítéseinek köszönhetően szervezetünknek lehetősége nyílt részt venni egy Erasmus+ programban Cipruson, amely a kommunikációs és vállalkozói készségek fejlesztésére összpontosított.\n\nA program során résztvevőink számos fontos területen fejleszthették kompetenciáikat. A képzést egy fontos lépésnek értékelték abban, hogy mélyebben megértsék az ifjúsági munka lényegét, különösen a vállalkozói kompetenciák fejlesztése terén. Mivel szervezetünk is kiemelt figyelmet fordít erre a területre, a tapasztalat- és jógyakorlat-csere más európai szervezetekkel rendkívül értékesnek bizonyult, és megalapozza jövőbeli kezdeményezéseinket.\n\nA programot követően résztvevőink megosztották frissen szerzett tapasztalataikat és ismereteiket tagjainkkal a nyári szezonnyitó piknikünkön, ezzel is ösztönözve másokat a nemzetközi lehetőségekben való részvételre.",
+                gallery: [
+                    "assets/images/entrepreneurial-gallery-1.webp",
+                    "assets/images/entrepreneurial-gallery-2.webp",
+                    "assets/images/entrepreneurial-gallery-3.webp",
+                    "assets/images/entrepreneurial-gallery-4.webp"
+                ]
+            },
+            "shift": {
+                image: "assets/images/project-shift.webp",
+                location: "Csehország, Brno",
+                title: "Shift Perspectives",
+                shortDescription: "A Shift Perspectives egy inspiráló és elgondolkodtató Erasmus+ tréning volt, amelyet Csehországban, 2025. június 9–18. között rendeztek meg.",
+                description: "A Shift Perspectives egy inspiráló és elgondolkodtató Erasmus+ tréning volt, amelyet Csehországban, 2025. június 9–18. között rendeztek meg. A nyolcnapos program során Görögországból, Spanyolországból, Lengyelországból, Bulgáriából, Olaszországból, Észtországból, Magyarországról és a Cseh Köztársaságból érkező fiatalok találkoztak, hogy közösen fedezzék fel, miként segíthet a ifjúsági munka és a nem formális oktatás a kapcsolódásban – nem pedig a megosztottságban.\n\nA program során a résztvevők mélyen elmerültek az érzelmek, szükségletek, hatalom és kiváltság témáiban, és ezeken keresztül nagyobb önismeretre tettek szert. A foglalkozások során nyitott párbeszéd, empátia és önreflexió kapott hangsúlyt, ami segítette a résztvevőket abban, hogy új nézőpontokból lássák a kihívásokat, és fejlesszék érzelmi intelligenciájukat. Ez a projekt a közös fejlődés és együttműködés tere is volt – egy biztonságos, elfogadó környezet, ahol a sokszínűséget nemcsak tiszteletben tartották, hanem ünnepelték is.\n\nA kreatív tevékenységek, a közös beszélgetések és a megosztott élmények során a résztvevők bizalmat, megértést és valódi egységet építettek, amely túlnyúlt a kulturális határokon. Köszönettel tartozunk a Brno Connected szervezőcsapatának a projekt megvalósításáért, valamint az Európai Uniónak és az Erasmus+ programnak a társfinanszírozásért. Ez az élmény maradandó hatást hagyott mindenkiben, és arra ösztönözte a résztvevőket, hogy a program után is nyitottan, elfogadással és bátorsággal forduljanak a sokféleség felé.",
+                gallery: [
+                    "assets/images/shift-gallery-1.webp",
+                    "assets/images/shift-gallery-2.webp",
+                    "assets/images/shift-gallery-3.webp",
+                    "assets/images/shift-gallery-4.webp",
+                    "assets/images/shift-gallery-5.webp"
+                ]
+            },
+            "erasmuslab": {
+                image: "assets/images/project-erasmus-lab.webp",
+                location: "Norvégia, Drammen",
+                title: "Erasmus4Democracy Project Lab",
+                shortDescription: "Szekcióvezetőnk egy norvégiai partnerségépítő programon, a Drammenben megrendezett Erasmus4Democracy Project Lab-on képviselte szervezetünket.",
+                description: "Szekcióvezetőnk egy norvégiai partnerségépítő programon, a Drammenben megrendezett Erasmus4Democracy Project Lab-on képviselte szervezetünket. Az Erasmus4Democracy Project Lab című rendezvényt a Norvég Nemzeti Ügynökség szervezte 2025. szeptember 2–6. között Drammen városában.\n\nA rendezvény során több norvég önkormányzati vezetővel és nemzetközi civil szervezet alapítójával találkozott, akik mind kiemelkedő munkát végeznek saját szakterületükön, és jelentős mértékben hozzájárulnak a helyi fiatalok fejlődéséhez. A program számos, az Erasmus+ kezdeményezéshez kapcsolódó előadást tartalmazott, amelyek értékes betekintést nyújtottak annak aktuális prioritásaiba és finanszírozási lehetőségeibe. A résztvevők megismerhették a Drammeni Ifjúsági Tanács működését is, ami átfogó képet adott a norvég ifjúsági részvétel támogatásáról.\n\nEmellett a rendezvény kiváló lehetőséget biztosított a nemzetközi kapcsolatépítésre. Az európai ifjúsági vezetőkkel folytatott szakmai beszélgetések eredményeként szervezetünk megkezdte egy három országot érintő ifjúsági mobilitási projekt előkészítését, amely Budapesten, Koppenhágában és Prágában valósul meg.",
+                gallery: [
+                    "assets/images/erasmus-lab-gallery-1.webp",
+                    "assets/images/erasmus-lab-gallery-2.webp",
+                    "assets/images/erasmus-lab-gallery-3.webp",
+                    "assets/images/erasmus-lab-gallery-4.webp",
+                    "assets/images/erasmus-lab-gallery-5.webp"
+                ]
+            },
+            "eyes": {
+                image: "assets/images/project-eyes.webp",
+                objectPosition: "center 65%",
+                location: "Magyarország, Kékkút",
+                title: "EYES",
+                shortDescription: "Az EYES (Entrepreneurial Youth Education Seminar) Erasmus+ képzési kurzus múlt pénteken sikeresen lezárult, ezzel véget ért egy inspiráló és tanulságos hét.",
+                description: "Az EYES (Entrepreneurial Youth Education Seminar) Erasmus+ képzési kurzus múlt pénteken sikeresen lezárult, ezzel véget ért egy inspiráló és tanulságos hét. A program hét országból – Grúziából, Olaszországból, Portugáliából, Litvániából, Szlovéniából, Észtországból és Magyarországról – érkező fiatal szakembereket és ifjúsági munkásokat hozott össze, akik közösen tanultak, fejlődtek és inspiráló ötleteket dolgoztak ki.\n\nA képzés során a résztvevők fejlesztették vállalkozói készségeiket, és megtanulták, hogyan formálhatják kreatív ötleteiket valós, megvalósítható projektekké. Megismerkedtek olyan gyakorlati eszközökkel, mint a SWOT- és PESTLE-elemzés, a problématérkép, valamint projektmenedzsment technikákat is gyakoroltak – például Gantt-diagramok és cash-flow tervek készítését. Emellett fejlesztették kommunikációs és prezentációs képességeiket, miközben értékes nemzetközi kapcsolatokat építettek.\n\nA hét végére a csoport új szemlélettel, tudással és barátságokkal gazdagodott. Számos új projektötlet született, amelyek valódi hatást gyakorolhatnak az ifjúsági munkára Európa-szerte. Az EYES kurzus bebizonyította, hogy a tanulás, a kreativitás és az együttműködés képes maradandó változást elindítani – ez nem a vég, hanem sok új kezdeményezés kezdete volt.",
+                gallery: [
+                    "assets/images/eyes-gallery-1.webp",
+                    "assets/images/eyes-gallery-2.webp",
+                    "assets/images/eyes-gallery-3.webp",
+                    "assets/images/eyes-gallery-4.webp",
+                    "assets/images/eyes-gallery-5.webp"
+                ]
+            },
+            "entrepreneurialjourney": {
+                image: "assets/images/project-entrepreneurial-journey.webp",
+                objectPosition: "center 55%",
+                location: "Románia, Erdély",
+                title: "Entrepreneurial Journey",
+                shortDescription: "Erdélybe utaztunk az Erasmus+ „Entrepreneurial Journey” projekt részeként. A programon hat ország fiataljait vették részt: Görögország, Moldova, Bosznia-Hercegovina, Törökország, Románia és Magyarország.",
+                description: "Erdélybe utaztunk az Erasmus+ „Entrepreneurial Journey” projekt részeként. A programon hat ország fiataljai vették részt: Görögország, Moldova, Bosznia-Hercegovina, Törökország, Románia és Magyarország. Nagyon örültünk annak, hogy most négy diák a partneriskolánkból is velünk tartott. A hét központi helyíne a székelyföldi NAP Park volt, ahol együtt dolgoztunk és ismerkedtünk egymással.\n\nA projekt során a résztvevők megtanulták, hogyan kell egy vállalkozást elinditani: üzleti tervet készítettek, rövid reklámfilmet forgattak, logót terveztek, valamint gyakorolták az ötleteik bemutatását. Eközben sokat fejlődtek a problémamegoldásban és az együttműködésben. A harmadik napon Székelyudvarhelyre látogattunk, ahol jobban megismertük a helyi kultúrát, majd részt vettünk egy kincskeresö verseny, amelyet végül meg is nyertünk.\n\nA hét végére mindenki új élményekkel, tudással és barátokkal gazdagodott. Büszkék vagyunk a diákokra, hogy ilyen lelkesek és nyítottak voltak az egész program alatt. Biztosak vagyunk benne, hogy ez a projekt csak a kezdete sok új és inspiráló kezdeményezésnek.",
+                gallery: [
+                    "assets/images/entrepreneurial-journey-gallery-1.webp",
+                    "assets/images/entrepreneurial-journey-gallery-2.webp",
+                    "assets/images/entrepreneurial-journey-gallery-3.webp",
+                    "assets/images/entrepreneurial-journey-gallery-4.webp",
+                    "assets/images/entrepreneurial-journey-gallery-5.webp"
+                ]
+            },
+            "digy": {
+                image: "assets/images/project-digy.webp",
+                objectPosition: "center 40%",
+                location: "Lettország, Riga",
+                title: "DIGY in YOUth",
+                shortDescription: "A „DIGY in YOUth” projekt egy teljes héten át tartott, ahol a résztvevők kreatív feladatokon, digitális tanuláson és nemzetközi együttműködésen keresztül fejlődhettek.",
+                description: "A „DIGY in YOUth” projekt egy teljes héten át tartott, ahol a résztvevők kreatív feladatokon, digitális tanuláson és nemzetközi együttműködésen keresztül fejlődhettek. A fiatalok már az első naptól kezdve aktívan bekapcsolódtak a közös munkába, és hamar barátokra találtak más európai országokból.\n\nA hét során a résztvevők sokszínű és érdekes témákkal foglalkoztak: megismerkedtek különböző digitális eszközökkel, az AI lehetőségeivel, a tényellenőrzés fontosságával, és kreatív médiaprojektekben is kipróbálhatták magukat. Saját videókat készítettek, és minden nap tanultak valami újat, ami egyszerre volt hasznos és szórakoztató. A változatos programok nemcsak tudást adtak, hanem inspirációt és önbizalmat is.\n\nA hét végére a három magyar résztvevő rengeteg élménnyel, új ismeretekkel és értékes kapcsolatokkal gazdagodott. Hálásak mindazoknak, akikkel találkoztak, és mindazért, amit közösen átéltek. Külön köszönet illeti a szervezőket és az ABOVE Youth Foundationt, akik lehetővé tették számukra ezt a különleges és tanulságos hetet.",
+                gallery: [
+                    "assets/images/digy-gallery-1.webp",
+                    "assets/images/digy-gallery-2.webp",
+                    "assets/images/digy-gallery-3.webp",
+                    "assets/images/digy-gallery-4.webp",
+                    "assets/images/digy-gallery-5.webp"
+                ]
+            },
+            "breakingwalls": {
+                image: "assets/images/project-breaking-walls.webp",
+                objectPosition: "center center",
+                location: "Ciprus, Páfosz",
+                title: "Breaking Walls, Building Bridges",
+                shortDescription: "November 11. és 20. között Litvániából, Görögországból, Grúziából, Észtországból és Magyarországról érkező fiatalok gyűltek össze Paphosban a „Building Phrases, Breaking Walls” elnevezésű Erasmus+ ifjúsági cserén.",
+                description: "November 11. és 20. között Litvániából, Görögországból, Grúziából, Észtországból és Magyarországról érkező fiatalok gyűltek össze Paphosban a „Building Phrases, Breaking Walls” elnevezésű Erasmus+ ifjúsági cserén.\n\nA hét folyamán egy multikulturális tanulási környezet jött létre, ahol a résztvevők olyan témákat jártak körül, mint a diszkrimináció, a kiváltságok, a sztereotípiák és a nyelvi akadályok. Interaktív workshopokon, vitacsoportokon és kreatív csoportos kihívásokon keresztül személyes történeteket osztottak meg, megvizsgálták a diszkrimináció különböző országonkénti formáit, és inkluzív megoldásokat dolgoztak ki.\n\nA résztvevő országok által bemutatott kulturális estek erősítették az interkulturális megértést, és megmutatták, hogyan szolgálhat a sokszínűség hatékony tanulási eszközként. A csereprogram végére a résztvevők nyitottabbnak, elfogadóbbnak és magabiztosabbnak érezték magukat; az élményt többen valódi sorsfordító tapasztalatként írták le. Ez az ifjúsági csere az önreflexió, a kreativitás, a csapatmunka és az interkulturális tanulás jelentőségteljes ötvözete volt, amely rávilágított az inkluzív kommunikáció fontosságára a hidak építésében és a falak lebontásában.",
+                gallery: [
+                    "assets/images/breaking-walls-gallery-1.webp",
+                    "assets/images/breaking-walls-gallery-2.webp",
+                    "assets/images/breaking-walls-gallery-3.webp",
+                    "assets/images/breaking-walls-gallery-4.webp"
+                ]
+            },
+            "fireworks": {
+                image: "assets/images/project-fireworks.webp",
+                objectPosition: "center 70%",
+                location: "Portugália, Faro",
+                title: "FIREWORKS",
+                shortDescription: "Február végét a portugáliai Faróban töltötték tagjaink egy fantasztikus nemzetközi ifjúságsegítő csapattal, a „FIREWORKS” Erasmus+ projekt keretein belül.",
+                description: "Február végét a portugáliai Faróban töltötték tagjaink egy fantasztikus nemzetközi ifjúságsegítő csapattal, a „FIREWORKS” Erasmus+ projekt keretein belül.\n\nA projekt missziója volt, hogy újragondoljuk a fiatalok bevonását az oktatásba és a társadalomba. Nem érjük be a „kirakat-megoldásokkal” – arról tanultunk és ötleteltünk, hogyan érhetünk el valódi és érdemi ifjúsági részvételt!\n\nMit tartogatott a projekt 5 napja?\n\nKulcstémák: Részvétel, kreatív edukáció, interkulturalitás és emberi jogok\n\nMódszertan: Nemformális edukáció, közös alkotás és reflexiós körök\n\nEredmények: Magabiztosabb ifjúságsegítők, egy új szakmai hálózat és inspiráció a jövőbeli FIREWORKS projektekhez. Új ötleteket, energiát és alternatív módszereket hoztunk haza, amiket alig várunk, hogy gyakorlatba ültethessünk. Hamarosan újra találkozunk!",
+                gallery: [
+                    "assets/images/fireworks-gallery-1.webp",
+                    "assets/images/fireworks-gallery-2.webp",
+                    "assets/images/fireworks-gallery-3.webp",
+                    "assets/images/fireworks-gallery-4.webp",
+                    "assets/images/fireworks-gallery-5.webp"
+                ]
+            },
+            "selfctrl": {
+                image: "assets/images/selfctrl-gallery-5.jpg",
+                objectPosition: "center 40%",
+                location: "Észak-Macedónia, Krushevó",
+                title: "selfCTRL",
+                shortDescription: "Véget ért a selfCTRL projekt! Február végén az észak-macedóniai Krushevóban töltöttünk 5 napot a Youth Institute Skopje által szervezett Erasmus+ selfCTRL youth exchange keretében.",
+                description: "Véget ért a selfCTRL projekt! Február végén az észak-macedóniai Krushevóban töltöttünk 5 napot a Youth Institute Skopje által szervezett Erasmus+ selfCTRL youth exchange keretében.\n\nA projekt fókuszában a közösségi média tudatos használata és a digitális jóllét állt – olyan témák, amik manapság mindannyiunk életét érintik, akár akarjuk, akár nem. 📱💡\n\nAz 5 nap alatt többek között:\n\n✨ Workshopokon vettük górcső alá a digitális szokásainkat – online identitástól a kiberbiztonságon át a digitális lábnyomig\n\n✨ Interaktív módszerekkel dolgoztunk – csapatjátékok, közös alkotás és helyi középiskolákban való facilitálás\n\nEmellett rengeteg klassz emberrel ismerkedhettünk meg Észak-Macedóniából, Bulgáriából, Ukrajnából és Lengyelországból, a workshopok pedig mindannyiunkat közelebb vittek ahhoz, hogy megtaláljuk az egyensúlyt az online és az offline világ között. 🌍⚖️",
+                gallery: [
+                    "assets/images/selfctrl-gallery-1.jpg",
+                    "assets/images/selfctrl-gallery-2.jpg",
+                    "assets/images/selfctrl-gallery-3.jpg",
+                    "assets/images/selfctrl-gallery-4.jpg",
+                    "assets/images/selfctrl-gallery-5.jpg"
+                ]
+            },
+            "routesroots": {
+                image: "assets/images/routes-roots-gallery-1.jpg",
+                objectPosition: "center center",
+                location: "Spanyolorsz\u00e1g, Navaluenga",
+                title: "Routes & Roots",
+                shortDescription: "V\u00e9get \u00e9rt a Routes & Roots: Art for a Sustainable Future projekt! M\u00e1rcius v\u00e9g\u00e9n \u00e9s \u00e1prilis elej\u00e9n Spanyolorsz\u00e1gban, Castilla y Le\u00f3n r\u00e9gi\u00f3ban, Navalueng\u00e1ban t\u00f6lt\u00f6tt\u00fcnk egy inspir\u00e1l\u00f3 hetet az Erasmus+ youth exchange keret\u00e9ben.",
+                description: "V\u00e9get \u00e9rt a Routes & Roots: Art for a Sustainable Future projekt! M\u00e1rcius v\u00e9g\u00e9n \u00e9s \u00e1prilis elej\u00e9n Spanyolorsz\u00e1gban, Castilla y Le\u00f3n r\u00e9gi\u00f3ban, Navalueng\u00e1ban t\u00f6lt\u00f6tt\u00fcnk egy inspir\u00e1l\u00f3 hetet az Erasmus+ youth exchange keret\u00e9ben.\n\nA projekt f\u00f3kusz\u00e1ban a fenntarthat\u00f3s\u00e1g, a k\u00f6rnyezeti tudatoss\u00e1g \u00e9s a m\u0171v\u00e9szet \u00e1llt \u2013 olyan t\u00e9m\u00e1k, amelyek egyre fontosabb szerepet j\u00e1tszanak a mindennapjainkban \u00e9s amelyekhez kreat\u00edv eszk\u00f6z\u00f6kkel is k\u00f6zelebb ker\u00fclhet\u00fcnk. \ud83c\udf31\ud83c\udfa8\n\nA h\u00e9t sor\u00e1n t\u00f6bbek k\u00f6z\u00f6tt:\n\n\u2728 Workshopokon kereszt\u00fcl dolgoztuk fel a fenntarthat\u00f3s\u00e1g k\u00fcl\u00f6nb\u00f6z\u0151 aspektusait \u2013 a k\u00f6rnyezettudatos gondolkod\u00e1st\u00f3l a k\u00f6z\u00f6ss\u00e9gi felel\u0151ss\u00e9gv\u00e1llal\u00e1sig\n\n\u2728 A m\u0171v\u00e9szetet haszn\u00e1ltuk eszk\u00f6zk\u00e9nt \u2013 k\u00f6z\u00f6s alkot\u00e1sok, kreat\u00edv projektek \u00e9s \u00f6nkifejez\u00e9si gyakorlatok seg\u00edts\u00e9g\u00e9vel\n\n\u2728 Nem form\u00e1lis tanul\u00e1si m\u00f3dszerekkel dolgoztunk \u2013 csapatfeladatok, interakt\u00edv programok \u00e9s tapasztalatmegoszt\u00e1s r\u00e9v\u00e9n\n\nEmellett rengeteg inspir\u00e1l\u00f3 emberrel ismerkedhet\u00fcnk meg Spanyolorsz\u00e1gb\u00f3l, Belgiumb\u00f3l, Horv\u00e1torsz\u00e1gb\u00f3l, Olaszorsz\u00e1gb\u00f3l \u00e9s Litu\u00e1ni\u00e1b\u00f3l, \u00e9s egy\u00fctt gondolkodtunk azon, hogyan tudunk akt\u00edvan hozz\u00e1j\u00e1rulni egy fenntarthat\u00f3bb j\u00f6v\u0151h\u00f6z. A k\u00f6z\u00f6sen \u00e1t\u00e9lt \u00e9lm\u00e9nyek \u00e9s alkot\u00e1sok mindennyiunkat k\u00f6zelebb vittek ahhoz, hogy tudatosabban kapcsol\u00f3djunk a k\u00f6rnyezet\u00fcnkh\u00f6z \u00e9s egym\u00e1shoz. \ud83c\udf0d\ud83d\udc9a",
+                gallery: [
+                    "assets/images/routes-roots-gallery-1.jpg",
+                    "assets/images/routes-roots-gallery-2.jpg",
+                    "assets/images/routes-roots-gallery-3.jpg",
+                    "assets/images/routes-roots-gallery-4.jpg",
+                    "assets/images/routes-roots-gallery-5.jpg",
+                    "assets/images/routes-roots-gallery-6.jpg"
+                ]
+            },
+            "fireworks2": {
+                image: "assets/images/fireworks_2_1.jpg",
+                objectPosition: "center 30%",
+                location: "Portug\u00e1lia, Faro",
+                title: "FIREWORKS II",
+                shortDescription: "Csapat\u00fcnk \u00e1prilis elej\u00e9n Portug\u00e1li\u00e1ban, Far\u00f3ban vett r\u00e9szt a FIREWORKS \u2013 International Youth Exchange projekten, ahol az ifj\u00fas\u00e1gi r\u00e9szv\u00e9tel, az inkluzivit\u00e1s \u00e9s a kreat\u00edv tanul\u00e1s \u00e1lltak a k\u00f6z\u00e9ppontban.",
+                description: "Csapat\u00fcnk \u00e1prilis elej\u00e9n Portug\u00e1li\u00e1ban, Far\u00f3ban vett r\u00e9szt a FIREWORKS \u2013 International Youth Exchange projekten \ud83c\udf87\n\nA projekt k\u00f6z\u00e9ppontj\u00e1ban az ifj\u00fas\u00e1gi r\u00e9szv\u00e9tel, az inkluzivit\u00e1s \u00e9s a kreat\u00edv tanul\u00e1s \u00e1llt \u2013 olyan t\u00e9m\u00e1k, amelyek kulcsszerepet j\u00e1tszanak abban, hogy a fiatalok akt\u00edv \u00e9s tudatos tagjai legyenek a t\u00e1rsadalomnak. \ud83c\udf0d\ud83d\udca1\n\nA h\u00e9t sor\u00e1n t\u00f6bbek k\u00f6z\u00f6tt:\n\n\u2728 Interakt\u00edv workshopokon kereszt\u00fcl fedezt\u00fck fel, mit jelent a val\u00f3di ifj\u00fas\u00e1gi r\u00e9szv\u00e9tel \u2013 a kezdem\u00e9nyez\u0151k\u00e9szs\u00e9gt\u0151l a k\u00f6z\u00f6ss\u00e9gi szerepv\u00e1llal\u00e1sig\n\n\u2728 Kreat\u00edv \u00e9s m\u0171v\u00e9szeti eszk\u00f6z\u00f6kkel dolgoztunk \u2013 k\u00f6z\u00f6s alkot\u00e1sok, csapatmunka \u00e9s \u00f6nkifejez\u00e9s seg\u00edts\u00e9g\u00e9vel\n\n\u2728 Nem form\u00e1lis tanul\u00e1si m\u00f3dszerekkel fejl\u0151dt\u00fcnk \u2013 j\u00e1t\u00e9kos feladatok, szimul\u00e1ci\u00f3k \u00e9s tapasztalatmegoszt\u00e1s \u00e1ltal\n\nEmellett k\u00fcl\u00f6nb\u00f6z\u0151 orsz\u00e1gokb\u00f3l \u00e9rkez\u0151 fiatalokkal dolgozhattunk egy\u00fctt, megismerve egym\u00e1s kult\u00far\u00e1j\u00e1t \u00e9s n\u00e9z\u0151pontj\u00e1t, mik\u00f6zben k\u00f6z\u00f6sen gondolkodtunk azon, hogyan lehet\u00fcnk akt\u00edv alak\u00edt\u00f3i a saj\u00e1t k\u00f6z\u00f6ss\u00e9geinknek. \ud83e\udd1d\n\nA k\u00f6z\u00f6s \u00e9lm\u00e9nyek nemcsak \u00faj tud\u00e1st adtak, hanem er\u0151sebb eur\u00f3pai kapcsol\u00f3d\u00e1s \u00e9rz\u00e9s\u00e9t is \u2013 \u00e9s inspir\u00e1ci\u00f3t arra, hogy a tanultakat a mindennapokban is alkalmazzuk.",
+                gallery: [
+                    "assets/images/fireworks_2_1.jpg",
+                    "assets/images/fireworks_2_2.jpg",
+                    "assets/images/fireworks_2_3.jpg",
+                    "assets/images/fireworks_2_4.jpg",
+                    "assets/images/fireworks_2_5.jpg"
+                ]
+            }
+        };
+
+        let currentGalleryPhotos = [];
+        let currentGalleryIndex = 0;
+
+        // ── Language-aware modal renderer ──────────────────────────────────────
+        var currentOpenProject = null;
+
+        function renderProjectModal(projectId) {
+            var lang = localStorage.getItem('lang') || 'hu';
+            var hu = projectData[projectId];
+            var en = window.projectDataEn && window.projectDataEn[projectId];
+            var data = (lang === 'en' && en) ? Object.assign({}, hu, en) : hu;
+            if (!data) return;
+
+            var readMoreLabel = (lang === 'en') ? 'read more…' : 'tovább…';
+            var readLessLabel = (lang === 'en') ? 'show less…' : 'kevesebb…';
+
+            var modalImg = document.getElementById('modalImage');
+            modalImg.src = hu.image;
+            modalImg.style.objectPosition = hu.objectPosition || 'center 25%';
+            document.getElementById('modalLocation').textContent = data.location;
+            document.getElementById('modalTitle').textContent = data.title;
+
+            // Format description — split on blank lines; show first paragraph + expandable rest
+            var descEl = document.getElementById('modalDescription');
+            var allParas = data.description.split('\n\n').filter(function (p) { return p.trim(); });
+            var firstPara = allParas[0] ? allParas[0].trim() : '';
+            var restParas = allParas.slice(1);
+            var restHTML = restParas.map(function (p) { return '<p class="mb-4">' + p.trim() + '</p>'; }).join('');
+
+            if (restParas.length > 0) {
+                descEl.innerHTML =
+                    '<p class="mb-4">' + firstPara +
+                    ' <span id="readMoreBtn" style="color:#1099B3;cursor:pointer;font-weight:600;">' + readMoreLabel + '</span></p>' +
+                    '<div id="fullDescriptionText" style="display:none;">' + restHTML +
+                    '<p class="mb-4"><span id="readLessBtn" style="color:#1099B3;cursor:pointer;font-weight:600;">' + readLessLabel + '</span></p></div>';
+
+                var readMoreBtn = descEl.querySelector('#readMoreBtn');
+                var readLessBtn = descEl.querySelector('#readLessBtn');
+                var fullText = descEl.querySelector('#fullDescriptionText');
+
+                readMoreBtn.addEventListener('click', function () {
+                    fullText.style.display = 'block';
+                    readMoreBtn.style.display = 'none';
+                });
+
+                readLessBtn.addEventListener('click', function () {
+                    fullText.style.display = 'none';
+                    readMoreBtn.style.display = 'inline';
+                    // Scroll back to the top of the description so the user doesn't lose context
+                    document.getElementById('modalContent').parentElement.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            } else {
+                descEl.innerHTML = '<p class="mb-4">' + firstPara + '</p>';
+            }
+
+            // Gallery (always use HU image paths)
+            var modalGallery = document.getElementById('modalGallery');
+            var galleryGrid = document.getElementById('galleryGrid');
+            if (hu.gallery && hu.gallery.length > 0) {
+                galleryGrid.innerHTML = '';
+                hu.gallery.forEach(function (photoUrl, index) {
+                    var galleryItem = document.createElement('div');
+                    galleryItem.className = 'rounded-xl overflow-hidden hover-lift cursor-pointer group relative';
+                    galleryItem.innerHTML =
+                        '<img src="' + photoUrl + '" alt="Project photo ' + (index + 1) + '" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500" loading="lazy">' +
+                        '<div class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/20 transition duration-300"></div>';
+                    galleryItem.addEventListener('click', function () {
+                        currentGalleryPhotos = hu.gallery;
+                        currentGalleryIndex = index;
+                        var lightbox = document.getElementById('imageLightbox');
+                        document.getElementById('lightboxImage').src = photoUrl;
+                        lightbox.classList.remove('hidden');
+                    });
+                    galleryGrid.appendChild(galleryItem);
+                });
+                modalGallery.classList.remove('hidden');
+            } else {
+                modalGallery.classList.add('hidden');
+            }
+
+            projectModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Open modal when project card is clicked
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                currentOpenProject = card.getAttribute('data-project');
+                renderProjectModal(currentOpenProject);
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            projectModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            currentOpenProject = null;
+        });
+
+        // Close modal when clicking outside
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                currentOpenProject = null;
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                currentOpenProject = null;
+            }
+        });
+
+        // Lightbox functionality
+        const closeLightbox = document.getElementById('closeLightbox');
+        const imageLightbox = document.getElementById('imageLightbox');
+        const prevLightbox = document.getElementById('prevLightbox');
+        const nextLightbox = document.getElementById('nextLightbox');
+
+        function showLightboxImage(index) {
+            if (!currentGalleryPhotos || currentGalleryPhotos.length === 0) return;
+            currentGalleryIndex = (index + currentGalleryPhotos.length) % currentGalleryPhotos.length;
+            document.getElementById('lightboxImage').src = currentGalleryPhotos[currentGalleryIndex];
+        }
+
+        prevLightbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showLightboxImage(currentGalleryIndex - 1);
+        });
+
+        nextLightbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showLightboxImage(currentGalleryIndex + 1);
+        });
+
+        // Close lightbox via button
+        closeLightbox.addEventListener('click', () => {
+            imageLightbox.classList.add('hidden');
+            // Keep body overflow hidden because main modal is still open
+        });
+
+        // Close lightbox when clicking outside the image
+        imageLightbox.addEventListener('click', (e) => {
+            if (e.target === imageLightbox) {
+                imageLightbox.classList.add('hidden');
+                // Keep body overflow hidden because main modal is still open
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!imageLightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') {
+                    imageLightbox.classList.add('hidden');
+                } else if (e.key === 'ArrowLeft') {
+                    showLightboxImage(currentGalleryIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    showLightboxImage(currentGalleryIndex + 1);
+                }
+            } else if (!projectModal.classList.contains('hidden')) {
+                if (e.key === 'Escape') {
+                    projectModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                    currentOpenProject = null;
+                }
+            }
+        });
+        // Language change hook — live-update open project modal
+        window.onLangChange = function () {
+            if (currentOpenProject && !projectModal.classList.contains('hidden')) {
+                renderProjectModal(currentOpenProject);
+            }
+        };
+
+        // Smooth Page Transition Logic
+        (function () {
+            const content = document.getElementById('app-content');
+            
+            setTimeout(() => {
+                if (content) content.classList.add('loaded');
+            }, 50);
+
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                        e.preventDefault();
+                        if (content) content.classList.remove('loaded');
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 150);
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        window.pageTitleEn = 'Projects | ABOVE Foundation';
+        window.pageTitleHu = 'Tevékenységek | ABOVE Foundation';
+        window.pageTranslations = {
+            // Page header
+            'Tevékenységeink': 'Our Activities',
+            'Globális hatás, helyi érintés': 'Global impact, local touch',
+            // Landing categories
+            'Válaszd ki a kategóriát a részletek megtekintéséhez!': 'Choose a category to view the details!',
+            'Külföldi Projektek': 'International Projects',
+            'Fedezd fel a világot! Erasmus+ utak, nemzetközi élmények és új kultúrák, ahol bővítheted a látóköröd. Utazz velünk!': 'Discover the world! Erasmus+ trips, international experiences and new cultures where you can broaden your horizons. Travel with us!',
+            'Részletek megtekintése': 'View details',
+            'Hazai Kezdeményezések': 'Domestic Initiatives',
+            'Építs közösséget itthon! Workshopok, önkéntes lehetőségek és hazai projektek, ahol formálhatod a jövőt.': 'Build a community at home! Workshops, volunteering opportunities and domestic projects where you can shape the future.',
+            'Jövőbeli\n                                    Projektek': 'Future\n                                    Projects',
+            'Folyamatosan dolgozunk új lehetőségeken és programokon, hogy még több fiatalnak nyújthassunk életre szóló élményeket. Célunk, hogy bővítsük partnereink körét és új desztinációkat tegyünk elérhetővé a közösségünk számára.': 'We are continuously working on new opportunities and programmes to offer even more young people life-changing experiences. Our goal is to expand our network of partners and make new destinations available to our community.',
+            // Foreign projects view
+            'Vissza a projektekhez': 'Back to projects',
+            'Külföldi Projektek\n                    ': 'International Projects\n                    ',
+            'Kattints egy projektre a részletek megtekintéséhez': 'Click on a project to view the details',
+            // Project card locations
+            'Franciaország, Réunion': 'France, Réunion',
+            'Spanyolország, Sojuela': 'Spain, Sojuela',
+            'Görögország, Cob-farm': 'Greece, Cob-farm',
+            'Ciprus, Páfosz': 'Cyprus, Paphos',
+            'Bulgária, Várna': 'Bulgaria, Varna',
+            'Spanyolország, Biar': 'Spain, Biar',
+            'Hollandia, Nijhuizum': 'Netherlands, Nijhuizum',
+            'Norvégia, Drammen': 'Norway, Drammen',
+            'Magyarország, Kékkút': 'Hungary, Kékkút',
+            'Románia, Erdély': 'Romania, Transylvania',
+            'Lettország, Riga': 'Latvia, Riga',
+            'Portugália, Faro': 'Portugal, Faro',
+            'Észak-Macedónia, Krushevó': 'North Macedonia, Kruševo',
+            'Spanyolország, Navaluenga': 'Spain, Navaluenga',
+            'Csehország, Brno': 'Czech Republic, Brno',
+            // Domestic projects view
+            'Hazai Kezdeményezések\n                    ': 'Domestic Initiatives\n                    ',
+            'Hazai ifjúsági projekt · 2025–2026': 'Domestic youth project · 2025–2026',
+            'Hazai élményprogram · 2025–2026': 'Domestic experience programme · 2025–2026',
+            // Domestic modal – badges
+            'Hazai\n                            Projekt': 'Domestic\n                            Project',
+            // Modal static labels
+            'Élménybeszámoló': 'Experience Report',
+            'Fotógaléria': 'Photo Gallery',
+            'tovább...': 'read more...',
+            // Beke modal
+            'Miről szól a\n                                projekt?': 'What is the\n                                project about?',
+            'Céljaink': 'Our Goals',
+            'Főbb aktivitások\n                             ': 'Key Activities\n                             ',
+            'Haladás': 'Progress',
+            'Epizód 01 meghallgatása': 'Listen to Episode 01',
+            // Lepj ki modal section headings
+            'Röviden a lényeg\n                             ': 'In brief\n                             ',
+            'Kiket várunk?\n                             ': 'Who can join?\n                             ',
+            'Mit nyersz?': 'What do you gain?',
+            'Mikor mi\n                                történik?': 'When does\n                                what happen?',
+            'Utánkövető workshop-sorozat': 'Follow-up workshop series',
+            'Guide készítése és online fórum\n                                     ': 'Guide creation and online forum\n                                     ',
+            'Kerekasztal-beszélgetés': 'Round-table discussion',
+            'Online kampány és zárás': 'Online campaign and closing',
+            // Footer EU note
+            'Jelen oldal az Európai Unió társfinanszírozásával valósult meg. A kifejtett nézetek és vélemények azonban kizárólag a szerző(k) álláspontját tükrözik, és nem feltétlenül egyeznek meg az Európai Unió vagy az Európai Oktatási és Ifjúsági Végrehajtó Ügynökség (EACEA) hivatalos álláspontjával. Sem az Európai Unió, sem az EACEA nem vonható felelősségre miattuk.': 'This page was produced with the co-funding of the European Union. However, the views and opinions expressed are solely those of the author(s) and do not necessarily reflect those of the European Union or the European Education and Youth Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.',
+
+            // ── Béke modal – paragraphs & list items ──────────────────────────
+            // h2 title
+            'Béke egy Békés bolygóért!': 'Peace for a Peaceful Planet!',
+            // "What is the project about?" paragraph
+            'Ez nem egy tanóra, hanem egy kalandos, közösségi és természetközeli élmény, ahol tényleg számít, mit gondolsz a jövőről! Felhívjuk a figyelmet arra, hogy a környezeti fenntarthatóság nem érhető el erős intézményrendszerek és hatékony nemzetközi együttműködés nélkül.': 'This is not a lesson, but an adventurous, community-based and nature-oriented experience where what you think about the future really matters! We draw attention to the fact that environmental sustainability cannot be achieved without strong institutional frameworks and effective international cooperation.',
+            // "Our Goals" paragraph
+            'A környezeti fenntarthatósági célok és a jól működő intézményrendszerek összefüggéseinek tudatosítása online és offline ismeretterjesztéssel, valamint a fiatalok digitális kompetenciafejlesztése által növeljük aktív társadalmi részvételüket.': 'By raising awareness of the links between environmental sustainability goals and well-functioning institutional systems through online and offline education, and by developing young people\'s digital competencies, we increase their active social participation.',
+            // list items – Goals
+            'Erős intézményekkel a hatékony környezeti fenntarthatóság megvalósításáért': 'Strong institutions for effective environmental sustainability',
+            // "Key Activities" timing label
+            'Projektmegvalósítás időszaka: 2025. június 01. – 2026. május 31.': 'Project implementation period: 1 June 2025 – 31 May 2026',
+            // list items – Activities
+            'Helyzetfelmérő és promóciós középiskolai workshopok': 'Assessment and promotional secondary school workshops',
+            '4 podcast epizód a felmért érdeklődés szerint': '4 podcast episodes based on assessed interest',
+            '2 egész délutános edukációs workshop': '2 full-afternoon educational workshops',
+            'Ismeretterjesztő ifjúsági tábor': 'Educational youth camp',
+            // "Progress" paragraphs
+            'Sikeresen lezajlott a projekt bemutató előadásai a bonyhádi Petőfi Sándor Evangélikus Gimnáziumban, a fehérvári Vasvári Pál Gimnáziumban, a budapesti Német Nemzetiségi Gimnázium 12.b osztályánál, a Móricz Zsigmond Gimnáziumban és a veszprémi Lovassy László Gimnáziumban.': 'The project introductory presentations were successfully held at the Petőfi Sándor Evangelical Grammar School in Bonyhád, the Vasvári Pál Grammar School in Székesfehérvár, the 12b class of the German Nationality Grammar School in Budapest, the Móricz Zsigmond Grammar School and the Lovassy László Grammar School in Veszprém.',
+            'Elstartolt podcastunk is – első epizódunkban Dr. Gondola Csaba körforgásos gazdaságért és klímapolitikáért felelős államtitkárral beszélgettünk az EU és Magyarország szerepéről a klímapolitikában.': 'Our podcast has also launched – in our first episode we spoke with Dr. Csaba Gondola, State Secretary responsible for the circular economy and climate policy, about the role of the EU and Hungary in climate policy.',
+            // footer text of Béke modal
+            'Projektünk a HAND Szövetség által partnerségben megvalósított „Gear UP!" projekt keretein belül valósul meg (GEARUP/HU018/2025).': 'Our project is being implemented within the framework of the "Gear UP!" project carried out in partnership by the HAND Association (GEARUP/HU018/2025).',
+            'Jelen oldal az Európai Unió társfinanszírozásával valósult meg. Tartalma az ABOVE Alapítvány kizárólagos felelősségét képezi.': 'This page was produced with the co-funding of the European Union. Its content is the sole responsibility of the ABOVE Foundation.',
+
+            // ── Lépj ki modal – paragraphs & list items ───────────────────────
+            // h2 title
+            'Lépj ki, kapcsolódj be!': 'Step Out, Connect!',
+            // "What is the project about?" paragraphs
+            'Ez nem egy tanóra, hanem egy kalandos, közösségi és természetközeli élmény, ahol tényleg számít, mit gondolsz a jövőről! Képzeld el: túrák, tábortűz, jófej emberek, izgalmas feladatok, beszélgetések a világról, jövőről, meg arról, hogy mihez kezdjünk vele.': 'This is not a lesson, but an adventurous, community-based and nature-oriented experience where what you think about the future really matters! Imagine: hikes, campfire, great people, exciting tasks, conversations about the world, the future and what we can do about it.',
+            'Egy különleges program vár rád, ahol minden költséget mi állunk: szállás, étkezés, utazás, élmények – mindez közösségi szolgálat igazolásával együtt!': 'A special programme awaits you where we cover all costs: accommodation, meals, travel, experiences – all with a community service certificate included!',
+            // "In brief" timing label
+            'Projektmegvalósítás időszaka: 2025. szeptember – 2026. május': 'Project implementation period: September 2025 – May 2026',
+            // list items – In brief
+            'Havi 1 program – természetben, közösségben, jó társaságban': '1 programme per month – in nature, in community, in good company',
+            'Garantált jó hangulat, személyes és szakmai fejlődés!': 'Guaranteed great atmosphere, personal and professional development!',
+            // "Who can join?" paragraph + list items
+            '10-10 középiskolást (16–18 éves) Eger és Veszprém környékéről:': '10+10 secondary school students (aged 16–18) from the Eger and Veszprém areas:',
+            'akiket érdekel a természet, a közösségi gondolkodás és a valódi tettek': 'who are interested in nature, community thinking and real action',
+            'akik szeretnének kimozdulni, gondolkodni és formálni a jövőt': 'who want to get out, think and shape the future',
+            // "What do you gain?" list items
+            'Egyedi természetbeli élmények és új tudás a fenntarthatóságról': 'Unique nature experiences and new knowledge about sustainability',
+            'Kommunikációs és csapatmunka tapasztalat': 'Communication and teamwork experience',
+            'Beleszólás a döntéshozatalba': 'A say in decision-making',
+            'Közösségi szolgálat igazolása (megállapodás megléte/készítése esetén)': 'Community service certificate (if an agreement is in place or being prepared)',
+            'És egy olyan közösség, amely hosszú távon is inspirál!': 'And a community that inspires you in the long run!',
+            // "When does what happen?" sub-cards
+            '2025. november – 2026. február (havi 1 workshop)': 'November 2025 – February 2026 (1 workshop per month)',
+            'Tapasztalatok feldolgozása': 'Processing experiences',
+            'Szakmai kommunikáció': 'Professional communication',
+            'Döntéshozók bevonása': 'Involving decision-makers',
+            'Javaslatcsomag készítése': 'Preparing a proposal package',
+            '2026. március': 'March 2026',
+            'Nyomtatható és online verzió a diákok tapasztalatainak és javaslatainak összefoglalásával.': 'A printable and online version summarising students\' experiences and recommendations.',
+            '2026. április – Corvinus Egyetem': 'April 2026 – Corvinus University',
+            'Fiatalok, döntéshozók, szakértők és érdeklődők közös párbeszéde.': 'A joint dialogue between young people, decision-makers, experts and interested parties.',
+            '2026. május – július': 'May – July 2026',
+            'Social media, interaktív tartalmak, országos láthatóság és záró értékelés a fiatalokkal.': 'Social media, interactive content, nationwide visibility and closing evaluation with young people.',
+            // footer note of Lépj ki modal
+            'Jelen oldal az Európai Unió társfinanszírozásával valósult meg (2025-1-HU01-KA154-YOU-000301535). Tartalma az ABOVE Alapítvány kizárólagos felelősségét képezi.': 'This page was produced with the co-funding of the European Union (2025-1-HU01-KA154-YOU-000301535). Its content is the sole responsibility of the ABOVE Foundation.',
+
+            // ── Youth Council Exchange modal ─────────────────────────────────────
+            'Hazai ifjúsági projekt · 2026': 'Domestic youth project · 2026',
+            'Magyarország, Budapest · 2026': 'Hungary, Budapest · 2026',
+            'Március közepén Budapesten töltöttünk 4 napot az ABOVE Foundation által szervezett Erasmus+ Youth Council Exchange keretében. ✨': 'In mid-March, we spent 4 days in Budapest as part of the Erasmus+ Youth Council Exchange organised by the ABOVE Foundation. ✨',
+            'A projekt fókuszában az ifjúsági érdekképviselet érvényesítése állt – olyan témák, amik manapság mindannyiunk életét érintik, akár akarjuk, akár nem. 📱💡': 'The project focused on advancing youth advocacy – topics that touch all of our lives these days, whether we like it or not. 📱💡',
+            'A 4 nap alatt többek között:': 'During the 4 days, among other things:',
+            'Workshopokon vettük górcső alá a fiatalok lehetőségeit érdekképviseletben – lokális problémáktól a nemzeti és nemzetközi ügyekig': 'We examined young people\'s opportunities in advocacy through workshops – from local issues to national and international matters',
+            'Interaktív módszerekkel dolgoztunk – csapatjátékok, közös alkotás és brainstorming': 'We worked with interactive methods – team games, co-creation and brainstorming',
+            'Nem csak elméletben: interaktív játékokon és workshopokon keresztül néztük meg, hogyan tudunk mi is változást elérni – akár helyben, akár nemzetközi szinten. 📈': 'Not just in theory: through interactive games and workshops we explored how we can bring about change ourselves – locally or internationally. 📈',
+            'Emellett rengeteg klassz emberrel ismerkedhettünk meg Dániából és Spanyolországból, a workshopok pedig mindannyiunkat közelebb vittek ahhoz, hogy megtaláljuk az utat a fiatalok érvényesülése felé. 🌍👔': 'We also got to meet many great people from Denmark and Spain, and the workshops brought us all closer to finding the path towards youth empowerment. 🌍👔',
+        };
+
+        // ── English project data (used by renderProjectModal when lang==='en') ──
+        window.projectDataEn = {
+            "reunion": {
+                location: "France, Réunion",
+                title: "From EU to YOU",
+                shortDescription: "Between 20 and 29 May 2024, 5 Hungarian young people had the opportunity to visit Réunion Island to take part in the \"From E.U. to You!\" Erasmus+ youth exchange alongside Italian, Greek, Bulgarian and French peers.",
+                description: "Between 20 and 29 May 2024, 5 Hungarian young people had the opportunity to visit Réunion Island to take part in the \"From E.U. to You!\" Erasmus+ youth exchange alongside Italian, Greek, Bulgarian and French peers.\n\nDo you know where Réunion is? A volcanic island in the Indian Ocean east of Madagascar, an overseas territory of France. During the programme we learned about different countries' attitudes towards the EU, heard the thoughts of local Réunion youth on the subject and discussed what we can do against EU scepticism. We heard many new and insightful perspectives from each other. We also designed our own project, creating materials to encourage participation in the 9 June elections.\n\nIn our free time we visited the island's exotic spots, went hiking, swam in the ocean and some of us discovered a hidden waterfall in the mountains. It was especially interesting to get to know the local island culture and the thoughts of residents of a territory more than 10,000 km from the rest of the EU.\n\nThis was aided by the fact that during the project we conducted interviews with locals and tourists, giving us first-hand insight into different perspectives. Thanks to the Youth Bridges Budapest team, who were partners in this project, excellently organised the trip and programmes, and provided every support to the participants."
+            },
+            "spain": {
+                location: "Spain, Sojuela",
+                title: "The Green Sparkle",
+                shortDescription: "The Green Sparkle Erasmus+ training course successfully concluded after an inspiring and eventful week in the beautiful town of Sojuela.",
+                description: "The Green Sparkle Erasmus+ training course successfully concluded after an inspiring and eventful week in the beautiful town of Sojuela. The programme brought together young people from various European countries who learned, collaborated and took action together for a greener future. The proximity of nature and the friendly atmosphere provided the perfect backdrop for the team to quickly bond and experience the spirit of the project.\n\nDuring the week, participants took part in numerous activities that developed teamwork, creativity and leadership skills. The first days were about getting to know each other and building trust, helping everyone feel at home in the group. As the training progressed, the young people brainstormed, drew up plans and presented their own projects promoting sustainability and environmental awareness.\n\nThe sessions were characterised by open dialogue, cultural exchange and mutual support, creating a truly inclusive learning environment. One of the most memorable moments was tasting traditional Spanish dishes together \u2014 especially the delicious croquetas \u2014 after a rewarding day. By the end of the course, participants returned home with new friendships, valuable knowledge and renewed motivation to initiate positive changes in their own communities."
+            },
+            "greece": {
+                location: "Greece, Cob-farm",
+                title: "EcoCamp",
+                shortDescription: "In late June 2024, 5 Hungarian young people travelled to Greece with ABOVE to a Cob-farm surrounded by picturesque Mediterranean landscapes, to take part in a 16-day Erasmus+ project extending into July.",
+                description: "In late June 2024, 5 Hungarian young people travelled to Greece with ABOVE to a Cob-farm surrounded by picturesque Mediterranean landscapes, to take part in a 16-day Erasmus+ project extending into July. The theme was the sustainable use of our environment's resources. The Hungarian, Spanish, Italian, Serbian, Bulgarian and Greek participants lived in simple conditions: sleeping in tents, following a vegan diet and producing no waste \u2014 personally experiencing what a truly sustainable lifestyle means.\n\nIn the first half of the project they learned the basics of permaculture and various ways to use natural materials through theoretical and practical classes. They planted courgettes and cabbages with attention to soil quality, built a bench and an arch from adobe, baked bread, preserved food and made soap and toothpaste. During the two free days they went to the beach and visited a waterfall.\n\nIn the second half they worked in smaller teams on low-technology projects: a solar heating system, a highly efficient stove, a food dehydrator, solar lamps and a chicken tractor \u2014 all from natural or repurposed materials. Meanwhile they got to know a new form of communal living, ran their own workshops and organised community activities almost every day, creating a loving and cohesive community with unforgettable memories that will last forever."
+            },
+            "cyprus": {
+                location: "Cyprus, Paphos",
+                title: "Young Star, Wise Mentor",
+                shortDescription: "Between 30 April and 7 May 2025, young people from Albania, Slovenia, Cyprus, Poland, Turkey and Hungary gathered in the beautiful Paphos for an Erasmus+ project on mentoring, mental health and personal development.",
+                description: "Between 30 April and 7 May 2025, young people from Albania, Slovenia, Cyprus, Poland, Turkey and Hungary gathered in the beautiful Paphos, Cyprus. The theme of the Erasmus+ project was mentoring, mental health and personal development.\n\nDuring the programme our participants discovered how to become wise and supportive mentors, learned how to take care of their own mental wellbeing and practised setting SMART goals for personal and professional development. We also had the opportunity to develop and present our own project ideas, gaining practical project-management experience.\n\nThis training was not only about learning but also about developing soft skills, building international partnerships and friendships, and discovering new perspectives. The experience contributed to our greater commitment to supporting youth. It was an unforgettable opportunity \u2014 many thanks to the organising team and the European Union for co-funding it!"
+            },
+            "bulgaria": {
+                location: "Bulgaria, Varna",
+                title: "My yEUth story 1.0",
+                shortDescription: "My yEUth Story 1.0 was an inspiring youth exchange held between 6 and 12 May 2025 in Varna, Bulgaria.",
+                description: "My yEUth Story 1.0 was an inspiring youth exchange held between 6 and 12 May 2025 in Varna, Bulgaria. Six Hungarian participants joined young people from other European countries to explore the theme of European Youth Goals, expanding their knowledge and developing self-awareness through interactive workshops and creative learning methods.\n\nA key goal was developing storytelling and communication skills \u2014 crucial for shaping opinions and active social participation. The collaborative tasks built confidence and created opportunities for everyone to share their own story and cultural background.\n\nParticipants not only gained new knowledge but formed lifelong friendships. Through joint tasks, conversation-filled evenings and teamwork, everyone experienced how much cultural exchange has to offer. A huge thank you to the FoundationECE organising team \u2014 this week was an extremely inspiring and unforgettable intercultural experience!"
+            },
+            "sdgames": {
+                location: "Spain, Biar",
+                title: "SDGames",
+                shortDescription: "The six days at the training were truly inspiring, with numerous workshops focused on Sustainable Development Goals.",
+                description: "The six days at the training were truly inspiring and exciting, with numerous workshops focused on Sustainable Development Goals. We met many people of different nationalities, all bringing different perspectives. We created a board game prototype in one hour, then a more developed version over two days, also based on the SDG theme. These creative tasks greatly developed our teamwork and deepened our understanding of the topics.\n\nIt was a special experience to get to know Spanish culture, including tasting many delicious Spanish foods. The whole programme was full of inspiring moments and we collected lots of ideas for our future projects. We not only gained new knowledge but also made new friendships.\n\nThe experiences gained here all contributed to our greater commitment to sustainability. Overall it was an unforgettable experience that provided lots of inspiration for our future projects."
+            },
+            "tem": {
+                location: "Netherlands, Nijhuizum",
+                title: "The European Mindset",
+                shortDescription: "During the Erasmus+ exchange \u2018The European Mindset\u2019, our participants discussed European values, learned about EU institutions and exchanged viewpoints with peers from Greece, Italy, Lithuania, Spain and the Netherlands.",
+                description: "During the Erasmus+ youth exchange \u2018The European Mindset\u2019, our participants discussed European values, learned about the functioning of EU institutions and exchanged viewpoints and experiences. The programme brought together inspiring young people from Greece, Hungary, Italy, Lithuania, Spain and the Netherlands.\n\nAccording to participants, the whole week was wonderful: fantastic workshops in great company, with comfortable accommodation and delicious food. The atmosphere was truly special, aided by the unique venue: Nijhuizum, a small Dutch village surrounded only by cows and endless flatland. As ABOVE co-organised the TEM project, our team members had the opportunity to try themselves as facilitators \u2014 designing and leading successful sessions while developing valuable skills.\n\nThe weather was also kind, so many sessions and conversations were held outdoors. Mid-week, participants made a day trip to Amsterdam. We are grateful for the opportunity to our Dutch partner, the TotElkeTaal team."
+            },
+            "entrepreneurial": {
+                location: "Cyprus, Paphos",
+                title: "The Entrepreneurial Method",
+                shortDescription: "Thanks to the joint efforts of Neci EU and IZUM Youth Club, our organisation participated in an Erasmus+ programme in Cyprus focused on developing communication and entrepreneurial skills.",
+                description: "Thanks to the joint efforts of Neci EU and IZUM Youth Club, our organisation had the opportunity to participate in an Erasmus+ programme in Cyprus focused on developing communication and entrepreneurial skills.\n\nDuring the programme our participants developed their competencies in numerous important areas. They considered the training an important step towards a deeper understanding of youth work, especially in terms of entrepreneurial competencies. The exchange of experiences and good practices with other European organisations proved extremely valuable and laid the groundwork for our future initiatives.\n\nFollowing the programme, our participants shared their newly acquired knowledge with our members at our summer season-opening picnic, encouraging others to participate in international opportunities."
+            },
+            "shift": {
+                location: "Czech Republic, Brno",
+                title: "Shift Perspectives",
+                shortDescription: "Shift Perspectives was an inspiring and thought-provoking Erasmus+ training held in the Czech Republic from 9\u201318 June 2025.",
+                description: "Shift Perspectives was an inspiring and thought-provoking Erasmus+ training held in the Czech Republic from 9\u201318 June 2025. During the eight-day programme, young people from Greece, Spain, Poland, Bulgaria, Italy, Estonia, Hungary and Czech Republic met to collectively explore how youth work and non-formal education can help people connect \u2014 rather than divide.\n\nParticipants immersed deeply in the themes of emotions, needs, power and privilege, gaining greater self-awareness. The sessions emphasised open dialogue, empathy and self-reflection, helping participants see challenges from new perspectives and develop their emotional intelligence. This project was a safe and accepting environment where diversity was not only respected but celebrated.\n\nThrough creative activities, shared conversations and lived experiences, participants built trust, understanding and genuine unity across cultural boundaries. Thanks to the Brno Connected organising team and Erasmus+ for making it possible. This experience left a lasting impression and encouraged participants to face diversity with openness and courage even after the programme."
+            },
+            "erasmuslab": {
+                location: "Norway, Drammen",
+                title: "Erasmus4Democracy Project Lab",
+                shortDescription: "Our section head represented our organisation at the Erasmus4Democracy Project Lab partnership-building event in Drammen, Norway.",
+                description: "Our section head represented our organisation at the Erasmus4Democracy Project Lab partnership-building event in Drammen. The event was organised by the Norwegian National Agency from 2\u20136 September 2025.\n\nDuring the event, they met with several Norwegian municipal leaders and founders of international civil society organisations, all making significant contributions to the development of local young people. The programme included numerous Erasmus+-related presentations providing valuable insights into current priorities and funding opportunities. Participants also got to learn about the Drammen Youth Council, offering a comprehensive picture of youth participation support in Norway.\n\nThe event also provided an excellent opportunity for international networking. As a result of professional conversations with European youth leaders, our organisation has begun preparations for a three-country youth mobility project to be implemented in Budapest, Copenhagen and Prague."
+            },
+            "eyes": {
+                location: "Hungary, Kékkút",
+                title: "EYES",
+                shortDescription: "The EYES (Entrepreneurial Youth Education Seminar) Erasmus+ training course successfully concluded, bringing an inspiring and instructive week to a close.",
+                description: "The EYES (Entrepreneurial Youth Education Seminar) Erasmus+ training course successfully concluded last Friday, bringing an inspiring and instructive week to a close. The programme brought together young professionals and youth workers from seven countries \u2014 Georgia, Italy, Portugal, Lithuania, Slovenia, Estonia and Hungary \u2014 who learned, grew and developed inspiring ideas together.\n\nDuring the training, participants developed their entrepreneurial skills and learned how to shape creative ideas into real, implementable projects. They got to know practical tools such as SWOT and PESTLE analysis and problem mapping, and practised project management techniques including Gantt charts and cash flow plans. They also developed communication and presentation skills while building valuable international connections.\n\nBy the end of the week the group had grown richer in new perspectives, knowledge and friendships. Numerous new project ideas were born that could have a real impact on youth work across Europe. The EYES course proved that learning, creativity and collaboration can initiate lasting change \u2014 this was not the end, but the beginning of many new initiatives."
+            },
+            "entrepreneurialjourney": {
+                location: "Romania, Transylvania",
+                title: "Entrepreneurial Journey",
+                shortDescription: "We travelled to Transylvania as part of the Erasmus+ \u2018Entrepreneurial Journey\u2019 project, with young people from Greece, Moldova, Bosnia-Herzegovina, Turkey, Romania and Hungary.",
+                description: "We travelled to Transylvania as part of the Erasmus+ \u2018Entrepreneurial Journey\u2019 project. Six countries\u2019 young people participated: Greece, Moldova, Bosnia-Herzegovina, Turkey, Romania and Hungary. We were very happy that four students from our partner school also joined us. The central venue was the NAP Park in the Sz\u00e9kely Land, where we worked and got to know each other.\n\nDuring the project, participants learned how to start a business: they drew up a business plan, shot a short promotional film, designed a logo and practised presenting their ideas, while greatly developing their problem-solving and collaborative skills. On the third day we visited Odorheiu Secuiesc to get to know the local culture and then took part in a treasure hunt \u2014 which we ultimately won.\n\nBy the end of the week everyone had grown richer in new experiences, knowledge and friends. We are proud of the students for being so enthusiastic and open throughout the programme. This project is just the beginning of many new and inspiring initiatives."
+            },
+            "digy": {
+                location: "Latvia, Riga",
+                title: "DIGY in YOUth",
+                shortDescription: "The \u2018DIGY in YOUth\u2019 project lasted a full week, during which participants developed through creative tasks, digital learning and international collaboration.",
+                description: "The \u2018DIGY in YOUth\u2019 project lasted a full week, during which participants were able to develop through creative tasks, digital learning and international collaboration. From the very first day, the young people actively engaged in the joint work and quickly made friends from other European countries.\n\nDuring the week, participants dealt with diverse and interesting topics: they got to know various digital tools, the possibilities of AI, the importance of fact-checking, and tried themselves out in creative media projects. They made their own videos and learned something new every day, which was both useful and entertaining.\n\nBy the end of the week, the three Hungarian participants had grown richer in many experiences, new knowledge and valuable connections. Special thanks to the organisers and ABOVE Youth Foundation for making this special and instructive week possible."
+            },
+            "breakingwalls": {
+                location: "Cyprus, Paphos",
+                title: "Breaking Walls, Building Bridges",
+                shortDescription: "Between 11 and 20 November, young people from Lithuania, Greece, Georgia, Estonia and Hungary gathered in Paphos for the \u2018Building Phrases, Breaking Walls\u2019 Erasmus+ youth exchange.",
+                description: "Between 11 and 20 November, young people from Lithuania, Greece, Georgia, Estonia and Hungary gathered in Paphos for the \u2018Building Phrases, Breaking Walls\u2019 Erasmus+ youth exchange.\n\nDuring the week, a multicultural learning environment emerged where participants explored topics such as discrimination, privilege, stereotypes and language barriers. Through interactive workshops, discussion groups and creative group challenges, they shared personal stories, examined different forms of discrimination across countries and developed inclusive solutions.\n\nThe cultural evenings presented by participating countries strengthened intercultural understanding and showed how diversity can serve as an effective learning tool. By the end of the exchange, participants felt more open, accepting and confident; many described it as a truly life-changing experience. This youth exchange was a meaningful combination of self-reflection, creativity, teamwork and intercultural learning that highlighted the importance of inclusive communication in building bridges and breaking walls."
+            },
+            "fireworks": {
+                location: "Portugal, Faro",
+                title: "FIREWORKS",
+                shortDescription: "Our members spent the end of February in Faro, Portugal, with a fantastic international youth support team within the framework of the \u2018FIREWORKS\u2019 Erasmus+ project.",
+                description: "Our members spent the end of February in Faro, Portugal, with a fantastic international youth support team within the framework of the \u2018FIREWORKS\u2019 Erasmus+ project.\n\nThe mission of the project was to rethink the involvement of young people in education and society. We don\u2019t settle for \u2018window-dressing solutions\u2019 \u2014 we learned and brainstormed about how to achieve real and meaningful youth participation!\n\nWhat did the 5 days of the project offer?\n\nKey themes: Participation, creative education, interculturality and human rights\n\nMethodology: Non-formal education, co-creation and reflection circles\n\nOutcomes: More confident youth workers, a new professional network and inspiration for future FIREWORKS projects. We brought home new ideas, energy and alternative methods that we can\u2019t wait to put into practice. See you again soon!"
+            },
+            "selfctrl": {
+                location: "North Macedonia, Kru\u0161evo",
+                title: "selfCTRL",
+                shortDescription: "The selfCTRL project has come to an end! At the end of February, we spent 5 days in Krushevo, North Macedonia, within the Erasmus+ selfCTRL youth exchange organised by Youth Institute Skopje.",
+                description: "The selfCTRL project has come to an end! At the end of February, we spent 5 days in Krushevo, North Macedonia, within the Erasmus+ selfCTRL youth exchange organised by Youth Institute Skopje.\n\nThe project focused on the conscious use of social media and digital wellbeing \u2014 topics that touch all of our lives these days, whether we like it or not. \ud83d\udcf1\ud83d\udca1\n\nDuring the 5 days, among other things:\n\n\u2728 We examined our digital habits in workshops \u2014 from online identity through cybersecurity to digital footprint\n\n\u2728 We worked with interactive methods \u2014 team games, co-creation and facilitation in local secondary schools\n\nWe also got to meet lots of great people from North Macedonia, Bulgaria, Ukraine and Poland, and the workshops brought us all closer to finding the balance between the online and offline world. \ud83c\udf0d\u2696\ufe0f"
+            },
+            "routesroots": {
+                location: "Spain, Navaluenga",
+                title: "Routes & Roots",
+                shortDescription: "The Routes & Roots: Art for a Sustainable Future project has come to an end! At the end of March and beginning of April, we spent an inspiring week in Navaluenga, Spain, within the framework of an Erasmus+ youth exchange.",
+                description: "The Routes & Roots: Art for a Sustainable Future project has come to an end! At the end of March and beginning of April, we spent an inspiring week in Navaluenga, in the Castilla y Le\u00f3n region of Spain, within the framework of an Erasmus+ youth exchange.\n\nThe project focused on sustainability, environmental awareness and art \u2014 topics that play an increasingly important role in our daily lives and which we can approach more closely with creative tools. \ud83c\udf31\ud83c\udfa8\n\nDuring the week, among other things:\n\n\u2728 We explored different aspects of sustainability through workshops \u2014 from environmentally conscious thinking to community responsibility\n\n\u2728 We used art as a tool \u2014 through joint creations, creative projects and self-expression exercises\n\n\u2728 We worked with non-formal learning methods \u2014 through team tasks, interactive programmes and experience sharing\n\nWe also got to meet many inspiring people from Spain, Belgium, Croatia, Italy and Lithuania, and thought together about how we can actively contribute to a more sustainable future. \ud83c\udf0d\ud83d\udc9a"
+            },
+            "fireworks2": {
+                location: "Portugal, Faro",
+                title: "FIREWORKS II",
+                shortDescription: "Our team took part in the FIREWORKS \u2013 International Youth Exchange project in early April in Faro, Portugal, where youth participation, inclusivity and creative learning took centre stage.",
+                description: "Our team took part in the FIREWORKS \u2013 International Youth Exchange project in early April in Faro, Portugal \ud83c\udf87\n\nThe project focused on youth participation, inclusivity and creative learning \u2013 topics that play a key role in enabling young people to become active and conscious members of society. \ud83c\udf0d\ud83d\udca1\n\nDuring the week, among other things:\n\n\u2728 We explored what genuine youth participation means through interactive workshops \u2014 from taking initiative to community engagement\n\n\u2728 We worked with creative and artistic tools \u2014 through joint creations, teamwork and self-expression\n\n\u2728 We developed through non-formal learning methods \u2014 through playful tasks, simulations and experience sharing\n\nWe also had the opportunity to work alongside young people from different countries, getting to know each other\u2019s cultures and perspectives, while thinking together about how we can be active shapers of our own communities. \ud83e\udd1d\n\nThe shared experiences not only brought new knowledge, but also a sense of stronger European connection \u2014 and inspiration to apply what we learned in everyday life."
+            }
+        };
+    </script>
+    <script src="lang.js"></script>
+
+</body>
+
+</html>

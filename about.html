@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation Rólunk - Missziónk és értékeink">
+    <title id="page-title-tag">Rólunk | ABOVE Foundation</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#00FFF0',
+                        'brand-blue': '#007a9a',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Theme Detection (Immediate execution to prevent flash) -->
+    <script>
+            (function () {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                } else if (saved === 'dark') {
+                    document.documentElement.classList.remove('light-mode');
+                } else {
+                    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                    if (isIndex) {
+                        document.documentElement.classList.add('light-mode');
+                    }
+                }
+            })();
+    </script>
+
+    <style>
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(0, 188, 212, 0.1);
+            color: #00BCD4;
+            margin-bottom: 1rem;
+        }
+
+        body.light-mode .badge {
+            background: #e0f7fa;
+            color: #1099b3;
+        }
+
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card.with-icon {
+            position: relative;
+        }
+
+        .stat-icon-bg {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 5rem;
+            opacity: 0.05;
+            color: #00BCD4;
+            pointer-events: none;
+        }
+
+        body.light-mode .stat-icon-bg {
+            color: #007a9a;
+            opacity: 0.1;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-neon-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        body.light-mode .stat-number {
+            color: #1099b3;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+        }
+
+        body.light-mode .stat-label {
+            color: #64748b;
+        }
+
+        .vision-images {
+            position: relative;
+            height: 400px;
+        }
+
+        .vision-img-1 {
+            width: 70%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .vision-img-2 {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 2rem;
+            border: 8px solid #0f1d21;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode .vision-img-2 {
+            border-color: #f0f8ff;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode .value-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 188, 212, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 188, 212, 0.3);
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(0, 188, 212, 0.1);
+            color: #00BCD4;
+            border-radius: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        body.light-mode .value-icon {
+            background: #e0f7fa;
+            color: #1099b3;
+        }
+
+        #values-section {
+            transition: background-color 0.5s ease;
+        }
+
+        body.light-mode #values-section,
+        body.light-mode #stats-section {
+            background-color: #ffffff !important;
+        }
+
+        .cta-section {
+            background: rgba(0, 188, 212, 0.05);
+            border-radius: 3rem;
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+        }
+
+        body.light-mode .cta-section {
+            background: #e0f2f1;
+        }
+
+        .btn-primary {
+            background: #1099b3;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #0d839a;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(16, 153, 179, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #1099b3;
+            color: #1099b3;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(16, 153, 179, 0.05);
+            transform: scale(1.05);
+        }
+
+        /* Checkmark list style */
+        .check-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #94a3b8;
+        }
+
+        body.light-mode .check-list li {
+            color: #475569;
+        }
+
+        .check-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #1099b3;
+        }
+
+        body.light-mode .check-list li::before {
+            color: #1099b3;
+        }
+
+        #theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 188, 212, 0.4);
+            background: rgba(0, 188, 212, 0.08);
+            color: #00BCD4;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        body.light-mode #theme-toggle {
+            border-color: rgba(0, 150, 180, 0.5);
+            background: rgba(0, 150, 180, 0.1);
+            color: #007a9a;
+        }
+
+        /* Adjusting hero title to not be all caps or all gradient if desired, 
+           but based on screenshot it's "Emeljük a jövőt, közösen." 
+           with "jövőt" in cyan. */
+
+        /* Fast heading color transitions — define explicit FROM and TO values
+           so the browser can animate between them in 0.1s */
+        h1,
+        h2,
+        h3 {
+            color: #ffffff;
+            transition: color 0.1s ease-out !important;
+        }
+
+        body.light-mode h1:not(.gradient-text),
+        body.light-mode h2:not(.gradient-text),
+        body.light-mode h3:not(.gradient-text) {
+            color: #000000 !important;
+            transition: color 0.1s ease-out !important;
+        }
+
+        body.light-mode .gradient-text {
+            background: #1099b3 !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
+        body.light-mode #values,
+        body.light-mode section.py-16 {
+            background-color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body class="">
+    <script>
+        // Sync body class with immediate state from documentElement
+        if (document.documentElement.classList.contains('light-mode')) {
+            document.body.classList.add('light-mode');
+        } else {
+            document.body.classList.remove('light-mode');
+        }
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-12 lg:h-10 w-auto group-hover:opacity-80 transition duration-300">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kezdőlap</a>
+                    <a href="projects.html"
+                        class="text-gray-300 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+
+                    <a href="about.html" class="text-neon-cyan font-semibold transition duration-300">Rólunk</a>
+                    <a href="contact.html"
+                        class="glass-strong px-6 py-2 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                        Kapcsolat
+                    </a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
+                        title="Switch language / Nyelv váltása" role="button" tabindex="0"
+                        onmouseenter="this.style.transform='scale(1.15)'"
+                        onmouseleave="this.style.transform='scale(1)'">
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8" style="background-color: #0f1d21; background-image: var(--nav-bg, none); opacity: 1 !important; z-index: 9999 !important; visibility: visible !important;">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="index.html" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about.html"
+                class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+    <div id="app-content" class="page-transition-wrapper">
+        <!-- Hero Section -->
+        <section class="pt-24 md:pt-32 pb-12 md:pb-20 px-6">
+
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <div class="badge">Küldetésünk</div>
+                        <h1
+                            class="text-5xl md:text-7xl font-montserrat font-bold leading-tight mb-6 text-white light:text-black">
+                            Építsük a <span class="gradient-text">jövőt</span>, közösen.
+                        </h1>
+                        <p class="text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
+                            Az ABOVE azért létezik, hogy az európai változásformálók új generációját fejlessze ki az
+                            ifjúsági részvétel és a vállalkozói gondolkodásmód segítségével.
+                        </p>
+                        <a href="#vision" class="btn-primary">Tudj meg többet</a>
+                    </div>
+                    <div class="fade-in hidden md:block">
+                        <div class="relative">
+                            <img src="assets/images/about_presentation.webp" alt="ABOVE Csapatmunka"
+                                class="rounded-[3rem] shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats-section" class="py-12 md:py-16 px-6 bg-dark-teal/50">
+
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="stat-card p-4 md:p-8 fade-in">
+                        <div class="stat-number text-2xl md:text-4xl">15+</div>
+                        <div class="stat-label text-xs md:text-sm">Ország</div>
+                    </div>
+                    <div class="stat-card p-4 md:p-8 fade-in">
+                        <div class="stat-number text-2xl md:text-4xl">50+</div>
+                        <div class="stat-label text-xs md:text-sm">Projekt</div>
+                    </div>
+                    <div class="stat-card p-4 md:p-8 fade-in">
+                        <div class="stat-number text-2xl md:text-4xl">200+</div>
+                        <div class="stat-label text-xs md:text-sm">Résztvevő</div>
+                    </div>
+                    <div class="stat-card p-4 md:p-8 fade-in">
+                        <div class="stat-number text-2xl md:text-4xl">50+</div>
+                        <div class="stat-label text-xs md:text-sm">Tag</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision" class="py-12 md:py-24 px-6 text-center md:text-left">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <div class="vision-images fade-in mb-8 md:mb-0 h-[300px] md:h-[400px]">
+
+                        <img src="assets/images/vision_1.webp" alt="Vízió 1" class="vision-img-1">
+                        <img src="assets/images/vision_2.webp" alt="Vízió 2" class="vision-img-2">
+                    </div>
+                    <div class="fade-in">
+                        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-4 md:mb-6">Vízió</h2>
+                        <div class="w-16 h-1 bg-neon-cyan mb-6 md:mb-8 mx-auto md:mx-0"></div>
+
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            Hiszünk egy olyan Európában, ahol a kritikus gondolkodás, a technológiai fejlődés és az
+                            emberi összefogás hatására megszűnnek a tudásbeli szakadékok. Küldetésünk, hogy a magyar
+                            fiatalokat olyan készségekkel ruházzuk fel, amelyekkel magabiztosan és etikusan
+                            irányíthatják a jövő változásait.
+                        </p>
+                        <ul class="check-list">
+                            <li>Kritikus gondolkodás és digitális készségfejlesztés.</li>
+                            <li>Hídépítés a fiatalok és a döntéshozók között.</li>
+                            <li>Vállalkozói szemlélet és európai hálózatépítés.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section id="values-section" class="py-12 md:py-24 px-6 bg-dark-teal/30">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-4 fade-in">Értékeink</h2>
+                <p class="text-gray-300 mb-8 md:mb-16 max-w-2xl mx-auto fade-in">
+
+                    Alapelveink vezérelnek minket minden döntésünkben és minden megvalósított projektünkben.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <div class="value-card p-6 md:p-10 fade-in">
+
+                        <div class="value-icon"><i class="fas fa-earth-europe"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Európai Szemlélet</h3>
+                        <p class="text-gray-300 text-sm">
+                            Hiszünk a határokon átívelő összefogásban és a demokratikus értékekben. Célunk az
+                            előítéletek lebontása és egy összetartó közösség építése.
+                        </p>
+                    </div>
+                    <div class="value-card fade-in">
+                        <div class="value-icon"><i class="fas fa-rocket"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Innováció</h3>
+                        <p class="text-gray-300 text-sm">
+                            Modern eszközökkel és non-formális módszerekkel képezzük a fiatalokat, hogy magabiztosan
+                            mozogjanak a digitális kor kihívásaiban.
+                        </p>
+                    </div>
+                    <div class="value-card fade-in">
+                        <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Vállalkozói Szellem</h3>
+                        <p class="text-gray-300 text-sm">
+                            Aktív felelősségvállalásra és pénzügyi tudatosságra ösztönözzük a fiatalokat, segítve őket
+                            abban, hogy saját ötleteiket fenntartható és sikeres projektekké formálják.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="cta-section text-center fade-in">
+                    <h2 class="text-3xl md:text-5xl font-montserrat font-bold mb-6">Legyél te is a változás része</h2>
+                    <p class="text-gray-300 mb-10 max-w-2xl mx-auto">
+                        Minden hozzájárulás, legyen az idő vagy anyagi támogatás, közvetlenül a közösségek fejlesztését
+                        szolgálja.
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center gap-4">
+                        <a href="contact.html" class="btn-primary">Csatlakozom önkéntesként</a>
+                        <a href="contact.html" class="btn-secondary">Vállalati együttműködés</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 px-6 border-t border-neon-cyan/20 mt-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                    <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
+                        <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                        <div class="flex justify-center md:justify-start space-x-4">
+                            <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex flex-col items-center">
+                        <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                        <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                            <li><a href="index.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                            <li><a href="projects.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+                            </li>
+
+                            <li><a href="about.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                            <li><a href="contact.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col items-center md:items-end md:mr-8 lg:mr-12 text-center md:text-right">
+                        <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center md:text-right">
+                            Kapcsolat</h4>
+                        <ul class="space-y-2 text-gray-400 flex flex-col items-center md:items-end">
+                            <li><a href="mailto:info@abovefoundation.eu"
+                                    class="hover:text-neon-cyan transition duration-300"><i
+                                        class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                    <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+
+        // Scroll Fade In Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle Logic
+        (function () {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+
+            const updateIcon = (isLight) => {
+                icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                icon.style.transform = 'rotate(360deg)';
+                setTimeout(() => { icon.style.transform = 'rotate(0deg)'; }, 500);
+            };
+
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+
+            btn.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-mode');
+                updateIcon(isLight);
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+        })();
+
+        // Smooth Page Transition Logic
+        (function () {
+            const content = document.getElementById('app-content');
+            
+            setTimeout(() => {
+                if (content) content.classList.add('loaded');
+            }, 50);
+
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                        e.preventDefault();
+                        if (content) content.classList.remove('loaded');
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 150);
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <script>
+        window.pageTitleEn = 'About Us | ABOVE Foundation';
+        window.pageTitleHu = 'Rólunk | ABOVE Foundation';
+        window.pageTranslations = {
+            // Hero
+            'Küldetésünk': 'Our Mission',
+            'Építsük a': "Let's build the",
+            'jövőt': 'future',
+            ', közösen.': ', together.',
+            'Az ABOVE azért létezik, hogy az európai változásformálók új generációját fejlessze ki az ifjúsági részvétel és a vállalkozói gondolkodásmód segítségével.': 'ABOVE exists to develop a new generation of European changemakers through youth participation and entrepreneurial thinking.',
+            'Tudj meg többet': 'Learn more',
+            // Stats
+            'Ország': 'Countries',
+            'Projekt': 'Projects',
+            'Résztvevő': 'Participants',
+            'Tag': 'Members',
+            // Vision
+            'Vízió': 'Vision',
+            'Hiszünk egy olyan Európában, ahol a kritikus gondolkodás, a technológiai fejlődés és az emberi összefogás hatására megszűnnek a tudásbeli szakadékok. Küldetésünk, hogy a magyar fiatalokat olyan készségekkel ruházzuk fel, amelyekkel magabiztosan és etikusan irányíthatják a jövő változásait.': 'We believe in a Europe where critical thinking, technological progress and human cooperation will bridge the knowledge gaps. Our mission is to equip Hungarian young people with the skills to confidently and ethically navigate the changes of the future.',
+            'Kritikus gondolkodás és digitális készségfejlesztés.': 'Critical thinking and digital skills development.',
+            'Hídépítés a fiatalok és a döntéshozók között.': 'Building bridges between young people and decision-makers.',
+            'Vállalkozói szemlélet és európai hálózatépítés.': 'Entrepreneurial mindset and European networking.',
+            // Values
+            'Értékeink': 'Our Values',
+            'Alapelveink vezérelnek minket minden döntésünkben és minden megvalósított projektünkben.': 'Our principles guide us in every decision we make and every project we implement.',
+            'Európai Szemlélet': 'European Outlook',
+            'Hiszünk a határokon átívelő összefogásban és a demokratikus értékekben. Célunk az előítéletek lebontása és egy összetartó közösség építése.': 'We believe in cross-border solidarity and democratic values. Our goal is to break down prejudices and build a cohesive community.',
+            'Innováció': 'Innovation',
+            'Modern eszközökkel és non-formális módszerekkel képezzük a fiatalokat, hogy magabiztosan mozogjanak a digitális kor kihívásaiban.': 'We train young people with modern tools and non-formal methods to confidently navigate the challenges of the digital age.',
+            'Vállalkozói Szellem': 'Entrepreneurial Spirit',
+            'Aktív felelősségvállalásra és pénzügyi tudatosságra ösztönözzük a fiatalokat, segítve őket abban, hogy saját ötleteiket fenntartható és sikeres projektekké formálják.': 'We encourage young people to take active responsibility and develop financial awareness, helping them turn their ideas into sustainable and successful projects.',
+            // CTA
+            'Legyél te is a változás része': 'Be part of the change too',
+            'Minden hozzájárulás, legyen az idő vagy anyagi támogatás, közvetlenül a közösségek fejlesztését szolgálja.': 'Every contribution, whether time or financial support, directly serves the development of communities.',
+            'Csatlakozom önkéntesként': 'Join as a volunteer',
+            'Vállalati együttműködés': 'Corporate partnership',
+        };
+    </script>
+    <script src="lang.js"></script>
+</body>
+
+</html>

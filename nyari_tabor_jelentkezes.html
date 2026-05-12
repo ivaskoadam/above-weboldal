@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation – EuroSpeak Nyári Tábor 2026 jelentkezési lap.">
+    <title id="page-title-tag">Jelentkezés – EuroSpeak Nyári Tábor 2026 | ABOVE Foundation</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#007a9a',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1d21;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ── Glass ── */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 188, 212, 0.2) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.1) !important;
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(0, 188, 212, 0.3) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15) !important;
+        }
+
+        /* ── Animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 188, 212, 0.65);
+            }
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* ── Navbar color set in post-stylesheet block below ── */
+
+
+        /* ── Camp card styles ── */
+        .camp-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 188, 212, 0.22);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0, 188, 212, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .camp-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(0, 188, 212, 0.18);
+        }
+
+        .camp-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #00BCD4;
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ── Form styles ── */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #a8ecea;
+            letter-spacing: 0.03em;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(0, 188, 212, 0.3);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            width: 100%;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: #00BCD4;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.18);
+            background: rgba(0, 188, 212, 0.07);
+        }
+
+        .form-select option {
+            background: #0f1d21;
+            color: #fff;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, #00BCD4, #007a9a);
+            color: #0f1d21;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 0.85rem 2.5rem;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+            box-shadow: 0 0 24px rgba(0, 188, 212, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 36px rgba(0, 188, 212, 0.6);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ── Adaptive text classes ── */
+        .hero-subtitle {
+            color: #9ca3af;
+        }
+
+        .success-msg {
+            color: #9ca3af;
+        }
+
+        /* Light mode adjustments */
+        body.light-mode {
+            background: #f0f8ff !important;
+            color: #1a1a1a !important;
+        }
+
+        body.light-mode .camp-card {
+            background: rgba(255, 255, 255, 0.88);
+            border-color: rgba(0, 188, 212, 0.4);
+        }
+
+        body.light-mode h1 {
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+        }
+
+        body.light-mode h1 span {
+            color: #00BCD4 !important;
+            -webkit-text-fill-color: #00BCD4 !important;
+        }
+
+        body.light-mode .hero-subtitle,
+        body.light-mode .success-msg {
+            color: #3a3a3a !important;
+        }
+
+        body.light-mode .form-label {
+            color: #007a9a !important;
+        }
+
+        body.light-mode .form-input,
+        body.light-mode .form-select,
+        body.light-mode .form-textarea {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(0, 122, 154, 0.5);
+            color: #1a1a1a;
+        }
+
+        body.light-mode .form-input::placeholder,
+        body.light-mode .form-textarea::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+        }
+
+        body.light-mode .form-select option {
+            background: #fff;
+            color: #1a1a1a;
+        }
+
+        body.light-mode .glass-strong {
+            border-color: #00BCD4 !important;
+            box-shadow: 0 4px 30px rgba(0, 188, 212, 0.2) !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        body.light-mode .social-icon-btn {
+            background: linear-gradient(135deg, #00BCD4 0%, #007a9a 100%) !important;
+            border: none !important;
+            color: #ffffff !important;
+        }
+
+        body.light-mode .camp-section-title {
+            color: #00BCD4;
+        }
+
+        body.light-mode footer .text-gray-400 {
+            color: #555 !important;
+        }
+
+        /* Success state */
+        #form-success {
+            display: none;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+        }
+
+        #form-success .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Required asterisk */
+        .req {
+            color: #ff6b6b;
+            margin-left: 2px;
+        }
+
+        /* Checkbox custom */
+        .custom-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+
+        .custom-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #00BCD4;
+            flex-shrink: 0;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+
+        .custom-check span {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.5;
+        }
+
+        body.light-mode .custom-check span {
+            color: #5a5a5a;
+        }
+
+        .custom-check a {
+            color: #00BCD4;
+            text-decoration: underline;
+        }
+    </style>
+
+
+    <style>
+        /* ── Info badges ── */
+        .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            background: rgba(0, 188, 212, 0.18);
+            border: 1.5px solid rgba(0, 188, 212, 0.45);
+            color: #00BCD4;
+        }
+
+        body.light-mode .info-badge {
+            background: rgba(0, 188, 212, 0.25);
+            border-color: rgba(0, 188, 212, 0.5);
+            color: #0d1b2a;
+        }
+
+        /* ── Form inputs: light mode – halvány kék ── */
+        body.light-mode .form-input,
+        body.light-mode .form-select,
+        body.light-mode .form-textarea {
+            background: rgba(0, 188, 212, 0.08) !important;
+            border-color: rgba(0, 122, 154, 0.35) !important;
+            color: #1a1a1a !important;
+            box-shadow: none !important;
+        }
+
+        body.light-mode .form-input:focus,
+        body.light-mode .form-select:focus,
+        body.light-mode .form-textarea:focus {
+            border-color: #00BCD4 !important;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2) !important;
+            background: rgba(0, 188, 212, 0.15) !important;
+        }
+
+        body.light-mode .form-input::placeholder,
+        body.light-mode .form-textarea::placeholder {
+            color: rgba(0, 0, 0, 0.35) !important;
+        }
+
+        body.light-mode .form-select option {
+            background: #f0f8ff;
+            color: #1a1a1a;
+        }
+
+        /* Suppress browser blue autofill background */
+        body.light-mode .form-input:-webkit-autofill,
+        body.light-mode .form-input:-webkit-autofill:hover,
+        body.light-mode .form-input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px #f0faff inset !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            border-color: rgba(0, 122, 154, 0.4) !important;
+        }
+    </style>
+</head>
+
+<body class="">
+    <script>
+            (function () {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'light') {
+                    document.body.classList.add('light-mode');
+                } else {
+                    document.body.classList.remove('light-mode');
+                }
+            })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-12 lg:h-10 w-auto group-hover:opacity-80 transition duration-300">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kezdőlap</a>
+                    <a href="projects.html"
+                        class="text-gray-300 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+                    <a href="about.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Rólunk</a>
+                    <a href="contact.html"
+                        class="glass-strong px-6 py-2 rounded-full text-[#00BCD4] hover:bg-[#00BCD4] hover:text-dark-teal transition duration-300 font-semibold">
+                        Kapcsolat
+                    </a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
+                        title="Switch language / Nyelv váltása" role="button" tabindex="0"
+                        onmouseenter="this.style.transform='scale(1.15)'"
+                        onmouseleave="this.style.transform='scale(1)'">
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8" style="background-color: #0f1d21; background-image: var(--nav-bg, none); opacity: 1 !important; z-index: 9999 !important; visibility: visible !important;">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="index.html" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full px-6 pt-24 md:pt-32 pb-12 md:pb-20">
+
+        <div class="max-w-2xl mx-auto w-full space-y-8">
+
+            <!-- HEADER -->
+            <div class="camp-card p-6 md:p-8 text-center fade-in relative overflow-hidden">
+
+                <div class="absolute -right-12 -top-12 w-40 h-40 rounded-full blur-3xl"
+                    style="background:rgba(0,188,212,0.12)"></div>
+                <div class="absolute -left-12 -bottom-12 w-40 h-40 rounded-full blur-3xl"
+                    style="background:rgba(0,188,212,0.10)"></div>
+                <div class="relative z-10">
+                    <!-- Pencil caricature SVG -->
+                    <svg width="90" height="90" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+                        style="display:block;margin:0 auto 1rem auto;filter:drop-shadow(0 2px 8px rgba(0,188,212,0.4))">
+                        <!-- Clipboard body -->
+                        <rect x="18" y="20" width="64" height="72" rx="8" fill="#1a2f35" stroke="#00BCD4"
+                            stroke-width="2.5" />
+                        <!-- Clip -->
+                        <rect x="36" y="12" width="28" height="16" rx="5" fill="#007a9a" stroke="#8a5a00"
+                            stroke-width="1.5" />
+                        <rect x="40" y="10" width="20" height="8" rx="4" fill="#00BCD4" />
+                        <!-- Lines on clipboard -->
+                        <line x1="30" y1="44" x2="70" y2="44" stroke="rgba(0,188,212,0.5)" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="30" y1="54" x2="70" y2="54" stroke="rgba(0,188,212,0.5)" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="30" y1="64" x2="55" y2="64" stroke="rgba(0,188,212,0.5)" stroke-width="2"
+                            stroke-linecap="round" />
+                        <!-- Checkmark -->
+                        <circle cx="72" cy="72" r="14" fill="#00BCD4" />
+                        <path d="M65 72 L70 77 L80 65" stroke="#0f1d21" stroke-width="3" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <h1 class="text-2xl md:text-5xl font-montserrat font-extrabold text-white mb-4 tracking-tight leading-tight">
+                        Jelentkezés – <span style="color: #00BCD4;" class="whitespace-nowrap">Nyári Tábor 2026</span>
+                    </h1>
+
+                    <p class="hero-subtitle text-base leading-relaxed max-w-lg mx-auto">
+                        Töltse ki az alábbi űrlapot és hamarosan felvesszük Önnel a kapcsolatot a tábor részleteivel!
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3 mt-5">
+                        <span class="info-badge">
+                            <i class="fas fa-calendar-alt"></i> 2026. júl. 27–31.
+                        </span>
+                        <span class="info-badge">
+                            <i class="fas fa-map-marker-alt"></i> Corvinus Gellért Campus
+                        </span>
+                        <span class="info-badge">
+                            <i class="fas fa-wallet"></i> 65.000 Ft
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM CARD -->
+            <div class="camp-card p-6 md:p-8 fade-in" id="form-card">
+
+
+                <!-- The form -->
+                <form id="signup-form" novalidate>
+
+                    <div class="space-y-5">
+
+                        <!-- Section: Gyermek adatai -->
+                        <div class="camp-section-title">🧒 A gyermek adatai</div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="child-fullname">Gyermek teljes neve <span
+                                    class="req">*</span></label>
+                            <input class="form-input" type="text" id="child-fullname" name="child-fullname"
+                                placeholder="Kovács Bence" required autocomplete="name">
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group h-full flex flex-col justify-between">
+                                <label class="form-label" for="child-taj">Gyermek TAJ száma <span
+                                        class="req">*</span></label>
+                                <input class="form-input h-[48px]" type="text" id="child-taj" name="child-taj"
+                                    placeholder="123 456 789" required>
+                            </div>
+                            <div class="form-group h-full flex flex-col justify-between">
+                                <label class="form-label">Születési dátum <span class="req">*</span></label>
+                                <div class="flex gap-2 h-[48px]">
+                                    <select class="form-select h-full" id="child-dob-year" name="child-dob-year"
+                                        required>
+                                        <option value="" disabled selected>Év</option>
+                                        <!-- Years will be populated by JS or hardcoded -->
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2015">2015</option>
+                                        <option value="2014">2014</option>
+                                        <option value="2013">2013</option>
+                                        <option value="2012">2012</option>
+                                        <option value="2011">2011</option>
+                                        <option value="2010">2010</option>
+                                    </select>
+                                    <select class="form-select h-full" id="child-dob-month" name="child-dob-month"
+                                        required>
+                                        <option value="" disabled selected>Hó</option>
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <select class="form-select h-full" id="child-dob-day" name="child-dob-day"
+                                        required>
+                                        <option value="" disabled selected>Nap</option>
+                                        <!-- Days 1-31 -->
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i < 10 ? '0' + i : i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="child-grade">Iskolai osztály <span
+                                        class="req">*</span></label>
+                                <select class="form-select" id="child-grade" name="child-grade" required>
+                                    <option value="" disabled selected>Válassz osztályt…</option>
+                                    <option value="1. osztály">1. osztály</option>
+                                    <option value="2. osztály">2. osztály</option>
+                                    <option value="3. osztály">3. osztály</option>
+                                    <option value="4. osztály">4. osztály</option>
+                                    <option value="5. osztály">5. osztály</option>
+                                    <option value="6. osztály">6. osztály</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="child-english">Gyermek angol nyelvtudása <span
+                                    class="req">*</span></label>
+                            <select class="form-select" id="child-english" name="child-english" required>
+                                <option value="" disabled selected>Kérem válassza ki...</option>
+                                <option value="Gyermekem még soha nem tanult angolul">Még soha nem tanult angolul
+                                </option>
+                                <option value="Gyermekem pár szót ismer angolul, de mondatokat még nem">Pár szót ismer,
+                                    de mondatokat még nem</option>
+                                <option value="Gyermekem egyszerű mondatokban ki tudja magát fejezni angolul">Egyszerű
+                                    mondatokban ki tudja magát fejezni</option>
+                                <option value="Gyermekem magabiztosan ír és olvas angol nyelven">Magabiztosan ír és
+                                    olvas angol nyelven</option>
+                                <option value="Gyermekem összetett mondatokban fejezi ki magát angolul">Összetett
+                                    mondatokban fejezi ki magát</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="child-allergy">Van-e gyermekének bármilyen ételallergiája?
+                                (Ha nincs, írd be: Nincs) <span class="req">*</span></label>
+                            <input class="form-input" type="text" id="child-allergy" name="child-allergy"
+                                placeholder="Pl. Nincs / Laktózérzékeny" required>
+                        </div>
+
+                        <!-- Divider -->
+                        <hr
+                            style="border:none;height:1px;background:linear-gradient(90deg,transparent,rgba(0,188,212,0.35),transparent);margin:0.5rem 0">
+
+                        <!-- Section: Szülő adatai -->
+                        <div class="camp-section-title">👤 Szülő / Gondviselő adatai</div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="parent-fullname">Szülő teljes neve <span
+                                    class="req">*</span></label>
+                            <input class="form-input" type="text" id="parent-fullname" name="parent-fullname"
+                                placeholder="Kovács Anna" required autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="parent-email">E-mail cím <span class="req">*</span></label>
+                            <input class="form-input" type="email" id="parent-email" name="parent-email"
+                                placeholder="pelda@email.com" required autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="parent-phone">Telefonszám <span class="req">*</span></label>
+                            <input class="form-input" type="tel" id="parent-phone" name="parent-phone"
+                                placeholder="+36 30 123 4567" required autocomplete="tel">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="parent-secondary">Másodlagos kapcsolattartó neve,
+                                telefonszáma <span class="req">*</span></label>
+                            <input class="form-input" type="text" id="parent-secondary" name="parent-secondary"
+                                placeholder="Kovács Gábor, +36 20 123 4567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="pickup-persons">Azon személyek neve, akik délután hazavihetik
+                                a gyermeket <span class="req">*</span></label>
+                            <input class="form-input" type="text" id="pickup-persons" name="pickup-persons"
+                                placeholder="Pl. Szülők, Nagyszülők nevei" required>
+                        </div>
+
+                        <!-- Divider -->
+                        <hr
+                            style="border:none;height:1px;background:linear-gradient(90deg,transparent,rgba(0,188,212,0.35),transparent);margin:0.5rem 0">
+
+                        <!-- Section: Egyéb -->
+                        <div class="camp-section-title">📝 Egyéb információk</div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="how-heard">Honnan hallott rólunk?</label>
+                            <select class="form-select" id="how-heard" name="how-heard">
+                                <option value="" disabled selected>Válassz…</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Ismerős ajánlotta">Ismerős ajánlotta</option>
+                                <option value="Iskola / plakát">Iskola / plakát</option>
+                                <option value="Egyéb">Egyéb</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="notes">Megjegyzés, kérdés (opcionális)</label>
+                            <textarea class="form-textarea" id="notes" name="notes"
+                                placeholder="Pl. allergia, különleges igény, kérdés…"></textarea>
+                        </div>
+
+                        <!-- Jognyilatkozatok -->
+                        <div class="camp-section-title mt-4" style="font-size:1.1rem">⚖️ Jognyilatkozatok</div>
+                        <label class="custom-check mt-3">
+                            <input type="checkbox" id="gdpr1" name="gdpr1" required>
+                            <span>Hozzájárulok az adataim a táborral kapcsolatos kezeléséhez és tárolásához. <a
+                                    href="assets/adatvedelmi_tajekoztato.pdf" target="_blank">(Adatkezelési tájékoztató)</a><span
+                                    class="req">*</span></span>
+                        </label>
+                        <label class="custom-check mt-3">
+                            <input type="checkbox" id="gdpr2" name="gdpr2" required>
+                            <span>Hozzájárulok, hogy a tábor ideje alatt gyermekemről fényképek és videók
+                                készüljenek.<span class="req">*</span></span>
+                        </label>
+                        <label class="custom-check mt-3">
+                            <input type="checkbox" id="gdpr3" name="gdpr3" required>
+                            <span>Hozzájárulok, hogy szükség esetén gyermekem orvosi ellátásban részesüljön.<span
+                                    class="req">*</span></span>
+                        </label>
+                        <label class="custom-check mt-3">
+                            <input type="checkbox" id="gdpr4" name="gdpr4" required>
+                            <span>Megismertem a házirendet és gyermekem nem szenved semmilyen fertőző betegségben.<span
+                                    class="req">*</span></span>
+                        </label>
+
+                        <!-- Error message -->
+                        <p id="form-error" class="text-sm font-semibold hidden" style="color:#ff6b6b">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Kérjük, töltd ki az összes kötelező mezőt!
+                        </p>
+
+                        <!-- Submit -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center pt-2">
+                            <button type="submit" class="submit-btn pulse-glow w-full sm:w-auto">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Elküldöm a jelentkezést</span>
+                            </button>
+                            <a href="nyari_tabor.html"
+                                class="inline-flex items-center gap-2 glass-strong px-7 py-3 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-sm w-full sm:w-auto justify-center">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Vissza a táborhoz</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!-- Success state (shown after submit) -->
+                <div id="form-success">
+                    <div class="success-icon">🎉</div>
+                    <div class="camp-section-title" style="font-size:1.6rem">Sikeres jelentkezés!</div>
+                    <p class="success-msg text-base leading-relaxed max-w-sm mx-auto mt-3 mb-6">
+                        Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot az e-mail-en megadott elérhetőségen.
+                    </p>
+                    <a href="nyari_tabor.html"
+                        class="inline-flex items-center gap-2 glass-strong px-8 py-3 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Vissza a tábor oldalára</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-neon-cyan/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="hidden md:flex flex-col items-center">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                    <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                        <li><a href="projects.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a></li>
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-center md:items-end md:mr-8 lg:mr-12 text-center md:text-right">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center md:text-right">
+                        Kapcsolat</h4>
+                    <ul class="space-y-2 text-gray-400 flex flex-col items-center md:items-end">
+                        <li><a href="mailto:info@abovefoundation.eu"
+                                class="hover:text-neon-cyan transition duration-300">
+                                <i class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+
+        // Fade-in all elements simultaneously on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        });
+
+        // Theme toggle
+        (function () {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+            icon.className = document.body.classList.contains('light-mode') ? 'fas fa-moon' : 'fas fa-sun';
+            btn.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-mode');
+                icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+        })();
+
+        // Smooth Page transitions
+        setTimeout(() => document.body.classList.add('page-loaded'), 50);
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                    e.preventDefault();
+                    document.body.classList.remove('page-loaded');
+                    setTimeout(() => { window.location.href = href; }, 150);
+                }
+            });
+        });
+
+        // Form submit
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this;
+            const errorEl = document.getElementById('form-error');
+
+            // Basic validation
+            const required = form.querySelectorAll('[required]');
+            let valid = true;
+            required.forEach(field => {
+                if (field.type === 'checkbox') {
+                    if (!field.checked) valid = false;
+                } else {
+                    if (!field.value.trim()) valid = false;
+                }
+            });
+
+            if (!valid) {
+                errorEl.classList.remove('hidden');
+                errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            errorEl.classList.add('hidden');
+
+            // --- PRO SOLUTION: Submit to Google Forms in the background ---
+            const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfiJrrwMY0m_k69gGhpxDWXaYfUcvv06Wb_peFAfVHoxw6utA/formResponse';
+
+            // Get data from form fields
+            const cFullName = document.getElementById('child-fullname').value;
+            const cTaj = document.getElementById('child-taj').value;
+            const year = document.getElementById('child-dob-year').value;
+            const month = document.getElementById('child-dob-month').value;
+            const day = document.getElementById('child-dob-day').value;
+            const cGrade = document.getElementById('child-grade').value;
+            const cEnglish = document.getElementById('child-english').value;
+            const cAllergy = document.getElementById('child-allergy').value;
+
+            const pFullName = document.getElementById('parent-fullname').value;
+            const pEmail = document.getElementById('parent-email').value;
+            const pPhone = document.getElementById('parent-phone').value;
+            const pSecondary = document.getElementById('parent-secondary').value;
+            const pickupPersons = document.getElementById('pickup-persons').value;
+
+            const howHeard = document.getElementById('how-heard').value;
+            const notes = document.getElementById('notes').value;
+
+            // Construct FormData with specific entry.XXXX IDs
+            const formData = new URLSearchParams();
+            formData.append('entry.436626624', cFullName);
+            formData.append('entry.1787319788_year', year);
+            formData.append('entry.1787319788_month', month);
+            formData.append('entry.1787319788_day', day);
+            formData.append('entry.112919935', cTaj);
+            formData.append('entry.1343371094', cEnglish);
+            formData.append('entry.1141192130', cGrade);
+            formData.append('entry.366463908', cAllergy);
+
+            formData.append('entry.200307642', pFullName);
+            formData.append('emailAddress', pEmail);
+            formData.append('entry.1304053192', pPhone);
+            formData.append('entry.929984923', pSecondary);
+            formData.append('entry.434844740', pickupPersons);
+
+            formData.append('entry.1663307598', howHeard ? howHeard : '');
+            formData.append('entry.1837111811', notes);
+
+            formData.append('entry.1022078355', 'Hozzájárulok az adataim a táborral kapcsolatos kezeléséhez és tárolásához.');
+            formData.append('entry.1022078355', 'Hozzájárulok, hogy a tábor ideje alatt gyermekemről fényképek és videók készüljenek.');
+            formData.append('entry.1022078355', 'Hozzájárulok, hogy szükség esetén gyermekem orvosi ellátásban részesüljön.');
+            formData.append('entry.1022078355', 'Megismertem a házirendet és gyermekem nem szenved semmilyen fertőző betegségben.');
+
+            // Required hidden fields for Google Forms
+            formData.append('fvv', '1');
+            formData.append('pageHistory', '0');
+            formData.append('fbzx', '-334235882348572111'); // This is usually unique but sometimes static enough
+
+            // Send in background
+            fetch(GOOGLE_FORM_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData.toString()
+            }).then(() => {
+                console.log('Form successfully submitted to Google Forms');
+            }).catch((err) => {
+                console.error('Error submitting form:', err);
+            });
+
+            // Show success UI immediately (since no-cors doesn't give us a return status)
+            form.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        });
+    </script>
+
+    <script>
+        window.pageTitleEn = 'Apply – EuroSpeak Summer Camp 2026 | ABOVE Foundation';
+        window.pageTitleHu = 'Jelentkezés – EuroSpeak Nyári Tábor 2026 | ABOVE Foundation';
+        window.pageTranslations = {
+            /* Nav / Footer – handled by lang.js common translations */
+
+            /* Header card */
+            'Jelentkezési lap –': 'Registration Form –',
+            'EuroSpeak Nyári Tábor 2026': 'EuroSpeak Summer Camp 2026',
+            'Töltse ki az alábbi űrlapot és hamarosan felvesszük Önnel a kapcsolatot a tábor részleteivel!':
+                'Fill in the form below and we will get in touch with you shortly with all the camp details!',
+            '2026. júl. 27–31.': 'Jul. 27–31, 2026',
+            'Corvinus Gellért Campus': 'Corvinus Gellért Campus',
+            '65.000 Ft': '65,000 HUF',
+
+            /* Form sections */
+            '👤 Szülő / Gondviselő adatai': '👤 Parent / Guardian Details',
+            'Vezetéknév': 'Last Name',
+            'Keresztnév': 'First Name',
+            'E-mail cím': 'Email Address',
+            'Telefonszám': 'Phone Number',
+            '🧒 A gyermek adatai': '🧒 Child\'s Details',
+            'Gyermek vezetékneve': 'Child\'s Last Name',
+            'Gyermek keresztneve': 'Child\'s First Name',
+            'Születési dátum': 'Date of Birth',
+            'Iskolai osztály': 'School Grade',
+            'Válassz osztályt…': 'Select grade…',
+            '1. osztály': 'Grade 1',
+            '2. osztály': 'Grade 2',
+            '3. osztály': 'Grade 3',
+            '4. osztály': 'Grade 4',
+            'Gyermek teljes neve': 'Child\'s Full Name',
+            'Gyermek TAJ száma': 'Child\'s Social Security Number (TAJ)',
+            'Gyermek angol nyelvtudása': 'Child\'s English Proficiency',
+            'Kérem válassza ki...': 'Please select...',
+            'Még soha nem tanult angolul': 'Has never studied English',
+            'Pár szót ismer, de mondatokat még nem': 'Knows a few words, but no sentences yet',
+            'Egyszerű mondatokban ki tudja magát fejezni': 'Can express themselves in simple sentences',
+            'Magabiztosan ír és olvas angol nyelven': 'Reads and writes confidently in English',
+            'Összetett mondatokban fejezi ki magát': 'Expresses themselves in complex sentences',
+            'Van-e gyermekének bármilyen ételallergiája? (Ha nincs, írd be: Nincs)': 'Does your child have any food allergies? (If no, enter: None)',
+            'Szülő teljes neve': 'Parent\'s Full Name',
+            'Másodlagos kapcsolattartó neve, telefonszáma': 'Secondary contact name and phone number',
+            'Azon személyek neve, akik délután hazavihetik a gyermeket': 'Names of persons who can pick up the child in the afternoon',
+            '5. osztály': 'Grade 5',
+            '6. osztály': 'Grade 6',
+            '⚖️ Jognyilatkozatok': '⚖️ Legal Declarations',
+            'Hozzájárulok az adataim a táborral kapcsolatos kezeléséhez és tárolásához.': 'I consent to the processing and storage of my data in connection with the camp.',
+            '(Adatkezelési tájékoztató)': '(Privacy Policy)',
+            'Hozzájárulok, hogy a tábor ideje alatt gyermekemről fényképek és videók készüljenek.': 'I consent to photos and videos being taken of my child during the camp.',
+            'Hozzájárulok, hogy szükség esetén gyermekem orvosi ellátásban részesüljön.': 'I consent to my child receiving medical care if necessary.',
+            'Megismertem a házirendet és gyermekem nem szenved semmilyen fertőző betegségben.': 'I have read the house rules and my child does not suffer from any infectious diseases.',
+
+
+            '📝 Egyéb információk': '📝 Additional Information',
+            'Honnan hallott rólunk?': 'How did you hear about us?',
+            'Válassz…': 'Select…',
+            'Ismerős ajánlotta': 'Friend\'s recommendation',
+            'Iskola / plakát': 'School / poster',
+            'Egyéb': 'Other',
+            'Megjegyzés, kérdés (opcionális)': 'Notes / questions (optional)',
+            'Pl. allergia, különleges igény, kérdés…': 'E.g. allergies, special needs, questions…',
+            'Év': 'Year',
+            'Hó': 'Month',
+            'Nap': 'Day',
+            'Kovács': 'Smith',
+            'Anna': 'Anna',
+            'Bence': 'Ben',
+            'pelda@email.com': 'example@email.com',
+
+            'Elfogadom az': 'I accept the',
+            'adatkezelési tájékoztatót': 'privacy policy',
+            ', és hozzájárulok adataim táborral kapcsolatos célból történő kezeléséhez.':
+                ', and I consent to the processing of my data for camp-related purposes.',
+
+            'Kérjük, töltd ki az összes kötelező mezőt!':
+                'Please fill in all required fields!',
+
+            'Elküldöm a jelentkezést': 'Submit Registration',
+            'Vissza a táborhoz': 'Back to the camp page',
+
+            /* Success */
+            'Sikeres jelentkezés!': 'Registration Successful!',
+            'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot az e-mail-en megadott elérhetőségen.':
+                'Thank you! We will contact you soon at the email address you provided.',
+            'Vissza a tábor oldalára': 'Back to the camp page',
+        };
+    </script>
+    <script src="lang.js"></script>
+</body>
+
+</html>

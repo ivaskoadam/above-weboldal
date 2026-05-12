@@ -1,0 +1,836 @@
+/* Global Styles */
+
+
+:root {
+    --color-dark-teal: #0f1d21;
+    --color-neon-cyan: #00BCD4;
+    --color-neon-teal: #00FFF0;
+    --nav-bg: #0f1d21;
+}
+
+body.light-mode {
+    --nav-bg: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-dark-teal);
+    color: #ffffff;
+    overflow-x: hidden;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Transition for Theme Switching */
+body * {
+    transition-property: background-color, border-color, color, box-shadow, backdrop-filter, opacity, transform;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transitions for page entry to avoid conflict with slide */
+.page-transition-wrapper:not(.loaded) * {
+    transition: none !important;
+}
+
+.page-transition-wrapper {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.page-transition-wrapper.loaded {
+    opacity: 1;
+}
+
+.page-transition-wrapper.slide-out {
+    opacity: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 188, 212, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.05);
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-strong {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.08);
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Effects */
+.neon-glow {
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.5),
+        0 0 20px rgba(0, 188, 212, 0.2);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.15em;
+}
+
+.bullet-gradient {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+    flex-shrink: 0;
+}
+
+.bullet-gradient i {
+    color: #000000 !important;
+}
+
+/* Specific step numbers to decouple them from global stat counter overrides */
+.step-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
+    }
+}
+
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 188, 212, 0.3);
+}
+
+.animated-gradient {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.1) 0%, rgba(0, 255, 240, 0.05) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 188, 212, 0.4);
+    background: rgba(0, 188, 212, 0.08);
+    color: #00BCD4;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+    background: #00BCD4;
+    color: #0f1d21;
+    box-shadow: 0 0 18px rgba(0, 188, 212, 0.5);
+    transform: rotate(20deg) scale(1.1);
+}
+
+/* ============================================
+   LIGHT MODE OVERRIDES
+   ============================================ */
+body.light-mode {
+    background-color: #f0f8ff;
+    color: #0d1b2a;
+}
+
+
+
+/* Glass cards */
+body.light-mode .glass {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 150, 180, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 150, 180, 0.10);
+}
+
+body.light-mode .glass-strong {
+    background: rgba(255, 255, 255, 0.80);
+    border: 1px solid rgba(0, 150, 180, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(0, 150, 180, 0.14);
+}
+
+/* Navigation bar */
+nav,
+nav.bg-dark-teal {
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.65) 0%, rgba(0, 255, 240, 0.65) 100%) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3), 0 12px 50px rgba(0, 188, 212, 0.15);
+    border-bottom: none;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+    nav {
+        height: auto !important;
+    }
+}
+
+
+
+/* Header adjustments */
+nav img:not(#lang-toggle) {
+    height: 4rem !important;
+    /* Smaller on mobile by default */
+    width: auto !important;
+    border: 2px solid transparent !important;
+    padding: 3px !important;
+    box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) {
+    nav img:not(#lang-toggle) {
+        height: 5.5rem !important;
+    }
+}
+
+
+#lang-toggle {
+    width: 2.25rem !important;
+    height: 1.5rem !important;
+    object-fit: cover !important;
+    border-radius: 3px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+    cursor: pointer !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s !important;
+    /* override the nav a/button pill style */
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+#lang-toggle:hover {
+    transform: scale(1.15) !important;
+    background-color: transparent !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+nav>div:first-child {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: 4.5rem !important;
+}
+
+/* Mobile Menu Styles (Drawer) */
+#mobile-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 280px !important;
+    z-index: 9999 !important;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 0 !important;
+    border-left: 1px solid rgba(0, 188, 212, 0.3) !important;
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.7) !important;
+    background: var(--nav-bg) !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+body.light-mode #mobile-menu {
+    background: var(--nav-bg) !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#mobile-menu > div:nth-child(2) {
+    display: flex !important;
+    flex-direction: column !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+#mobile-menu.active {
+    transform: translateX(0) !important;
+}
+
+#mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 55;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+@media (min-width: 768px) {
+    nav>div:first-child {
+        height: 5.5rem !important;
+    }
+}
+
+
+
+nav span {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+body.light-mode nav span {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+#mobile-menu-btn i,
+#theme-toggle i {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+nav i:not(#mobile-menu-btn i):not(#theme-toggle i) {
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+}
+
+body.light-mode #mobile-menu a {
+    color: #ffffff !important;
+}
+
+body.light-mode #mobile-menu a:hover {
+    color: #ffffff !important;
+    opacity: 0.8;
+}
+
+body.light-mode #mobile-menu div[class*="bg-white/5"] {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.light-mode #mobile-menu span.gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+#mobile-menu a {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.75rem 0 !important; /* Added vertical padding for spacing */
+    color: #ffffff !important;
+}
+
+.mobile-menu-logo {
+    filter: brightness(0) invert(1) !important;
+    transition: filter 0.5s ease !important;
+}
+
+body.light-mode .mobile-menu-logo {
+    filter: none !important;
+}
+
+#mobile-menu i {
+    color: inherit !important;
+    -webkit-text-fill-color: currentColor !important;
+}
+
+body.light-mode #mobile-menu-close {
+    color: #ffffff !important;
+}
+
+body.light-mode #mobile-menu-close:hover {
+    color: #ffffff !important;
+    opacity: 0.7;
+}
+
+#mobile-menu a.text-neon-cyan {
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0 -0.5rem !important;
+    border-radius: 1rem !important;
+    color: #ffffff !important;
+}
+
+#mobile-menu a.text-neon-cyan div {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+nav a:not(.group),
+nav button:not(#mobile-menu-btn):not(#theme-toggle) {
+    background-color: #CBE4EA !important;
+    border: 1px solid #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 9999px !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Visually distinct active page tag using native HTML highlighting setup */
+nav a.text-neon-cyan:not(.group):not(.glass-strong) {
+    background-color: #a8ecea !important;
+    border: 1px solid #4de0d6 !important;
+    box-shadow: 0 0 8px rgba(0, 255, 240, 0.2) !important;
+}
+
+body.light-mode nav a.text-neon-cyan:not(.group):not(.glass-strong) {
+    background-color: #A5D2DE !important;
+    border: 1px solid #73b8cb !important;
+    box-shadow: none !important;
+}
+
+nav a.group {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: #ffffff !important;
+}
+
+nav a:not(.group):hover,
+nav button:hover {
+    background-color: #e6eef0 !important;
+    color: #000000 !important;
+    border-color: #e6eef0 !important;
+    box-shadow: 0 0 12px rgba(230, 238, 240, 0.5) !important;
+    transform: translateY(-1px);
+}
+
+body.light-mode nav,
+body.light-mode nav.bg-dark-teal {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%) !important;
+    border-bottom: none !important;
+    box-shadow: 0 4px 20px rgba(0, 122, 154, 0.5), 0 12px 50px rgba(0, 122, 154, 0.3);
+}
+
+/* Brighter paragraph text in dark mode for significantly better reading contrast */
+:where(body:not(.light-mode)) p.text-gray-300 {
+    color: #e5e7eb;
+}
+
+:where(body:not(.light-mode)) p.text-gray-400 {
+    color: #d1d5db;
+}
+
+:where(body:not(.light-mode)) p.text-gray-500 {
+    color: #9ca3af;
+}
+
+/* Body text that uses Tailwind's text-gray-300 / text-gray-400 */
+body.light-mode .text-gray-300,
+body.light-mode .text-gray-400,
+body.light-mode .text-gray-500 {
+    color: #3a5068 !important;
+}
+
+/* White text: only override specific non-overlay white text.
+   Hero h1, card titles overlaid on photos must stay white — do NOT touch those.
+   We only darken white text that sits directly on the light page bg. */
+body.light-mode footer .text-white {
+    color: #0d1b2a !important;
+}
+
+/* Placeholder for removed a[href="contact.html"] ghost styling */
+
+
+/* Section h2s with text-white on the light background (e.g. "Így utazhatsz velünk") */
+body.light-mode section h2.text-white {
+    color: #000000 !important;
+}
+
+/* Step card h3 titles that use text-white — but NOT overlay titles (hero project card,
+   widget cards) which sit on dark image/gradient backgrounds and must stay white */
+body.light-mode section h3.text-white:not(#heroProjectContainer h3):not(#foreignProjectsBtn h3):not(#domesticProjectsBtn h3):not(.project-card-overlay ~ * h3):not([class*="absolute"] h3):not(.domestic-project-card h3):not(#domesticProjectModal h3):not(#foreignProjectsView .domestic-project-card h3) {
+    color: #000000 !important;
+}
+
+/* Keep project card overlay titles (both foreign & domestic) white in light mode */
+body.light-mode .absolute h3.text-white,
+body.light-mode #domesticProjectModal h3.text-white,
+body.light-mode #foreignProjectsView .glass-strong h3.text-white {
+    color: #ffffff !important;
+}
+
+/* Keep card overlay subtitles (country, project type) white in light mode */
+body.light-mode .absolute p.text-gray-300,
+body.light-mode .absolute p.text-white {
+    color: #ffffff !important;
+}
+
+/* Step numbers (text-neon-cyan/20, text-neon-teal/20, text-purple-500/20) —
+
+/* Footer */
+body.light-mode footer {
+    background-color: #e6f4fb;
+    border-top-color: rgba(0, 188, 212, 0.25);
+}
+
+/* Nav section-gradient background */
+body.light-mode section.bg-gradient-to-b {
+    background: linear-gradient(to bottom, transparent, rgba(0, 188, 212, 0.05));
+}
+
+body.light-mode input,
+body.light-mode textarea {
+    background: rgba(240, 248, 255, 0.9) !important;
+    border-color: rgba(0, 188, 212, 0.4) !important;
+    color: #0d1b2a !important;
+    font-size: 1rem !important;
+    /* Prevents auto-zoom on mobile */
+}
+
+body.light-mode input:focus,
+body.light-mode textarea:focus {
+    border-color: #00BCD4 !important;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.2) !important;
+    outline: none !important;
+}
+
+
+/* Theme toggle in light mode */
+body.light-mode #theme-toggle {
+    border-color: rgba(0, 150, 180, 0.5);
+    background: rgba(0, 150, 180, 0.1);
+    color: #007a9a;
+}
+
+body.light-mode #theme-toggle:hover {
+    background: #007a9a;
+    color: #ffffff;
+    box-shadow: 0 0 18px rgba(0, 150, 180, 0.4);
+}
+
+
+
+/* Gradient-text on light page background: deepen to teal-to-cyan for contrast.
+   Card/overlay gradient-text on dark backgrounds stays vivid.
+   We target page-level headings by scoping to sections NOT inside a dark overlay. */
+body.light-mode h2.gradient-text,
+body.light-mode h3.gradient-text {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Project category widget card titles sit on dark overlay backgrounds — keep white */
+body.light-mode #foreignProjectsBtn h3,
+body.light-mode #domesticProjectsBtn h3,
+body.light-mode #campProjectsBtn h3,
+body.light-mode #foreignProjectsBtn .text-neon-teal,
+body.light-mode #domesticProjectsBtn .text-neon-teal,
+body.light-mode #campProjectsBtn .text-neon-teal,
+body.light-mode #futureProjectsBtn .text-neon-cyan,
+body.light-mode #foreignProjectsBtn p.text-gray-300,
+body.light-mode #domesticProjectsBtn p.text-gray-300,
+body.light-mode #campProjectsBtn p.text-gray-300 {
+    background: none;
+    -webkit-text-fill-color: unset;
+    color: #ffffff !important;
+}
+
+/* Future projects card (also a dark overlay card on the projects page) */
+body.light-mode a[href="future-projects.html"] h3,
+body.light-mode a[href="future-projects.html"] p.text-gray-300 {
+    background: none;
+    -webkit-text-fill-color: unset;
+    color: #ffffff !important;
+}
+
+/* But project-card overlay titles (positioned over photos) must keep bright gradient */
+body.light-mode .project-card-overlay~* h3.gradient-text,
+body.light-mode [class*="absolute"] h3.gradient-text,
+body.light-mode .project-card h3.gradient-text {
+    background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Black text in light mode ────────────────────────────────────────────────
+   Stat numbers, section h2 headings, step numbers/titles, CTA headings —
+   all elements that sit on the light page background and currently render
+   as loud teal/cyan. Keep nav, footer headings, and dark-card text as-is.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ── Restore WHITE on dark-overlay card titles ──
+   These cards sit on dark gradient/image backgrounds so text must stay white.
+   Use ID + tag specificity to beat the rule above. */
+body.light-mode #domesticProjectsBtn h3.text-neon-teal,
+body.light-mode #foreignProjectsBtn h3.text-neon-teal,
+body.light-mode #campProjectsBtn h3.text-neon-teal,
+body.light-mode #futureProjectsBtn h3.text-neon-cyan {
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Force consistency in dark mode only */
+#futureProjectsBtn .text-neon-cyan {
+    color: var(--color-neon-teal) !important;
+}
+
+body.light-mode #futureProjectsBtn .text-neon-cyan {
+    color: #ffffff !important;
+}
+
+body.light-mode a[href="future-projects.html"] h3.gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Hero project card title (text-white, injected by JS inside #heroProjectContainer) */
+body.light-mode #heroProjectContainer h3 {
+    color: #ffffff !important;
+}
+
+
+
+/* Step numbers (1, 2, 3) */
+body.light-mode .text-8xl.font-montserrat,
+body.light-mode .text-9xl.font-montserrat {
+    background: none !important;
+    -webkit-text-fill-color: #000000 !important;
+    color: #000000 !important;
+    opacity: 0.12 !important;
+}
+
+/* Section label text (e.g. "EREDMÉNYEINK", "CSATLAKOZZ") */
+body.light-mode .text-neon-cyan.text-sm,
+body.light-mode .text-neon-teal.text-sm {
+    color: #000000 !important;
+}
+
+/* CTA section heading ("Készen állsz az indulásra?") and similar white h2s */
+body.light-mode section h2:not(.gradient-text) {
+    color: #000000 !important;
+}
+
+/* "Így utazhatsz velünk ingyen" — h2 with mixed gradient span */
+body.light-mode section h2 {
+    color: #000000;
+}
+
+/* Hero h1 / section headings — explicit color so CSS transition has a defined FROM value */
+section h1,
+section h2,
+section h3 {
+    color: #ffffff;
+    transition: color 0.1s ease-out !important;
+}
+
+body.light-mode section h1,
+body.light-mode section h2,
+body.light-mode section h3 {
+    color: #000000 !important;
+    transition: color 0.1s ease-out !important;
+}
+
+/* Also snap paragraph text in sections quickly for the same reason */
+section p {
+    transition: color 0.1s ease-out !important;
+}
+
+body.light-mode .gradient-text {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.light-mode .bullet-gradient {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%);
+}
+
+body.light-mode .bullet-gradient i {
+    color: #ffffff !important;
+}
+
+body.light-mode .step-number {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Hero buttons light mode overrides */
+body.light-mode #hero-btn-primary,
+body.light-mode #cta-btn-primary {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 122, 154, 0.3) !important;
+}
+
+body.light-mode #hero-btn-primary:hover,
+body.light-mode #cta-btn-primary:hover {
+    box-shadow: 0 0 25px rgba(0, 122, 154, 0.5) !important;
+}
+
+body.light-mode #hero-btn-secondary {
+    border-color: rgba(0, 122, 154, 0.4) !important;
+    color: #007a9a !important;
+}
+
+body.light-mode #hero-btn-secondary i {
+    color: #007a9a !important;
+    -webkit-text-fill-color: #007a9a !important;
+    /* overrides fontawesome text fill if inherited */
+}
+
+body.light-mode #hero-btn-secondary:hover {
+    background: rgba(0, 122, 154, 0.1) !important;
+}
+
+/* Secondary CTA Button (Ghost) Light Mode Overrides */
+body:not(.light-mode) #cta-btn-secondary {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+body:not(.light-mode) #cta-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.light-mode #cta-btn-secondary {
+    border-color: rgba(0, 122, 154, 0.4) !important;
+}
+
+body.light-mode #cta-btn-secondary:hover {
+    background: rgba(0, 122, 154, 0.1) !important;
+}
+
+
+/* Social icons light mode override */
+body.light-mode .social-icon-btn {
+    background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%) !important;
+    color: #ffffff !important;
+}
+
+/* Eliminate the tealy tint in the CTA section to match generic glass styling */
+body.light-mode .cta-gradient-tint {
+    display: none;
+}
+
+/* Match CTA container exactly to the footer's background color in light mode */
+body.light-mode #cta-container {
+    background-color: #d0eaf5 !important;
+    border-color: rgba(0, 188, 212, 0.25) !important;
+}
+
+
+/* Light mode hero logos opacity */
+body.light-mode #hero-logos-container {
+    opacity: 0.7 !important;
+}
+
+body.light-mode #hero-logos-container:hover {
+    opacity: 1 !important;
+}
+
+/* Reliability icon color override */
+#reliability-icon-bg {
+    background: rgba(0, 255, 240, 0.1);
+}
+
+#reliability-icon {
+    color: #00FFF0;
+}
+
+body.light-mode #reliability-icon-bg {
+    background: rgba(0, 122, 154, 0.1);
+}
+
+body.light-mode #reliability-icon {
+    color: #007a9a;
+}
+
+/* ── FINAL MOBILE MENU OVERRIDE ── */
+#mobile-menu {
+    background: var(--nav-bg) !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    visibility: visible !important;
+}
+
+#mobile-menu-overlay {
+    z-index: 9998 !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+}

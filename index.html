@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation - Határok nélküli segítség, fenntartható jövő">
+    <title id="page-title-tag">Kezdőlap | ABOVE Foundation</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/images/favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#00FFF0',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="">
+    <script>
+            (function () {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'dark') {
+                    document.body.classList.remove('light-mode');
+                } else if (saved === 'light') {
+                    document.body.classList.add('light-mode');
+                } else {
+                    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                    if (isIndex) {
+                        document.body.classList.add('light-mode');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.body.classList.remove('light-mode');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                }
+            })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-12 lg:h-10 w-auto group-hover:opacity-80 transition duration-300">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-neon-cyan font-semibold transition duration-300">Kezdőlap</a>
+                    <a href="projects.html"
+                        class="text-gray-300 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+
+                    <a href="about.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Rólunk</a>
+                    <a href="contact.html" id="nav-contact-btn"
+                        class="glass-strong px-6 py-2 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                        Kapcsolat
+                    </a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
+                        title="Switch language / Nyelv váltása" role="button" tabindex="0"
+                        onmouseenter="this.style.transform='scale(1.15)'"
+                        onmouseleave="this.style.transform='scale(1)'">
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8" style="background-color: #0f1d21; background-image: var(--nav-bg, none); opacity: 1 !important; z-index: 9999 !important; visibility: visible !important;">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="index.html" class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+    <div id="app-content" class="page-transition-wrapper">
+        <!-- Hero Section (Dynamic Project Display) -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var s = document.getElementById('hero-section');
+                if (!s) return;
+                function update() {
+                    var navH = window.innerWidth >= 768 ? '5.5rem' : '4.5rem';
+                    s.style.marginTop = navH;
+                    s.style.minHeight = 'calc(100vh - ' + navH + ')';
+                }
+                update();
+                window.addEventListener('resize', update);
+            });
+        </script>
+        <section class="flex items-center px-6 relative overflow-hidden" id="hero-section"
+            style="min-height: calc(100vh - 4.5rem); margin-top: 4.5rem; padding-top: 2rem; padding-bottom: 2rem;">
+            <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left Side: Content -->
+                <div class="fade-in visible z-10 text-center lg:text-left">
+                    <h1 class="font-montserrat font-bold mb-6 text-4xl md:text-6xl lg:text-[4.5rem] leading-[1.1] md:leading-[1.1]">
+                        Utazz, tanulj, <br class="hidden md:block">
+                        fejlődj teljesen <br class="hidden md:block">
+                        <span class="gradient-text">ingyen!</span>
+                    </h1>
+
+                    <p class="text-base md:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg mx-auto lg:ml-0">
+                        Ingyenes Erasmus+ projektek fiataloknak. Utazz külföldre, láss világot és szerezz nemzetközi tapasztalatot - mindezt költségek nélkül!
+                    </p>
+
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="projects.html" id="hero-btn-primary"
+                            class="px-8 py-4 text-lg bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-bold rounded-full hover:shadow-[0_0_30px_rgba(0,188,212,0.5)] transition duration-300 text-center">
+                            Jelentkezem
+                        </a>
+                        <a href="about.html" id="hero-btn-secondary"
+                            class="px-8 py-4 text-lg glass-strong border border-neon-cyan/30 text-neon-cyan font-bold rounded-full hover:bg-neon-cyan/10 transition duration-300 text-center flex items-center justify-center gap-2">
+                            <span>Hogyan működik?</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div id="hero-logos-container"
+                        class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8 opacity-90 hover:opacity-100 transition duration-500">
+
+                        <!-- Social Media Links -->
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <picture>
+                                <source srcset="assets/images/logo-erasmus.webp" type="image/webp">
+                                <img src="assets/images/logo-erasmus.png" alt="Erasmus+"
+                                    class="h-20 md:h-28 w-auto object-contain">
+                            </picture>
+                            <picture>
+                                <source srcset="assets/images/logo-esc.webp" type="image/webp">
+                                <img src="assets/images/logo-esc.png" alt="European Solidarity Corps"
+                                    class="h-12 md:h-16 w-auto object-contain">
+                            </picture>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Side: Dynamic Project Card -->
+                <div class="relative fade-in delay-200" id="heroProjectContainer">
+                    <!-- Content injected by JS -->
+                    <div class="glass-strong rounded-3xl p-6 relative z-10 border border-white/10 animate-pulse">
+                        <div class="h-64 bg-gray-700/50 rounded-2xl mb-6"></div>
+                        <div class="h-8 bg-gray-700/50 rounded w-3/4 mb-4"></div>
+                        <div class="h-4 bg-gray-700/50 rounded w-full mb-2"></div>
+                        <div class="h-4 bg-gray-700/50 rounded w-5/6"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summer Camp 2026 Section -->
+        <section class="py-12 px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="glass-strong rounded-[2rem] p-6 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10 border border-neon-cyan/30 fade-in group">
+
+                    <!-- Decorative Background -->
+                    <div
+                        class="absolute -right-20 -top-20 w-64 h-64 bg-[#ffbb00]/20 rounded-full blur-3xl group-hover:bg-[#db9a00]/30 transition duration-500">
+                    </div>
+                    <div
+                        class="absolute -left-20 -bottom-20 w-64 h-64 bg-[#ffbb00]/20 rounded-full blur-3xl group-hover:bg-[#db9a00]/30 transition duration-500">
+                    </div>
+
+                    <div class="relative z-10 md:w-2/3 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                            <span
+                                class="px-4 py-1.5 rounded-full bg-[#FFBB00]/30 text-[#db9a00] text-sm font-bold uppercase tracking-wider shadow-lg shadow-[#FFBB00]/10">
+                                <i class="fas fa-sun mr-1"></i> Kiemelt Esemény
+                            </span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-montserrat font-bold mb-4 text-white leading-tight">EuroSpeak <br class="md:hidden"> Nyári Tábor
+                            <span
+                                class="bg-gradient-to-r from-[#ffbb00] to-[#db9a00] text-transparent bg-clip-text">2026</span>
+                        </h2>
+                        <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
+                            <span class="md:hidden">Élményalapú angol nyelvtanulás és felejthetetlen élmények várják gyermekét 2026-os nyári táborunkban!</span>
+                            <span class="hidden md:inline">Biztosítsa gyermeke számára a legizgalmasabb nyarat! Felejthetetlen élmények, élményalapú angol nyelvtanulás és új barátságok várják 2026-os nyári táborunkban. Csatlakozzon hozzánk!</span>
+                        </p>
+                    </div>
+
+                    <div class="relative z-10 md:w-1/3 flex justify-center md:justify-end">
+                        <a href="nyari_tabor.html"
+                            class="px-8 py-4 text-lg bg-[#db9a00] text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(219,154,0,0.5)] transition duration-300 text-center flex items-center justify-center gap-2 hover-lift">
+                            <span>További részletek</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (Youth Mobility Focus) -->
+        <section class="py-24 px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="text-3xl md:text-[56px] leading-tight font-montserrat font-bold mb-4">Mit kínálunk
+                        <span class="gradient-text">Neked?</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg md:text-[20px] max-w-2xl mx-auto">Az Erasmus+ és egyéb programok
+                        keretében
+                        életre
+                        szóló
+                        élményeket szerezhetsz.</p>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="p-8 rounded-3xl glass hover:bg-white/5 transition duration-300 group text-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-neon-cyan/10 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 mx-auto">
+                            <i class="fas fa-plane-departure text-3xl text-neon-cyan"></i>
+                        </div>
+
+                        <h3 class="text-[28px] tracking-tight font-montserrat font-bold mb-4">Ingyenes Utazás</h3>
+                        <p class="text-gray-400 leading-relaxed text-[17px]">
+                            Az utazási költségeidet, a szállást és az étkezést teljes mértékben a program fedezi. Neked
+                            csak
+                            a bőröndödet kell hoznod!
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="p-8 rounded-3xl glass hover:bg-white/5 transition duration-300 group text-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-neon-cyan/10 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 mx-auto">
+                            <i class="fas fa-users text-3xl text-neon-cyan"></i>
+                        </div>
+
+                        <h3 class="text-[28px] tracking-tight font-montserrat font-bold mb-4">Nemzetközi Barátok</h3>
+                        <p class="text-gray-400 leading-relaxed text-[17px]">
+                            Ismerj meg fiatalokat Európa minden tájáról, építs kapcsolatokat és szerezz életre szóló
+                            barátságokat multikulturális környezetben.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="p-8 rounded-3xl glass hover:bg-white/5 transition duration-300 group text-center">
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-neon-cyan/10 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 mx-auto">
+                            <i class="fas fa-certificate text-3xl text-neon-cyan"></i>
+                        </div>
+
+                        <h3 class="text-[28px] tracking-tight font-montserrat font-bold mb-4">
+                            Youthpass Tanúsítvány</h3>
+                        <p class="text-gray-400 leading-relaxed text-[17px]">
+                            Részvételedről hivatalos EU-s tanúsítványt kapsz, amely igazolja a megszerzett
+                            kompetenciákat és
+                            jól mutat az önéletrajzodban.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section (Bento Grid) -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <p
+                        class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-lg md:text-[20px]">
+                        Eredményeink
+                    </p>
+                    <h2 class="text-3xl md:text-[56px] leading-tight font-montserrat font-bold">Miért az <span
+                            class="gradient-text">ABOVE</span> Foundation?</h2>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Big Number Card -->
+                    <div
+                        class="glass-strong p-10 rounded-[2rem] flex flex-col justify-center items-start lg:col-span-1 min-h-[300px] relative overflow-hidden group">
+                        <div
+                            class="absolute -right-10 -top-10 text-9xl text-white/5 font-montserrat font-bold group-hover:scale-110 transition duration-500">
+                            1K</div>
+                        <h3 class="text-6xl md:text-7xl font-montserrat font-bold gradient-text mb-4">1000+</h3>
+                        <p class="text-xl text-gray-300 font-medium">Fiatal utazott már velünk</p>
+                        <div class="mt-8 flex -space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-600 border-2 border-dark-teal"></div>
+                            <div class="w-10 h-10 rounded-full bg-gray-500 border-2 border-dark-teal"></div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-gray-400 border-2 border-dark-teal flex items-center justify-center text-xs font-bold text-dark-teal">
+                                +</div>
+                        </div>
+                    </div>
+
+                    <!-- Instant Action Card -->
+                    <div
+                        class="glass-strong p-10 rounded-[2rem] lg:col-span-2 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+                        <div class="z-10 max-w-sm">
+                            <h3 class="text-3xl font-montserrat font-bold mb-4">Folyamatos Lehetőségek</h3>
+                            <p class="text-gray-400">
+                                Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 z-10">
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20">
+                                <i class="fas fa-paper-plane text-3xl text-dark-teal"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-500 text-xl animate-pulse"></i>
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-dark-teal border border-gray-700 flex items-center justify-center">
+                                <i class="fas fa-globe-americas text-3xl text-gray-300"></i>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-neon-cyan/5"></div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="glass-strong p-10 rounded-[2rem] lg:col-span-2 relative overflow-hidden">
+                        <span
+                            class="absolute top-6 right-6 px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold flex items-center gap-1 z-20">
+                            <i class="fas fa-star"></i> Népszerű
+                        </span>
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8 relative z-10">
+                            <div>
+                                <p class="text-gray-400 mb-2">Új Desztinációk</p>
+                                <h3 class="text-2xl md:text-4xl font-montserrat font-bold text-white leading-tight">Spanyolország, Görögország...
+                                </h3>
+                                <p class="text-sm text-gray-400 mt-2">...és még sok más egzotikus helyszín!</p>
+                            </div>
+                        </div>
+                        <!-- Decorative Map Placeholder -->
+                        <div class="w-full h-32 relative opacity-50">
+                            <i
+                                class="fas fa-map text-9xl text-white/5 absolute bottom-0 right-0 transform translate-y-1/4"></i>
+                        </div>
+                    </div>
+
+                    <!-- Stability Card -->
+                    <div class="glass-strong p-10 rounded-[2rem] flex flex-col justify-center lg:col-span-1">
+                        <div id="reliability-icon-bg"
+                            class="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i id="reliability-icon" class="fas fa-check-circle text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-montserrat font-bold mb-3">Megbízhatóság</h3>
+                        <p class="text-gray-400">Több éves tapasztalat nemzetközi projektek szervezésében.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="py-16 px-6 border-y border-white/10 partners-section">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-12 text-center fade-in">
+                    <p
+                        class="text-neon-cyan font-montserrat font-bold tracking-[0.2em] uppercase text-lg md:text-xl partners-title">
+                        Szakmai partnereink és támogatóink</p>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 fade-in">
+                    <div
+                        class="bg-white p-3 md:p-4 rounded-xl shadow-lg hover:scale-110 transition duration-300 flex items-center justify-center w-40 h-20 md:w-48 md:h-24">
+                        <img src="assets/images/logo-kim.png" alt="Kulturális és Innovációs Minisztérium"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div
+                        class="bg-white p-3 md:p-4 rounded-xl shadow-lg hover:scale-110 transition duration-300 flex items-center justify-center w-40 h-20 md:w-48 md:h-24">
+                        <img src="assets/images/logo-tka.png" alt="Tempus Közalapítvány"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div
+                        class="bg-white p-3 md:p-4 rounded-xl shadow-lg hover:scale-110 transition duration-300 flex items-center justify-center w-40 h-20 md:w-48 md:h-24">
+                        <img src="assets/images/logo-hand-new.png" alt="HAND"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div
+                        class="bg-white p-3 md:p-4 rounded-xl shadow-lg hover:scale-110 transition duration-300 flex items-center justify-center w-40 h-20 md:w-48 md:h-24">
+                        <img src="assets/images/logo-csinta.png" alt="Csinta"
+                            class="max-h-full max-w-full object-contain">
+                    </div>
+                    <div
+                        class="bg-white p-3 md:p-4 rounded-xl shadow-lg hover:scale-110 transition duration-300 flex items-center justify-center w-40 h-20 md:w-48 md:h-24">
+                        <img src="assets/images/logo-xixo.jpg" alt="XIXO" class="max-h-full max-w-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Partners Section Theme Integration */
+            .partners-section {
+                background: rgba(255, 255, 255, 0.02);
+            }
+
+            .light-mode .partners-section {
+                background: #f8fafc;
+                border-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .light-mode .partners-title {
+                color: #0f172a;
+                /* Darker for light mode */
+            }
+        </style>
+
+        <!-- Join/Steps Section -->
+        <section class="py-24 px-6 bg-gradient-to-b from-transparent to-black/30">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-12 md:mb-16 text-center">
+                    <p
+                        class="text-neon-cyan font-montserrat font-bold tracking-wider uppercase mb-2 text-lg md:text-[20px]">
+                        CSATLAKOZZ
+                    </p>
+                    <h2 class="text-3xl md:text-[56px] leading-tight font-montserrat font-bold text-white">
+                        Így utazhatsz velünk <span class="gradient-text">ingyen!</span>
+                    </h2>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div
+                        class="glass p-8 rounded-3xl hover:-translate-y-2 transition duration-300 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-neon-cyan/10 rounded-full blur-xl"></div>
+                        <div class="text-[3.75rem] leading-none font-montserrat font-bold step-number mb-6">1</div>
+                        <h3 class="text-[28px] tracking-tight font-montserrat font-bold text-white mb-4">Válassz
+                            projektet
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed text-[17px]">Nézd meg aktuális lehetőségeinket és találd
+                            meg
+                            a téged érdeklő témát és
+                            úticélt.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="glass p-8 rounded-3xl hover:-translate-y-2 transition duration-300 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-neon-cyan/10 rounded-full blur-xl"></div>
+                        <div class="text-[3.75rem] leading-none font-montserrat font-bold step-number mb-6">2</div>
+                        <h3 class="text-[28px] tracking-tight font-montserrat font-bold text-white mb-4">Jelentkezz</h3>
+                        <p class="text-gray-400 leading-relaxed text-[17px]">Töltsd ki az egyszerű jelentkezési lapot.
+                            Motivációd a legfontosabb!</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="glass p-8 rounded-3xl hover:-translate-y-2 transition duration-300 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-neon-cyan/10 rounded-full blur-xl"></div>
+                        <div class="text-[3.75rem] leading-none font-montserrat font-bold step-number mb-6">3</div>
+                        <h3 class="text-[28px] tracking-tight font-montserrat font-bold text-white mb-4">Csomagolj</h3>
+                        <p class="text-gray-400 leading-relaxed text-[17px]">Ha kiválasztottak, mi segítünk az utazás
+                            megszervezésében. Készülj életed
+                            kalandjára!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Footer Pre-Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div id="cta-container"
+                    class="glass-strong rounded-[3rem] p-12 md:p-20 relative overflow-hidden text-center">
+                    <div class="cta-gradient-tint absolute inset-0 bg-gradient-to-r from-neon-cyan/10 to-neon-teal/10">
+                    </div>
+                    <div class="relative z-10">
+                        <h2 class="text-4xl md:text-6xl font-montserrat font-bold mb-8">Készen állsz az indulásra?</h2>
+                        <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                            Ne maradj le a legújabb lehetőségekről. Kövess minket és légy része a közösségünknek!
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+                            <a href="projects.html" id="cta-btn-primary"
+                                class="px-8 md:px-10 py-4 bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-bold rounded-full hover:shadow-[0_0_30px_rgba(0,188,212,0.5)] transition duration-300 text-center block sm:inline-block">
+                                Projektek böngészése
+                            </a>
+                            <a href="contact.html" id="cta-btn-secondary"
+                                class="px-8 md:px-10 py-4 glass border border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition duration-300 text-center block sm:inline-block">
+                                <span id="cta-btn-secondary-text" class="gradient-text">Kapcsolatfelvétel</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 px-6 border-t border-neon-cyan/20 mt-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
+                        <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                        <div class="flex justify-center md:justify-start space-x-4">
+                            <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                                rel="noopener noreferrer"
+                                class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:flex flex-col items-center">
+                        <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                        <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                            <li><a href="index.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                            <li><a href="projects.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+                            </li>
+
+                            <li><a href="about.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                            <li><a href="contact.html"
+                                    class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col items-center md:items-end md:mr-8 lg:mr-12 text-center md:text-right">
+                        <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center md:text-right">
+                            Kapcsolat</h4>
+                        <ul class="space-y-2 text-gray-400 flex flex-col items-center md:items-end">
+                            <li><a href="mailto:info@abovefoundation.eu"
+                                    class="hover:text-neon-cyan transition duration-300"><i
+                                        class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                    <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
+            // Project Data for Hero Section
+            const topProjects = [
+                {
+                    image: 'assets/images/project-fireworks.webp',
+                    title: 'FIREWORKS - Faro',
+                    description: 'Újragondoljuk az ifjúsági részvételt Portugália napsütötte partjainál.',
+                    descriptionEn: 'Rethinking youth participation on the sunny shores of Portugal.',
+                    category: 'Erasmus+ Tréning',
+                    categoryEn: 'Erasmus+ Training',
+                    objectPosition: 'object-bottom'
+                },
+                {
+                    image: 'assets/images/project-breaking-walls.webp',
+                    title: 'Breaking Walls - Ciprus',
+                    description: 'Falakat bontunk és hidakat építünk multikulturális környezetben, Páfoszban.',
+                    descriptionEn: 'Breaking walls and building bridges in a multicultural environment in Paphos.',
+                    category: 'Ifjúsági Csere',
+                    categoryEn: 'Youth Exchange'
+                },
+                {
+                    image: 'assets/images/project-reunion.webp',
+                    title: 'From EU to YOU - Réunion',
+                    description: 'Egy vulkáni sziget az Indiai-óceánban. 5 magyar fiatal, 10 nap paradicsom.',
+                    descriptionEn: 'A volcanic island in the Indian Ocean. 5 Hungarian youth, 10 days of paradise.',
+                    category: 'Erasmus+ Ifjúsági Csere',
+                    categoryEn: 'Erasmus+ Youth Exchange'
+                },
+                {
+                    image: 'assets/images/project-spain.webp',
+                    title: 'The Green Sparkle - Spanyolország',
+                    description: 'Fedezd fel a spanyol vidéket és tégy a fenntartható jövőért.',
+                    descriptionEn: 'Explore the Spanish countryside and take action for a sustainable future.',
+                    category: 'Fenntarthatósági Projekt',
+                    categoryEn: 'Sustainability Project'
+                },
+                {
+                    image: 'assets/images/project-greece.webp',
+                    title: 'EcoCamp - Görögország',
+                    description: 'Permakultúra és alacsony technológiájú fenntartható megoldások a Cob-farmon.',
+                    descriptionEn: 'Permaculture and low-tech sustainable solutions at the Cob farm.',
+                    category: 'Erasmus+ Mobilitás',
+                    categoryEn: 'Erasmus+ Mobility'
+                },
+                {
+                    image: 'assets/images/project-cyprus.webp',
+                    title: 'Young Star, Wise Mentor - Ciprus',
+                    description: 'Mentorálás és mentális egészség fejlesztése a gyönyörű Páfoszban.',
+                    descriptionEn: 'Mentoring and mental health development in beautiful Paphos.',
+                    category: 'Erasmus+ Képzés',
+                    categoryEn: 'Erasmus+ Training'
+                },
+                {
+                    image: 'assets/images/project-bulgaria.webp',
+                    title: 'My yEUth story 1.0 - Bulgária',
+                    description: 'Történetmesélés és kommunikációs készségek fejlesztése a tengerparton.',
+                    descriptionEn: 'Developing storytelling and communication skills by the seaside.',
+                    category: 'Ifjúsági Csere',
+                    categoryEn: 'Youth Exchange'
+                },
+                {
+                    image: 'assets/images/project-sdgames.webp',
+                    title: 'SDGames - Spanyolország',
+                    description: 'Fenntartható fejlődési célok játékos formában, interaktív workshopokkal.',
+                    descriptionEn: 'Sustainable development goals in a playful way, with interactive workshops.',
+                    category: 'Erasmus+ Tréning',
+                    categoryEn: 'Erasmus+ Training'
+                },
+                {
+                    image: 'assets/images/project-tem.webp',
+                    title: 'The European Mindset - Hollandia',
+                    description: 'Európai értékek és intézmények megismerése Nijhuizumban.',
+                    descriptionEn: 'Discovering European values and institutions in Nijhuizum.',
+                    category: 'Ifjúsági Csere',
+                    categoryEn: 'Youth Exchange'
+                },
+                {
+                    image: 'assets/images/project-entrepreneurial.webp',
+                    title: 'The Entrepreneurial Method - Ciprus',
+                    description: 'Vállalkozói készségek és kommunikációs fejlesztés nemzetközi közegben.',
+                    descriptionEn: 'Entrepreneurial skills and communication development in an international setting.',
+                    category: 'Erasmus+ Képzés',
+                    categoryEn: 'Erasmus+ Training',
+                    objectPosition: 'object-top'
+                },
+                {
+                    image: 'assets/images/project-shift.webp',
+                    title: 'Shift Perspectives - Csehország',
+                    description: 'Kapcsolódás és empátia a nem formális oktatáson keresztül.',
+                    descriptionEn: 'Connection and empathy through non-formal education.',
+                    category: 'Erasmus+ Tréning',
+                    categoryEn: 'Erasmus+ Training'
+                },
+                {
+                    image: 'assets/images/project-erasmus-lab.webp',
+                    title: 'Erasmus4Democracy Project Lab - Norvégia',
+                    description: 'Partnerségépítés és demokratikus részvétel Norvégia szívében.',
+                    descriptionEn: 'Partnership building and democratic participation in the heart of Norway.',
+                    category: 'Partnerségépítés',
+                    categoryEn: 'Partnership Building'
+                },
+                {
+                    image: 'assets/images/project-eyes.webp',
+                    title: 'EYES - Magyarország',
+                    description: 'Vállalkozói kompetenciafejlesztés nemzetközi környezetben, Kékkúton.',
+                    descriptionEn: 'Entrepreneurial competence development in an international environment, in Kékkút.',
+                    category: 'Erasmus+ Képzés',
+                    categoryEn: 'Erasmus+ Training'
+                },
+                {
+                    image: 'assets/images/project-entrepreneurial-journey.webp',
+                    title: 'Entrepreneurial Journey - Románia',
+                    description: 'Vállalkozásindítás és csapatmunka Erdély csodálatos tájain.',
+                    descriptionEn: 'Starting a business and teamwork amidst the stunning landscapes of Transylvania.',
+                    category: 'Erasmus+ Projekt',
+                    categoryEn: 'Erasmus+ Project'
+                },
+                {
+                    image: 'assets/images/project-digy.webp',
+                    title: 'DIGY in YOUth - Riga',
+                    description: 'Digitális írástudás és kreativitás fejlesztése Lettország fővárosában.',
+                    descriptionEn: 'Developing digital literacy and creativity in the capital of Latvia.',
+                    category: 'Erasmus+ Projekt',
+                    categoryEn: 'Erasmus+ Project'
+                },
+                {
+                    image: 'assets/images/logo-gearup.png',
+                    title: 'Béke egy Békés bolygóért!',
+                    description: 'Környezeti fenntarthatóság és aktív társadalmi részvétel itthon.',
+                    descriptionEn: 'Environmental sustainability and active social participation at home.',
+                    category: 'Hazai Projekt',
+                    categoryEn: 'Domestic Project',
+                    isLogo: true
+                },
+                {
+                    image: 'assets/images/project-lepjki.png',
+                    title: 'Lépj ki, kapcsolódj be!',
+                    description: 'Természetközeli élmények és közösségi szolgálat középiskolásoknak.',
+                    descriptionEn: 'Nature-based experiences and community service for secondary school students.',
+                    category: 'Hazai Projekt',
+                    categoryEn: 'Domestic Project',
+                    isLogo: true
+                }
+            ];
+
+            let currentProjectIndex = 0;
+            const heroContainer = document.getElementById('heroProjectContainer');
+
+            function updateHeroProject(index) {
+                if (!heroContainer) return;
+
+                const project = topProjects[index];
+
+                // Create a temporary container for fade out effect
+                const currentContent = heroContainer.querySelector('.project-display-card');
+
+                if (currentContent) {
+                    currentContent.style.opacity = '0';
+                    currentContent.style.transform = 'translateY(10px) rotate(2deg)';
+
+                    setTimeout(() => {
+                        renderProjectCard(project);
+                    }, 500);
+                } else {
+                    renderProjectCard(project);
+                }
+            }
+
+            function renderProjectCard(project) {
+                const lang = localStorage.getItem('lang') || 'hu';
+                const desc = (lang === 'en' && project.descriptionEn) ? project.descriptionEn : project.description;
+                const cat = (lang === 'en' && project.categoryEn) ? project.categoryEn : project.category;
+
+                const objectPos = project.objectPosition || 'object-center';
+                const imgHtml = project.isLogo
+                    ? `<div class="w-full h-full bg-gradient-to-br from-green-900/40 to-teal-900/40 flex items-center justify-center p-12">
+                     <img src="${project.image}" alt="${project.title}" class="h-44 w-auto object-contain transform group-hover:scale-110 transition duration-700 drop-shadow-2xl">
+                   </div>`
+                    : `<img src="${project.image}" alt="${project.title}" class="w-full h-full ${objectPos} object-cover transform group-hover:scale-110 transition duration-700">`;
+
+                heroContainer.innerHTML = `
+                <div class="absolute -top-10 -right-10 w-96 h-96 bg-[radial-gradient(circle,rgba(0,188,212,0.12)_0%,transparent_70%)]"></div>
+                <div class="absolute -bottom-10 -left-10 w-96 h-96 bg-[radial-gradient(circle,rgba(0,255,240,0.12)_0%,transparent_70%)]"></div>
+                
+                <div class="project-display-card glass-strong rounded-3xl p-4 md:p-6 relative z-10 transform rotate-2 hover:rotate-0 transition duration-700 border-t border-l border-white/10 group opacity-0 translate-y-[10px]" style="transition: opacity 0.5s ease, transform 0.5s ease;">
+                    <div class="relative rounded-2xl overflow-hidden mb-6 h-64 md:h-80 shadow-2xl">
+                        ${imgHtml}
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-teal/90 via-dark-teal/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-left">
+                            <span class="px-3 py-1 bg-neon-cyan text-dark-teal text-xs font-bold rounded-full mb-2 inline-block shadow-lg shadow-neon-cyan/20">
+                                ${cat}
+                            </span>
+                            <h3 class="text-2xl font-montserrat font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">${project.title}</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 px-2 text-left">
+                        <p class="text-gray-300 text-sm line-clamp-2">
+                            ${desc}
+                        </p>
+                    </div>
+                </div>
+            `;
+
+                // Trigger fade in
+                setTimeout(() => {
+                    const card = heroContainer.querySelector('.project-display-card');
+                    if (card) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) rotate(2deg)';
+                    }
+                }, 50);
+            }
+
+            // Initialize and setup interval
+            if (heroContainer) {
+                updateHeroProject(0);
+                setInterval(() => {
+                    currentProjectIndex = (currentProjectIndex + 1) % topProjects.length;
+                    updateHeroProject(currentProjectIndex);
+                }, 5000);
+            }
+
+            // Expose hero refresh for language toggle
+            window.refreshHeroCard = function () {
+                renderProjectCard(topProjects[currentProjectIndex]);
+            };
+
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+            function toggleMenu(show) {
+                if (show) {
+                    mobileMenu.classList.add('active');
+                    mobileMenuOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+                if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+                if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => toggleMenu(false));
+                });
+            }
+
+
+            // Scroll Fade In Animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Theme Toggle
+            (function () {
+                const btn = document.getElementById('theme-toggle');
+                if (!btn) return;
+                const icon = btn.querySelector('i');
+
+                const updateIcon = (isLight) => {
+                    icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                    icon.style.transform = 'rotate(360deg)';
+                    setTimeout(() => { icon.style.transform = 'rotate(0deg)'; }, 500);
+                };
+
+                if (document.body.classList.contains('light-mode')) {
+                    icon.className = 'fas fa-moon';
+                } else {
+                    icon.className = 'fas fa-sun';
+                }
+
+                btn.addEventListener('click', () => {
+                    const isLight = document.body.classList.toggle('light-mode');
+                    updateIcon(isLight);
+                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                });
+            })();
+
+            // Smooth Page Transition Logic
+            (function () {
+                const content = document.getElementById('app-content');
+
+                setTimeout(() => {
+                    if (content) content.classList.add('loaded');
+                }, 50);
+
+                document.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        const href = this.getAttribute('href');
+                        if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                            e.preventDefault();
+                            if (content) content.classList.remove('loaded');
+                            setTimeout(() => {
+                                window.location.href = href;
+                            }, 150);
+                        }
+                    });
+                });
+            })();
+        </script>
+
+        <!-- Language Toggle Script -->
+        <script>
+            (function () {
+                // ── Translation dictionary ─────────────────────────────────────────────
+                // Keys = Hungarian text (trimmed), Values = English translation (DeepL)
+                const translations = {
+                    // NAV
+                    'Kezdőlap': 'Home',
+                    'Tevékenységek': 'Activities',
+                    'Rólunk': 'About Us',
+                    'Kapcsolat': 'Contact',
+                    // Hero
+                    'Utazz, tanulj,': 'Travel, learn,',
+                    'fejlődj teljesen': 'grow completely',
+                    'ingyen!': 'for free!',
+                    'Lehetőséget biztosítunk fiatalok számára, hogy az Erasmus+ támogatásával külföldi projektekben vegyenek részt, világot lássanak és nemzetközi tapasztalatokat szerezzenek - mindezt teljesen költségmentesen.': 'We give young people the opportunity to participate in international projects with Erasmus+ support, see the world and gain international experience – completely free of charge.',
+                    'Jelentkezem': 'Apply Now',
+                    'Hogyan működik?': 'How does it work?',
+                    // Summer Camp section
+                    'Kiemelt Esemény': 'Featured Event',
+                    'EuroSpeak Nyári Tábor': 'EuroSpeak Summer Camp',
+                    'Készülj életed legizgalmasabb nyarára! Felejthetetlen élmények, új barátok és rengeteg program vár rád a 2026-os nyári táborunkban. Csatlakozz hozzánk és legyél részese a kalandnak!': 'Get ready for the most exciting summer of your life! Unforgettable experiences, new friends and tons of activities await you at our EuroSpeak summer camp. Join us and be part of the adventure!',
+                    'További részletek': 'More details',
+                    // Features section
+                    'Mit kínálunk': 'What we offer',
+                    'Neked?': 'you?',
+                    'Az Erasmus+ és egyéb programok keretében életre szóló élményeket szerezhetsz.': 'Through Erasmus+ and other programmes you can gain lifelong experiences.',
+                    'Ingyenes Utazás': 'Free Travel',
+                    'Az utazási költségeidet, a szállást és az étkezést teljes mértékben a program fedezi. Neked csak a bőröndödet kell hoznod!': 'Your travel costs, accommodation and meals are fully covered by the programme. All you need to bring is your suitcase!',
+                    'Nemzetközi Barátok': 'International Friends',
+                    'Ismerj meg fiatalokat Európa minden tájáról, építs kapcsolatokat és szerezz életre szóló barátságokat multikulturális környezetben.': 'Meet young people from all over Europe, build connections and make lifelong friendships in a multicultural environment.',
+                    'Youthpass Tanúsítvány': 'Youthpass Certificate',
+                    'Részvételedről hivatalos EU-s tanúsítványt kapsz, amely igazolja a megszerzett kompetenciákat és jól mutat az önéletrajzodban.': 'You will receive an official EU certificate for your participation, which validates the competences you have gained and looks great on your CV.',
+                    // Stats section
+                    'Eredményeink': 'Our Results',
+                    'Miért az': 'Why',
+                    'Foundation?': 'Foundation?',
+                    'Fiatal utazott már velünk': 'Young people have already travelled with us',
+                    'Folyamatos Lehetőségek': 'Ongoing Opportunities',
+                    'Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!': 'We regularly announce new projects. Don\'t miss out on the next adventure!',
+                    'Új Desztinációk': 'New Destinations',
+                    'Spanyolország, Görögország...': 'Spain, Greece...',
+                    '...és még sok más egzotikus helyszín!': '...and many more exotic destinations!',
+                    'Népszerű': 'Popular',
+                    'Megbízhatóság': 'Reliability',
+                    'Több éves tapasztalat nemzetközi projektek szervezésében.': 'Years of experience organising international projects.',
+                    // Steps / Join section
+                    'CSATLAKOZZ': 'JOIN US',
+                    'Így utazhatsz velünk': 'This is how you can travel with us',
+                    'Válassz projektet': 'Choose a project',
+                    'Nézd meg aktuális lehetőségeinket és találd meg a téged érdeklő témát és úticélt.': 'Browse our current opportunities and find the topic and destination that interests you.',
+                    'Jelentkezz': 'Apply',
+                    'Töltsd ki az egyszerű jelentkezési lapot. Motivációd a legfontosabb!': 'Fill in the simple application form. Your motivation is the most important thing!',
+                    'Csomagolj': 'Pack your bags',
+                    'Ha kiválasztottak, mi segítünk az utazás megszervezésében. Készülj életed kalandjára!': 'If you are selected, we will help you organise your trip. Get ready for the adventure of your life!',
+                    // CTA section
+                    'Készen állsz az indulásra?': 'Ready to set off?',
+                    'Ne maradj le a legújabb lehetőségekről. Kövess minket és légy része a közösségünknek!': 'Don\'t miss out on the latest opportunities. Follow us and be part of our community!',
+                    'Projektek böngészése': 'Browse Projects',
+                    'Kapcsolatfelvétel': 'Get in Touch',
+                    // Footer
+                    'Elérhetőségek': 'Contact Us',
+                    'Oldalak': 'Pages',
+                    'Szakmai partnereink és támogatóink': 'Our Professional Partners and Supporters',
+                    '© 2025 ABOVE Foundation. Minden jog fenntartva.': '© 2025 ABOVE Foundation. All rights reserved.',
+                };
+
+                // Build reverse (EN → HU) dictionary on the fly
+                const reverseTranslations = {};
+                for (const [hu, en] of Object.entries(translations)) {
+                    reverseTranslations[en] = hu;
+                }
+
+                // ── Helpers ──────────────────────────────────────────────────────────
+                let currentLang = localStorage.getItem('lang') || 'hu';
+
+                function getDict() {
+                    return currentLang === 'hu' ? translations : reverseTranslations;
+                }
+
+                /**
+                 * Walk text nodes inside `root` and replace matching strings.
+                 * Skips script, style, and elements with data-no-translate.
+                 */
+                function translateNode(root, dict) {
+                    const walker = document.createTreeWalker(
+                        root,
+                        NodeFilter.SHOW_TEXT,
+                        {
+                            acceptNode(node) {
+                                const parent = node.parentElement;
+                                if (!parent) return NodeFilter.FILTER_REJECT;
+                                const tag = parent.tagName;
+                                if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
+                                if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
+                                return NodeFilter.FILTER_ACCEPT;
+                            }
+                        }
+                    );
+
+                    const textNodes = [];
+                    let node;
+                    while ((node = walker.nextNode())) textNodes.push(node);
+
+                    textNodes.forEach(tn => {
+                        const original = tn.nodeValue;
+                        // Normalize: collapse all internal whitespace to a single space
+                        const normalized = original.trim().replace(/\s+/g, ' ');
+                        if (dict[normalized] !== undefined) {
+                            // Preserve surrounding whitespace
+                            const leading = original.match(/^\s*/)[0];
+                            const trailing = original.match(/\s*$/)[0];
+                            tn.nodeValue = leading + dict[normalized] + trailing;
+                        }
+                    });
+                }
+
+                function applyLanguage(lang) {
+                    restoreHungarianTexts();
+                    if (lang === 'en') {
+                        translateNode(document.body, translations);
+                    }
+                    // Update page title
+                    document.getElementById('page-title-tag').textContent =
+                        lang === 'en' ? 'Home | ABOVE Foundation' : 'Kezdőlap | ABOVE Foundation';
+                    // Update html lang attribute
+                    document.documentElement.lang = lang === 'en' ? 'en' : 'hu';
+                    // Update flag image
+                    const flagImg = document.getElementById('lang-toggle');
+                    if (flagImg && flagImg.tagName === 'IMG') {
+                        flagImg.src = lang === 'en' ? 'https://flagcdn.com/w40/hu.png' : 'https://flagcdn.com/w40/gb.png';
+                        flagImg.alt = lang === 'en' ? 'Magyar' : 'English';
+                    }
+                    // Refresh the dynamically rendered hero project card
+                    if (typeof window.refreshHeroCard === 'function') {
+                        window.refreshHeroCard();
+                    }
+                }
+
+                // ── Store HU originals on first run ──────────────────────────────────
+                // We snapshot every translatable text node's original HU value
+                // so we can always restore from it.
+                const originalTexts = new Map(); // node → original string
+
+                function snapshotHungarianTexts() {
+                    const walker = document.createTreeWalker(
+                        document.body,
+                        NodeFilter.SHOW_TEXT,
+                        {
+                            acceptNode(node) {
+                                const parent = node.parentElement;
+                                if (!parent) return NodeFilter.FILTER_REJECT;
+                                const tag = parent.tagName;
+                                if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
+                                if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
+                                // Normalize whitespace the same way translateNode does
+                                const normalized = node.nodeValue.trim().replace(/\s+/g, ' ');
+                                if (normalized && translations[normalized] !== undefined) return NodeFilter.FILTER_ACCEPT;
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                        }
+                    );
+                    let node;
+                    while ((node = walker.nextNode())) {
+                        originalTexts.set(node, node.nodeValue);
+                    }
+                }
+
+                function restoreHungarianTexts() {
+                    originalTexts.forEach((original, node) => {
+                        node.nodeValue = original;
+                    });
+                }
+
+                // ── Init ─────────────────────────────────────────────────────────────
+                // Wait for DOM to be ready (script is deferred at end of body)
+                snapshotHungarianTexts();
+
+                if (currentLang === 'en') {
+                    applyLanguage('en');
+                }
+
+                document.getElementById('lang-toggle').addEventListener('click', () => {
+                    currentLang = currentLang === 'hu' ? 'en' : 'hu';
+                    localStorage.setItem('lang', currentLang);
+                    applyLanguage(currentLang);
+                });
+            })();
+        </script>
+
+    </div>
+
+</body>
+
+</html>

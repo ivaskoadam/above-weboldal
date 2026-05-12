@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation - EuroSpeak Nyári Tábor 2026 részletek.">
+    <title id="page-title-tag">EuroSpeak Nyári Tábor 2026 | ABOVE Foundation</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#007a9a',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1d21;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 188, 212, 0.2) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.1) !important;
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(0, 188, 212, 0.3) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15) !important;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00BCD4 0%, #007a9a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 188, 212, 0.6);
+            }
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <!-- Custom Styles -->
+
+</head>
+
+<body class="">
+    <script>
+            (function () {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'dark') {
+                    document.body.classList.remove('light-mode');
+                } else if (saved === 'light') {
+                    document.body.classList.add('light-mode');
+                } else {
+                    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                    if (isIndex) {
+                        document.body.classList.add('light-mode');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.body.classList.remove('light-mode');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                }
+            })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-6 lg:h-6 w-auto group-hover:opacity-80 transition duration-300"
+                        style="border: 2px solid transparent; padding: 3px;">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kezdőlap</a>
+                    <a href="projects.html"
+                        class="text-gray-300 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+                    <a href="about.html" class="text-gray-300 hover:text-neon-cyan transition duration-300">Rólunk</a>
+                    <a href="contact.html"
+                        class="glass-strong px-6 py-2 rounded-full text-[#00BCD4] hover:bg-[#00BCD4] hover:text-dark-teal transition duration-300 font-semibold">
+                        Kapcsolat
+                    </a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
+                        title="Switch language / Nyelv váltása" role="button" tabindex="0"
+                        onmouseenter="this.style.transform='scale(1.15)'"
+                        onmouseleave="this.style.transform='scale(1)'">
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8" style="background-color: #0f1d21; background-image: var(--nav-bg, none); opacity: 1 !important; z-index: 9999 !important; visibility: visible !important;">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="index.html" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact.html"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+    <style>
+        /* Camp page specific styles */
+        .camp-hero-card {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.12) 0%, rgba(0, 122, 154, 0.06) 100%);
+            border: 1.5px solid rgba(0, 188, 212, 0.35);
+            border-radius: 2rem;
+            box-shadow: 0 8px 40px rgba(0, 188, 212, 0.13);
+        }
+
+        .camp-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 188, 212, 0.22);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px rgba(0, 188, 212, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .camp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 188, 212, 0.18);
+        }
+
+        .camp-emoji-wrap {
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(0, 188, 212, 0.4));
+        }
+
+        .camp-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #00BCD4;
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .camp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(0, 188, 212, 0.18);
+            border: 1.5px solid rgba(0, 188, 212, 0.45);
+            border-radius: 9999px;
+            padding: 0.45rem 1.1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #00BCD4;
+        }
+
+        .camp-bullet {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(0, 188, 212, 0.1);
+        }
+
+        .camp-bullet:last-child {
+            border-bottom: none;
+        }
+
+        .camp-bullet-icon {
+            font-size: 1.1rem;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
+        .camp-divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.4), transparent);
+            margin: 2.5rem 0;
+        }
+
+        /* Light mode overrides for camp cards */
+        body.light-mode .camp-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(0, 188, 212, 0.4);
+        }
+
+        body.light-mode .camp-card p,
+        body.light-mode .camp-card li,
+        body.light-mode .camp-card span:not(.camp-section-title) {
+            color: #2d2d2d !important;
+        }
+
+        body.light-mode .camp-hero-card {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.18) 0%, rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        .camp-hero-text-1 {
+            color: #d1d5db;
+        }
+
+        .camp-hero-text-2 {
+            color: #9ca3af;
+        }
+
+        body.light-mode .camp-hero-text-1,
+        body.light-mode .camp-hero-text-2,
+        body.light-mode .camp-hero-card p {
+            color: #1a1a1a !important;
+        }
+
+        body.light-mode .camp-hero-card h1 {
+            color: #0d1b2a !important;
+        }
+
+        body.light-mode h2 {
+            color: #0d1b2a !important;
+        }
+
+        body.light-mode .camp-hero-card h1 span {
+            color: #00BCD4 !important;
+            -webkit-text-fill-color: #00BCD4 !important;
+        }
+
+        body.light-mode .camp-badge {
+            background: rgba(0, 188, 212, 0.25);
+            border-color: rgba(0, 188, 212, 0.5);
+            color: #0d1b2a;
+        }
+
+        /* Caricature SVG styles */
+        .caricature {
+            width: 90px;
+            height: 90px;
+            display: block;
+            margin: 0 auto 1rem auto;
+            filter: drop-shadow(0 2px 8px rgba(0, 188, 212, 0.35));
+            transition: transform 0.3s ease;
+        }
+
+        .camp-card:hover .caricature {
+            transform: rotate(-5deg) scale(1.08);
+        }
+
+        .camp-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .camp-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Main Content -->
+    <main class="w-full px-6 pt-24 md:pt-32 pb-12 md:pb-20">
+
+        <div class="max-w-5xl mx-auto w-full space-y-8">
+
+            <!-- HERO HEADER CARD -->
+            <div class="camp-hero-card p-6 md:p-10 text-center fade-in relative overflow-hidden">
+
+                <div class="absolute -right-16 -top-16 w-52 h-52 rounded-full blur-3xl"
+                    style="background:rgba(0,188,212,0.12)"></div>
+                <div class="absolute -left-16 -bottom-16 w-52 h-52 rounded-full blur-3xl"
+                    style="background:rgba(0,188,212,0.10)"></div>
+                <div class="relative z-10">
+                    <!-- Caricature: Sun with face -->
+                    <svg class="caricature" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="28" fill="#ffdd00" stroke="#db9a00" stroke-width="2.5" />
+                        <!-- Sun rays -->
+                        <g stroke="#ffdd00" stroke-width="3.5" stroke-linecap="round">
+                            <line x1="50" y1="12" x2="50" y2="5" />
+                            <line x1="50" y1="88" x2="50" y2="95" />
+                            <line x1="12" y1="50" x2="5" y2="50" />
+                            <line x1="88" y1="50" x2="95" y2="50" />
+                            <line x1="22" y1="22" x2="17" y2="17" />
+                            <line x1="78" y1="22" x2="83" y2="17" />
+                            <line x1="22" y1="78" x2="17" y2="83" />
+                            <line x1="78" y1="78" x2="83" y2="83" />
+                        </g>
+                        <!-- Eyes -->
+                        <ellipse cx="42" cy="45" rx="4" ry="5" fill="#0f1d21" />
+                        <ellipse cx="58" cy="45" rx="4" ry="5" fill="#0f1d21" />
+                        <!-- Pupils sparkle -->
+                        <circle cx="43.5" cy="43.5" r="1.2" fill="white" />
+                        <circle cx="59.5" cy="43.5" r="1.2" fill="white" />
+                        <!-- Smile -->
+                        <path d="M38 57 Q50 67 62 57" stroke="#0f1d21" stroke-width="2.5" fill="none"
+                            stroke-linecap="round" />
+                        <!-- Rosy cheeks -->
+                        <circle cx="36" cy="55" r="5" fill="rgba(255,100,100,0.3)" />
+                        <circle cx="64" cy="55" r="5" fill="rgba(255,100,100,0.3)" />
+                    </svg>
+
+                    <h1 class="text-[1.75rem] md:text-6xl font-montserrat font-extrabold text-white mb-6 tracking-tight leading-tight">
+                        EuroSpeak <br class="md:hidden"> <span class="whitespace-nowrap">Nyári Tábor – <span style="color: #00BCD4;">2026</span></span>
+                    </h1>
+
+                    <p class="camp-hero-text-1 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-6">
+                        Tanulás, élmény, nemzetközi hangulat egy helyen!
+                    </p>
+                    <p class="camp-hero-text-2 text-base leading-relaxed max-w-3xl mx-auto mb-6">
+                        Szeretné, hogy gyermeke a nyári szünetben ne csak jól érezze magát, hanem közben fejlődjön is?
+                        Csatlakozzon hozzánk egy különleges, élményalapú napközis táborba, ahol a tanulás és a játék
+                        tökéletes egyensúlyban van!
+                    </p>
+
+                    <div class="camp-grid-2 max-w-xl mx-auto">
+                        <div>
+                            <div class="camp-badge mb-2"><span>📅</span> Időpont</div>
+                            <p class="mt-2 font-semibold" style="color:#a8ecea">2026. július 27. – 2026. július 31.</p>
+                        </div>
+                        <div>
+                            <div class="camp-badge mb-2"><span>📍</span> Helyszín</div>
+                            <p class="mt-2 font-semibold" style="color:#a8ecea">Corvinus Gellért Campus</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRAM SECTION TITLE -->
+            <div class="text-center fade-in">
+                <h2 class="text-2xl md:text-3xl font-montserrat font-bold" style="color:#00BCD4">🌞 Mit kínál a tábor?
+                </h2>
+
+                <hr class="camp-divider max-w-xs mx-auto mt-4">
+            </div>
+
+            <!-- MORNING & AFTERNOON PROGRAM CARDS -->
+            <div class="camp-grid-2 fade-in">
+                <!-- Morning card -->
+                <div class="camp-card p-7 text-center">
+                    <!-- Caricature: Kid with book and speech bubble -->
+                    <svg class="caricature" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Kid head -->
+                        <circle cx="50" cy="30" r="18" fill="#ffd29a" stroke="#c87a30" stroke-width="1.5" />
+                        <!-- Hair -->
+                        <path d="M32 26 Q35 10 50 12 Q65 10 68 26" fill="#5a3200" stroke="none" />
+                        <!-- Eyes -->
+                        <ellipse cx="43" cy="28" rx="3" ry="3.5" fill="#0f1d21" />
+                        <ellipse cx="57" cy="28" rx="3" ry="3.5" fill="#0f1d21" />
+                        <circle cx="44" cy="27" r="1" fill="white" />
+                        <circle cx="58" cy="27" r="1" fill="white" />
+                        <!-- Smile -->
+                        <path d="M43 36 Q50 42 57 36" stroke="#c87a30" stroke-width="2" fill="none"
+                            stroke-linecap="round" />
+                        <!-- Body -->
+                        <rect x="38" y="47" width="24" height="22" rx="5" fill="#00BCD4" />
+                        <!-- Book -->
+                        <rect x="22" y="58" width="28" height="20" rx="3" fill="#007a9a" stroke="#8a5a00"
+                            stroke-width="1.5" />
+                        <line x1="36" y1="58" x2="36" y2="78" stroke="#8a5a00" stroke-width="1.5" />
+                        <!-- Speech bubble English flag colors -->
+                        <rect x="58" y="40" width="30" height="18" rx="5" fill="#003f99" stroke="#aaa"
+                            stroke-width="1" />
+                        <text x="73" y="53" text-anchor="middle" font-size="9" fill="white"
+                            font-weight="bold">ABC</text>
+                        <!-- Bubble pointer -->
+                        <path d="M60 55 L55 62 L67 56" fill="#003f99" />
+                    </svg>
+                    <div class="camp-section-title text-base md:text-lg">☀️ Délelőtt: Játékos angoltanulás</div>
+
+                    <p class="text-sm leading-relaxed" style="color:#9ca3af">
+                        Interaktív, élményalapú módszerekkel az angol nyelvvel. Sok mozgás, játék, szerepjáték és
+                        kreatív feladat segíti a nyelvi fejlődést – tapasztalt pedagógus vezetésével.
+                    </p>
+                </div>
+                <!-- Afternoon card -->
+                <div class="camp-card p-7 text-center">
+                    <!-- Caricature: Globe with EU stars -->
+                    <svg class="caricature" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Globe -->
+                        <circle cx="50" cy="52" r="34" fill="#003f99" stroke="#ffdd00" stroke-width="2" />
+                        <!-- Latitude lines -->
+                        <ellipse cx="50" cy="52" rx="34" ry="14" fill="none" stroke="rgba(255,255,255,0.3)"
+                            stroke-width="1" />
+                        <line x1="16" y1="52" x2="84" y2="52" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
+                        <!-- Land masses simplified -->
+                        <ellipse cx="40" cy="46" rx="10" ry="7" fill="#2a7a2a" opacity="0.8" />
+                        <ellipse cx="62" cy="54" rx="9" ry="6" fill="#2a7a2a" opacity="0.8" />
+                        <ellipse cx="45" cy="60" rx="7" ry="5" fill="#2a7a2a" opacity="0.7" />
+                        <!-- EU stars ring -->
+                        <g fill="#ffdd00" font-size="9">
+                            <text x="49" y="20" text-anchor="middle">★</text>
+                            <text x="63" y="24" text-anchor="middle">★</text>
+                            <text x="72" y="36" text-anchor="middle">★</text>
+                            <text x="26" y="24" text-anchor="middle">★</text>
+                            <text x="17" y="36" text-anchor="middle">★</text>
+                        </g>
+                        <!-- Smiley face on globe -->
+                        <circle cx="45" cy="43" r="2.5" fill="white" opacity="0.9" />
+                        <circle cx="55" cy="43" r="2.5" fill="white" opacity="0.9" />
+                        <path d="M42 50 Q50 57 58 50" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"
+                            opacity="0.9" />
+                    </svg>
+                    <div class="camp-section-title text-base md:text-lg">🌍 Délután: Európa felfedezése</div>
+
+                    <p class="text-sm leading-relaxed" style="color:#9ca3af">
+                        Az EU kerül fókuszba: különböző országok kultúráját, szokásait, érdekességeit ismerhetik meg a
+                        gyerekek. Kézműves foglalkozások, csapatjátékok és mini „utazások" Európa különböző pontjaira.
+                    </p>
+                </div>
+            </div>
+
+            <hr class="camp-divider">
+
+            <!-- WHY US CARD -->
+            <div class="camp-card p-8 fade-in">
+                <!-- Caricature: Trophy with face -->
+                <div class="text-center mb-6">
+                    <svg class="caricature" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Trophy cup -->
+                        <path d="M30 20 L70 20 L65 55 Q62 68 50 70 Q38 68 35 55 Z" fill="#00BCD4" stroke="#007a9a"
+                            stroke-width="2" />
+                        <!-- Trophy handles -->
+                        <path d="M30 25 Q15 25 15 40 Q15 55 30 52" fill="none" stroke="#007a9a" stroke-width="4"
+                            stroke-linecap="round" />
+                        <path d="M70 25 Q85 25 85 40 Q85 55 70 52" fill="none" stroke="#007a9a" stroke-width="4"
+                            stroke-linecap="round" />
+                        <!-- Base -->
+                        <rect x="38" y="70" width="24" height="7" rx="2" fill="#007a9a" />
+                        <rect x="33" y="77" width="34" height="7" rx="3" fill="#007a9a" />
+                        <!-- Face on trophy -->
+                        <ellipse cx="43" cy="40" rx="4" ry="4.5" fill="#0f1d21" />
+                        <ellipse cx="57" cy="40" rx="4" ry="4.5" fill="#0f1d21" />
+                        <circle cx="44.5" cy="38.5" r="1.3" fill="white" />
+                        <circle cx="58.5" cy="38.5" r="1.3" fill="white" />
+                        <path d="M40 50 Q50 58 60 50" stroke="#0f1d21" stroke-width="2.5" fill="none"
+                            stroke-linecap="round" />
+                        <!-- Stars above -->
+                        <text x="50" y="18" text-anchor="middle" font-size="14" fill="#ffdd00">★</text>
+                    </svg>
+                    <div class="camp-section-title">💡 Miért válassz minket?</div>
+                </div>
+                <ul class="max-w-2xl mx-auto space-y-1">
+                    <li class="camp-bullet">
+                        <span class="camp-bullet-icon">🏅</span>
+                        <span style="color:#00BCD4">Több mint <strong style="color:#00BCD4">8 év tapasztalat</strong> az
+                            ifjúsági munka és az Erasmus+ projektek világában</span>
+                    </li>
+                    <li class="camp-bullet">
+                        <span class="camp-bullet-icon">🌐</span>
+                        <span style="color:#00BCD4"><strong style="color:#00BCD4">15 sikeres</strong> hazai és
+                            nemzetközi ifjúsági program megvalósítása</span>
+                    </li>
+                    <li class="camp-bullet">
+                        <span class="camp-bullet-icon">👩‍🏫</span>
+                        <span style="color:#00BCD4">Képzett angoltanár és <strong style="color:#00BCD4">tapasztalt
+                                napközis pedagógusok</strong> biztosítják a szakmai hátteret</span>
+                    </li>
+                    <li class="camp-bullet">
+                        <span class="camp-bullet-icon">🎓</span>
+                        <span style="color:#00BCD4">Egy Corvinusos diákszervezet lelkes és felkészült <strong
+                                style="color:#00BCD4">vezetői csapata</strong>, amely az egyetem legmagasabb szintű
+                            akkreditációjával rendelkezik</span>
+                    </li>
+                </ul>
+            </div>
+
+            <hr class="camp-divider">
+
+            <!-- FOR WHOM CARD -->
+            <div class="camp-card p-8 fade-in text-center">
+                <!-- Caricature: Three happy kids -->
+                <svg class="caricature" style="width:120px; height:90px;" viewBox="0 0 120 100"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <!-- Kid 1 (left) -->
+                    <circle cx="25" cy="30" r="14" fill="#ffd29a" stroke="#c87a30" stroke-width="1.5" />
+                    <path d="M12 25 Q15 13 25 15 Q35 13 38 25" fill="#c05000" stroke="none" />
+                    <ellipse cx="20" cy="28" rx="2.5" ry="3" fill="#0f1d21" />
+                    <ellipse cx="30" cy="28" rx="2.5" ry="3" fill="#0f1d21" />
+                    <path d="M19 36 Q25 41 31 36" stroke="#c87a30" stroke-width="1.5" fill="none"
+                        stroke-linecap="round" />
+                    <rect x="16" y="43" width="18" height="16" rx="4" fill="#4a90e2" />
+                    <!-- Kid 2 (center, bigger) -->
+                    <circle cx="60" cy="28" r="16" fill="#ffe0b2" stroke="#c87a30" stroke-width="1.5" />
+                    <path d="M45 22 Q48 9 60 11 Q72 9 75 22" fill="#5a3200" stroke="none" />
+                    <ellipse cx="54" cy="26" rx="3" ry="3.5" fill="#0f1d21" />
+                    <ellipse cx="66" cy="26" rx="3" ry="3.5" fill="#0f1d21" />
+                    <circle cx="55" cy="25" r="1" fill="white" />
+                    <circle cx="67" cy="25" r="1" fill="white" />
+                    <path d="M52 36 Q60 43 68 36" stroke="#c87a30" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                    <rect x="49" y="43" width="22" height="18" rx="4" fill="#00BCD4" />
+                    <!-- Kid 3 (right) -->
+                    <circle cx="95" cy="30" r="14" fill="#ffddb0" stroke="#c87a30" stroke-width="1.5" />
+                    <path d="M82 25 Q85 13 95 15 Q105 13 108 25" fill="#8B4513" stroke="none" />
+                    <ellipse cx="90" cy="28" rx="2.5" ry="3" fill="#0f1d21" />
+                    <ellipse cx="100" cy="28" rx="2.5" ry="3" fill="#0f1d21" />
+                    <path d="M89 36 Q95 41 101 36" stroke="#c87a30" stroke-width="1.5" fill="none"
+                        stroke-linecap="round" />
+                    <rect x="86" y="43" width="18" height="16" rx="4" fill="#e74c3c" />
+                    <!-- Stars / sparkles -->
+                    <text x="43" y="20" font-size="11" fill="#ffdd00">★</text>
+                    <text x="72" y="15" font-size="11" fill="#ffdd00">★</text>
+                    <!-- Speech bubbles -->
+                    <rect x="5" y="58" width="30" height="14" rx="5" fill="#003f99" opacity="0.85" />
+                    <text x="20" y="69" text-anchor="middle" font-size="8" fill="white">Hello!</text>
+                    <rect x="85" y="58" width="30" height="14" rx="5" fill="#2a7a2a" opacity="0.85" />
+                    <text x="100" y="69" text-anchor="middle" font-size="8" fill="white">Ciao!</text>
+                    <!-- Ground line -->
+                    <line x1="5" y1="82" x2="115" y2="82" stroke="rgba(0,188,212,0.3)" stroke-width="1.5"
+                        stroke-dasharray="4,3" />
+                </svg>
+                <div class="camp-section-title text-lg md:text-xl mt-2">🎯 Kinek ajánljuk?</div>
+
+                <p class="text-base leading-relaxed max-w-2xl mx-auto" style="color:#00BCD4">
+                    Azoknak az <strong style="color:#00BCD4">alsó tagozatos gyermekeknek</strong>, akik szeretnek
+                    játszva tanulni, nyitottak az új élményekre, és szívesen fedezik fel a világot – akár angolul is!
+                </p>
+            </div>
+
+            <hr class="camp-divider">
+            <!-- PRICE SECTION -->
+            <div class="text-center fade-in pb-8">
+                <div class="camp-badge mb-3"><span>💰</span> Részvételi díj</div>
+                <div class="text-4xl font-montserrat font-bold" style="color:#00BCD4">65.000 Ft</div>
+                <p class="text-gray-400 mt-2 text-sm italic">Mely tartalmazza a tízórait, ebédet, uzsonnát és minden
+                    program költségét.</p>
+            </div>
+
+            <!-- BUTTONS ROW -->
+            <div class="text-center fade-in pt-4 flex flex-wrap justify-center items-center gap-4">
+                <a href="index.html"
+                    class="inline-flex items-center gap-2 glass-strong px-8 py-3 rounded-full text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Vissza a kezdőlapra</span>
+                </a>
+                <a href="nyari_tabor_jelentkezes.html" id="signup-btn"
+                    class="inline-flex items-center gap-2 px-10 py-3 rounded-full font-bold text-lg pulse-glow transition duration-300"
+                    style="background: linear-gradient(135deg, #00BCD4, #007a9a); color: #0f1d21; box-shadow: 0 0 24px rgba(0,188,212,0.45);">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Jelentkezem!</span>
+                </a>
+                <p class="text-gray-400 text-sm md:text-base w-full mt-4">Kérjük, vegye figyelembe, hogy a jelentkezés
+                    nem minősül automatikus regisztrációnak.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-neon-cyan/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-[#00BCD4] to-[#007a9a] rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="hidden md:flex flex-col items-center">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                    <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                        <li><a href="projects.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-center md:items-end md:mr-8 lg:mr-12 text-center md:text-right">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center md:text-right">
+                        Kapcsolat</h4>
+                    <ul class="space-y-2 text-gray-400 flex flex-col items-center md:items-end">
+                        <li><a href="mailto:info@abovefoundation.eu"
+                                class="hover:text-neon-cyan transition duration-300"><i
+                                    class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva. | <a href="assets/adatvedelmi_tajekoztato.pdf" target="_blank" class="hover:text-neon-cyan transition duration-300">Adatkezelési tájékoztató</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle
+        (function () {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+
+            btn.addEventListener('click', () => {
+                const isLight = document.body.classList.toggle('light-mode');
+                icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+        })();
+        // Smooth Page Transitions
+        setTimeout(() => {
+            document.body.classList.add('page-loaded');
+        }, 50);
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                    e.preventDefault();
+                    document.body.classList.remove('page-loaded');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 150);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        window.pageTitleEn = 'EuroSpeak Summer Day Camp 2026 | ABOVE Foundation';
+        window.pageTitleHu = 'EuroSpeak Nyári Tábor 2026 | ABOVE Foundation';
+        window.pageTranslations = {
+
+            /* ── HERO CARD ── */
+            'EuroSpeak Nyári Tábor –': 'EuroSpeak Summer Day Camp –',
+            'Tanulás, élmény, nemzetközi hangulat egy helyen!':
+                'Learning, adventure, and international vibes all in one place!',
+            'Szeretné, hogy gyermeke a nyári szünetben ne csak jól érezze magát, hanem közben fejlődjön is? Csatlakozzon hozzánk egy különleges, élményalapú napközis táborba, ahol a tanulás és a játék tökéletes egyensúlyban van!':
+                'Would you like your child to not only have fun during the summer break, but also grow and develop? Join us for a special, experience-based day camp where learning and play are in perfect balance!',
+
+            /* ── DATE & LOCATION CARD ── */
+            'Időpont': 'Date',
+            'Helyszín': 'Location',
+            '2026. július 27. – 2026. július 31.': 'July 27, 2026 – July 31, 2026',
+            'Corvinus Gellért Campus': 'Corvinus Gellért Campus',
+            'Részvételi díj': 'Participation Fee',
+            '65.000 Ft': '65,000 HUF',
+            '📸 Google Street View – Corvinus Gellért Campus':
+                '📸 Google Street View – Corvinus Gellért Campus',
+
+            /* ── PROGRAM SECTION ── */
+            '🌞 Mit kínál a tábor?': '🌞 What does the camp offer?',
+            '☀️ Délelőtt: Játékos angoltanulás': '☀️ Morning: Playful English Learning',
+            'Interaktív, élményalapú módszerekkel az angol nyelvvel. Sok mozgás, játék, szerepjáték és kreatív feladat segíti a nyelvi fejlődést – tapasztalt pedagógus vezetésével.':
+                'Interactive, experience-based methods to explore the English language. Lots of movement, games, role-play, and creative tasks support language development – all led by an experienced teacher.',
+            '🌍 Délután: Európa felfedezése': '🌍 Afternoon: Exploring Europe',
+            'Az EU kerül fókuszba: különböző országok kultúráját, szokásait, érdekességeit ismerhetik meg a gyerekek. Kézműves foglalkozások, csapatjátékok és mini „utazások" Európa különböző pontjaira.':
+                'The EU takes centre stage: children get to discover the culture, customs, and curiosities of different countries. Arts & crafts, team games, and mini "journeys" to various corners of Europe await!',
+
+            /* ── WHY US CARD ── */
+            '💡 Miért válassz minket?': '💡 Why choose us?',
+            'Több mint': 'More than',
+            '8 év tapasztalat': '8 years of experience',
+            'az ifjúsági munka és az Erasmus+ projektek világában':
+                'in the world of youth work and Erasmus+ projects',
+            '15 sikeres': '15 successful',
+            'hazai és nemzetközi ifjúsági program megvalósítása':
+                'domestic and international youth programmes delivered',
+            'Képzett angoltanár és': 'A qualified English teacher and',
+            'tapasztalt napközis pedagógusok': 'experienced day-camp educators',
+            'biztosítják a szakmai hátteret': 'provide the professional background',
+            'Egy Corvinusos diákszervezet lelkes és felkészült': 'An enthusiastic and well-prepared team from a Corvinus student organisation –',
+            'vezetői csapata': 'the leadership team',
+            ', amely az egyetem legmagasabb szintű akkreditációjával rendelkezik':
+                ', holding the university\'s highest level of accreditation',
+            'Kérjük, vegye figyelembe, hogy a jelentkezés nem minősül automatikus regisztrációnak.':
+                'Please note that the application does not constitute automatic registration.',
+            'Mely tartalmazza a tízórait, ebédet, uzsonnát és minden program költségét.':
+                'Which includes morning snack, lunch, afternoon snack, and all program costs.',
+
+            /* ── FOR WHOM CARD ── */
+            '🎯 Kinek ajánljuk?': '🎯 Who is it for?',
+            'Azoknak az': 'For those',
+            'alsó tagozatos gyermekeknek': 'primary-school children',
+            ', akik szeretnek játszva tanulni, nyitottak az új élményekre, és szívesen fedezik fel a világot – akár angolul is!':
+                'who love to learn through play, are open to new experiences, and enjoy exploring the world – even in English!',
+
+            /* ── BACK BUTTON ── */
+            'Vissza a kezdőlapra': 'Back to the homepage',
+        };
+    </script>
+    <script src="lang.js"></script>
+</body>
+
+</html>
