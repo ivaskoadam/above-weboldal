@@ -20,6 +20,7 @@
         'Kapcsolat':                'Contact',
         'EuroSpeak Nyári Tábor 2026': 'EuroSpeak Summer Camp 2026',
         // Footer
+        'Közösségi média':          'Socials',
         'Elérhetőségek':            'Contact Us',
         'Oldalak':                  'Pages',
         'Szakmai partnereink és támogatóink': 'Our Professional Partners and Supporters',

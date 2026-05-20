@@ -1210,6 +1210,7 @@
                     <div class="space-y-4">
                         <h3 class="text-2xl font-montserrat font-bold" style="color:#1099B3;">Élménybeszámoló</h3>
                         <p id="modalDescription" class="text-gray-300 text-lg leading-relaxed"></p>
+                        <div id="modalLinks" class="pt-2 hidden"></div>
                     </div>
 
                     <!-- Photo Gallery (hidden by default, shown for projects with photos) -->
@@ -1276,7 +1277,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
 
                 <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
-                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Elérhetőségek</h4>
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Közösségi média</h4>
                     <div class="flex justify-center md:justify-start space-x-4">
                         <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/" target="_blank"
                             rel="noopener noreferrer"
@@ -1727,6 +1728,7 @@
                 title: "EYES",
                 shortDescription: "Az EYES (Entrepreneurial Youth Education Seminar) Erasmus+ képzési kurzus múlt pénteken sikeresen lezárult, ezzel véget ért egy inspiráló és tanulságos hét.",
                 description: "Az EYES (Entrepreneurial Youth Education Seminar) Erasmus+ képzési kurzus múlt pénteken sikeresen lezárult, ezzel véget ért egy inspiráló és tanulságos hét. A program hét országból – Grúziából, Olaszországból, Portugáliából, Litvániából, Szlovéniából, Észtországból és Magyarországról – érkező fiatal szakembereket és ifjúsági munkásokat hozott össze, akik közösen tanultak, fejlődtek és inspiráló ötleteket dolgoztak ki.\n\nA képzés során a résztvevők fejlesztették vállalkozói készségeiket, és megtanulták, hogyan formálhatják kreatív ötleteiket valós, megvalósítható projektekké. Megismerkedtek olyan gyakorlati eszközökkel, mint a SWOT- és PESTLE-elemzés, a problématérkép, valamint projektmenedzsment technikákat is gyakoroltak – például Gantt-diagramok és cash-flow tervek készítését. Emellett fejlesztették kommunikációs és prezentációs képességeiket, miközben értékes nemzetközi kapcsolatokat építettek.\n\nA hét végére a csoport új szemlélettel, tudással és barátságokkal gazdagodott. Számos új projektötlet született, amelyek valódi hatást gyakorolhatnak az ifjúsági munkára Európa-szerte. Az EYES kurzus bebizonyította, hogy a tanulás, a kreativitás és az együttműködés képes maradandó változást elindítani – ez nem a vég, hanem sok új kezdeményezés kezdete volt.",
+                articlePdf: "assets/EYES_Project_Article_FINAL.pdf",
                 gallery: [
                     "assets/images/eyes-gallery-1.webp",
                     "assets/images/eyes-gallery-2.webp",
@@ -1897,6 +1899,19 @@
                 descEl.innerHTML = '<p class="mb-4">' + firstPara + '</p>';
             }
 
+            // Project links/buttons (e.g. PDF article)
+            var modalLinks = document.getElementById('modalLinks');
+            if (modalLinks) {
+                if (hu.articlePdf) {
+                    var btnText = (lang === 'en') ? 'Project article' : 'Projekt kiadvány angolul';
+                    modalLinks.innerHTML = '<a href="' + hu.articlePdf + '" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-[#1099B3] text-white font-bold rounded-full hover:opacity-90 hover:shadow-[0_0_15px_rgba(16,153,179,0.5)] transition duration-300"><i class="fas fa-file-pdf"></i>' + btnText + '</a>';
+                    modalLinks.classList.remove('hidden');
+                } else {
+                    modalLinks.innerHTML = '';
+                    modalLinks.classList.add('hidden');
+                }
+            }
+
             // Gallery (always use HU image paths)
             var modalGallery = document.getElementById('modalGallery');
             var galleryGrid = document.getElementById('galleryGrid');
@@ -2047,6 +2062,7 @@
         window.pageTitleEn = 'Projects | ABOVE Foundation';
         window.pageTitleHu = 'Tevékenységek | ABOVE Foundation';
         window.pageTranslations = {
+            'Közösségi média': 'Socials',
             // Page header
             'Tevékenységeink': 'Our Activities',
             'Globális hatás, helyi érintés': 'Global impact, local touch',
@@ -2058,7 +2074,12 @@
             'Hazai Kezdeményezések': 'Domestic Initiatives',
             'Építs közösséget itthon! Workshopok, önkéntes lehetőségek és hazai projektek, ahol formálhatod a jövőt.': 'Build a community at home! Workshops, volunteering opportunities and domestic projects where you can shape the future.',
             'Jövőbeli\n                                    Projektek': 'Future\n                                    Projects',
+            'Folyamatosan dolgozunk új lehetőségeken és programokon, hogy még több fiatalnak nyújthassunk életre szóló élményeket.':
+                'We are continuously working on new opportunities and programmes to offer even more young people life-changing experiences.',
             'Folyamatosan dolgozunk új lehetőségeken és programokon, hogy még több fiatalnak nyújthassunk életre szóló élményeket. Célunk, hogy bővítsük partnereink körét és új desztinációkat tegyünk elérhetővé a közösségünk számára.': 'We are continuously working on new opportunities and programmes to offer even more young people life-changing experiences. Our goal is to expand our network of partners and make new destinations available to our community.',
+            'Táborok': 'Camps',
+            'Felejthetetlen nyári élmények, ahol játszva tanulhatsz, és életre szóló barátságokat köthetsz a természet ölelésében.':
+                'Unforgettable summer experiences where you can learn through play and make lifelong friendships in the embrace of nature.',
             // Foreign projects view
             'Vissza a projektekhez': 'Back to projects',
             'Külföldi Projektek\n                    ': 'International Projects\n                    ',
@@ -2290,7 +2311,7 @@
             }
         };
     </script>
-    <script src="lang.js"></script>
+    <script src="lang.js?v=1.2"></script>
 
 </body>
 
