@@ -167,12 +167,31 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <button id="theme-toggle" title="Téma váltása" aria-label="Téma váltása">
-                        <i class="fas fa-sun"></i>
+                        <i class="fas"></i>
+                        <script>
+                            (function () {
+                                document.currentScript.previousElementSibling.className =
+                                    document.body.classList.contains('light-mode') ||
+                                    document.documentElement.classList.contains('light-mode')
+                                    ? 'fas fa-moon' : 'fas fa-sun';
+                            })();
+                        </script>
                     </button>
                     <img id="lang-toggle" src="https://flagcdn.com/w40/gb.png" alt="English"
                         title="Switch language / Nyelv váltása" role="button" tabindex="0"
                         onmouseenter="this.style.transform='scale(1.15)'"
                         onmouseleave="this.style.transform='scale(1)'">
+                    <script>
+                        (function () {
+                            if (localStorage.getItem('lang') === 'en') {
+                                const flag = document.getElementById('lang-toggle');
+                                if (flag) {
+                                    flag.src = 'https://flagcdn.com/w40/hu.png';
+                                    flag.alt = 'Magyar';
+                                }
+                            }
+                        })();
+                    </script>
                     <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
@@ -227,6 +246,39 @@
             <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
         </div>
     </div>
+
+    <!-- Navigation Translation (Immediate execution to prevent nav button layout shifts in English) -->
+    <script>
+        (function () {
+            if (localStorage.getItem('lang') === 'en') {
+                const translations = {
+                    'Kezdőlap': 'Home',
+                    'Tevékenységek': 'Activities',
+                    'Rólunk': 'About Us',
+                    'Kapcsolat': 'Contact',
+                    'Menü': 'Menu'
+                };
+                const elements = document.querySelectorAll('nav, #mobile-menu');
+                elements.forEach(el => {
+                    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+                    let node;
+                    while (node = walker.nextNode()) {
+                        const norm = node.nodeValue.trim().replace(/\s+/g, ' ');
+                        if (translations[norm]) {
+                            const leading = node.nodeValue.match(/^\s*/)[0];
+                            const trailing = node.nodeValue.match(/^\s*$/)[0];
+                            node.nodeValue = leading + translations[norm] + trailing;
+                        }
+                    }
+                });
+                const flag = document.getElementById('lang-toggle');
+                if (flag) {
+                    flag.src = 'https://flagcdn.com/w40/hu.png';
+                    flag.alt = 'Magyar';
+                }
+            }
+        })();
+    </script>
 
     <!-- Main Content -->
     <main class="w-full px-6 pt-32 pb-16">
