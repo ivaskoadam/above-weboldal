@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ABOVE Foundation</title>
+    <script type="text/javascript">
+        (function() {
+            var pathname = window.location.pathname;
+            var search = window.location.search;
+            var hash = window.location.hash;
+
+            // Check if there is an '/en' language prefix in the path
+            var isEn = pathname.startsWith('/en/') || pathname === '/en';
+            var cleanPath = isEn ? pathname.substring(3) : pathname; // strip '/en'
+            cleanPath = cleanPath.replace(/^\/+|\/+$/g, '');
+
+            var segments = cleanPath.split('/');
+            var page = segments[0] || 'index';
+            var subPage = segments[1] || '';
+
+            // Map page names to their actual files on disk
+            var validPages = ['projects', 'about', 'contact', 'future-projects', 'nyari_tabor', 'nyari_tabor_jelentkezes'];
+            var pageName = page.replace(/\.html$/, '');
+
+            if (validPages.indexOf(pageName) !== -1) {
+                var redirectUrl = '/' + pageName + '.html';
+                var params = [];
+                if (subPage) {
+                    params.push('p=' + encodeURIComponent(subPage));
+                }
+                if (isEn) {
+                    params.push('lang=en');
+                }
+                if (search) {
+                    params.push('q=' + encodeURIComponent(search.substring(1)));
+                }
+                if (params.length > 0) {
+                    redirectUrl += '?' + params.join('&');
+                }
+                redirectUrl += hash;
+                window.location.replace(redirectUrl);
+            } else {
+                // Default fallback to home
+                var redirectUrl = '/index.html';
+                if (isEn) {
+                    redirectUrl += '?lang=en';
+                }
+                redirectUrl += hash;
+                window.location.replace(redirectUrl);
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -179,11 +179,59 @@
     var currentLang = 'hu';
     if (window.location.protocol !== 'file:') {
         var pathname = window.location.pathname;
-        if (pathname.startsWith('/en/') || pathname === '/en') {
+        var searchParams = new URLSearchParams(window.location.search);
+        
+        // 1. Check query parameter first (used by 404.html redirect)
+        if (searchParams.has('lang')) {
+            currentLang = searchParams.get('lang') === 'en' ? 'en' : 'hu';
+            localStorage.setItem('lang', currentLang);
+        } 
+        // 2. Check path-based language prefix
+        else if (pathname.startsWith('/en/') || pathname === '/en') {
             currentLang = 'en';
             localStorage.setItem('lang', 'en');
-        } else {
+        } 
+        // 3. Fallback to localStorage
+        else {
             currentLang = localStorage.getItem('lang') || 'hu';
+        }
+        
+        // Rewrite URL pathname in browser address bar to clean URLs (removes .html and params)
+        if (searchParams.has('lang') || searchParams.has('p') || pathname.endsWith('.html')) {
+            var cleanPageName = pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/, '');
+            if (cleanPageName === 'index') cleanPageName = '';
+            
+            var route = '';
+            if (cleanPageName === 'projects') {
+                route = searchParams.get('p') || '';
+            }
+            
+            // Build the clean pathname
+            var cleanPath = '';
+            if (currentLang === 'en') {
+                cleanPath += '/en';
+            }
+            if (cleanPageName && cleanPageName !== 'index') {
+                cleanPath += '/' + cleanPageName;
+                if (route) {
+                    cleanPath += '/' + route;
+                }
+            }
+            if (!cleanPath) cleanPath = '/';
+            
+            // Reconstruct search (excluding p and lang)
+            searchParams.delete('p');
+            searchParams.delete('lang');
+            
+            var origQuery = '';
+            if (searchParams.has('q')) {
+                origQuery = '?' + decodeURIComponent(searchParams.get('q'));
+            } else {
+                var searchStr = searchParams.toString();
+                origQuery = searchStr ? '?' + searchStr : '';
+            }
+            
+            history.replaceState(null, '', cleanPath + origQuery + window.location.hash);
         }
     } else {
         currentLang = localStorage.getItem('lang') || 'hu';
