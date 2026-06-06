@@ -3,6 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>
+        if (window.location.protocol !== 'file:') {
+            let path = window.location.pathname;
+            let index = path.indexOf('/projects');
+            let baseDir = '/';
+            if (index !== -1) {
+                baseDir = path.substring(0, index + 1);
+            }
+            document.write('<base href="' + baseDir + '">');
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ABOVE Foundation Tevékenységek - Globális és helyi kezdeményezéseink">
     <title id="page-title-tag">Tevékenységek | ABOVE Foundation</title>
@@ -1635,72 +1646,175 @@
         const foreignProjectsBtn = document.getElementById('foreignProjectsBtn');
         const domesticProjectsBtn = document.getElementById('domesticProjectsBtn');
         const backToProjects = document.getElementById('backToProjects');
-
-        // Show foreign projects detail view
-        foreignProjectsBtn.addEventListener('click', () => {
-            projectsLanding.classList.add('hidden');
-            foreignProjectsView.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Show domestic projects detail view
         const domesticProjectsView = document.getElementById('domesticProjectsView');
-        domesticProjectsBtn.addEventListener('click', () => {
-            projectsLanding.classList.add('hidden');
-            domesticProjectsView.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
-        // Back to projects landing (domestic)
-        document.getElementById('backToProjectsDomestic').addEventListener('click', () => {
-            domesticProjectsView.classList.add('hidden');
-            projectsLanding.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Domestic project card modal
-        document.querySelectorAll('.domestic-project-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const projectKey = card.getAttribute('data-domestic-project');
-                let modalId = 'domesticProjectModalBeke';
-                if (projectKey === 'lepjki') {
-                    modalId = 'domesticProjectModalLepjKi';
-                }
-                if (projectKey === 'yce') {
-                    modalId = 'domesticProjectModalYce';
-                }
-                if (projectKey === 'digitalisfenntarthato') {
-                    modalId = 'domesticProjectModalDigitalisFenntarthato';
-                }
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-
-        // Close logic for domestic modals
-        document.querySelectorAll('.close-domestic-modal').forEach(btn => {
-            btn.addEventListener('click', () => {
-                btn.closest('.fixed').classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        // Close when clicking outside modal
+        // Domestic modals and keys
         const domesticModals = [
             document.getElementById('domesticProjectModalBeke'),
             document.getElementById('domesticProjectModalLepjKi'),
             document.getElementById('domesticProjectModalYce'),
             document.getElementById('domesticProjectModalDigitalisFenntarthato')
         ];
+        const domesticKeys = ['beke', 'lepjki', 'yce', 'digitalisfenntarthato'];
+
+        function getDomesticModalId(key) {
+            if (key === 'beke') return 'domesticProjectModalBeke';
+            if (key === 'lepjki') return 'domesticProjectModalLepjKi';
+            if (key === 'yce') return 'domesticProjectModalYce';
+            if (key === 'digitalisfenntarthato') return 'domesticProjectModalDigitalisFenntarthato';
+            return null;
+        }
+
+        // Close all modals helper
+        function closeAllModals() {
+            const projectModal = document.getElementById('projectModal');
+            if (projectModal) projectModal.classList.add('hidden');
+            currentOpenProject = null;
+            
+            domesticModals.forEach(modal => {
+                if (modal) modal.classList.add('hidden');
+            });
+            
+            document.body.style.overflow = 'auto';
+        }
+
+        function getBasePath() {
+            let path = window.location.pathname;
+            let isEn = path.startsWith('/en/') || path === '/en';
+            let prefix = isEn ? '/en' : '';
+            if (path.includes('projects.html')) {
+                return prefix + '/projects.html';
+            }
+            return prefix + '/projects';
+        }
+
+        function navigateTo(route) {
+            if (window.location.protocol === 'file:') {
+                window.location.hash = route;
+            } else {
+                const basePath = getBasePath();
+                const newUrl = route ? `${basePath}/${route}` : basePath;
+                if (window.location.pathname + window.location.hash !== newUrl) {
+                    history.pushState(null, '', newUrl);
+                    handleRoute();
+                }
+            }
+        }
+
+        // The unified router function
+        function handleRoute() {
+            let route = '';
+            if (window.location.protocol === 'file:') {
+                route = window.location.hash.replace('#', '');
+            } else {
+                let path = window.location.pathname;
+                if (path.startsWith('/en/')) {
+                    path = path.substring(3);
+                } else if (path === '/en') {
+                    path = '/';
+                }
+                path = path.replace(/^\/+|\/+$/g, ''); // strip leading/trailing slashes
+                path = path.replace(/\.html/g, '');    // strip .html
+                const segments = path.split('/');
+                // segments[0] is "projects", segments[1] is the subpage (e.g. "reunion")
+                route = segments[1] || '';
+            }
+            
+            // First, close all modals so we start from a clean state
+            closeAllModals();
+
+            if (!route) {
+                // Landing view
+                projectsLanding.classList.remove('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (route === 'international') {
+                // International projects list view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.remove('hidden');
+                domesticProjectsView.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (route === 'domestic') {
+                // Domestic projects list view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (projectData[route]) {
+                // International project modal view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.remove('hidden');
+                domesticProjectsView.classList.add('hidden');
+                
+                currentOpenProject = route;
+                renderProjectModal(route);
+            } else if (domesticKeys.includes(route)) {
+                // Domestic project modal view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.remove('hidden');
+                
+                const modalId = getDomesticModalId(route);
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            } else {
+                // fallback to landing
+                projectsLanding.classList.remove('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.add('hidden');
+            }
+        }
+
+        // Setup routing event listener
+        window.addEventListener('popstate', handleRoute);
+        window.addEventListener('hashchange', handleRoute);
+        
+        // Run on page load
+        window.addEventListener('DOMContentLoaded', handleRoute);
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            handleRoute();
+        }
+
+        // Show foreign projects detail view
+        foreignProjectsBtn.addEventListener('click', () => {
+            navigateTo('international');
+        });
+
+        // Show domestic projects detail view
+        domesticProjectsBtn.addEventListener('click', () => {
+            navigateTo('domestic');
+        });
+
+        // Back to projects landing (domestic)
+        document.getElementById('backToProjectsDomestic').addEventListener('click', () => {
+            navigateTo('');
+        });
+
+        // Domestic project card modal
+        document.querySelectorAll('.domestic-project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectKey = card.getAttribute('data-domestic-project');
+                navigateTo(projectKey);
+            });
+        });
+
+        // Close logic for domestic modals
+        document.querySelectorAll('.close-domestic-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                navigateTo('domestic');
+            });
+        });
+
+        // Close when clicking outside modal
         domesticModals.forEach(modal => {
             if (modal) {
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) {
-                        modal.classList.add('hidden');
-                        document.body.style.overflow = 'auto';
+                        navigateTo('domestic');
                     }
                 });
             }
@@ -1771,9 +1885,7 @@
 
         // Back to projects landing
         backToProjects.addEventListener('click', () => {
-            foreignProjectsView.classList.add('hidden');
-            projectsLanding.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo('');
         });
 
         // Project Modal Functionality
@@ -2149,33 +2261,20 @@
         // Open modal when project card is clicked
         projectCards.forEach(card => {
             card.addEventListener('click', () => {
-                currentOpenProject = card.getAttribute('data-project');
-                renderProjectModal(currentOpenProject);
+                const projectId = card.getAttribute('data-project');
+                navigateTo(projectId);
             });
         });
 
         // Close modal
         closeModal.addEventListener('click', () => {
-            projectModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-            currentOpenProject = null;
+            navigateTo('international');
         });
 
         // Close modal when clicking outside
         projectModal.addEventListener('click', (e) => {
             if (e.target === projectModal) {
-                projectModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-                currentOpenProject = null;
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
-                projectModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-                currentOpenProject = null;
+                navigateTo('international');
             }
         });
 
@@ -2225,11 +2324,14 @@
                 } else if (e.key === 'ArrowRight') {
                     showLightboxImage(currentGalleryIndex + 1);
                 }
-            } else if (!projectModal.classList.contains('hidden')) {
-                if (e.key === 'Escape') {
-                    projectModal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                    currentOpenProject = null;
+            } else if (e.key === 'Escape') {
+                if (!projectModal.classList.contains('hidden')) {
+                    navigateTo('international');
+                } else {
+                    const openDomestic = domesticModals.find(m => m && !m.classList.contains('hidden'));
+                    if (openDomestic) {
+                        navigateTo('domestic');
+                    }
                 }
             }
         });

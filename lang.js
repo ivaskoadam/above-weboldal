@@ -113,9 +113,43 @@
         originalPlaceholders.forEach(function (orig, input) { input.setAttribute('placeholder', orig); });
     }
 
+    function updateLinksLanguage(lang) {
+        if (window.location.protocol === 'file:') return;
+        document.querySelectorAll('a').forEach(function (link) {
+            var href = link.getAttribute('href');
+            if (!href) return;
+            
+            // Check if it's an internal link
+            // We only translate links like "/", "projects", "about", "contact", etc.
+            // and exclude external links (http), hashes (#), and mailto/tel.
+            var isInternal = !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:');
+            if (!isInternal) return;
+
+            // Normalize path: e.g. "projects" -> "/projects"
+            var path = href.startsWith('/') ? href : '/' + href;
+
+            if (lang === 'en') {
+                if (!path.startsWith('/en/') && path !== '/en') {
+                    var newHref = '/en' + (path === '/' ? '' : path);
+                    link.setAttribute('href', newHref);
+                }
+            } else {
+                if (path.startsWith('/en/')) {
+                    var newHref = path.substring(3);
+                    link.setAttribute('href', newHref || '/');
+                } else if (path === '/en') {
+                    link.setAttribute('href', '/');
+                }
+            }
+        });
+    }
+
     function applyLanguage(lang) {
         restoreHungarianTexts();
         if (lang === 'en') translateNode(document.body, translations);
+
+        // Update link targets to match active language prefix
+        updateLinksLanguage(lang);
 
         // Update <title>
         if (window.pageTitleEn && window.pageTitleHu) {
@@ -142,15 +176,60 @@
     }
 
     // ─── Init ─────────────────────────────────────────────────────────────────
-    var currentLang = localStorage.getItem('lang') || 'hu';
+    var currentLang = 'hu';
+    if (window.location.protocol !== 'file:') {
+        var pathname = window.location.pathname;
+        if (pathname.startsWith('/en/') || pathname === '/en') {
+            currentLang = 'en';
+            localStorage.setItem('lang', 'en');
+        } else {
+            currentLang = localStorage.getItem('lang') || 'hu';
+        }
+    } else {
+        currentLang = localStorage.getItem('lang') || 'hu';
+    }
+
     snapshotHungarianTexts();
     if (currentLang === 'en') applyLanguage('en');
+
+    // Handle browser back/forward history events for language prefixes
+    if (window.location.protocol !== 'file:') {
+        window.addEventListener('popstate', function () {
+            var pathname = window.location.pathname;
+            var newLang = (pathname.startsWith('/en/') || pathname === '/en') ? 'en' : 'hu';
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                localStorage.setItem('lang', currentLang);
+                applyLanguage(currentLang);
+            }
+        });
+    }
 
     var toggle = document.getElementById('lang-toggle');
     if (toggle) {
         toggle.addEventListener('click', function () {
             currentLang = currentLang === 'hu' ? 'en' : 'hu';
             localStorage.setItem('lang', currentLang);
+            
+            // Update URL dynamically if on http/https
+            if (window.location.protocol !== 'file:') {
+                let pathname = window.location.pathname;
+                let newPathname = pathname;
+                if (currentLang === 'en') {
+                    if (!pathname.startsWith('/en/') && pathname !== '/en') {
+                        newPathname = '/en' + (pathname === '/' ? '' : pathname);
+                    }
+                } else {
+                    if (pathname.startsWith('/en/')) {
+                        newPathname = pathname.substring(3);
+                    } else if (pathname === '/en') {
+                        newPathname = '/';
+                    }
+                }
+                if (newPathname !== pathname) {
+                    history.pushState(null, '', newPathname + window.location.search + window.location.hash);
+                }
+            }
             applyLanguage(currentLang);
         });
         // Keyboard accessibility (Enter / Space)

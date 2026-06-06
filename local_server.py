@@ -6,6 +6,19 @@ PORT = 8080
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        # Rewrite clean URL project sub-routes to projects.html
+        # Check if URL has an '/en' language prefix
+        if self.path.startswith('/en/') or self.path == '/en':
+            if self.path == '/en':
+                self.path = '/'
+            else:
+                self.path = self.path[3:] # strip '/en'
+
+        if self.path.startswith('/projects/') and '.' not in os.path.basename(self.path):
+            self.path = '/projects.html'
+        elif self.path.startswith('/projects.html/') and '.' not in os.path.basename(self.path):
+            self.path = '/projects.html'
+
         # If the requested path doesn't end in .html or a slash, 
         # and it's not a known file type (like .css, .js, .png, etc.),
         # try adding .html to see if it exists.
