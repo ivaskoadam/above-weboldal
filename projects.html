@@ -995,7 +995,7 @@
         <!-- Béke egy Békés bolygóért! -->
         <div id="domesticProjectModalBeke"
             class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden relative">
                 <button
                     class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
                     <i class="fas fa-times text-xl"></i>
@@ -1106,16 +1106,16 @@
                             </div>
                         </div>
                         <div class="border-t border-white/10 pt-4">
-                            <div class="flex items-center gap-6 mb-4 flex-wrap">
+                            <div class="flex items-center gap-4 sm:gap-6 mb-4 flex-wrap">
                                 <picture>
                                     <source srcset="assets/images/logo-hand.webp" type="image/webp">
                                     <img src="assets/images/logo-hand.png" alt="HAND Szövetség"
-                                        class="h-16 w-auto object-contain">
+                                        class="h-12 sm:h-16 w-auto object-contain">
                                 </picture>
                                 <picture>
                                     <source srcset="assets/images/logo-gearup.webp" type="image/webp">
                                     <img src="assets/images/logo-gearup.png" alt="Gear UP!"
-                                        class="h-16 w-auto object-contain">
+                                        class="h-12 sm:h-16 w-auto object-contain">
                                 </picture>
                             </div>
                             <p class="text-sm text-gray-500">Projektünk a HAND Szövetség által partnerségben
@@ -1131,17 +1131,17 @@
         <!-- Lépj ki, kapcsolódj be! -->
         <div id="domesticProjectModalLepjKi"
             class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden relative">
                 <button
                     class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
                     <i class="fas fa-times text-xl"></i>
                 </button>
-                <div class="p-8">
+                <div class="p-4 md:p-8">
                     <!-- Project Poster/Logo Banner -->
                     <div
                         class="rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-green-900/40 to-teal-900/40 flex items-center justify-center py-10">
                         <img src="assets/images/project-lepjki.png" alt="Lépj ki, kapcsolódj be!"
-                            class="h-56 w-auto object-contain drop-shadow-2xl">
+                            class="h-40 sm:h-56 max-w-[90%] object-contain drop-shadow-2xl">
                     </div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Hazai
@@ -1237,7 +1237,7 @@
         <!-- Youth Council Exchange -->
         <div id="domesticProjectModalYce"
             class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden relative">
                 <button
                     class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
                     <i class="fas fa-times text-xl"></i>
@@ -1336,7 +1336,7 @@
         <!-- Digitálisan tudatos és fenntartható jövő fiatal vezetői -->
         <div id="domesticProjectModalDigitalisFenntarthato"
             class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden relative">
                 <button
                     class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10 close-domestic-modal">
                     <i class="fas fa-times text-xl"></i>
@@ -1482,7 +1482,7 @@
         <!-- Project Modal -->
         <div id="projectModal"
             class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+            <div class="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto overflow-x-hidden relative">
                 <!-- Close Button -->
                 <button id="closeModal"
                     class="absolute top-4 right-4 w-10 h-10 glass rounded-full flex items-center justify-center text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 z-10">
@@ -1490,7 +1490,7 @@
                 </button>
 
                 <!-- Modal Content -->
-                <div class="p-8">
+                <div id="modalContent" class="p-4 md:p-8">
                     <!-- Project Image -->
                     <div class="rounded-2xl overflow-hidden mb-6">
                         <img id="modalImage" src="" alt="Project" class="w-full h-96 object-cover object-[center_25%]">
@@ -1503,7 +1503,7 @@
                     </div>
 
                     <!-- Project Name -->
-                    <h2 id="modalTitle" class="text-4xl font-montserrat font-bold mb-6" style="color:#1099B3;"></h2>
+                    <h2 id="modalTitle" class="text-3xl md:text-4xl font-montserrat font-bold mb-6" style="color:#1099B3;"></h2>
 
                     <!-- Project Description -->
                     <div class="space-y-4">
@@ -1522,11 +1522,11 @@
 
                     <!-- EU / Erasmus+ Footnote -->
                     <div class="mt-10 pt-5 border-t border-white/10">
-                        <div class="flex flex-row items-center gap-8 mb-4">
+                        <div class="flex flex-wrap items-center gap-4 sm:gap-8 mb-4">
                             <img src="assets/images/logo-eu-cofunded.webp" alt="Az Európai Unió társfinanszírozásával"
-                                class="h-16 w-auto object-contain">
+                                class="h-12 sm:h-16 w-auto object-contain">
                             <img src="assets/images/logo-erasmus-plus.webp" alt="Erasmus+"
-                                class="h-16 w-auto object-contain">
+                                class="h-12 sm:h-16 w-auto object-contain">
                         </div>
                         <p class="text-xs text-gray-500 leading-relaxed">
                             Jelen oldal az Európai Unió társfinanszírozásával valósult meg. A kifejtett nézetek és
@@ -1834,22 +1834,31 @@
 
             if (!route) {
                 // Landing view
+                const wasHidden = projectsLanding.classList.contains('hidden');
                 projectsLanding.classList.remove('hidden');
                 foreignProjectsView.classList.add('hidden');
                 domesticProjectsView.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (wasHidden) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             } else if (route === 'international') {
                 // International projects list view
+                const wasHidden = foreignProjectsView.classList.contains('hidden');
                 projectsLanding.classList.add('hidden');
                 foreignProjectsView.classList.remove('hidden');
                 domesticProjectsView.classList.add('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (wasHidden) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             } else if (route === 'domestic') {
                 // Domestic projects list view
+                const wasHidden = domesticProjectsView.classList.contains('hidden');
                 projectsLanding.classList.add('hidden');
                 foreignProjectsView.classList.add('hidden');
                 domesticProjectsView.classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (wasHidden) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             } else if (projectData[route]) {
                 // International project modal view
                 projectsLanding.classList.add('hidden');
