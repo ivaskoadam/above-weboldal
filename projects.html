@@ -934,15 +934,11 @@
                     <!-- Lépj ki, kapcsolódj be! -->
                     <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer domestic-project-card"
                         data-domestic-project="lepjki">
-                        <div class="relative h-80 bg-gradient-to-br from-green-900/40 to-teal-900/40">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <picture>
-                                    <img src="assets/images/project-lepjki.png" alt="Lépj ki, kapcsolódj be!"
-                                        class="h-44 w-auto object-contain opacity-100 transition-transform duration-500 group-hover:scale-105">
-                                </picture>
-                            </div>
+                        <div class="relative h-80">
+                            <img src="assets/images/lepjki.jpg" alt="Lépj ki, kapcsolódj be!"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
                             <div
-                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/5 transition duration-300">
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
                             </div>
                             <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
                                 <h3 class="text-2xl font-montserrat font-bold text-white mb-2">Lépj ki, kapcsolódj be!
@@ -1137,11 +1133,10 @@
                     <i class="fas fa-times text-xl"></i>
                 </button>
                 <div class="p-4 md:p-8">
-                    <!-- Project Poster/Logo Banner -->
-                    <div
-                        class="rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-green-900/40 to-teal-900/40 flex items-center justify-center py-10">
-                        <img src="assets/images/project-lepjki.png" alt="Lépj ki, kapcsolódj be!"
-                            class="h-40 sm:h-56 max-w-[90%] object-contain drop-shadow-2xl">
+                    <!-- Cover Image -->
+                    <div class="rounded-2xl overflow-hidden mb-6">
+                        <img src="assets/images/lepjki.jpg" alt="Lépj ki, kapcsolódj be!"
+                            class="w-full h-72 object-cover object-center">
                     </div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Hazai
@@ -1224,6 +1219,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Guide Download & Preview Section -->
+                        <div class="mt-8 border-t border-white/10 pt-6">
+                            <h3 class="text-xl font-montserrat font-bold mb-4" style="color: #1099b3;">Projekt Útmutató (Guide)</h3>
+                            <div class="glass-strong p-6 rounded-2xl border border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan text-2xl flex-shrink-0">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h4 class="font-bold mb-1">Lépj ki, kapcsolódj be! — Útmutató</h4>
+                                        <p class="text-xs text-gray-400">Erasmus+ KA154 Guide · PDF · 33.3 MB</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-3 w-full md:w-auto justify-end">
+                                    <!-- View Button -->
+                                    <a href="assets/Lépj ki, kapcsolódj be - Erasmus+ KA154 Guide.pdf" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal hover:shadow-[0_0_15px_rgba(0,188,212,0.5)] transition duration-300 font-bold text-sm flex items-center gap-2">
+                                        <i class="fas fa-eye"></i>
+                                        <span>Megtekintés</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="border-t border-white/10 pt-4">
                             <p class="text-xs text-gray-500 text-center">Jelen oldal az Európai Unió
                                 társfinanszírozásával valósult meg (2025-1-HU01-KA154-YOU-000301535). Tartalma az ABOVE
@@ -1937,6 +1956,8 @@
                 });
             }
         });
+
+
 
         // YCE modal – gallery lightbox (same mechanism as foreign project modals)
         (function () {
@@ -2673,6 +2694,12 @@
             'Social media, interaktív tartalmak, országos láthatóság és záró értékelés a fiatalokkal.': 'Social media, interactive content, nationwide visibility and closing evaluation with young people.',
             // footer note of Lépj ki modal
             'Jelen oldal az Európai Unió társfinanszírozásával valósult meg (2025-1-HU01-KA154-YOU-000301535). Tartalma az ABOVE Alapítvány kizárólagos felelősségét képezi.': 'This page was produced with the co-funding of the European Union (2025-1-HU01-KA154-YOU-000301535). Its content is the sole responsibility of the ABOVE Foundation.',
+
+            // Guide PDF preview & download
+            'Projekt Útmutató (Guide)': 'Project Guide',
+            'Lépj ki, kapcsolódj be! — Útmutató': 'Step Out, Connect! — Guide',
+            'Erasmus+ KA154 Guide · PDF · 33.3 MB': 'Erasmus+ KA154 Guide · PDF · 33.3 MB',
+            'Megtekintés': 'View',
 
             // ── Youth Council Exchange modal ─────────────────────────────────────
             'Hazai ifjúsági projekt · 2026': 'Domestic youth project · 2026',
