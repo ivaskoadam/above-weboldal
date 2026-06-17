@@ -837,3 +837,16 @@ body.light-mode #reliability-icon {
     z-index: 9998 !important;
     background: rgba(0, 0, 0, 0.7) !important;
 }
+
+/* ── Future Projects card — fix light-mode text colour ──────────────────────
+   The general rule  body.light-mode section h3 { color:#000 !important }
+   overwrites earlier overrides because it appears later in the file.
+   Using the ID selector (#futureProjectsBtn) gives higher specificity
+   (0,1,1,2) vs the section rule (0,0,1,3), so this wins unconditionally. */
+body.light-mode #futureProjectsBtn h3,
+body.light-mode #futureProjectsBtn p,
+body.light-mode #futureProjectsBtn span,
+body.light-mode #futureProjectsBtn i {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
