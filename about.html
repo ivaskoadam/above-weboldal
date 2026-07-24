@@ -5,10 +5,10 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z253S3MPDE"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z253S3MPDE');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Z253S3MPDE');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -340,6 +340,24 @@
             background-clip: text !important;
         }
 
+        .acrostic-letter {
+            display: inline-block;
+            padding-right: 0.08em;
+            margin-right: -0.08em;
+            padding-bottom: 0.15em;
+            background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        body.light-mode .acrostic-letter {
+            background: #1099b3 !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
         body.light-mode #values,
         body.light-mode section.py-16 {
             background-color: #ffffff !important;
@@ -387,8 +405,8 @@
                             (function () {
                                 document.currentScript.previousElementSibling.className =
                                     document.body.classList.contains('light-mode') ||
-                                    document.documentElement.classList.contains('light-mode')
-                                    ? 'fas fa-moon' : 'fas fa-sun';
+                                        document.documentElement.classList.contains('light-mode')
+                                        ? 'fas fa-moon' : 'fas fa-sun';
                             })();
                         </script>
                     </button>
@@ -442,8 +460,7 @@
                 </div>
                 <span>Tevékenységek</span>
             </a>
-            <a href="about"
-                class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
+            <a href="about" class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
                 <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center">
                     <i class="fas fa-info-circle"></i>
                 </div>
@@ -459,7 +476,8 @@
         </div>
 
         <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
-            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
         </div>
     </div>
 
@@ -505,12 +523,15 @@
                     <div class="fade-in">
                         <div class="badge">Küldetésünk</div>
                         <h1
-                            class="text-5xl md:text-7xl font-montserrat font-bold leading-tight mb-6 text-white light:text-black">
-                            Építsük a <span class="gradient-text">jövőt</span>, közösen.
+                            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold leading-tight mb-6 text-white light:text-black">
+                            <span class="acrostic-letter">A</span>lliance for<br>
+                            <span class="acrostic-letter">B</span>uilding an<br>
+                            <span class="acrostic-letter">O</span>pen-minded and<br>
+                            <span class="acrostic-letter">V</span>ersatile<br>
+                            <span class="acrostic-letter">E</span>urope
                         </h1>
                         <p class="text-xl text-gray-300 mb-4 md:mb-8 max-w-xl leading-relaxed">
-                            Az ABOVE célja, hogy új generációs európai vezetőket neveljen az ifjúsági részvétel és a
-                            vállalkozói gondolkodásmód erősítésével.
+                            Támogatott Erasmus+ projektek fiataloknak. Utazz külföldre, láss világot és szerezz nemzetközi tapasztalatot.
                         </p>
                         <a href="#vision" class="btn-primary hidden md:inline-block">Tudj meg többet</a>
                     </div>
@@ -772,7 +793,7 @@
         // Smooth Page Transition Logic
         (function () {
             const content = document.getElementById('app-content');
-            
+
             setTimeout(() => {
                 if (content) content.classList.add('loaded');
             }, 50);
@@ -799,10 +820,7 @@
             'Közösségi média': 'Socials',
             // Hero
             'Küldetésünk': 'Our Mission',
-            'Építsük a': "Let's build the",
-            'jövőt': 'future',
-            ', közösen.': ', together.',
-            'Az ABOVE célja, hogy új generációs európai vezetőket neveljen az ifjúsági részvétel és a vállalkozói gondolkodásmód erősítésével.': 'ABOVE exists to develop a new generation of European changemakers through youth participation and entrepreneurial thinking.',
+            'Támogatott Erasmus+ projektek fiataloknak. Utazz külföldre, láss világot és szerezz nemzetközi tapasztalatot.': 'Supported Erasmus+ projects for young people. Travel abroad, see the world and gain international experience.',
             'Tudj meg többet': 'Learn more',
             // Stats
             'Ország': 'Countries',
