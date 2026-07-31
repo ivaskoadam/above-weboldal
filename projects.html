@@ -500,8 +500,37 @@
                 <!-- Foreign Projects Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="anotherbrick">
+                        <div class="relative h-80">
+                            <img src="assets/images/another_brick_1.jpg" alt="Another Brick"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2 line-clamp-2">Another
+                                    Brick</h3>
+                                <p class="text-gray-300 text-sm">Franciaország, Bédeille · 2026</p>
+                            </div>
+                        </div>
+                    </div>
 
-
+                    <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
+                        data-project="activatedemocracy">
+                        <div class="relative h-80">
+                            <img src="assets/images/activate_democracy_1.jpg" alt="Act!vate Democracy"
+                                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 project-card-overlay group-hover:bg-neon-cyan/10 transition duration-300">
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+                                <h3 class="text-2xl font-montserrat font-bold text-white mb-2 line-clamp-2">Act!vate
+                                    Democracy</h3>
+                                <p class="text-gray-300 text-sm">Ciprus, Larnaka · 2026</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer project-card"
                         data-project="pba">
@@ -1403,7 +1432,7 @@
                                 egyben a félév lezáró eseménye is volt.🎉 Az este során az elnök és a szekcióvezetők
                                 beszámoltak az elmúlt időszak eredményeiről...</p>
                             <button class="event-details-btn"
-                                onclick="document.getElementById('eventModalSzulinap').classList.remove('hidden'); document.body.style.overflow='hidden';">bővebben...</button>
+                                onclick="navigateTo('events/szulinap');">bővebben...</button>
                         </div>
                     </div>
 
@@ -1435,7 +1464,7 @@
                                 hallhattak városfejlesztésről, felelősségvállalásról és a fiatalok szerepéről a
                                 közéletben, rengeteg inspiráló gondolattal.</p>
                             <button class="event-details-btn"
-                                onclick="document.getElementById('eventModalVitezy').classList.remove('hidden'); document.body.style.overflow='hidden';">bővebben...</button>
+                                onclick="navigateTo('events/vitezy');">bővebben...</button>
                         </div>
                     </div>
 
@@ -1447,8 +1476,7 @@
     <!-- Event Modal: Beszélgetés Vitézy Dáviddal -->
     <div id="eventModalVitezy" class="event-modal-overlay hidden">
         <div class="event-modal-content">
-            <button class="event-modal-close"
-                onclick="document.getElementById('eventModalVitezy').classList.add('hidden'); document.body.style.overflow='auto';">
+            <button class="event-modal-close" onclick="navigateTo('events');">
                 <i class="fas fa-times"></i>
             </button>
             <div class="p-4 md:p-8">
@@ -1457,9 +1485,17 @@
                     <img src="assets/images/events/vitezy_1.jpg" alt="Beszélgetés Vitézy Dáviddal"
                         class="w-full h-72 object-cover object-center">
                 </div>
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Esemény</span>
-                    <p class="text-gray-400 text-sm">2026. Május 21.</p>
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Esemény</span>
+                        <p class="text-gray-400 text-sm">2026. Május 21.</p>
+                    </div>
+                    <button onclick="copyEventLink('events/vitezy', this)"
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass hover:bg-neon-cyan/20 text-neon-cyan font-bold text-xs transition duration-300">
+                        <i class="fas fa-link"></i>
+                        <span>Link másolása</span>
+                    </button>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-montserrat font-bold gradient-text mb-6">Beszélgetés Vitézy
                     Dáviddal</h2>
@@ -1562,8 +1598,7 @@
     <!-- Event Modal: ABOVE 3. Szülinap -->
     <div id="eventModalSzulinap" class="event-modal-overlay hidden">
         <div class="event-modal-content">
-            <button class="event-modal-close"
-                onclick="document.getElementById('eventModalSzulinap').classList.add('hidden'); document.body.style.overflow='auto';">
+            <button class="event-modal-close" onclick="navigateTo('events');">
                 <i class="fas fa-times"></i>
             </button>
             <div class="p-4 md:p-8">
@@ -1572,9 +1607,17 @@
                     <img src="assets/images/events/szulinap_1.jpg" alt="ABOVE 3. Szülinap"
                         class="w-full h-72 object-cover object-center">
                 </div>
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Esemény</span>
-                    <p class="text-gray-400 text-sm">2026. Június 12.</p>
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Esemény</span>
+                        <p class="text-gray-400 text-sm">2026. Június 12.</p>
+                    </div>
+                    <button onclick="copyEventLink('events/szulinap', this)"
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass hover:bg-neon-cyan/20 text-neon-cyan font-bold text-xs transition duration-300">
+                        <i class="fas fa-link"></i>
+                        <span>Link másolása</span>
+                    </button>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-montserrat font-bold gradient-text mb-6">ABOVE 3. Szülinap</h2>
                 <div class="space-y-6 text-gray-300 leading-relaxed">
@@ -1826,13 +1869,104 @@
                             Gimnáziumban, a fehérvári Vasvári Pál Gimnáziumban, a budapesti Német Nemzetiségi
                             Gimnázium 12.b osztályánál, a Móricz Zsigmond Gimnáziumban és a veszprémi Lovassy László
                             Gimnáziumban.</p>
-                        <p class="mt-3">Elstartolt podcastunk is – első epizódunkban Dr. Gondola Csaba körforgásos
-                            gazdaságért és klímapolitikáért felelős államtitkárral beszélgettünk az EU és
-                            Magyarország szerepéről a klímapolitikában.</p>
-                        <a href="https://www.youtube.com/watch?v=gxGX1PObYec" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 mt-3 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-sm">
-                            <i class="fab fa-youtube"></i> Epizód 01 meghallgatása
-                        </a>
+
+                        <!-- Podcast Epizódok Section -->
+                        <div class="mt-6 mb-4 flex items-center gap-3 border-b border-neon-cyan/30 pb-2">
+                            <i class="fas fa-podcast text-2xl text-neon-cyan animate-pulse"></i>
+                            <h4 class="text-xl font-montserrat font-bold text-neon-cyan">Podcast Epizódok</h4>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Epizód 01 -->
+                            <div
+                                class="p-4 md:p-5 rounded-2xl border border-neon-cyan/30 bg-white/5 backdrop-blur-md hover:border-neon-cyan/60 transition duration-300 shadow-md">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span
+                                        class="px-2.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                        <i class="fab fa-youtube text-red-500 text-sm"></i> Epizód 01
+                                    </span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed mb-3">Elstartolt podcastunk is – első
+                                    epizódunkban Dr. Gondola Csaba körforgásos gazdaságért és klímapolitikáért felelős
+                                    államtitkárral beszélgettünk az EU és Magyarország szerepéről a klímapolitikában.
+                                </p>
+                                <a href="https://www.youtube.com/watch?v=gxGX1PObYec" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-xs md:text-sm">
+                                    <i class="fab fa-youtube text-base"></i> Epizód 01 meghallgatása
+                                </a>
+                            </div>
+
+                            <!-- Epizód 02 -->
+                            <div
+                                class="p-4 md:p-5 rounded-2xl border border-neon-cyan/30 bg-white/5 backdrop-blur-md hover:border-neon-cyan/60 transition duration-300 shadow-md">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span
+                                        class="px-2.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                        <i class="fab fa-youtube text-red-500 text-sm"></i> Epizód 02
+                                    </span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed mb-3">Beszélgetésünk középpontjában az
+                                    ENSZ által Fenntartható Fejlődési Célok (SDGs) állnak, amelyek célja egy
+                                    igazságosabb, élhetőbb és fenntarthatóbb világ megteremtése 2030-ig. Szó van
+                                    klímavédelemről, minőségi oktatásról, nemek közötti egyenlőségről, tiszta energiáról
+                                    és arról is, hogy mindebben milyen valódi szerepe lehet a fiatal generációnak.</p>
+                                <a href="https://www.youtube.com/watch?v=wDbIZYNxhO8" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-xs md:text-sm">
+                                    <i class="fab fa-youtube text-base"></i> Epizód 02 meghallgatása
+                                </a>
+                            </div>
+
+                            <!-- Epizód 03 -->
+                            <div
+                                class="p-4 md:p-5 rounded-2xl border border-neon-cyan/30 bg-white/5 backdrop-blur-md hover:border-neon-cyan/60 transition duration-300 shadow-md">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span
+                                        class="px-2.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                        <i class="fab fa-youtube text-red-500 text-sm"></i> Epizód 03
+                                    </span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed mb-3">A podcast sorozat 3. epizódjában
+                                    arról beszélgettünk, hogyan kapcsolódhatnak össze a fiatalok és a döntéshozók a zöld
+                                    átállásban, és milyen felelőssége van ebben a vállalatoknak. Vendégeink Peszlen
+                                    Bálint és Takács Egon (A Greenwash Solutions Kft. társalapítói), valamint Horváth
+                                    Adél és Süveges Kata voltak, akikkel szó esett a céges döntések környezeti
+                                    hatásáról, a fiatalok bevonásáról és a fenntartható fejlődési célok szerepéről is.
+                                    Az adást Pálfy Gergő moderálta.</p>
+                                <a href="https://www.youtube.com/watch?v=gTwak8sOmPE" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-xs md:text-sm">
+                                    <i class="fab fa-youtube text-base"></i> Epizód 03 meghallgatása
+                                </a>
+                            </div>
+
+                            <!-- Epizód 04 -->
+                            <div
+                                class="p-4 md:p-5 rounded-2xl border border-neon-cyan/30 bg-white/5 backdrop-blur-md hover:border-neon-cyan/60 transition duration-300 shadow-md">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span
+                                        class="px-2.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                                        <i class="fab fa-youtube text-red-500 text-sm"></i> Epizód 04
+                                    </span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed mb-3">Podcastünk következő része
+                                    bemutatja, hogy az egyetemek milyen szerepet játszhatnak a fenntarthatóbb jövő
+                                    megteremtésében. A beszélgetés során Ásványi Katalin a Budapesti Corvinus Egyetem
+                                    Fenntarthatóságért Felelős Dékánja és Csordás Tamara a Budapesti Corvinus Egyetem
+                                    phd hallgatója osztják meg gondolataikat arról, hogyan építhetők be a
+                                    fenntarthatósági szempontok az oktatásba, a kutatásba és az egyetemi működés
+                                    mindennapjaiba. Szó esik az intézmények felelősségéről, a hallgatók
+                                    szemléletformálásáról, valamint azokról az innovatív megoldásokról, amelyekkel az
+                                    egyetemek aktívan hozzájárulhatnak a társadalmi és környezeti kihívások kezeléséhez.
+                                </p>
+                                <a href="https://www.youtube.com/watch?v=vmPasmqinc4" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-dark-teal transition duration-300 font-semibold text-xs md:text-sm">
+                                    <i class="fab fa-youtube text-base"></i> Epizód 04 meghallgatása
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <!-- Photo Gallery -->
                     <div>
@@ -2878,17 +3012,27 @@
             if (window.location.protocol === 'file:') {
                 route = window.location.hash.replace('#', '');
             } else {
-                let path = window.location.pathname;
-                if (path.startsWith('/en/')) {
-                    path = path.substring(3);
-                } else if (path === '/en') {
-                    path = '/';
+                const searchParams = new URLSearchParams(window.location.search);
+                const pParam = searchParams.get('p');
+
+                if (pParam) {
+                    route = decodeURIComponent(pParam);
+                    const basePath = getBasePath();
+                    const cleanUrl = route ? `${basePath}/${route}` : basePath;
+                    history.replaceState(null, '', cleanUrl);
+                } else {
+                    let path = window.location.pathname;
+                    if (path.startsWith('/en/')) {
+                        path = path.substring(3);
+                    } else if (path === '/en') {
+                        path = '/';
+                    }
+                    path = path.replace(/^\/+|\/+$/g, ''); // strip leading/trailing slashes
+                    path = path.replace(/\.html/g, '');    // strip .html
+                    const segments = path.split('/');
+                    // segments[0] is "projects", segments.slice(1).join('/') is the subpage (e.g. "events/vitezy" or "beke")
+                    route = segments.slice(1).join('/');
                 }
-                path = path.replace(/^\/+|\/+$/g, ''); // strip leading/trailing slashes
-                path = path.replace(/\.html/g, '');    // strip .html
-                const segments = path.split('/');
-                // segments[0] is "projects", segments[1] is the subpage (e.g. "reunion")
-                route = segments[1] || '';
             }
 
             // First, close all modals so we start from a clean state
@@ -2933,6 +3077,30 @@
                 eventsView.classList.remove('hidden');
                 if (wasHidden) {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else if (route === 'events/vitezy' || route === 'vitezy') {
+                // Beszélgetés Vitézy Dáviddal event modal view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.add('hidden');
+                eventsView.classList.remove('hidden');
+
+                const modal = document.getElementById('eventModalVitezy');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            } else if (route === 'events/szulinap' || route === 'szulinap') {
+                // ABOVE 3. Szülinap event modal view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.add('hidden');
+                eventsView.classList.remove('hidden');
+
+                const modal = document.getElementById('eventModalSzulinap');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
                 }
             } else if (projectData[route]) {
                 // Project modal view
@@ -3175,6 +3343,38 @@
 
         // Project data
         const projectData = {
+            "anotherbrick": {
+                image: "assets/images/another_brick_1.jpg",
+                objectPosition: "center center",
+                location: "Franciaország, Bédeille",
+                title: "Another Brick",
+                shortDescription: "A Solafrika (Solaf) által szervezett képzés során résztvevőink fejlesztették hatékony kommunikációs, csoportvezetési és konfliktuskezelési készségeiket a franciaországi Bédeille-ben.",
+                description: "🤝 A Solafrika (Solaf) által szervezett képzés során résztvevőink:\n\n✅ Fejlesztették hatékony kommunikációs és csoportvezetési készségeiket.\n✅ Gyakorlati módszereket sajátítottak el a csapatmunkához és a konfliktuskezeléshez.\n✅ Megismerkedtek a nem formális oktatás új eszközeivel és módszereivel.\n✅ Tapasztalatokat cseréltek a nemzetközi résztvevőkkel, és új partnerségeket alakítottak ki.",
+                gallery: [
+                    "assets/images/another_brick_1.jpg",
+                    "assets/images/another_brick_2.jpg",
+                    "assets/images/another_brick_3.jpg",
+                    "assets/images/another_brick_4.jpg",
+                    "assets/images/another_brick_5.jpg",
+                    "assets/images/another_brick_6.jpg"
+                ]
+            },
+            "activatedemocracy": {
+                image: "assets/images/activate_democracy_1.jpg",
+                objectPosition: "center center",
+                location: "Ciprus, Larnaka",
+                title: "Act!vate Democracy",
+                shortDescription: "Július 10–19. között csapatunknak lehetősége nyílt részt venni az Act!vate Democracy ifjúsági cserén Larnakában, Cipruson.",
+                description: "Július 10–19. között csapatunknak lehetősége nyílt részt venni az Act!vate Democracy ifjúsági cserén Larnakában, Cipruson.\n\nA program során hét másik ország fiataljaival együtt fedeztük fel a demokratikus részvétel jelentőségét, megismertük a demokrácia működését, és azt, hogyan válhatnak a fiatalok közösségeik aktív alakítóivá. 🤝🌍\n\nInteraktív workshopokon, vitákon és országbemutatókon keresztül fejlesztettük vezetői, előadói, kommunikációhoz és csapatmunkához kapcsolódó készségeinket, miközben megosztottuk egymással, milyen lehetőségei vannak a fiatalok társadalmi szerepvállalásának saját országainkban. 💡👥\n\nA szakmai fejlődés mellett életre szóló barátságokat is kötöttünk Örményország, Csehország, Spanyolország, Moldova, Ciprus és Románia résztvevőivel. 💙\n\nEz a csereprogram nemcsak új tudással és inspirációval gazdagított bennünket, hanem ismét megmutatta, hogy a nemzetközi együttműködés, a nyitottság és az aktív részvétel valódi változásokat indíthat el – egyénenként és közösségként is. 🚀🌱",
+                gallery: [
+                    "assets/images/activate_democracy_1.jpg",
+                    "assets/images/activate_democracy_2.jpg",
+                    "assets/images/activate_democracy_3.jpg",
+                    "assets/images/activate_democracy_4.jpg",
+                    "assets/images/activate_democracy_5.jpg",
+                    "assets/images/activate_democracy_6.jpg"
+                ]
+            },
             "pba": {
                 image: "assets/images/PBA_1.jpg",
                 objectPosition: "center center",
@@ -4148,8 +4348,7 @@
                 if (modal) {
                     modal.addEventListener('click', function (e) {
                         if (e.target === modal) {
-                            modal.classList.add('hidden');
-                            document.body.style.overflow = 'auto';
+                            navigateTo('events');
                         }
                     });
                 }
@@ -4184,12 +4383,49 @@
                 ['eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
                     var modal = document.getElementById(id);
                     if (modal && !modal.classList.contains('hidden')) {
-                        modal.classList.add('hidden');
-                        document.body.style.overflow = 'auto';
+                        navigateTo('events');
                     }
                 });
             }
         });
+
+        // ── Copy Event Link Helper ──────────────────────────────────────────────
+        function copyEventLink(route, btn) {
+            const url = 'https://abovefoundation.eu/projects/' + route;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () {
+                    showCopyFeedback(btn);
+                }).catch(function () {
+                    fallbackCopyTextToClipboard(url, btn);
+                });
+            } else {
+                fallbackCopyTextToClipboard(url, btn);
+            }
+        }
+
+        function showCopyFeedback(btn) {
+            const origHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> <span>Másolva!</span>';
+            setTimeout(function () {
+                btn.innerHTML = origHTML;
+            }, 2000);
+        }
+
+        function fallbackCopyTextToClipboard(text, btn) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyFeedback(btn);
+            } catch (err) {
+                console.error('Fallback copy failed', err);
+            }
+            document.body.removeChild(textArea);
+        }
     </script>
 
     <!-- Instagram Embed Script -->
@@ -4355,6 +4591,13 @@
             'Főbb aktivitások\n                             ': 'Key Activities\n                             ',
             'Haladás': 'Progress',
             'Epizód 01 meghallgatása': 'Listen to Episode 01',
+            'Epizód 02 meghallgatása': 'Listen to Episode 02',
+            'Epizód 03 meghallgatása': 'Listen to Episode 03',
+            'Epizód 04 meghallgatása': 'Listen to Episode 04',
+            'Podcast Epizódok': 'Podcast Episodes',
+            'Beszélgetésünk középpontjában az ENSZ által Fenntartható Fejlődési Célok (SDGs) állnak, amelyek célja egy igazságosabb, élhetőbb és fenntarthatóbb világ megteremtése 2030-ig. Szó van klímavédelemről, minőségi oktatásról, nemek közötti egyenlőségről, tiszta energiáról és arról is, hogy mindebben milyen valódi szerepe lehet a fiatal generációnak.': 'The focus of our conversation is the UN Sustainable Development Goals (SDGs), which aim to create a fairer, more liveable and sustainable world by 2030. We discuss climate action, quality education, gender equality, clean energy and the real role the younger generation can play in all of this.',
+            'A podcast sorozat 3. epizódjában arról beszélgettünk, hogyan kapcsolódhatnak össze a fiatalok és a döntéshozók a zöld átállásban, és milyen felelőssége van ebben a vállalatoknak. Vendégeink Peszlen Bálint és Takács Egon (A Greenwash Solutions Kft. társalapítói), valamint Horváth Adél és Süveges Kata voltak, akikkel szó esett a céges döntések környezeti hatásáról, a fiatalok bevonásáról és a fenntartható fejlődési célok szerepéről is. Az adást Pálfy Gergő moderálta.': 'In the 3rd episode of our podcast series, we discussed how youth and decision-makers can connect in the green transition, and what responsibilities corporations have in this process. Our guests were Bálint Peszlen and Egon Takács (co-founders of Greenwash Solutions Kft.), as well as Adél Horváth and Kata Süveges, discussing corporate environmental impacts, youth involvement, and the role of sustainable development goals. The broadcast was moderated by Gergő Pálfy.',
+            'Podcastünk következő része bemutatja, hogy az egyetemek milyen szerepet játszhatnak a fenntarthatóbb jövő megteremtésében. A beszélgetés során Ásványi Katalin a Budapesti Corvinus Egyetem Fenntarthatóságért Felelős Dékánja  és Csordás Tamara a Budapesti Corvinus Egyetem phd hallgatója osztják meg gondolataikat arról, hogyan építhetők be a fenntarthatósági szempontok az oktatásba, a kutatásba és az egyetemi működés mindennapjaiba. Szó esik az intézmények felelősségéről, a hallgatók szemléletformálásáról, valamint azokról az innovatív megoldásokról, amelyekkel az egyetemek aktívan hozzájárulhatnak a társadalmi és környezeti kihívások kezeléséhez.': 'The next episode of our podcast demonstrates the role universities play in creating a more sustainable future. During the discussion, Katalin Ásványi, Dean responsible for Sustainability at Corvinus University of Budapest, and Tamara Csordás, PhD candidate at Corvinus University of Budapest, share their thoughts on integrating sustainability aspects into education, research, and daily university operations. They discuss institutional responsibility, shaping student mindsets, and innovative solutions through which universities can actively contribute to addressing social and environmental challenges.',
             // Lepj ki modal section headings
             'Röviden a lényeg\n                             ': 'In brief\n                             ',
             'Kiket várunk?\n                             ': 'Who can join?\n                             ',
@@ -4471,6 +4714,18 @@
 
         // ── English project data (used by renderProjectModal when lang==='en') ──
         window.projectDataEn = {
+            "anotherbrick": {
+                location: "France, Bédeille",
+                title: "Another Brick",
+                shortDescription: "During the training course organized by Solafrika (Solaf) in Bédeille, France, our participants developed their communication, group leadership, and conflict management skills.",
+                description: "🤝 During the training course organized by Solafrika (Solaf), our participants:\n\n✅ Developed their effective communication and group leadership skills.\n✅ Acquired practical methods for teamwork and conflict management.\n✅ Explored new tools and methods of non-formal education.\n✅ Exchanged experiences with international participants and established new partnerships."
+            },
+            "activatedemocracy": {
+                location: "Cyprus, Larnaca",
+                title: "Act!vate Democracy",
+                shortDescription: "Between 10 and 19 July, our team had the opportunity to participate in the Act!vate Democracy youth exchange in Larnaca, Cyprus.",
+                description: "Between 10 and 19 July, our team had the opportunity to participate in the Act!vate Democracy youth exchange in Larnaca, Cyprus.\n\nDuring the program, together with young people from seven other countries, we explored the importance of democratic participation, learned how democracy works, and discovered how youth can become active shapers of their communities. 🤝🌍\n\nThrough interactive workshops, debates, and country presentations, we developed our leadership, public speaking, communication, and teamwork skills, while sharing with each other the opportunities for youth civic engagement in our respective countries. 💡👥\n\nIn addition to professional growth, we formed lifelong friendships with participants from Armenia, Czechia, Spain, Moldova, Cyprus, and Romania. 💙\n\nThis exchange program not only enriched us with new knowledge and inspiration, but once again demonstrated that international cooperation, openness, and active participation can spark real change – both individually and as a community. 🚀🌱"
+            },
             "pba": {
                 location: "Norway, Utøya",
                 title: "Partnership Building Activity with Young People",

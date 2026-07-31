@@ -24,7 +24,7 @@
 
             var segments = cleanPath.split('/');
             var page = segments[0] || 'index';
-            var subPage = segments[1] || '';
+            var subPage = segments.slice(1).join('/');
 
             // Map page names to their actual files on disk
             var validPages = ['projects', 'about', 'contact', 'future-projects', 'nyari_tabor', 'nyari_tabor_jelentkezes'];

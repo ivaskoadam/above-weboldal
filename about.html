@@ -545,29 +545,81 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section id="stats-section" class="py-12 md:py-16 px-6 bg-dark-teal/50">
-
+        <!-- Stats Section (Bento Grid) -->
+        <section id="bento-stats-section" class="py-12 md:py-16 px-6">
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="stat-card p-4 md:p-8 fade-in">
-                        <div class="stat-number text-2xl md:text-4xl">15+</div>
-                        <div class="stat-label text-xs md:text-sm">Ország</div>
-                    </div>
-                    <div class="stat-card p-4 md:p-8 fade-in">
-                        <div class="stat-number text-2xl md:text-4xl">50+</div>
-                        <div class="stat-label text-xs md:text-sm">Projekt</div>
-                    </div>
-                    <div class="stat-card p-4 md:p-8 fade-in">
-                        <div class="stat-number text-2xl md:text-4xl">200+</div>
-                        <div class="stat-label text-xs md:text-sm">Résztvevő</div>
-                    </div>
-                    <div class="stat-card p-4 md:p-8 fade-in">
-                        <div class="stat-number text-2xl md:text-4xl">50+</div>
-                        <div class="stat-label text-xs md:text-sm">Tag</div>
-                    </div>
+                <div class="text-center mb-8 md:mb-12">
+                    <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-xs md:text-sm">
+                        Eredményeink
+                    </p>
+                    <h2 class="text-2xl md:text-4xl leading-tight font-montserrat font-bold">Miért az <span class="gradient-text">ABOVE</span> Foundation?</h2>
                 </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                    <!-- Big Number Card -->
+                    <div class="glass-strong p-6 md:p-8 rounded-2xl flex flex-col justify-center items-start lg:col-span-1 min-h-[220px] relative overflow-hidden group">
+                        <div class="absolute -right-8 -top-8 text-8xl text-white/5 font-montserrat font-bold group-hover:scale-110 transition duration-500">
+                            300</div>
+                        <h3 class="text-5xl md:text-6xl font-montserrat font-bold gradient-text mb-3">300+</h3>
+                        <p class="text-lg text-gray-300 font-medium">Fiatal utazott már velünk</p>
+                        <div class="mt-6 flex -space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-dark-teal"></div>
+                            <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-dark-teal"></div>
+                            <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-dark-teal flex items-center justify-center text-xs font-bold text-dark-teal">
+                                +</div>
+                        </div>
+                    </div>
+
+                    <!-- Instant Action Card -->
+                    <div class="glass-strong p-6 md:p-8 rounded-2xl lg:col-span-2 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                        <div class="z-10 max-w-sm">
+                            <h3 class="text-2xl font-montserrat font-bold mb-3">Folyamatos Lehetőségek</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 z-10">
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20">
+                                <i class="fas fa-paper-plane text-2xl text-dark-teal"></i>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-500 text-lg animate-pulse"></i>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20">
+                                <i class="fas fa-globe-americas text-2xl text-dark-teal"></i>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-neon-cyan/5"></div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="glass-strong p-6 md:p-8 rounded-2xl lg:col-span-2 relative overflow-hidden">
+                        <span class="absolute top-5 right-5 px-2.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan text-xs font-bold flex items-center gap-1 z-20">
+                            <i class="fas fa-star text-xs"></i> Népszerű
+                        </span>
+                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 relative z-10">
+                            <div>
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Új Desztinációk</p>
+                                <h3 class="text-xl md:text-3xl font-montserrat font-bold text-white leading-tight">Spanyolország, Görögország...
+                                </h3>
+                                <p class="text-xs text-gray-400 mt-1.5">...és még sok más egzotikus helyszín!</p>
+                            </div>
+                        </div>
+                        <!-- Decorative Map Placeholder -->
+                        <div class="w-full h-20 relative opacity-40">
+                            <i class="fas fa-map text-8xl text-white/5 absolute bottom-0 right-0 transform translate-y-1/4"></i>
+                        </div>
+                    </div>
+
+                    <!-- Stability Card -->
+                    <div class="glass-strong p-6 md:p-8 rounded-2xl flex flex-col justify-center lg:col-span-1">
+                        <div class="w-12 h-12 rounded-xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20 mb-4">
+                            <i class="fas fa-check-circle text-2xl text-dark-teal"></i>
+                        </div>
+                        <h3 class="text-xl font-montserrat font-bold mb-2">Megbízhatóság</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Több éves tapasztalat nemzetközi projektek szervezésében.</p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -823,10 +875,18 @@
             'Támogatott Erasmus+ projektek fiataloknak. Utazz külföldre, láss világot és szerezz nemzetközi tapasztalatot.': 'Supported Erasmus+ projects for young people. Travel abroad, see the world and gain international experience.',
             'Tudj meg többet': 'Learn more',
             // Stats
-            'Ország': 'Countries',
-            'Projekt': 'Projects',
-            'Résztvevő': 'Participants',
-            'Tag': 'Members',
+            'Eredményeink': 'Our Results',
+            'Miért az': 'Why',
+            'Foundation?': 'Foundation?',
+            'Fiatal utazott már velünk': 'Young people have already travelled with us',
+            'Folyamatos Lehetőségek': 'Ongoing Opportunities',
+            'Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!': 'We regularly announce new projects. Don\'t miss out on the next adventure!',
+            'Új Desztinációk': 'New Destinations',
+            'Spanyolország, Görögország...': 'Spain, Greece...',
+            '...és még sok más egzotikus helyszín!': '...and many more exotic destinations!',
+            'Népszerű': 'Popular',
+            'Megbízhatóság': 'Reliability',
+            'Több éves tapasztalat nemzetközi projektek szervezésében.': 'Years of experience organising international projects.',
             // Vision
             'Vízió': 'Vision',
             'Hiszünk egy olyan Európában, ahol a kritikus gondolkodás, a technológiai fejlődés és az emberi összefogás hatására megszűnnek a tudásbeli szakadékok. Küldetésünk, hogy a magyar fiatalokat olyan készségekkel ruházzuk fel, amelyekkel magabiztosan és etikusan irányíthatják a jövő változásait.': 'We believe in a Europe where critical thinking, technological progress and human cooperation will bridge the knowledge gaps. Our mission is to equip Hungarian young people with the skills to confidently and ethically navigate the changes of the future.',
