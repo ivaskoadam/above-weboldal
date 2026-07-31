@@ -18,6 +18,7 @@
         'Tevékenységek':            'Activities',
         'Rólunk':                   'About Us',
         'Kapcsolat':                'Contact',
+        'Menü':                     'Menu',
         'EuroSpeak Nyári Tábor 2026': 'EuroSpeak Summer Camp 2026',
         // Footer
         'Közösségi média':          'Socials',
@@ -36,6 +37,15 @@
         var normKey = key.trim().replace(/\s+/g, ' ');
         var normVal = rawTranslations[key].trim().replace(/\s+/g, ' ');
         translations[normKey] = normVal;
+    });
+
+    // Reverse translations (EN → HU) for restoring original texts
+    var reverseTranslations = {};
+    Object.keys(translations).forEach(function (normKey) {
+        var normVal = translations[normKey];
+        if (normVal && normKey) {
+            reverseTranslations[normVal] = normKey;
+        }
     });
 
     // ─── Original HU text-node store ─────────────────────────────────────────
@@ -89,21 +99,38 @@
                 var base = baseFilter(node);
                 if (base !== NodeFilter.FILTER_ACCEPT) return base;
                 var norm = node.nodeValue.trim().replace(/\s+/g, ' ');
-                return (norm && translations[norm] !== undefined)
+                return (norm && (translations[norm] !== undefined || reverseTranslations[norm] !== undefined))
                     ? NodeFilter.FILTER_ACCEPT
                     : NodeFilter.FILTER_REJECT;
             }
         });
         var n;
-        while ((n = walker.nextNode())) originalTexts.set(n, n.nodeValue);
+        while ((n = walker.nextNode())) {
+            var orig = n.nodeValue;
+            var norm = orig.trim().replace(/\s+/g, ' ');
+            if (translations[norm] !== undefined) {
+                originalTexts.set(n, orig);
+            } else if (reverseTranslations[norm] !== undefined) {
+                // Node was already translated (e.g. Nav translated to EN by immediate script before lang.js ran)
+                var leading  = orig.match(/^\s*/)[0];
+                var trailing = orig.match(/\s*$/)[0];
+                originalTexts.set(n, leading + reverseTranslations[norm] + trailing);
+            }
+        }
 
         // Snapshot placeholders
         document.querySelectorAll('[placeholder]').forEach(function(input) {
             if (input.closest('[data-no-translate]')) return;
             var ph = input.getAttribute('placeholder');
             var norm = ph.trim().replace(/\s+/g, ' ');
-            if (norm && translations[norm] !== undefined) {
-                originalPlaceholders.set(input, ph);
+            if (norm) {
+                if (translations[norm] !== undefined) {
+                    originalPlaceholders.set(input, ph);
+                } else if (reverseTranslations[norm] !== undefined) {
+                    var leading  = ph.match(/^\s*/)[0];
+                    var trailing = ph.match(/\s*$/)[0];
+                    originalPlaceholders.set(input, leading + reverseTranslations[norm] + trailing);
+                }
             }
         });
     }
@@ -121,8 +148,8 @@
             
             // Check if it's an internal link
             // We only translate links like "/", "projects", "about", "contact", etc.
-            // and exclude external links (http), hashes (#), and mailto/tel.
-            var isInternal = !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:');
+            // and exclude external links (http), hashes (#), mailto/tel, and javascript:.
+            var isInternal = !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:') && !href.startsWith('javascript:');
             if (!isInternal) return;
 
             // Normalize path: e.g. "projects" -> "/projects"
@@ -146,7 +173,11 @@
 
     function applyLanguage(lang) {
         restoreHungarianTexts();
-        if (lang === 'en') translateNode(document.body, translations);
+        if (lang === 'en') {
+            translateNode(document.body, translations);
+        } else {
+            translateNode(document.body, reverseTranslations);
+        }
 
         // Update link targets to match active language prefix
         updateLinksLanguage(lang);
@@ -285,4 +316,20 @@
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
         });
     }
+
+    // ─── Auto Sync & Background Check ───────────────────────────────────────────
+    window.addEventListener('storage', function (e) {
+        if (e.key === 'lang' && e.newValue && e.newValue !== currentLang) {
+            currentLang = e.newValue;
+            applyLanguage(currentLang);
+        }
+    });
+
+    setInterval(function () {
+        var saved = localStorage.getItem('lang') || 'hu';
+        if (saved !== currentLang) {
+            currentLang = saved;
+            applyLanguage(currentLang);
+        }
+    }, 1000);
 })();

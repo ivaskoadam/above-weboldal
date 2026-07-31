@@ -1559,228 +1559,92 @@
             })();
         </script>
 
-        <!-- Language Toggle Script -->
+        <!-- Language Toggle Setup -->
         <script>
-            (function () {
-                // ── Translation dictionary ─────────────────────────────────────────────
-                // Keys = Hungarian text (trimmed), Values = English translation (DeepL)
-                const translations = {
-                    // NAV
-                    'Kezdőlap': 'Home',
-                    'Tevékenységek': 'Activities',
-                    'Rólunk': 'About Us',
-                    'Kapcsolat': 'Contact',
-                    // Hero
-                    'Építsük a': 'Building the',
-                    'jövőt,': 'future,',
-                    'közösen.': 'together.',
-                    'Az ABOVE célja, hogy új generációs európai vezetőket neveljen az ifjúsági részvétel és a vállalkozói gondolkodásmód erősítésével.': 'ABOVE aims to empower next-generation European leaders by strengthening youth participation and an entrepreneurial mindset.',
-                    'Jelentkezem': 'Apply Now',
-                    'Hogyan működik?': 'How does it work?',
-                    // News Carousel section
-                    'Hírek & Események': 'News & Events',
-                    'Mi történt': 'What happened',
-                    'mostanában?': 'recently?',
-                    // Features section
-                    'Mit kínálunk': 'What we offer',
-                    'Neked?': 'you?',
-                    'Az Erasmus+ és egyéb programok keretében életre szóló élményeket szerezhetsz.': 'Through Erasmus+ and other programmes you can gain lifelong experiences.',
-                    'Támogatott Utazás': 'Supported Travel',
-                    'Az utazási költségeidet, a szállást és az étkezést teljes mértékben a program fedezi. Neked csak a bőröndödet kell hoznod!': 'Your travel costs, accommodation and meals are fully covered by the programme. All you need to bring is your suitcase!',
-                    'Nemzetközi Barátok': 'International Friends',
-                    'Ismerj meg fiatalokat Európa minden tájáról, építs kapcsolatokat és szerezz életre szóló barátságokat multikulturális környezetben.': 'Meet young people from all over Europe, build connections and make lifelong friendships in a multicultural environment.',
-                    'Youthpass Tanúsítvány': 'Youthpass Certificate',
-                    'Részvételedről hivatalos EU-s tanúsítványt kapsz, amely igazolja a megszerzett kompetenciákat és jól mutat az önéletrajzodban.': 'You will receive an official EU certificate for your participation, which validates the competences you have gained and looks great on your CV.',
-                    // Mission & Goals section
-                    'Küldetésünk & Céljaink': 'Our Mission & Goals',
-                    'Elhivatottak vagyunk a': 'We are dedicated to',
-                    'jövő alakításában': 'shaping the future',
-                    'Fő Célkitűzésünk': 'Our Primary Goal',
-                    'Célunk a magyar fiatalokat összekötni európai kortársaikkal, felhívni figyelmüket a globális kihívásokra, kapcsolatba hozni őket a döntéshozókkal, valamint terjeszteni a vállalkozói szemléletet és a környezettudatosságot.': 'Our goal is to connect Hungarian youth with their European peers, raise awareness of global challenges, bring them into contact with decision-makers, and promote an entrepreneurial mindset and environmental consciousness.',
-                    'Európai Kapcsolatok': 'European Connections',
-                    'Magyar fiatalok összekötése európai kortársaikkal nemzetközi programok és együttműködések által.': 'Connecting Hungarian youth with their European peers through international programmes and collaborations.',
-                    'Globális Kihívások': 'Global Challenges',
-                    'A figyelem felhívása korunk legfontosabb társadalmi és globális kérdéseire.': 'Raising awareness on key social and global issues of our time.',
-                    'Párbeszéd a Döntéshozókkal': 'Dialogue with Decision-makers',
-                    'Közvetlen kapcsolat és aktív párbeszéd megteremtése a fiatalok és a döntéshozók között.': 'Creating a direct connection and active dialogue between youth and decision-makers.',
-                    'Vállalkozás & Zöld Jövő': 'Entrepreneurship & Green Future',
-                    'A vállalkozói szemléletmód és a környezettudatosság elterjesztése a fiatalok körében.': 'Promoting entrepreneurial mindset and environmental consciousness among youth.',
-                    'Készségfejlesztés & Tanulás': 'Skill Development & Learning',
-                    'Gyakorlati tudás, amit az': 'Practical knowledge not taught in',
-                    'iskolában nem tanítanak': 'traditional schooling',
-                    'Tevékenységeinkkel minőségi készségfejlesztési és tanulási lehetőségeket biztosítunk olyan témákban, amelyekre az oktatási rendszer kevésbé vagy egyáltalán nem fókuszál hazánkban:': 'Through our activities, we provide high-quality skill development and learning opportunities in topics less or not at all focused on by the education system in our country:',
-                    'Interkulturális Kompetenciák': 'Intercultural Competences',
-                    'Multikulturális kommunikáció, elfogadás, nyelvi magabiztosság és nemzetközi csapatmunka.': 'Multicultural communication, tolerance, language confidence, and international teamwork.',
-                    'Projektmenedzsment': 'Project Management',
-                    'Ötletfejlesztés, hatékony megvalósítás, időgazdálkodás és gyakorlati szervezési készségek.': 'Idea development, effective implementation, time management, and practical organisation skills.',
-                    'Digitális Készségek': 'Digital Skills',
-                    'Korszerű digitális eszközök, online együttműködés és felkészülés a jövő munkaerőpiacára.': 'Modern digital tools, online collaboration, and preparation for the future job market.',
-                    'Pénzügyi Tudatosság': 'Financial Literacy',
-                    'Tudatos pénzkezelés, költségvetési tervezés és a gazdasági összefüggések gyakorlati megértése.': 'Conscious money management, budget planning, and practical understanding of economics.',
-                    // Stats section
-                    'Eredményeink': 'Our Results',
-                    'Miért az': 'Why',
-                    'Foundation?': 'Foundation?',
-                    'Fiatal utazott már velünk': 'Young people have already travelled with us',
-                    'Folyamatos Lehetőségek': 'Ongoing Opportunities',
-                    'Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!': 'We regularly announce new projects. Don\'t miss out on the next adventure!',
-                    'Új Desztinációk': 'New Destinations',
-                    'Spanyolország, Görögország...': 'Spain, Greece...',
-                    '...és még sok más egzotikus helyszín!': '...and many more exotic destinations!',
-                    'Népszerű': 'Popular',
-                    'Megbízhatóság': 'Reliability',
-                    'Több éves tapasztalat nemzetközi projektek szervezésében.': 'Years of experience organising international projects.',
-                    // Steps / Join section
-                    'CSATLAKOZZ': 'JOIN US',
-                    'Erasmus+': 'Erasmus+',
-                    'projektek': 'projects',
-                    'Így utazhatsz': 'This is how you can travel',
-                    'velünk!': 'with us!',
-                    'Válassz projektet': 'Choose a project',
-                    'Nézd meg aktuális lehetőségeinket és találd meg a téged érdeklő témát és úticélt.': 'Browse our current opportunities and find the topic and destination that interests you.',
-                    'Jelentkezz': 'Apply',
-                    'Töltsd ki az egyszerű jelentkezési lapot. Motivációd a legfontosabb!': 'Fill in the simple application form. Your motivation is the most important thing!',
-                    'Csomagolj': 'Pack your bags',
-                    'Ha kiválasztottak, mi segítünk az utazás megszervezésében. Készülj életed kalandjára!': 'If you are selected, we will help you organise your trip. Get ready for the adventure of your life!',
-                    // CTA section
-                    'Készen állsz az indulásra?': 'Ready to set off?',
-                    'Ne maradj le a legújabb lehetőségekről. Kövess minket és légy része a közösségünknek!': 'Don\'t miss out on the latest opportunities. Follow us and be part of our community!',
-                    'Projektek böngészése': 'Browse Projects',
-                    'Kapcsolatfelvétel': 'Get in Touch',
-                    // Footer
-                    'Közösségi média': 'Socials',
-                    'Elérhetőségek': 'Contact Us',
-                    'Oldalak': 'Pages',
-                    'Szakmai partnereink és támogatóink': 'Our Professional Partners and Supporters',
-                    '© 2025 ABOVE Foundation. Minden jog fenntartva.': '© 2025 ABOVE Foundation. All rights reserved.',
-                };
+            window.pageTitleHu = 'Kezdőlap | ABOVE Foundation';
+            window.pageTitleEn = 'Home | ABOVE Foundation';
+            window.pageTranslations = {
+                // Hero
+                'Építsük a': 'Building the',
+                'jövőt,': 'future,',
+                'közösen.': 'together.',
+                'Az ABOVE célja, hogy új generációs európai vezetőket neveljen az ifjúsági részvétel és a vállalkozói gondolkodásmód erősítésével.': 'ABOVE aims to empower next-generation European leaders by strengthening youth participation and an entrepreneurial mindset.',
+                'Jelentkezem': 'Apply Now',
+                'Hogyan működik?': 'How does it work?',
 
-                // Build reverse (EN → HU) dictionary on the fly
-                const reverseTranslations = {};
-                for (const [hu, en] of Object.entries(translations)) {
-                    reverseTranslations[en] = hu;
+                // News Carousel section
+                'Hírek & Események': 'News & Events',
+                'Mi történt': 'What happened',
+                'mostanában?': 'recently?',
+
+                // Mission & Goals section
+                'Küldetésünk & Céljaink': 'Our Mission & Goals',
+                'Elhivatottak vagyunk a': 'We are dedicated to',
+                'jövő alakításában!': 'shape the future!',
+                'Fő Célkitűzésünk': 'Our Primary Goal',
+                'Célunk a magyar fiatalokat összekötni európai kortársaikkal, felhívni figyelmüket a globális kihívásokra, kapcsolatba hozni őket a döntéshozókkal, valamint terjeszteni a vállalkozói szemléletet és a környezettudatosságot.': 'Our goal is to connect Hungarian youth with their European peers, raise awareness of global challenges, bring them into contact with decision-makers, and promote an entrepreneurial mindset and environmental consciousness.',
+                'Európai Kapcsolatok': 'European Connections',
+                'Magyar fiatalok összekötése európai kortársaikkal nemzetközi programok és együttműködések által.': 'Connecting Hungarian youth with their European peers through international programmes and collaborations.',
+                'Globális Kihívások': 'Global Challenges',
+                'A figyelem felhívása korunk legfontosabb társadalmi és globális kérdéseire.': 'Raising awareness on key social and global issues of our time.',
+                'Párbeszéd a Döntéshozókkal': 'Dialogue with Decision-makers',
+                'Közvetlen kapcsolat és aktív párbeszéd megteremtése a fiatalok és a döntéshozók között.': 'Creating a direct connection and active dialogue between youth and decision-makers.',
+                'Vállalkozás & Zöld Jövő': 'Entrepreneurship & Green Future',
+                'A vállalkozói szemléletmód és a környezettudatosság elterjesztése a fiatalok körében.': 'Promoting entrepreneurial mindset and environmental consciousness among youth.',
+
+                // Features section
+                'Mit kínálunk': 'What we offer',
+                'Neked?': 'you?',
+                'Az Erasmus+ és egyéb programok keretében életre szóló élményeket szerezhetsz.': 'Through Erasmus+ and other programmes you can gain lifelong experiences.',
+                'Készségfejlesztés & Tanulás': 'Skill Development & Learning',
+                'Gyakorlati tudás, amit az': 'Practical knowledge not taught in',
+                'iskolában nem tanítanak': 'traditional schooling',
+                'Tevékenységeinkkel minőségi készségfejlesztési és tanulási lehetőségeket biztosítunk olyan témákban, amelyekre az oktatási rendszer kevésbé vagy egyáltalán nem fókuszál hazánkban:': 'Through our activities, we provide high-quality skill development and learning opportunities in topics less or not at all focused on by the education system in our country:',
+                'Interkulturális Kompetenciák': 'Intercultural Competences',
+                'Multikulturális kommunikáció, elfogadás, nyelvi magabiztosság és nemzetközi csapatmunka.': 'Multicultural communication, tolerance, language confidence, and international teamwork.',
+                'Projektmenedzsment': 'Project Management',
+                'Ötletfejlesztés, hatékony megvalósítás, időgazdálkodás és gyakorlati szervezési készségek.': 'Idea development, effective implementation, time management, and practical organisation skills.',
+                'Digitális Készségek': 'Digital Skills',
+                'Korszerű digitális eszközök, online együttműködés és felkészülés a jövő munkaerőpiacára.': 'Modern digital tools, online collaboration, and preparation for the future job market.',
+                'Pénzügyi Tudatosság': 'Financial Literacy',
+                'Tudatos pénzkezelés, költségvetési tervezés és a gazdasági összefüggések gyakorlati megértése.': 'Conscious money management, budget planning, and practical understanding of economics.',
+
+                // Steps / Join section
+                'FEJLŐDJ SZAKMAILAG': 'GROW PROFESSIONALLY',
+                'CSATLAKOZZ': 'JOIN US',
+                'projektek': 'projects',
+                'Támogatott Utazás': 'Supported Travel',
+                'Az utazási költségeidet, a szállást és az étkezést teljes mértékben a program fedezi. Neked csak a bőröndödet kell hoznod!': 'Your travel costs, accommodation and meals are fully covered by the programme. All you need to bring is your suitcase!',
+                'Nemzetközi Barátok': 'International Friends',
+                'Ismerj meg fiatalokat Európa minden tájáról, építs kapcsolatokat és szerezz életre szóló barátságokat multikulturális környezetben.': 'Meet young people from all over Europe, build connections and make lifelong friendships in a multicultural environment.',
+                'Youthpass Tanúsítvány': 'Youthpass Certificate',
+                'Részvételedről hivatalos EU-s tanúsítványt kapsz, amely igazolja a megszerzett kompetenciákat és jól mutat az önéletrajzodban.': 'You will receive an official EU certificate for your participation, which validates the competences you have gained and looks great on your CV.',
+                'Így utazhatsz': 'This is how you can travel',
+                'velünk!': 'with us!',
+                'Válassz projektet': 'Choose a project',
+                'Nézd meg aktuális lehetőségeinket és találd meg a téged érdeklő témát és úticélt.': 'Browse our current opportunities and find the topic and destination that interests you.',
+                'Jelentkezz': 'Apply',
+                'Töltsd ki az egyszerű jelentkezési lapot. Motivációd a legfontosabb!': 'Fill in the simple application form. Your motivation is the most important thing!',
+                'Csomagolj': 'Pack your bags',
+                'Ha kiválasztottak, mi segítünk az utazás megszervezésében. Készülj életed kalandjára!': 'If you are selected, we will help you organise your trip. Get ready for the adventure of your life!',
+
+                // CTA section
+                'Készen állsz az indulásra?': 'Ready to set off?',
+                'Ne maradj le a legújabb lehetőségekről. Kövess minket és légy része a közösségünknek!': 'Don\'t miss out on the latest opportunities. Follow us and be part of our community!',
+                'Projektek böngészése': 'Browse Projects',
+                'Kapcsolatfelvétel': 'Get in Touch',
+            };
+
+            window.onLangChange = function (lang) {
+                if (typeof window.refreshHeroCard === 'function') {
+                    window.refreshHeroCard();
                 }
-
-                // ── Helpers ──────────────────────────────────────────────────────────
-                let currentLang = localStorage.getItem('lang') || 'hu';
-
-                function getDict() {
-                    return currentLang === 'hu' ? translations : reverseTranslations;
+                if (typeof window.refreshNewsCarousel === 'function') {
+                    window.refreshNewsCarousel();
                 }
-
-                /**
-                 * Walk text nodes inside `root` and replace matching strings.
-                 * Skips script, style, and elements with data-no-translate.
-                 */
-                function translateNode(root, dict) {
-                    const walker = document.createTreeWalker(
-                        root,
-                        NodeFilter.SHOW_TEXT,
-                        {
-                            acceptNode(node) {
-                                const parent = node.parentElement;
-                                if (!parent) return NodeFilter.FILTER_REJECT;
-                                const tag = parent.tagName;
-                                if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
-                                if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
-                                return NodeFilter.FILTER_ACCEPT;
-                            }
-                        }
-                    );
-
-                    const textNodes = [];
-                    let node;
-                    while ((node = walker.nextNode())) textNodes.push(node);
-
-                    textNodes.forEach(tn => {
-                        const original = tn.nodeValue;
-                        // Normalize: collapse all internal whitespace to a single space
-                        const normalized = original.trim().replace(/\s+/g, ' ');
-                        if (dict[normalized] !== undefined) {
-                            // Preserve surrounding whitespace
-                            const leading = original.match(/^\s*/)[0];
-                            const trailing = original.match(/\s*$/)[0];
-                            tn.nodeValue = leading + dict[normalized] + trailing;
-                        }
-                    });
-                }
-
-                function applyLanguage(lang) {
-                    restoreHungarianTexts();
-                    if (lang === 'en') {
-                        translateNode(document.body, translations);
-                    }
-                    // Update page title
-                    document.getElementById('page-title-tag').textContent =
-                        lang === 'en' ? 'Home | ABOVE Foundation' : 'Kezdőlap | ABOVE Foundation';
-                    // Update html lang attribute
-                    document.documentElement.lang = lang === 'en' ? 'en' : 'hu';
-                    // Update flag image
-                    const flagImg = document.getElementById('lang-toggle');
-                    if (flagImg && flagImg.tagName === 'IMG') {
-                        flagImg.src = lang === 'en' ? 'https://flagcdn.com/w40/hu.png' : 'https://flagcdn.com/w40/gb.png';
-                        flagImg.alt = lang === 'en' ? 'Magyar' : 'English';
-                    }
-                    // Refresh the dynamically rendered hero project card
-                    if (typeof window.refreshHeroCard === 'function') {
-                        window.refreshHeroCard();
-                    }
-                    // Refresh the news carousel
-                    if (typeof window.refreshNewsCarousel === 'function') {
-                        window.refreshNewsCarousel();
-                    }
-                }
-
-                // ── Store HU originals on first run ──────────────────────────────────
-                // We snapshot every translatable text node's original HU value
-                // so we can always restore from it.
-                const originalTexts = new Map(); // node → original string
-
-                function snapshotHungarianTexts() {
-                    const walker = document.createTreeWalker(
-                        document.body,
-                        NodeFilter.SHOW_TEXT,
-                        {
-                            acceptNode(node) {
-                                const parent = node.parentElement;
-                                if (!parent) return NodeFilter.FILTER_REJECT;
-                                const tag = parent.tagName;
-                                if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
-                                if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
-                                // Normalize whitespace the same way translateNode does
-                                const normalized = node.nodeValue.trim().replace(/\s+/g, ' ');
-                                if (normalized && translations[normalized] !== undefined) return NodeFilter.FILTER_ACCEPT;
-                                return NodeFilter.FILTER_REJECT;
-                            }
-                        }
-                    );
-                    let node;
-                    while ((node = walker.nextNode())) {
-                        originalTexts.set(node, node.nodeValue);
-                    }
-                }
-
-                function restoreHungarianTexts() {
-                    originalTexts.forEach((original, node) => {
-                        node.nodeValue = original;
-                    });
-                }
-
-                // ── Init ─────────────────────────────────────────────────────────────
-                // Wait for DOM to be ready (script is deferred at end of body)
-                snapshotHungarianTexts();
-
-                if (currentLang === 'en') {
-                    applyLanguage('en');
-                }
-
-                document.getElementById('lang-toggle').addEventListener('click', () => {
-                    currentLang = currentLang === 'hu' ? 'en' : 'hu';
-                    localStorage.setItem('lang', currentLang);
-                    applyLanguage(currentLang);
-                });
-            })();
+            };
         </script>
+        <script src="lang.js?v=1.2"></script>
 
     </div>
 
