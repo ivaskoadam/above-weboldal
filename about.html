@@ -362,6 +362,95 @@
         body.light-mode section.py-16 {
             background-color: #ffffff !important;
         }
+
+        /* Community & Recruitment Team Cards */
+        .cr-team-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cr-team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 188, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.1);
+        }
+
+        .cr-team-number {
+            position: absolute;
+            right: 12px;
+            top: 8px;
+            font-size: 5rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(0, 188, 212, 0.06);
+            line-height: 1;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .cr-team-card:hover .cr-team-number {
+            color: rgba(0, 188, 212, 0.12);
+            transform: scale(1.1);
+        }
+
+        body.light-mode .cr-team-card {
+            background: #ffffff !important;
+            border: 1px solid rgba(0, 188, 212, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.05);
+        }
+
+        body.light-mode .cr-team-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.12);
+            border-color: rgba(0, 188, 212, 0.3);
+        }
+
+        body.light-mode .cr-team-number {
+            color: rgba(0, 122, 154, 0.08);
+        }
+
+        body.light-mode .cr-team-card:hover .cr-team-number {
+            color: rgba(0, 122, 154, 0.15);
+        }
+
+        body.light-mode .cr-team-card p {
+            color: #64748b !important;
+        }
+
+        /* Marketing Management Section Background */
+        .mm-section {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.light-mode .mm-section {
+            background: #f0fafa !important;
+        }
+
+        /* Partnerships Management Section Background */
+        .pm-section {
+            background: rgba(0, 188, 212, 0.03);
+        }
+
+        body.light-mode .pm-section {
+            background: #f5f0fa !important;
+        }
+
+        /* Events Management Section Background */
+        .em-section {
+            background: rgba(255, 200, 50, 0.02);
+        }
+
+        body.light-mode .em-section {
+            background: #faf5ee !important;
+        }
+
+        /* Vision Section Background */
+        #vision {
+            background: rgba(0, 150, 255, 0.02);
+        }
+
+        body.light-mode #vision {
+            background: #edf6ff !important;
+        }
     </style>
 </head>
 
@@ -545,78 +634,74 @@
             </div>
         </section>
 
-        <!-- Stats Section (Bento Grid) -->
-        <section id="bento-stats-section" class="py-12 md:py-16 px-6">
+        <!-- Stats Section (Compact Grid) -->
+        <section id="bento-stats-section" class="py-8 md:py-12 px-6">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-8 md:mb-12">
-                    <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-xs md:text-sm">
+                <div class="text-center mb-6 md:mb-8">
+                    <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-1 uppercase text-xs">
                         Eredményeink
                     </p>
-                    <h2 class="text-2xl md:text-4xl leading-tight font-montserrat font-bold">Miért az <span class="gradient-text">ABOVE</span> Foundation?</h2>
+                    <h2 class="text-2xl md:text-3xl font-montserrat font-bold">Miért az <span class="gradient-text">ABOVE</span> Foundation?</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                    <!-- Big Number Card -->
-                    <div class="glass-strong p-6 md:p-8 rounded-2xl flex flex-col justify-center items-start lg:col-span-1 min-h-[220px] relative overflow-hidden group">
-                        <div class="absolute -right-8 -top-8 text-8xl text-white/5 font-montserrat font-bold group-hover:scale-110 transition duration-500">
-                            300</div>
-                        <h3 class="text-5xl md:text-6xl font-montserrat font-bold gradient-text mb-3">300+</h3>
-                        <p class="text-lg text-gray-300 font-medium">Fiatal utazott már velünk</p>
-                        <div class="mt-6 flex -space-x-3">
-                            <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-dark-teal"></div>
-                            <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-dark-teal"></div>
-                            <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-dark-teal flex items-center justify-center text-xs font-bold text-dark-teal">
-                                +</div>
+                    <!-- Stat 1: 300+ Young People -->
+                    <div class="glass-strong p-5 rounded-2xl flex flex-col justify-between hover:border-neon-cyan/40 transition-all duration-300 group relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center text-neon-cyan">
+                                <i class="fas fa-users text-lg"></i>
+                            </span>
+                            <span class="text-3xl font-montserrat font-extrabold gradient-text">300+</span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-montserrat font-bold mb-1">Résztvevő fiatal</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Nemzetközi cseréken és képzéseken velünk utazók.</p>
                         </div>
                     </div>
 
-                    <!-- Instant Action Card -->
-                    <div class="glass-strong p-6 md:p-8 rounded-2xl lg:col-span-2 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-                        <div class="z-10 max-w-sm">
-                            <h3 class="text-2xl font-montserrat font-bold mb-3">Folyamatos Lehetőségek</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">
-                                Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!
-                            </p>
+                    <!-- Stat 2: Ongoing Opportunities -->
+                    <div class="glass-strong p-5 rounded-2xl flex flex-col justify-between hover:border-neon-cyan/40 transition-all duration-300 group relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center text-neon-cyan">
+                                <i class="fas fa-paper-plane text-lg"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded-full bg-neon-cyan/10 text-neon-cyan text-[10px] font-bold uppercase tracking-wider">Aktív</span>
                         </div>
-                        <div class="flex items-center gap-3 z-10">
-                            <div class="w-12 h-12 rounded-xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20">
-                                <i class="fas fa-paper-plane text-2xl text-dark-teal"></i>
-                            </div>
-                            <i class="fas fa-arrow-right text-gray-500 text-lg animate-pulse"></i>
-                            <div class="w-12 h-12 rounded-xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20">
-                                <i class="fas fa-globe-americas text-2xl text-dark-teal"></i>
-                            </div>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-neon-cyan/5"></div>
-                    </div>
-
-                    <!-- Location Card -->
-                    <div class="glass-strong p-6 md:p-8 rounded-2xl lg:col-span-2 relative overflow-hidden">
-                        <span class="absolute top-5 right-5 px-2.5 py-0.5 rounded-full bg-neon-cyan/20 text-neon-cyan text-xs font-bold flex items-center gap-1 z-20">
-                            <i class="fas fa-star text-xs"></i> Népszerű
-                        </span>
-                        <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 relative z-10">
-                            <div>
-                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Új Desztinációk</p>
-                                <h3 class="text-xl md:text-3xl font-montserrat font-bold text-white leading-tight">Spanyolország, Görögország...
-                                </h3>
-                                <p class="text-xs text-gray-400 mt-1.5">...és még sok más egzotikus helyszín!</p>
-                            </div>
-                        </div>
-                        <!-- Decorative Map Placeholder -->
-                        <div class="w-full h-20 relative opacity-40">
-                            <i class="fas fa-map text-8xl text-white/5 absolute bottom-0 right-0 transform translate-y-1/4"></i>
+                        <div>
+                            <h3 class="text-base font-montserrat font-bold mb-1">Folyamatos Lehetőségek</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Rendszeresen meghirdetett új európai projektek.</p>
                         </div>
                     </div>
 
-                    <!-- Stability Card -->
-                    <div class="glass-strong p-6 md:p-8 rounded-2xl flex flex-col justify-center lg:col-span-1">
-                        <div class="w-12 h-12 rounded-xl bg-neon-cyan flex items-center justify-center shadow-lg shadow-neon-cyan/20 mb-4">
-                            <i class="fas fa-check-circle text-2xl text-dark-teal"></i>
+                    <!-- Stat 3: Professionalism -->
+                    <div class="glass-strong p-5 rounded-2xl flex flex-col justify-between hover:border-neon-cyan/40 transition-all duration-300 group relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center text-neon-cyan">
+                                <i class="fas fa-graduation-cap text-lg"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                                <i class="fas fa-star text-[8px]"></i> Minőség
+                            </span>
                         </div>
-                        <h3 class="text-xl font-montserrat font-bold mb-2">Megbízhatóság</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Több éves tapasztalat nemzetközi projektek szervezésében.</p>
+                        <div>
+                            <h3 class="text-base font-montserrat font-bold mb-1">Szakmaiság</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Strukturált működés, agilis szemlélet és magas minőségű képzések.</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4: Reliability -->
+                    <div class="glass-strong p-5 rounded-2xl flex flex-col justify-between hover:border-neon-cyan/40 transition-all duration-300 group relative overflow-hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center text-neon-cyan">
+                                <i class="fas fa-shield-halved text-lg"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">Tapasztalat</span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-montserrat font-bold mb-1">Megbízhatóság</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Több éves tapasztalat nemzetközi projektekben.</p>
+                        </div>
                     </div>
 
                 </div>
@@ -647,6 +732,422 @@
                             <li>Hídépítés a fiatalok és a döntéshozók között.</li>
                             <li>Vállalkozói szemlélet és európai hálózatépítés.</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community & Recruitment Section -->
+        <section id="community-recruitment" class="py-12 md:py-24 px-6 text-center md:text-left">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <!-- Content -->
+                    <div class="fade-in order-2 md:order-1">
+                        <div class="badge">Szekció</div>
+                        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-4 md:mb-6">Community & Recruitment</h2>
+                        <div class="w-16 h-1 bg-neon-cyan mb-6 md:mb-8 mx-auto md:mx-0"></div>
+
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            A szekció az ABOVE emberi oldaláért felel: aktív, összetartó közösséget épít és biztosítja, hogy a szervezet tehetséges új tagokkal és nemzetközi projektrésztvevőkkel bővüljön. Feladatköre a teljes tagi életutat lefedi, az első találkozástól a recruitment folyamaton és integráción át a hosszú távú elköteleződésig. Emellett koordinálja az Erasmus+ és egyéb nemzetközi lehetőségeket, valamint rendszeres belső eseményekkel és mentorálással gondoskodik a közösség megtartásáról.
+                        </p>
+                    </div>
+                    <!-- Image -->
+                    <div class="fade-in order-1 md:order-2">
+                        <div class="relative">
+                            <img src="assets/images/_hr.jpg" alt="Community & Recruitment"
+                                class="rounded-[3rem] shadow-2xl w-full object-cover max-h-[420px]">
+                            <!-- Decorative floating badge -->
+                            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 glass-strong px-5 py-3 rounded-2xl shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-neon-cyan flex items-center justify-center">
+                                        <i class="fas fa-users text-dark-teal text-lg"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="text-white font-bold text-sm">5 Projektcsapat</p>
+                                        <p class="text-gray-400 text-xs">Közösségépítés & toborzás</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Teams Grid -->
+                <div class="mt-16 md:mt-24">
+                    <div class="text-center mb-10 md:mb-14 fade-in">
+                        <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-xs md:text-sm">Projektcsapatok</p>
+                        <h3 class="text-2xl md:text-3xl font-montserrat font-bold">A szekció felépítése</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- I. Akkreditáció -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">I</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-certificate text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Akkreditáció</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                A Corvinus Egyetem diákszervezeti akkreditációjának koordinálása: követelmények nyomon követése, dokumentáció, és a lehetőségek maximális kihasználása az Events Management és Marketing csapatokkal együttműködve.
+                            </p>
+                        </div>
+
+                        <!-- II. HR -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">II</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-heart text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">HR</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                A szervezet „lelke": méri a tagok elégedettségét és motivációját kérdőívekkel, interjúkkal és adatalapú elemzésekkel. Kezeli az exit interjúkat, visszajelzéseket, és biztosítja, hogy minden tag megtalálja a helyét.
+                            </p>
+                        </div>
+
+                        <!-- III. Hírlevél és naptár -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">III</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-newspaper text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Hírlevél és naptár</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Havonta elkészíti a szervezeti és szekciós hírleveleket, valamint a grafikus eseménynaptárat tréningekkel, rendezvényekkel és meetingekkel, hogy minden tag naprakész legyen.
+                            </p>
+                        </div>
+
+                        <!-- IV. Projekttoborzás -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">IV</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-globe-europe text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Projekttoborzás</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az Erasmus+ KA1 és más nemzetközi mobilitási programok résztvevőinek toborzása, kiválasztása és koordinálása. Kapcsolatot tart partneriskolákkal és biztosítja a legmegfelelőbb résztvevők kiválasztását.
+                            </p>
+                        </div>
+
+                        <!-- V. Csapatépítés -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in lg:col-span-2">
+                            <div class="cr-team-number">V</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-people-group text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Csapatépítés</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Csapatépítő programok, társasestek, sportprogramok és informális találkozók szervezése. Új közösségi hagyományokat alakít ki, támogatja az új tagok beilleszkedését, és biztosítja, hogy az ABOVE mindenki számára inspiráló közösséget jelentsen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketing Management Section -->
+        <section id="marketing-management" class="mm-section py-12 md:py-24 px-6 text-center md:text-left">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <!-- Image (left on desktop) -->
+                    <div class="fade-in">
+                        <div class="relative">
+                            <img src="assets/images/_mem.jpg" alt="Marketing Management"
+                                class="rounded-[3rem] shadow-2xl w-full object-cover max-h-[420px]">
+                            <!-- Decorative floating badge -->
+                            <div class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 glass-strong px-5 py-3 rounded-2xl shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-neon-cyan flex items-center justify-center">
+                                        <i class="fas fa-bullhorn text-dark-teal text-lg"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="text-white font-bold text-sm">4 Projektcsapat</p>
+                                        <p class="text-gray-400 text-xs">Brand & kommunikáció</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content (right on desktop) -->
+                    <div class="fade-in">
+                        <div class="badge">Szekció</div>
+                        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-4 md:mb-6">Marketing Management</h2>
+                        <div class="w-16 h-1 bg-neon-cyan mb-6 md:mb-8 mx-auto md:mx-0"></div>
+
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            A szekció az ABOVE külső megjelenéséért, kommunikációjáért és márkájának építéséért felel. Menedzseli az online jelenlétét, Instagram, TikTok, Facebook és weboldal, rendszeres tartalomgyártással és adatvezérelt kampányokkal. Gondoskodik a projektek disszeminációjáról, az egyetemi láthatóságról, a merchandise-okról és a vállalati együttműködésekről.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Teams Grid -->
+                <div class="mt-16 md:mt-24">
+                    <div class="text-center mb-10 md:mb-14 fade-in">
+                        <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-xs md:text-sm">Projektcsapatok</p>
+                        <h3 class="text-2xl md:text-3xl font-montserrat font-bold">A szekció felépítése</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- I. Videóvágás és videóforgatás -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">I</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-video text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Videóvágás és videóforgatás</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Rendezvényeken és projektek során készült felvételek forgatása, kreatív koncepciók kidolgozása és professzionális utómunka. Hiteles videókkal erősíti a márkaépítést és az online jelenlétet.
+                            </p>
+                        </div>
+
+                        <!-- II. Social Media -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">II</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-share-nodes text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Social Media</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Egységes arculatú kreatív tartalmak tervezése és elkészítése, közösségi médiafelületek kezelése, események és sikerek kommunikálása, valamint elérések elemzése a hatékonyabb kommunikáció érdekében.
+                            </p>
+                        </div>
+
+                        <!-- III. Weboldal -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">III</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-code text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Weboldal</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az ABOVE weboldalának folyamatos fejlesztése és naprakészen tartása: tartalmak frissítése, új funkciók bevezetése és technikai támogatás a professzionális online megjelenés érdekében.
+                            </p>
+                        </div>
+
+                        <!-- IV. Termékszponzoráció -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">IV</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-handshake text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Termékszponzoráció</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Vállalati együttműködések kialakítása terméktámogatásra és természetbeni hozzájárulásokra. Potenciális partnerek felkutatása, tárgyalások és hosszú távú kapcsolatépítés a rendezvények színvonalának emeléséért.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partnerships Management Section -->
+        <section id="partnerships-management" class="pm-section py-12 md:py-24 px-6 text-center md:text-left">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <!-- Content (left on desktop) -->
+                    <div class="fade-in order-2 md:order-1">
+                        <div class="badge">Szekció</div>
+                        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-4 md:mb-6">Partnerships Management</h2>
+                        <div class="w-16 h-1 bg-neon-cyan mb-6 md:mb-8 mx-auto md:mx-0"></div>
+
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            Az ABOVE projekt- és partnerkapcsolati motorja. Feladata új hazai és nemzetközi együttműködések kialakítása, pályázati lehetőségek felkutatása, projektek létrehozása és a futó projektek koordinálása. Aktívan építi az Erasmus+ partnerhálózatot, kezeli a KA152/153/154 és KA2 pályázatokat, és gondoskodik a hazai partnerségekről, valamint az ABOVE hosszú távú finanszírozási stratégiájáról.
+                        </p>
+                    </div>
+                    <!-- Image (right on desktop) -->
+                    <div class="fade-in order-1 md:order-2">
+                        <div class="relative">
+                            <img src="assets/images/_pm.jpg" alt="Partnerships Management"
+                                class="rounded-[3rem] shadow-2xl w-full object-cover max-h-[420px]">
+                            <!-- Decorative floating badge -->
+                            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 glass-strong px-5 py-3 rounded-2xl shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-neon-cyan flex items-center justify-center">
+                                        <i class="fas fa-diagram-project text-dark-teal text-lg"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="text-white font-bold text-sm">6 Projektcsapat</p>
+                                        <p class="text-gray-400 text-xs">Projektek & partnerségek</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Teams Grid -->
+                <div class="mt-16 md:mt-24">
+                    <div class="text-center mb-10 md:mb-14 fade-in">
+                        <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-xs md:text-sm">Projektcsapatok</p>
+                        <h3 class="text-2xl md:text-3xl font-montserrat font-bold">A szekció felépítése</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- I. PM hálózat -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">I</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-network-wired text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">PM hálózat</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Nemzetközi partnerkapcsolatok fejlesztése: Erasmus+, CERV, Visegrad Fund és egyéb együttműködések kiépítése, partnerkereső rendezvényeken való részvétel és a hálózat folyamatos bővítése.
+                            </p>
+                        </div>
+
+                        <!-- II. Nyári tábor -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">II</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-campground text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Nyári tábor</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az ABOVE első saját nemzetközi nyári táborának megtervezése és megvalósítása: angol nyelvű program, amely nyelvtudást fejleszt, európai értékeket ismertet és közösségi élményt nyújt.
+                            </p>
+                        </div>
+
+                        <!-- III. Belföldi pályázatok -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">III</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-file-signature text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Belföldi pályázatok</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Hazai pályázati lehetőségek figyelése, elemzése és a releváns pályázatok elkészítése és koordinálása, hogy az ABOVE minél több hazai forráshoz jusson a stabil működés érdekében.
+                            </p>
+                        </div>
+
+                        <!-- IV. Piaci láb -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">IV</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-chart-pie text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Piaci láb</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az ABOVE hosszú távú önfinanszírozásának megalapozása: új piaci lehetőségek kutatása, üzleti modellek kidolgozása és bevételtermelő kezdeményezések, kampányok, szolgáltatások, innovatív projektek, megvalósítása.
+                            </p>
+                        </div>
+
+                        <!-- V. Gimik és belföldi partnerek -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">V</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-school text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Gimik és belföldi partnerek</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Hazai partnerhálózat építése és koordinálása: középiskolák, civil szervezetek, önkormányzatok és szakmai partnerek bevonása a szervezet ismertségének növelése és a fiatalok elérése érdekében.
+                            </p>
+                        </div>
+
+                        <!-- VI. ESC -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">VI</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-hand-holding-heart text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">ESC</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az European Solidarity Corps program bevezetésének előkészítése: a program feltérképezése, szervezeti folyamatok kidolgozása és partnerkapcsolatok kiépítése, hogy az ABOVE fogadó- és küldőszervezetként részt vehessen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Management Section -->
+        <section id="events-management" class="em-section py-12 md:py-24 px-6 text-center md:text-left">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                    <!-- Image (left on desktop) -->
+                    <div class="fade-in">
+                        <div class="relative">
+                            <img src="assets/images/_events.jpg" alt="Events Management"
+                                class="rounded-[3rem] shadow-2xl w-full object-cover max-h-[420px]">
+                            <!-- Decorative floating badge -->
+                            <div class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 glass-strong px-5 py-3 rounded-2xl shadow-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-neon-cyan flex items-center justify-center">
+                                        <i class="fas fa-calendar-check text-dark-teal text-lg"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <p class="text-white font-bold text-sm">4 Projektcsapat</p>
+                                        <p class="text-gray-400 text-xs">Rendezvények & események</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content (right on desktop) -->
+                    <div class="fade-in">
+                        <div class="badge">Szekció</div>
+                        <h2 class="text-3xl md:text-4xl font-montserrat font-bold mb-4 md:mb-6">Events Management</h2>
+                        <div class="w-16 h-1 bg-neon-cyan mb-6 md:mb-8 mx-auto md:mx-0"></div>
+
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            Az ABOVE rendezvényeinek operatív és szervezési központja. Koordinálja a recruitment megjelenéseket, féléves eseményterveket készít, és kezeli a nyilvános programok, belső tréningek és partnerrendezvények teljes szervezési folyamatát, a helyszínfoglalástól a lebonyolításig. Összekötő szerepet tölt be a szekciók között, a partnerségeket, kommunikációt és közösséget valódi programokká alakítva.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Teams Grid -->
+                <div class="mt-16 md:mt-24">
+                    <div class="text-center mb-10 md:mb-14 fade-in">
+                        <p class="text-neon-cyan font-montserrat font-bold tracking-wider mb-2 uppercase text-xs md:text-sm">Projektcsapatok</p>
+                        <h3 class="text-2xl md:text-3xl font-montserrat font-bold">A szekció felépítése</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- I. Belső képzések -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">I</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-chalkboard-user text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Belső képzések</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az ABOVE belső képzési rendszerének operatív megvalósítása: előadók felkutatása és felkérése, helyszínfoglalás, technikai háttér biztosítása és a képzések teljes koordinálása a tagok szakmai fejlődéséért.
+                            </p>
+                        </div>
+
+                        <!-- II. Nyílt események -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">II</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-microphone-lines text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">Nyílt események</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Az ABOVE legnagyobb nyilvános rendezvényeinek szervezése: neves előadók és közéleti szereplők meghívása, kapcsolattartás és az események teljes koordinálása, az ABOVE legfontosabb megjelenési felülete az egyetemi közösség felé.
+                            </p>
+                        </div>
+
+                        <!-- III. CERV -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">III</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-landmark text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">CERV</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                A Citizens, Equality, Rights and Values programhoz kapcsolódó disszeminációs események megtervezése, lebonyolítása és dokumentálása, valamint a projektek eredményeinek széles körű eljuttatása az egyetemi közösséghez.
+                            </p>
+                        </div>
+
+                        <!-- IV. HÖK és DSZ események -->
+                        <div class="cr-team-card glass-strong p-6 md:p-8 rounded-2xl relative overflow-hidden group fade-in">
+                            <div class="cr-team-number">IV</div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 flex items-center justify-center mb-4 relative z-10">
+                                <i class="fas fa-building-columns text-neon-cyan text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-montserrat font-bold mb-3 relative z-10">HÖK és DSZ események</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed relative z-10">
+                                Kapcsolatépítés a Hallgatói Önkormányzattal és más diákszervezetekkel: közös rendezvények, workshopok és networking események szervezése az ABOVE ismertségének növeléséért az egyetemen belül.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -878,21 +1379,75 @@
             'Eredményeink': 'Our Results',
             'Miért az': 'Why',
             'Foundation?': 'Foundation?',
-            'Fiatal utazott már velünk': 'Young people have already travelled with us',
+            'Résztvevő fiatal': 'Young participants',
+            'Nemzetközi cseréken és képzéseken velünk utazók.': 'Travelling with us on international exchanges and trainings.',
             'Folyamatos Lehetőségek': 'Ongoing Opportunities',
-            'Rendszeresen hirdetünk új projekteket. Ne maradj le a következő kalandról!': 'We regularly announce new projects. Don\'t miss out on the next adventure!',
-            'Új Desztinációk': 'New Destinations',
-            'Spanyolország, Görögország...': 'Spain, Greece...',
-            '...és még sok más egzotikus helyszín!': '...and many more exotic destinations!',
-            'Népszerű': 'Popular',
+            'Rendszeresen meghirdetett új európai projektek.': 'Regularly announced new European projects.',
+            'Szakmaiság': 'Professionalism',
+            'Strukturált működés, agilis szemlélet és magas minőségű képzések.': 'Structured operations, agile mindset, and high-quality trainings.',
+            'Minőség': 'Quality',
             'Megbízhatóság': 'Reliability',
-            'Több éves tapasztalat nemzetközi projektek szervezésében.': 'Years of experience organising international projects.',
+            'Több éves tapasztalat nemzetközi projektekben.': 'Years of experience in international projects.',
+            'Aktív': 'Active',
+            'Tapasztalat': 'Experience',
             // Vision
             'Vízió': 'Vision',
             'Hiszünk egy olyan Európában, ahol a kritikus gondolkodás, a technológiai fejlődés és az emberi összefogás hatására megszűnnek a tudásbeli szakadékok. Küldetésünk, hogy a magyar fiatalokat olyan készségekkel ruházzuk fel, amelyekkel magabiztosan és etikusan irányíthatják a jövő változásait.': 'We believe in a Europe where critical thinking, technological progress and human cooperation will bridge the knowledge gaps. Our mission is to equip Hungarian young people with the skills to confidently and ethically navigate the changes of the future.',
             'Kritikus gondolkodás és digitális készségfejlesztés.': 'Critical thinking and digital skills development.',
             'Hídépítés a fiatalok és a döntéshozók között.': 'Building bridges between young people and decision-makers.',
             'Vállalkozói szemlélet és európai hálózatépítés.': 'Entrepreneurial mindset and European networking.',
+            // Community & Recruitment
+            'Szekció': 'Section',
+            'A szekció az ABOVE emberi oldaláért felel: aktív, összetartó közösséget épít és biztosítja, hogy a szervezet tehetséges új tagokkal és nemzetközi projektrésztvevőkkel bővüljön. Feladatköre a teljes tagi életutat lefedi, az első találkozástól a recruitment folyamaton és integráción át a hosszú távú elköteleződésig. Emellett koordinálja az Erasmus+ és egyéb nemzetközi lehetőségeket, valamint rendszeres belső eseményekkel és mentorálással gondoskodik a közösség megtartásáról.': "The section is responsible for ABOVE's human side: it builds an active, cohesive community and ensures the organisation grows with talented new members and international project participants. Its scope covers the entire member journey, from first contact through recruitment and integration to long-term engagement. It also coordinates Erasmus+ and other international opportunities, and maintains the community through regular internal events and mentoring.",
+            '5 Projektcsapat': '5 Project Teams',
+            'Közösségépítés & toborzás': 'Community building & recruitment',
+            'Projektcsapatok': 'Project Teams',
+            'A szekció felépítése': 'Section Structure',
+            'Akkreditáció': 'Accreditation',
+            'A Corvinus Egyetem diákszervezeti akkreditációjának koordinálása: követelmények nyomon követése, dokumentáció, és a lehetőségek maximális kihasználása az Events Management és Marketing csapatokkal együttműködve.': "Coordinating Corvinus University's student organisation accreditation: tracking requirements, documentation, and maximising opportunities in cooperation with Events Management and Marketing teams.",
+            'A szervezet „lelke": méri a tagok elégedettségét és motivációját kérdőívekkel, interjúkkal és adatalapú elemzésekkel. Kezeli az exit interjúkat, visszajelzéseket, és biztosítja, hogy minden tag megtalálja a helyét.': 'The "soul" of the organisation: measures member satisfaction and motivation through surveys, interviews, and data-driven analysis. Handles exit interviews, feedback, and ensures every member finds their place.',
+            'Hírlevél és naptár': 'Newsletter & Calendar',
+            'Havonta elkészíti a szervezeti és szekciós hírleveleket, valamint a grafikus eseménynaptárat tréningekkel, rendezvényekkel és meetingekkel, hogy minden tag naprakész legyen.': 'Prepares monthly organisational and section newsletters, as well as the graphical event calendar with trainings, events, and meetings, keeping every member up to date.',
+            'Projekttoborzás': 'Project Recruitment',
+            'Az Erasmus+ KA1 és más nemzetközi mobilitási programok résztvevőinek toborzása, kiválasztása és koordinálása. Kapcsolatot tart partneriskolákkal és biztosítja a legmegfelelőbb résztvevők kiválasztását.': 'Recruiting, selecting, and coordinating participants for Erasmus+ KA1 and other international mobility programmes. Maintains contact with partner schools and ensures the most suitable participants are selected.',
+            'Csapatépítés': 'Team Building',
+            'Csapatépítő programok, társasestek, sportprogramok és informális találkozók szervezése. Új közösségi hagyományokat alakít ki, támogatja az új tagok beilleszkedését, és biztosítja, hogy az ABOVE mindenki számára inspiráló közösséget jelentsen.': 'Organising team building programmes, game nights, sports events, and informal meetups. Creates new community traditions, supports new members\' integration, and ensures ABOVE is an inspiring community for everyone.',
+            // Marketing Management
+            'A szekció az ABOVE külső megjelenéséért, kommunikációjáért és márkájának építéséért felel. Menedzseli az online jelenlétét, Instagram, TikTok, Facebook és weboldal, rendszeres tartalomgyártással és adatvezérelt kampányokkal. Gondoskodik a projektek disszeminációjáról, az egyetemi láthatóságról, a merchandise-okról és a vállalati együttműködésekről.': "The section is responsible for ABOVE's external image, communication and brand building. It manages online presence, Instagram, TikTok, Facebook and website, with regular content creation and data-driven campaigns. It handles project dissemination, university visibility, merchandise and corporate partnerships.",
+            '4 Projektcsapat': '4 Project Teams',
+            'Brand & kommunikáció': 'Brand & communication',
+            'Videóvágás és videóforgatás': 'Video Editing & Filming',
+            'Rendezvényeken és projektek során készült felvételek forgatása, kreatív koncepciók kidolgozása és professzionális utómunka. Hiteles videókkal erősíti a márkaépítést és az online jelenlétet.': 'Filming at events and projects, developing creative concepts and professional post-production. Strengthens brand building and online presence with authentic videos.',
+            'Egységes arculatú kreatív tartalmak tervezése és elkészítése, közösségi médiafelületek kezelése, események és sikerek kommunikálása, valamint elérések elemzése a hatékonyabb kommunikáció érdekében.': 'Designing and creating creative content with a unified visual identity, managing social media platforms, communicating events and successes, and analysing reach for more effective communication.',
+            'Weboldal': 'Website',
+            'Az ABOVE weboldalának folyamatos fejlesztése és naprakészen tartása: tartalmak frissítése, új funkciók bevezetése és technikai támogatás a professzionális online megjelenés érdekében.': "Continuous development and maintenance of ABOVE's website: updating content, introducing new features and providing technical support for a professional online presence.",
+            'Termékszponzoráció': 'Product Sponsorship',
+            'Vállalati együttműködések kialakítása terméktámogatásra és természetbeni hozzájárulásokra. Potenciális partnerek felkutatása, tárgyalások és hosszú távú kapcsolatépítés a rendezvények színvonalának emeléséért.': 'Establishing corporate partnerships for product support and in-kind contributions. Finding potential partners, conducting negotiations and building long-term relationships to raise the quality of events.',
+            // Partnerships Management
+            'Az ABOVE projekt- és partnerkapcsolati motorja. Feladata új hazai és nemzetközi együttműködések kialakítása, pályázati lehetőségek felkutatása, projektek létrehozása és a futó projektek koordinálása. Aktívan építi az Erasmus+ partnerhálózatot, kezeli a KA152/153/154 és KA2 pályázatokat, és gondoskodik a hazai partnerségekről, valamint az ABOVE hosszú távú finanszírozási stratégiájáról.': "ABOVE's project and partnership engine. Its task is to establish new domestic and international collaborations, identify grant opportunities, create projects and coordinate ongoing ones. It actively builds the Erasmus+ partner network, manages KA152/153/154 and KA2 applications, and takes care of domestic partnerships and ABOVE's long-term financing strategy.",
+            '6 Projektcsapat': '6 Project Teams',
+            'Projektek & partnerségek': 'Projects & partnerships',
+            'PM hálózat': 'PM Network',
+            'Nemzetközi partnerkapcsolatok fejlesztése: Erasmus+, CERV, Visegrad Fund és egyéb együttműködések kiépítése, partnerkereső rendezvényeken való részvétel és a hálózat folyamatos bővítése.': 'Developing international partnerships: building Erasmus+, CERV, Visegrad Fund and other collaborations, participating in partner-search events and continuously expanding the network.',
+            'Nyári tábor': 'Summer Camp',
+            'Az ABOVE első saját nemzetközi nyári táborának megtervezése és megvalósítása: angol nyelvű program, amely nyelvtudást fejleszt, európai értékeket ismertet és közösségi élményt nyújt.': "Planning and implementing ABOVE's first own international summer camp: an English-language programme that develops language skills, introduces European values and provides a community experience.",
+            'Belföldi pályázatok': 'Domestic Grants',
+            'Hazai pályázati lehetőségek figyelése, elemzése és a releváns pályázatok elkészítése és koordinálása, hogy az ABOVE minél több hazai forráshoz jusson a stabil működés érdekében.': 'Monitoring and analysing domestic grant opportunities and preparing and coordinating relevant applications so ABOVE can access as many domestic funding sources as possible for stable operation.',
+            'Piaci láb': 'Market Leg',
+            'Az ABOVE hosszú távú önfinanszírozásának megalapozása: új piaci lehetőségek kutatása, üzleti modellek kidolgozása és bevételtermelő kezdeményezések, kampányok, szolgáltatások, innovatív projektek, megvalósítása.': "Laying the foundation for ABOVE's long-term self-financing: researching new market opportunities, developing business models and implementing revenue-generating initiatives, campaigns, services and innovative projects.",
+            'Gimik és belföldi partnerek': 'High Schools & Domestic Partners',
+            'Hazai partnerhálózat építése és koordinálása: középiskolák, civil szervezetek, önkormányzatok és szakmai partnerek bevonása a szervezet ismertségének növelése és a fiatalok elérése érdekében.': "Building and coordinating ABOVE's domestic partner network: engaging high schools, NGOs, local governments and professional partners to increase the organisation's visibility and reach young people.",
+            'Az European Solidarity Corps program bevezetésének előkészítése: a program feltérképezése, szervezeti folyamatok kidolgozása és partnerkapcsolatok kiépítése, hogy az ABOVE fogadó- és küldőszervezetként részt vehessen.': 'Preparing the introduction of the European Solidarity Corps programme: mapping the programme, developing organisational processes and building partnerships so ABOVE can participate as both a hosting and sending organisation.',
+            // Events Management
+            'Az ABOVE rendezvényeinek operatív és szervezési központja. Koordinálja a recruitment megjelenéseket, féléves eseményterveket készít, és kezeli a nyilvános programok, belső tréningek és partnerrendezvények teljes szervezési folyamatát, a helyszínfoglalástól a lebonyolításig. Összekötő szerepet tölt be a szekciók között, a partnerségeket, kommunikációt és közösséget valódi programokká alakítva.': "ABOVE's operational and organisational event centre. It coordinates recruitment appearances, prepares semester event plans, and manages the full organisational process for public programmes, internal trainings and partner events, from venue booking to execution. It acts as a bridge between sections, turning partnerships, communication and community into real programmes.",
+            'Rendezvények & események': 'Events & programmes',
+            'Belső képzések': 'Internal Trainings',
+            'Az ABOVE belső képzési rendszerének operatív megvalósítása: előadók felkutatása és felkérése, helyszínfoglalás, technikai háttér biztosítása és a képzések teljes koordinálása a tagok szakmai fejlődéséért.': "Operational implementation of ABOVE's internal training system: finding and inviting speakers, booking venues, providing technical support and fully coordinating trainings for members' professional development.",
+            'Nyílt események': 'Public Events',
+            'Az ABOVE legnagyobb nyilvános rendezvényeinek szervezése: neves előadók és közéleti szereplők meghívása, kapcsolattartás és az események teljes koordinálása, az ABOVE legfontosabb megjelenési felülete az egyetemi közösség felé.': "Organising ABOVE's largest public events: inviting renowned speakers and public figures, maintaining contact and fully coordinating events, ABOVE's most important platform towards the university community.",
+            'A Citizens, Equality, Rights and Values programhoz kapcsolódó disszeminációs események megtervezése, lebonyolítása és dokumentálása, valamint a projektek eredményeinek széles körű eljuttatása az egyetemi közösséghez.': 'Planning, organising and documenting dissemination events related to the Citizens, Equality, Rights and Values programme, and widely communicating project results to the university community.',
+            'HÖK és DSZ események': 'Student Council & Organisation Events',
+            'Kapcsolatépítés a Hallgatói Önkormányzattal és más diákszervezetekkel: közös rendezvények, workshopok és networking események szervezése az ABOVE ismertségének növeléséért az egyetemen belül.': "Building relationships with the Student Council and other student organisations: organising joint events, workshops and networking events to increase ABOVE's visibility within the university.",
             // Values
             'Értékeink': 'Our Values',
             'Alapelveink vezérelnek minket minden döntésünkben és minden megvalósított projektünkben.': 'Our principles guide us in every decision we make and every project we implement.',
