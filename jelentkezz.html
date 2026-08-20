@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z253S3MPDE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z253S3MPDE');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABOVE Foundation Jelentkezés - Csatlakozz nemzetközi projekjeinkhez, nyári táborainkhoz vagy önkéntes csapatunkhoz!">
+    <title id="page-title-tag">Jelentkezés | ABOVE Foundation</title>
+    <link rel="icon" type="image/png" href="/favicon.png?v=2">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="apple-touch-icon" href="/favicon.png?v=2">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=2">
+    <link rel="apple-touch-icon" sizes="167x167" href="/favicon.png?v=2">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-teal': '#0f1d21',
+                        'neon-cyan': '#00BCD4',
+                        'neon-teal': '#00FFF0',
+                    },
+                    fontFamily: {
+                        'montserrat': ['"Montserrat"', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1d21;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 188, 212, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.1);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.8),
+                0 0 20px rgba(0, 188, 212, 0.6),
+                0 0 30px rgba(0, 188, 212, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00BCD4 0%, #00FFF0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 255, 240, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            border-color: #00FFF0;
+            box-shadow: 0 0 30px rgba(0, 255, 240, 0.6);
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(0, 188, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 188, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 188, 212, 0.6);
+            }
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* ── Light Mode Styles ── */
+        body.light-mode {
+            background-color: #f8fafc !important;
+            color: #0f1d21 !important;
+        }
+
+        body.light-mode .glass {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-color: rgba(0, 188, 212, 0.3) !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06) !important;
+        }
+
+        body.light-mode .glass-strong {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-color: rgba(0, 188, 212, 0.4) !important;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        body.light-mode h1,
+        body.light-mode h2,
+        body.light-mode h3,
+        body.light-mode h4,
+        body.light-mode label,
+        body.light-mode strong,
+        body.light-mode b,
+        body.light-mode th,
+        body.light-mode td,
+        body.light-mode .glass .text-white,
+        body.light-mode .glass-strong .text-white,
+        body.light-mode #form-card .text-white,
+        body.light-mode #form-success .text-white,
+        body.light-mode #app-content .text-white {
+            color: #0f1d21 !important;
+        }
+
+        body.light-mode h1.gradient-text,
+        body.light-mode h2.gradient-text,
+        body.light-mode h3.gradient-text {
+            background: linear-gradient(135deg, #007a9a 0%, #00b8d4 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
+        body.light-mode p,
+        body.light-mode span.text-gray-300,
+        body.light-mode .text-gray-300,
+        body.light-mode .text-gray-200,
+        body.light-mode .text-gray-100 {
+            color: #1e293b !important;
+        }
+
+        body.light-mode .text-gray-400,
+        body.light-mode .text-gray-500 {
+            color: #475569 !important;
+        }
+
+        body.light-mode #app-content .text-neon-cyan {
+            color: #007a9a !important;
+        }
+
+        body.light-mode tr {
+            border-color: rgba(0, 0, 0, 0.12) !important;
+        }
+
+        body.light-mode input,
+        body.light-mode select,
+        body.light-mode textarea {
+            background: rgba(241, 245, 249, 0.95) !important;
+            color: #0f1d21 !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-mode input::placeholder,
+        body.light-mode textarea::placeholder {
+            color: #64748b !important;
+        }
+
+        body.light-mode select option {
+            background: #ffffff !important;
+            color: #0f1d21 !important;
+        }
+
+        body.light-mode nav .text-white,
+        body.light-mode nav span.text-white {
+            color: #ffffff !important;
+        }
+
+        .btn-prev {
+            background: rgba(0, 188, 212, 0.08) !important;
+            border: 1px solid rgba(0, 188, 212, 0.35) !important;
+            color: #00BCD4 !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            padding: 0.65rem 1.5rem !important;
+            border-radius: 0.5rem !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 10px rgba(0, 188, 212, 0.1) !important;
+        }
+
+        .btn-prev:hover {
+            background: rgba(0, 188, 212, 0.2) !important;
+            border-color: #00BCD4 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.3) !important;
+            transform: translateY(-1px);
+        }
+
+        body.light-mode .btn-prev {
+            background: rgba(0, 122, 154, 0.08) !important;
+            border: 1px solid rgba(0, 122, 154, 0.4) !important;
+            color: #007a9a !important;
+        }
+
+        body.light-mode .btn-prev:hover {
+            background: rgba(0, 122, 154, 0.18) !important;
+            border-color: #007a9a !important;
+            color: #0f1d21 !important;
+        }
+    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+</head>
+
+<body class="">
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark') {
+                document.body.classList.remove('light-mode');
+            } else if (saved === 'light') {
+                document.body.classList.add('light-mode');
+            } else {
+                const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
+                if (isIndex) {
+                    document.body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+        })();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-teal border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-2 group -ml-3 lg:ml-0 mt-1.5 lg:mt-0">
+                    <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                        class="h-12 lg:h-10 w-auto group-hover:opacity-80 transition duration-300">
+                    <span
+                        class="hidden lg:inline-block text-2xl lg:text-3xl font-montserrat font-bold text-white group-hover:opacity-80 transition duration-300">ABOVE
+                        Foundation</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kezdőlap</a>
+                    <a href="projects" class="text-gray-300 hover:text-neon-cyan transition duration-300">Tevékenységek</a>
+                    <a href="about" class="text-gray-300 hover:text-neon-cyan transition duration-300">Rólunk</a>
+                    <a href="contact" class="text-gray-300 hover:text-neon-cyan transition duration-300">Kapcsolat</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" title="Téma vA?ltása" aria-label="Téma vA?ltása">
+                        <i class="fas"></i>
+                        <script>
+                            (function () {
+                                document.currentScript.previousElementSibling.className =
+                                    document.body.classList.contains('light-mode') ||
+                                    document.documentElement.classList.contains('light-mode')
+                                    ? 'fas fa-moon' : 'fas fa-sun';
+                            })();
+                        </script>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="lg:hidden text-neon-cyan">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" style="z-index: 9998 !important;"></div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="px-6 py-8">
+        <div class="flex items-center justify-between mb-10">
+            <span class="text-xl font-montserrat font-bold gradient-text">Menü</span>
+            <button id="mobile-menu-close" class="text-gray-400 hover:text-white transition duration-300">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col" style="gap: 2rem !important;">
+            <a href="/" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Kezdőlap</span>
+            </a>
+            <a href="projects"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span>Tevékenységek</span>
+            </a>
+            <a href="about"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Rólunk</span>
+            </a>
+            <a href="contact"
+                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+                <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span>Kapcsolat</span>
+            </a>
+        </div>
+
+        <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+        </div>
+    </div>
+
+
+
+    <!-- Main Content -->
+    <main id="app-content" class="w-full px-4 sm:px-6 pt-32 pb-20 grid-bg">
+        <div class="max-w-3xl mx-auto w-full">
+
+            <!-- Form Container -->
+            <div id="form-card" class="fade-in">
+
+                <!-- Title Card -->
+                <div class="glass-strong rounded-t-3xl p-6 md:p-10 border border-neon-cyan/30 border-b-0" style="border-top: 4px solid var(--neon-cyan);">
+                    <h1 class="text-2xl md:text-3xl font-montserrat font-extrabold gradient-text mb-5">ABOVE Hallgatói Szervezet Corvinus Jelentkezési Form 2026/2027/1</h1>
+                    <div class="text-gray-300 text-sm leading-relaxed space-y-3">
+                        <p>Szeretnél egy olyan közösség része lenni, ahol a fiatalok nem csak beszélnek Európa jövőjéről, hanem aktívan formálják is azt? Az <strong class="text-white">ABOVE</strong> azért jött létre, hogy új perspektívákat nyisson, kritikus gondolkodásra ösztönözzön, és valódi, 21. századi készségekkel ruházza fel a fiatalokat.</p>
+                        <p>Az ABOVE egy fiatalok által alapított, fiatalokért dolgozó szervezet, amely hisz abban, hogy a párbeszéd, az innováció és a cselekvés képes lebontani a határokat – legyenek azok kulturálisak, társadalmiak vagy gondolkodásbeliek. Tagjaink nemzetközi projektekben, képzéseken, workshopokon és közösségépítő eseményeken vehetnek részt, miközben valódi hatást gyakorolnak a környezetükre.</p>
+                        <p>A jelentkezés minden olyan fiatal számára nyitott, aki szeretne fejlődni, új nézőpontokat megismerni és aktívan részt venni egy értékvezérelt közösség munkájában. Nem elvárás, hogy a Corvinus Egyetem hallgatója legyél: az ABOVE-ben hiszünk abban, hogy a sokszínű háttér és a különböző tapasztalatok teszik igazán erőssé a közösséget. Számunkra a motiváció, a nyitottság és az elköteleződés a legfontosabb, nem pedig az, hogy honnan érkezel.</p>
+                        <p>Ha szeretnél fejlődni, kipróbálni magad, és egy inspiráló, ambiciózus csapat tagja lenni, akkor az ABOVE-ben a helyed!</p>
+                        <p class="pt-2"><strong class="text-neon-cyan">Fontos időpontok:</strong></p>
+                        <p><strong class="text-white">Jelentkezési határidő:</strong> szeptember 25. 23:59</p>
+                        <p><strong class="text-white">Infóestek:</strong></p>
+                        <p class="pl-4">1) szeptember 16. 19:00 (<em>Helyszín: Corvinus Egyetem, pontos helyszín: hamarosan</em>)</p>
+                        <p class="pl-4">2) szeptember 24. 19:00 (<em>Helyszín: Corvinus Egyetem, pontos helyszín: hamarosan</em>)</p>
+                        <p><strong class="text-white">Interjúk:</strong> október 1. valamint október 6.-8., 17:00-20:30 között</p>
+                        <p><strong class="text-white">Bevonó tábor:</strong> október 16-18. (<em>Kérjük, ha komolyan gondolod a tagságot, számolj a részvétellel!</em>)</p>
+                        <p class="pt-2">További információkért és betekintésért az ABOVE életébe kövess minket itt:<br>👉 <a href="https://linktr.ee/above_youth" target="_blank" class="text-neon-cyan hover:underline font-semibold">https://linktr.ee/above_youth</a></p>
+                        <p class="text-red-400 text-xs pt-3">* Kötelező mező</p>
+                    </div>
+                </div>
+
+                <!-- Step Progress Bar -->
+                <div class="glass-strong px-6 md:px-10 py-4 border-x border-neon-cyan/30">
+                    <div class="flex items-center justify-between text-xs text-gray-400 mb-2">
+                        <span id="step-label">1. oldal / 5</span>
+                        <span id="step-percent">0%</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                        <div id="step-progress" class="h-full rounded-full bg-gradient-to-r from-neon-cyan to-neon-teal transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <form id="google-signup-form">
+
+                    <!-- ==================== PAGE 1: Személyes adatok ==================== -->
+                    <div class="form-page active glass-strong rounded-b-3xl p-6 md:p-10 border border-neon-cyan/30 border-t-0 space-y-6" data-page="1">
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Név <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-name" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">E-mail <span class="text-red-400">*</span></label>
+                            <input type="email" id="field-email" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Telefonszám <span class="text-red-400">*</span></label>
+                            <input type="tel" id="field-phone" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Facebook link <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-facebook" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Életkor <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-age" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Nem <span class="text-red-400">*</span></label>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="Férfi" required class="accent-neon-cyan w-4 h-4"><span>Férfi</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="Nő" class="accent-neon-cyan w-4 h-4"><span>Nő</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="__other_option__" class="accent-neon-cyan w-4 h-4"><span>Egyéb:</span><input type="text" id="field-gender-other" class="ml-1 px-2 py-1 rounded bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan w-40"></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Egyetem neve <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-university" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Felvétel éve <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-year" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Szak megnevezése <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-major" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Neptun-kód <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-neptun" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Beszélt nyelvek (legalább középszinten) <span class="text-red-400">*</span></label>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Magyar" class="accent-neon-cyan w-4 h-4"><span>Magyar</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Angol" class="accent-neon-cyan w-4 h-4"><span>Angol</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Német" class="accent-neon-cyan w-4 h-4"><span>Német</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Francia" class="accent-neon-cyan w-4 h-4"><span>Francia</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Spanyol" class="accent-neon-cyan w-4 h-4"><span>Spanyol</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Olasz" class="accent-neon-cyan w-4 h-4"><span>Olasz</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="__other_option__" class="accent-neon-cyan w-4 h-4"><span>Egyéb:</span><input type="text" id="field-lang-other" class="ml-1 px-2 py-1 rounded bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan w-40"></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Honnan hallottál rólunk? <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-source" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Van olyan ismerősöd/barátod, aki tagja a szervezetünknek? Ha igen, kérjük, add meg a nevét/nevüket. <span class="text-red-400">*</span></label>
+                            <input type="text" id="field-friend" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="flex justify-between items-center pt-4">
+                            <div></div>
+                            <button type="button" class="btn-next bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-montserrat font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-neon-cyan/30 transition duration-300 text-sm">Következő</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 2: Általános kérdések ==================== -->
+                    <div class="form-page glass-strong rounded-b-3xl p-6 md:p-10 border border-neon-cyan/30 border-t-0 space-y-6" data-page="2" style="display:none;">
+
+                        <div class="border-b border-neon-cyan/20 pb-3">
+                            <h2 class="text-xl font-montserrat font-bold text-white">Általános kérdések</h2>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Milyen szerepben érzed magad erősebbnek: Ötletgazda, szervező, koordinátor, kommunikátor? és miért? <span class="text-red-400">*</span></label>
+                            <textarea id="field-role" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Ha egy európai város lennél, melyik lennél és miért? <span class="text-red-400">*</span></label>
+                            <textarea id="field-city" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Van-e bármilyen tapasztalatod videóvágás/videóforgatásban, kreatív anyagok elkészítésében? Ha igen akkor mit csináltál eddig? <span class="text-red-400">*</span></label>
+                            <textarea id="field-media" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Van-e bármilyen tapasztalod eseményszervezésben? Ha igen, akkor milyen esemény szervezésénél segítettél? <span class="text-red-400">*</span></label>
+                            <textarea id="field-events" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Van munkatapasztalatod (és ha igen milyen)? <span class="text-red-400">*</span></label>
+                            <textarea id="field-work" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-4">
+                            <button type="button" class="btn-prev text-neon-cyan font-montserrat font-bold px-6 py-3 rounded-lg hover:bg-white/5 transition duration-300 text-sm">Vissza</button>
+                            <button type="button" class="btn-next bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-montserrat font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-neon-cyan/30 transition duration-300 text-sm">Következő</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 3: Szekcióválasztás ==================== -->
+                    <div class="form-page glass-strong rounded-b-3xl p-6 md:p-10 border border-neon-cyan/30 border-t-0 space-y-6" data-page="3" style="display:none;">
+
+                        <div class="border-b border-neon-cyan/20 pb-3">
+                            <h2 class="text-xl font-montserrat font-bold text-white">Szekcióválasztás</h2>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Elsődlegesen választott szekció <span class="text-red-400">*</span></label>
+                            <p class="text-xs text-gray-400 mb-3 leading-relaxed">
+                                <strong class="text-white">Community Management:</strong> tagtoborzás és kiválasztás, új tagok integrációja, közösségépítés, tagi elégedettség és külföldi projektrészvételek koordinálása.<br>
+                                <strong class="text-white">Marketing Management:</strong> social media és online kommunikáció, tartalomgyártás, kampányok, weboldal, dizájn és merchandise, valamint céges partnerségek építése.<br>
+                                <strong class="text-white">Partnerships Management:</strong> hazai és nemzetközi partnerkapcsolatok, pályázatírás, Erasmus+ és egyéb projektek menedzsmentje, valamint új finanszírozási és fejlesztési lehetőségek felkutatása.<br>
+                                <strong class="text-white">Events Management:</strong> belső és nyilvános események, tréningek és toborzási megjelenések tervezése és teljes körű megszervezése, valamint együttműködés más diákszervezetekkel.
+                            </p>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec1" value="Partnerships Management" required class="accent-neon-cyan w-4 h-4"><span>Partnerships Management</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec1" value="Community Management" class="accent-neon-cyan w-4 h-4"><span>Community Management</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec1" value="Marketing Management" class="accent-neon-cyan w-4 h-4"><span>Marketing Management</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec1" value="Events Management" class="accent-neon-cyan w-4 h-4"><span>Events Management</span></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Másodlagosan választott szekció <span class="text-red-400">*</span></label>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec2" value="Partnerships Management" required class="accent-neon-cyan w-4 h-4"><span>Partnerships Management</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec2" value="Community Management" class="accent-neon-cyan w-4 h-4"><span>Community Management</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec2" value="Marketing Management" class="accent-neon-cyan w-4 h-4"><span>Marketing Management</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="sec2" value="Events Management" class="accent-neon-cyan w-4 h-4"><span>Events Management</span></label>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-4">
+                            <button type="button" class="btn-prev text-neon-cyan font-montserrat font-bold px-6 py-3 rounded-lg hover:bg-white/5 transition duration-300 text-sm">Vissza</button>
+                            <button type="button" class="btn-next bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-montserrat font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-neon-cyan/30 transition duration-300 text-sm">Következő</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 4: Szekció-specifikus kérdések ==================== -->
+                    <div class="form-page glass-strong rounded-b-3xl p-6 md:p-10 border border-neon-cyan/30 border-t-0 space-y-6" data-page="4" style="display:none;">
+
+                        <!-- ===== PM Section ===== -->
+                        <div id="sec-pm" class="section-questions space-y-6" style="display:none;">
+                            <div class="border-b border-neon-cyan/20 pb-3">
+                                <h2 class="text-xl font-montserrat font-bold text-white">Partnerships Management kérdések</h2>
+                                <p class="text-xs text-gray-400 mt-1">Az ABOVE összes szekciója projektcsapatokban dolgozik, további információ a projektcsapatokról és a tevékenységükről: <a href="https://abovefoundation.eu/about" target="_blank" class="text-neon-cyan hover:underline">https://abovefoundation.eu/about</a></p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-3">Kérjük, rangsorold az alábbi szekciós projektcsapatokat aszerint, hogy melyikben dolgoznál a legszívesebben! (1. - legszívesebben, 6. - legkevésbé szívesen) <span class="text-red-400">*</span></label>
+                                <p class="text-xs text-gray-500 mb-3">Minden helyezést csak egyszer használj fel!</p>
+                                <div class="overflow-x-auto -mx-2 px-2">
+                                    <table class="w-full text-xs text-gray-300 border-collapse">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left py-2 pr-3 font-normal text-gray-500 w-48"></th>
+                                                <th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">1.</th>
+                                                <th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">2.</th>
+                                                <th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">3.</th>
+                                                <th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">4.</th>
+                                                <th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">5.</th>
+                                                <th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">6.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3 text-gray-300">PM Hálózat projektcsapat</td><td class="text-center"><input type="radio" name="pm-rank-halozat" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-halozat" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-halozat" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-halozat" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-halozat" value="5. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-halozat" value="6. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3 text-gray-300">Nyári tábor projektcsapat</td><td class="text-center"><input type="radio" name="pm-rank-nyari" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-nyari" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-nyari" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-nyari" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-nyari" value="5. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-nyari" value="6. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3 text-gray-300">Belföldi pályázatok projektcsapat</td><td class="text-center"><input type="radio" name="pm-rank-belfoldi" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-belfoldi" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-belfoldi" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-belfoldi" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-belfoldi" value="5. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-belfoldi" value="6. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3 text-gray-300">Piaci láb projektcsapat</td><td class="text-center"><input type="radio" name="pm-rank-piaci" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-piaci" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-piaci" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-piaci" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-piaci" value="5. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-piaci" value="6. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3 text-gray-300">Gimik és belföldi partnerek projektcsapat</td><td class="text-center"><input type="radio" name="pm-rank-gimik" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-gimik" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-gimik" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-gimik" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-gimik" value="5. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-gimik" value="6. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3 text-gray-300">ESC projektcsapat</td><td class="text-center"><input type="radio" name="pm-rank-esc" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-esc" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-esc" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-esc" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-esc" value="5. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="pm-rank-esc" value="6. " class="accent-neon-cyan"></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
+                                <textarea id="field-pm-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">A Partnerships Management szekció munkája sokféle feladatból áll (projektötletek kidolgozása, pályázatírás, partnerkapcsolatok építése, projektmenedzsment, rendezvény- és táborszervezés, szervezeti adminisztráció, operatív feladatok, hivatalos ügyintézés, szervezeti fejlesztés). Ezek közül melyik áll hozzád a legközelebb, és miért? <span class="text-red-400">*</span></label>
+                                <textarea id="field-pm-tasks" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Mit szeretsz csinálni a szabadidődben az iskola/egyetem mellett? Kérjük, emelj ki néhány olyan tevékenységet, hobbit vagy közösségi szerepvállalást, amely szerinted jól jellemez téged. <span class="text-red-400">*</span></label>
+                                <textarea id="field-pm-hobby" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- ===== CM Section ===== -->
+                        <div id="sec-cm" class="section-questions space-y-6" style="display:none;">
+                            <div class="border-b border-neon-cyan/20 pb-3">
+                                <h2 class="text-xl font-montserrat font-bold text-white">Community Management kérdések</h2>
+                                <p class="text-xs text-gray-400 mt-1">Az ABOVE összes szekciója projektcsapatokban dolgozik, további információ: <a href="https://abovefoundation.eu/about" target="_blank" class="text-neon-cyan hover:underline">https://abovefoundation.eu/about</a></p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-3">Kérjük, rangsorold az alábbi szekciós projektcsapatokat aszerint, hogy melyikben dolgoznál a legszívesebben! (1. - legszívesebben, 5. - legkevésbé szívesen) <span class="text-red-400">*</span></label>
+                                <p class="text-xs text-gray-500 mb-3">Minden helyezést csak egyszer használj fel!</p>
+                                <div class="overflow-x-auto -mx-2 px-2">
+                                    <table class="w-full text-xs text-gray-300 border-collapse">
+                                        <thead><tr><th class="text-left py-2 pr-3 font-normal text-gray-500 w-48"></th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">1.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">2.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">3.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">4.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">5.</th></tr></thead>
+                                        <tbody>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Akkreditációs projektcsapat</td><td class="text-center"><input type="radio" name="cm-rank-akkred" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-akkred" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-akkred" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-akkred" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-akkred" value="5. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">HR projektcsapat</td><td class="text-center"><input type="radio" name="cm-rank-hr" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hr" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hr" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hr" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hr" value="5. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Hírlevél és naptár projektcsapat</td><td class="text-center"><input type="radio" name="cm-rank-hirlevel" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hirlevel" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hirlevel" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hirlevel" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-hirlevel" value="5. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Projekttoborzás projektcsapat</td><td class="text-center"><input type="radio" name="cm-rank-toborz" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-toborz" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-toborz" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-toborz" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-toborz" value="5. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Csapatépítés projektcsapat</td><td class="text-center"><input type="radio" name="cm-rank-csapat" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-csapat" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-csapat" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-csapat" value="4. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="cm-rank-csapat" value="5. " class="accent-neon-cyan"></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
+                                <textarea id="field-cm-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Milyen tapasztalatod van adminisztratív, koordinációs vagy csapatépítő jellegű tevékenységek kapcsán? (Melyik áll hozzád legközelebb és miért?) <span class="text-red-400">*</span></label>
+                                <textarea id="field-cm-admin" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Hogyan próbálnád megoldani, ha a tagság részéről inaktivitás fogad egy feladat kapcsán? (Milyen kommunikációt választanál, miként próbálnád motiválni vagy büntetni a tagságot és hogyan hatna ez rád?) <span class="text-red-400">*</span></label>
+                                <textarea id="field-cm-inactive" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- ===== MM Section ===== -->
+                        <div id="sec-mm" class="section-questions space-y-6" style="display:none;">
+                            <div class="border-b border-neon-cyan/20 pb-3">
+                                <h2 class="text-xl font-montserrat font-bold text-white">Marketing Management kérdések</h2>
+                                <p class="text-xs text-gray-400 mt-1">Az ABOVE összes szekciója projektcsapatokban dolgozik, további információ: <a href="https://abovefoundation.eu/about" target="_blank" class="text-neon-cyan hover:underline">https://abovefoundation.eu/about</a></p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-3">Kérjük, rangsorold az alábbi szekciós projektcsapatokat aszerint, hogy melyikben dolgoznál a legszívesebben! (1. - legszívesebben, 4. - legkevésbé szívesen) <span class="text-red-400">*</span></label>
+                                <p class="text-xs text-gray-500 mb-3">Minden helyezést csak egyszer használj fel!</p>
+                                <div class="overflow-x-auto -mx-2 px-2">
+                                    <table class="w-full text-xs text-gray-300 border-collapse">
+                                        <thead><tr><th class="text-left py-2 pr-3 font-normal text-gray-500 w-48"></th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">1.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">2.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">3.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">4.</th></tr></thead>
+                                        <tbody>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Videóvágás és videóforgatás projektcsapat</td><td class="text-center"><input type="radio" name="mm-rank-video" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-video" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-video" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-video" value="4. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Social Media projektcsapat</td><td class="text-center"><input type="radio" name="mm-rank-social" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-social" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-social" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-social" value="4. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Weboldal és Tech projektcsapat</td><td class="text-center"><input type="radio" name="mm-rank-web" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-web" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-web" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-web" value="4. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Termékszponzorációs projektcsapat</td><td class="text-center"><input type="radio" name="mm-rank-szponz" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-szponz" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-szponz" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="mm-rank-szponz" value="4. " class="accent-neon-cyan"></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
+                                <textarea id="field-mm-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Ha korlátlan időd és eszközöd lenne, mit készítenél, amivel online sok emberhez el tudnál jutni? <span class="text-red-400">*</span></label>
+                                <textarea id="field-mm-idea" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Hogyan mutatnál be vizuálisan egy eseményt, ötletet vagy értéket úgy, hogy az szöveg nélkül is érthető és figyelemfelkeltő legyen? <span class="text-red-400">*</span></label>
+                                <textarea id="field-mm-visual" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- ===== EM Section ===== -->
+                        <div id="sec-em" class="section-questions space-y-6" style="display:none;">
+                            <div class="border-b border-neon-cyan/20 pb-3">
+                                <h2 class="text-xl font-montserrat font-bold text-white">Events Management kérdések</h2>
+                                <p class="text-xs text-gray-400 mt-1">Az ABOVE összes szekciója projektcsapatokban dolgozik, további információ: <a href="https://abovefoundation.eu/about" target="_blank" class="text-neon-cyan hover:underline">https://abovefoundation.eu/about</a></p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-3">Kérjük, rangsorold az alábbi szekciós projektcsapatokat aszerint, hogy melyikben dolgoznál a legszívesebben! (1. - legszívesebben, 4. - legkevésbé szívesen) <span class="text-red-400">*</span></label>
+                                <p class="text-xs text-gray-500 mb-3">Minden helyezést csak egyszer használj fel!</p>
+                                <div class="overflow-x-auto -mx-2 px-2">
+                                    <table class="w-full text-xs text-gray-300 border-collapse">
+                                        <thead><tr><th class="text-left py-2 pr-3 font-normal text-gray-500 w-48"></th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">1.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">2.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">3.</th><th class="text-center py-2 px-2 font-semibold text-gray-400 w-12">4.</th></tr></thead>
+                                        <tbody>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Belső képzések projektcsapat</td><td class="text-center"><input type="radio" name="em-rank-belso" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-belso" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-belso" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-belso" value="4. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">Nyílt események projektcsapat</td><td class="text-center"><input type="radio" name="em-rank-nyilt" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-nyilt" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-nyilt" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-nyilt" value="4. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">CERV projektcsapat</td><td class="text-center"><input type="radio" name="em-rank-cerv" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-cerv" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-cerv" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-cerv" value="4. " class="accent-neon-cyan"></td></tr>
+                                            <tr class="border-t border-white/5"><td class="py-3 pr-3">HÖK és DSZ események projektcsapat</td><td class="text-center"><input type="radio" name="em-rank-hok" value="1." class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-hok" value="2. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-hok" value="3. " class="accent-neon-cyan"></td><td class="text-center"><input type="radio" name="em-rank-hok" value="4. " class="accent-neon-cyan"></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
+                                <textarea id="field-em-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Idézz fel egy rendezvényt vagy eseményt, amin korábban részt vettél! Mi volt az az egy szervezői hiba vagy hiányosság, amit kiszúrtál, és írd le, te hogyan oldottad volna meg a problémát! <span class="text-red-400">*</span></label>
+                                <textarea id="field-em-event" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-200 mb-2">Tervezz meg egy saját eseményt a Corvinusra az ABOVE csapat tagjaként! Mi lenne a rendezvény témája, kit hívnál meg előadónak, és miért pont őt? <span class="text-red-400">*</span></label>
+                                <textarea id="field-em-plan" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-4">
+                            <button type="button" class="btn-prev text-neon-cyan font-montserrat font-bold px-6 py-3 rounded-lg hover:bg-white/5 transition duration-300 text-sm">Vissza</button>
+                            <button type="button" class="btn-next bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-montserrat font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-neon-cyan/30 transition duration-300 text-sm">Következő</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 5: Záró szakasz ==================== -->
+                    <div class="form-page glass-strong rounded-b-3xl p-6 md:p-10 border border-neon-cyan/30 border-t-0 space-y-6" data-page="5" style="display:none;">
+
+                        <div class="border-b border-neon-cyan/20 pb-3">
+                            <h2 class="text-xl font-montserrat font-bold text-white">Záró szakasz</h2>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Interjúk – Kérjük, jelezd az elérhetőségedet az összes olyan időponton, amin ráérsz! <span class="text-red-400">*</span></label>
+                            <p class="text-xs text-gray-400 mb-3">Note: Az interjúk 17:00 és 20:30 között zajlanak le, kérlek ha látod, hogy a megadott időablakban valamikor nem érsz rá, azt a kérdés alatti kommentben jelezd!</p>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="interviews" value="Október 1. - Csütörtök" class="accent-neon-cyan w-4 h-4"><span>Október 1. - Csütörtök</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="interviews" value="Október 6. - Kedd" class="accent-neon-cyan w-4 h-4"><span>Október 6. - Kedd</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="interviews" value="Október 7. - Szerda" class="accent-neon-cyan w-4 h-4"><span>Október 7. - Szerda</span></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="interviews" value="Október 8. - Csütörtök" class="accent-neon-cyan w-4 h-4"><span>Október 8. - Csütörtök</span></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Komment</label>
+                            <input type="text" id="field-comments" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-200 mb-2">Hozzájárulsz ahhoz, hogy az ABOVE a kiválasztási folyamattal és az esetleges jövőbeni tagságoddal kapcsolatban kezelje az adataidat? <span class="text-red-400">*</span></label>
+                            <div class="pl-1">
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gdpr" value="Igen" required class="accent-neon-cyan w-4 h-4"><span>Igen</span></label>
+                            </div>
+                        </div>
+
+                        <div id="form-error-msg" class="hidden p-4 rounded-xl bg-red-500/20 border border-red-500/40 text-red-300 text-sm font-semibold text-center">
+                            Kérjük, töltsd ki az Összes kötelezően megadandó (*) mezőt!
+                        </div>
+
+                        <div class="flex justify-between items-center pt-4">
+                            <button type="button" class="btn-prev text-neon-cyan font-montserrat font-bold px-6 py-3 rounded-lg hover:bg-white/5 transition duration-300 text-sm">Vissza</button>
+                            <button type="submit" id="submit-btn" class="bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-montserrat font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-neon-cyan/30 transition duration-300 text-sm flex items-center gap-2">
+                                <span>Küldés</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <!-- Success Card -->
+            <div id="form-success" class="hidden fade-in">
+                <div class="glass-strong rounded-3xl p-8 md:p-12 text-center max-w-xl mx-auto shadow-2xl border border-neon-cyan/30">
+                    <div class="w-20 h-20 rounded-full bg-neon-cyan/20 border-2 border-neon-cyan flex items-center justify-center mx-auto mb-6 text-neon-cyan text-4xl pulse-glow">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2 class="text-3xl font-montserrat font-bold text-white mb-4">Sikeres Jelentkezés!</h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-8">Készénjük! A jelentkezési lapodat sikeresen továbbítottuk. Hamarosan felvesszük veled a kapcsolatot a megadott e-mail címen.</p>
+                    <a href="/" class="inline-flex items-center gap-2 bg-neon-cyan text-dark-teal px-8 py-3.5 rounded-full font-bold hover:bg-white transition duration-300 text-sm shadow-md">
+                        <i class="fas fa-home"></i>
+                        <span>Vissza a kezdőlapra</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-neon-cyan/20 mt-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start md:ml-8 lg:ml-12 text-center md:text-left">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4">Közösségi média</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.facebook.com/p/ABOVE-Foundation-for-Youth-100089858340481/"
+                            target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/above_youth/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@above.foundation" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://hu.linkedin.com/company/above-youth-foundation" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-icon-btn w-10 h-10 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center text-dark-teal hover:scale-110 shadow-sm transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex flex-col items-center">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center">Oldalak</h4>
+                    <ul class="grid grid-cols-2 gap-x-8 gap-y-3 w-fit text-center">
+                        <li><a href="/" class="text-gray-400 hover:text-neon-cyan transition duration-300">Kezdőlap</a></li>
+                        <li><a href="projects" class="text-gray-400 hover:text-neon-cyan transition duration-300">Tevékenységek</a></li>
+                        <li><a href="about" class="text-gray-400 hover:text-neon-cyan transition duration-300">Rólunk</a></li>
+                        <li><a href="jelentkezz" class="text-gray-400 hover:text-neon-cyan transition duration-300">Jelentkezés</a></li>
+                        <li><a href="contact" class="text-gray-400 hover:text-neon-cyan transition duration-300">Kapcsolat</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-center md:items-end md:mr-8 lg:mr-12 text-center md:text-right">
+                    <h4 class="text-lg font-montserrat font-bold text-neon-cyan mb-4 text-center md:text-right">Kapcsolat</h4>
+                    <ul class="space-y-2 text-gray-400 flex flex-col items-center md:items-end">
+                        <li><a href="mailto:info@abovefoundation.eu" class="hover:text-neon-cyan transition duration-300"><i class="fas fa-envelope mr-2 text-neon-cyan"></i>info@abovefoundation.eu</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-neon-cyan/20 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ABOVE Foundation. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                mobileMenuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+
+        // Scroll Fade In Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Theme Toggle
+        (function () {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            const icon = btn.querySelector('i');
+
+            const updateIcon = (isLight) => {
+                icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                icon.style.transform = 'rotate(360deg)';
+                setTimeout(() => { icon.style.transform = 'rotate(0deg)'; }, 500);
+            };
+
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+
+            btn.addEventListener('click', () => {
+                const toggleTheme = () => {
+                    const isLight = document.body.classList.toggle('light-mode');
+                    updateIcon(isLight);
+                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+                };
+
+                if (document.startViewTransition) {
+                    document.startViewTransition(toggleTheme);
+                } else {
+                    toggleTheme();
+                }
+            });
+        })();
+
+        // ========== MULTI-STEP FORM WIZARD ==========
+        (function () {
+            const pages = document.querySelectorAll('.form-page');
+            const totalPages = pages.length;
+            let currentPage = 1;
+
+            const stepLabel = document.getElementById('step-label');
+            const stepPercent = document.getElementById('step-percent');
+            const stepProgress = document.getElementById('step-progress');
+            const DRAFT_KEY = 'above_signup_draft_v1';
+
+            function updateProgress() {
+                const pct = Math.round(((currentPage - 1) / (totalPages - 1)) * 100);
+                stepLabel.textContent = currentPage + '. oldal / ' + totalPages;
+                stepPercent.textContent = pct + '%';
+                stepProgress.style.width = pct + '%';
+            }
+
+            function saveDraft() {
+                try {
+                    const draft = {
+                        currentPage: currentPage,
+                        timestamp: Date.now(),
+                        inputs: {},
+                        radios: {},
+                        checkboxes: {}
+                    };
+
+                    document.querySelectorAll('#google-signup-form input[type="text"], #google-signup-form input[type="email"], #google-signup-form input[type="tel"], #google-signup-form textarea').forEach(el => {
+                        if (el.id) {
+                            draft.inputs[el.id] = el.value;
+                        }
+                    });
+
+                    const radioNames = new Set();
+                    document.querySelectorAll('#google-signup-form input[type="radio"]').forEach(el => {
+                        if (el.name) radioNames.add(el.name);
+                    });
+                    radioNames.forEach(name => {
+                        const checked = document.querySelector(`#google-signup-form input[name="${name}"]:checked`);
+                        if (checked) {
+                            draft.radios[name] = checked.value;
+                        }
+                    });
+
+                    const checkboxNames = new Set();
+                    document.querySelectorAll('#google-signup-form input[type="checkbox"]').forEach(el => {
+                        if (el.name) checkboxNames.add(el.name);
+                    });
+                    checkboxNames.forEach(name => {
+                        const checkedEls = document.querySelectorAll(`#google-signup-form input[name="${name}"]:checked`);
+                        draft.checkboxes[name] = Array.from(checkedEls).map(el => el.value);
+                    });
+
+                    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+                } catch (e) {
+                    console.warn('Could not save draft:', e);
+                }
+            }
+
+            function loadDraft() {
+                try {
+                    const raw = localStorage.getItem(DRAFT_KEY);
+                    if (!raw) return;
+                    const draft = JSON.parse(raw);
+                    if (!draft) return;
+
+                    if (draft.inputs) {
+                        Object.keys(draft.inputs).forEach(id => {
+                            const el = document.getElementById(id);
+                            if (el) el.value = draft.inputs[id];
+                        });
+                    }
+
+                    if (draft.radios) {
+                        Object.keys(draft.radios).forEach(name => {
+                            const val = draft.radios[name];
+                            const radios = Array.from(document.querySelectorAll(`#google-signup-form input[name="${name}"]`));
+                            const match = radios.find(r => r.value === val);
+                            if (match) match.checked = true;
+                        });
+                    }
+
+                    if (draft.checkboxes) {
+                        Object.keys(draft.checkboxes).forEach(name => {
+                            const vals = draft.checkboxes[name] || [];
+                            const checkboxes = Array.from(document.querySelectorAll(`#google-signup-form input[name="${name}"]`));
+                            vals.forEach(val => {
+                                const match = checkboxes.find(c => c.value === val);
+                                if (match) match.checked = true;
+                            });
+                        });
+                    }
+
+                    if (draft.currentPage && draft.currentPage > 1 && draft.currentPage <= totalPages) {
+                        showPage(draft.currentPage);
+                    }
+                } catch (e) {
+                    console.warn('Could not load draft:', e);
+                }
+            }
+
+            window.clearSignupDraft = function() {
+                try {
+                    localStorage.removeItem(DRAFT_KEY);
+                } catch(e) {}
+            };
+
+            function getPageErrorContainer(pageEl) {
+                let pageError = pageEl.querySelector('.page-error-msg');
+                if (!pageError) {
+                    pageError = document.createElement('div');
+                    pageError.className = 'page-error-msg hidden p-4 rounded-xl bg-red-500/20 border border-red-500/40 text-red-300 text-sm font-semibold text-center mt-4 mb-2';
+                    const navDiv = pageEl.querySelector('.flex.justify-between');
+                    if (navDiv) {
+                        pageEl.insertBefore(pageError, navDiv);
+                    } else {
+                        pageEl.appendChild(pageError);
+                    }
+                }
+                return pageError;
+            }
+
+            function validatePage(num) {
+                const pageEl = document.querySelector(`.form-page[data-page="${num}"]`);
+                if (!pageEl) return true;
+
+                const pageError = getPageErrorContainer(pageEl);
+
+                const showError = (msg, targetEl) => {
+                    pageError.textContent = msg;
+                    pageError.classList.remove('hidden');
+                    if (targetEl) {
+                        targetEl.classList.add('border-red-500');
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        if (typeof targetEl.focus === 'function') targetEl.focus();
+                    } else {
+                        pageError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                };
+
+                const hideError = () => {
+                    pageError.classList.add('hidden');
+                    pageEl.querySelectorAll('.border-red-500').forEach(el => {
+                        if (!el.classList.contains('page-error-msg')) {
+                            el.classList.remove('border-red-500');
+                        }
+                    });
+                };
+
+                hideError();
+
+                if (num === 1) {
+                    const textFields = [
+                        'field-name', 'field-email', 'field-phone', 'field-facebook',
+                        'field-age', 'field-university', 'field-year', 'field-major',
+                        'field-neptun', 'field-source', 'field-friend'
+                    ];
+                    for (const id of textFields) {
+                        const el = document.getElementById(id);
+                        if (el && !el.value.trim()) {
+                            showError('Kérjük, töltsd ki az összes kötelező (*) mezőt!', el);
+                            return false;
+                        }
+                    }
+                    const gender = document.querySelector('input[name="gender"]:checked');
+                    if (!gender) {
+                        showError('Kérjük, válaszd ki a nemedet!');
+                        return false;
+                    }
+                    if (gender.value === '__other_option__') {
+                        const genderOther = document.getElementById('field-gender-other');
+                        if (genderOther && !genderOther.value.trim()) {
+                            showError('Kérjük, add meg az egyéb nemet!', genderOther);
+                            return false;
+                        }
+                    }
+                    const languages = document.querySelectorAll('input[name="languages"]:checked');
+                    if (languages.length === 0) {
+                        showError('Kérjük, válassz legalább egy beszélt nyelvet!');
+                        return false;
+                    }
+                    let hasOtherLang = false;
+                    languages.forEach(cb => { if (cb.value === '__other_option__') hasOtherLang = true; });
+                    if (hasOtherLang) {
+                        const langOther = document.getElementById('field-lang-other');
+                        if (langOther && !langOther.value.trim()) {
+                            showError('Kérjük, add meg az egyéb nyelvet!', langOther);
+                            return false;
+                        }
+                    }
+                } else if (num === 2) {
+                    const textFields = ['field-role', 'field-city', 'field-media', 'field-events', 'field-work'];
+                    for (const id of textFields) {
+                        const el = document.getElementById(id);
+                        if (el && !el.value.trim()) {
+                            showError('Kérjük, töltsd ki az összes kötelező (*) mezőt!', el);
+                            return false;
+                        }
+                    }
+                } else if (num === 3) {
+                    const sec1 = document.querySelector('input[name="sec1"]:checked');
+                    const sec2 = document.querySelector('input[name="sec2"]:checked');
+                    if (!sec1 || !sec2) {
+                        showError('Kérjük, válaszd ki mind az elsődleges, mind a másodlagos szekciót!');
+                        return false;
+                    }
+                    if (sec1.value === sec2.value) {
+                        showError('Az elsődleges és a másodlagos szekció nem lehet megegyező!');
+                        return false;
+                    }
+                } else if (num === 4) {
+                    const sec1 = document.querySelector('input[name="sec1"]:checked');
+                    if (!sec1) return false;
+                    const sec1Val = sec1.value;
+
+                    let rankTeams = [];
+                    let textFields = [];
+
+                    if (sec1Val === 'Partnerships Management') {
+                        rankTeams = ['pm-rank-halozat', 'pm-rank-nyari', 'pm-rank-belfoldi', 'pm-rank-piaci', 'pm-rank-gimik', 'pm-rank-esc'];
+                        textFields = ['field-pm-reason', 'field-pm-tasks', 'field-pm-hobby'];
+                    } else if (sec1Val === 'Community Management') {
+                        rankTeams = ['cm-rank-akkred', 'cm-rank-hr', 'cm-rank-hirlevel', 'cm-rank-toborz', 'cm-rank-csapat'];
+                        textFields = ['field-cm-reason', 'field-cm-admin', 'field-cm-inactive'];
+                    } else if (sec1Val === 'Marketing Management') {
+                        rankTeams = ['mm-rank-video', 'mm-rank-social', 'mm-rank-web', 'mm-rank-szponz'];
+                        textFields = ['field-mm-reason', 'field-mm-idea', 'field-mm-visual'];
+                    } else if (sec1Val === 'Events Management') {
+                        rankTeams = ['em-rank-belso', 'em-rank-nyilt', 'em-rank-cerv', 'em-rank-hok'];
+                        textFields = ['field-em-reason', 'field-em-event', 'field-em-plan'];
+                    }
+
+                    for (const team of rankTeams) {
+                        if (!document.querySelector(`input[name="${team}"]:checked`)) {
+                            showError('Kérjük, rangsorold az összes projektcsapatot!');
+                            return false;
+                        }
+                    }
+
+                    for (const id of textFields) {
+                        const el = document.getElementById(id);
+                        if (el && !el.value.trim()) {
+                            showError('Kérjük, töltsd ki az összes kötelező (*) mezőt!', el);
+                            return false;
+                        }
+                    }
+                } else if (num === 5) {
+                    const interviews = document.querySelectorAll('input[name="interviews"]:checked');
+                    if (interviews.length === 0) {
+                        showError('Kérjük, válassz legalább egy interjú időpontot!');
+                        return false;
+                    }
+                    const gdpr = document.querySelector('input[name="gdpr"]:checked');
+                    if (!gdpr) {
+                        showError('Kérjük, fogadd el az adatkezelési tájékoztatót!');
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            function showPage(num) {
+                pages.forEach(p => {
+                    p.style.display = (parseInt(p.dataset.page) === num) ? '' : 'none';
+                    if (parseInt(p.dataset.page) === num) p.classList.add('active');
+                    else p.classList.remove('active');
+                });
+                currentPage = num;
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Show correct section on page 4
+                if (num === 4) {
+                    const sec1Val = document.querySelector('input[name="sec1"]:checked');
+                    document.querySelectorAll('.section-questions').forEach(s => s.style.display = 'none');
+                    if (sec1Val) {
+                        const map = {
+                            'Partnerships Management': 'sec-pm',
+                            'Community Management': 'sec-cm',
+                            'Marketing Management': 'sec-mm',
+                            'Events Management': 'sec-em'
+                        };
+                        const target = document.getElementById(map[sec1Val.value]);
+                        if (target) target.style.display = '';
+                    }
+                }
+                saveDraft();
+            }
+
+            // Clear errors on user input/change + auto-save draft
+            document.querySelectorAll('.form-page').forEach(pageEl => {
+                pageEl.addEventListener('input', () => {
+                    const err = pageEl.querySelector('.page-error-msg');
+                    if (err) err.classList.add('hidden');
+                    saveDraft();
+                });
+                pageEl.addEventListener('change', () => {
+                    const err = pageEl.querySelector('.page-error-msg');
+                    if (err) err.classList.add('hidden');
+                    saveDraft();
+                });
+            });
+
+            // Next/Prev button handlers
+            document.querySelectorAll('.btn-next').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (validatePage(currentPage)) {
+                        if (currentPage < totalPages) showPage(currentPage + 1);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.btn-prev').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (currentPage > 1) showPage(currentPage - 1);
+                });
+            });
+
+            window.validateAllPages = function() {
+                for (let i = 1; i <= totalPages; i++) {
+                    if (!validatePage(i)) {
+                        showPage(i);
+                        validatePage(i);
+                        return false;
+                    }
+                }
+                return true;
+            };
+
+            loadDraft();
+            updateProgress();
+        })();
+
+        // ========== GOOGLE FORMS SUBMISSION ==========
+        const signupForm = document.getElementById('google-signup-form');
+        if (signupForm) {
+            signupForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (window.validateAllPages && !window.validateAllPages()) {
+                    return;
+                }
+
+                if (window.clearSignupDraft) {
+                    window.clearSignupDraft();
+                }
+
+                const submitBtn = document.getElementById('submit-btn');
+                const formCard = document.getElementById('form-card');
+                const formSuccess = document.getElementById('form-success');
+
+                errorMsg.classList.add('hidden');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+                submitBtn.querySelector('span').textContent = 'Küldés...';
+
+                const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeomkM64UOj-FAgbSHkGoyPthXu9F5P2nZM056jphhpXQNd9Q/formResponse';
+                const fd = new URLSearchParams();
+
+                const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+                const rv = name => { const el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; };
+
+                // Page 1
+                fd.append('entry.1585271233', v('field-name'));
+                fd.append('entry.241604872', v('field-email'));
+                fd.append('entry.292255756', v('field-phone'));
+                fd.append('entry.102187459', v('field-facebook'));
+                fd.append('entry.451631933', v('field-age'));
+                fd.append('entry.791762532', rv('gender'));
+                if (rv('gender') === '__other_option__') fd.append('entry.791762532.other_option_response', v('field-gender-other'));
+                fd.append('entry.634440462', v('field-university'));
+                fd.append('entry.987366790', v('field-year'));
+                fd.append('entry.842655008', v('field-major'));
+                fd.append('entry.668319361', v('field-neptun'));
+
+                document.querySelectorAll('input[name="languages"]:checked').forEach(cb => {
+                    fd.append('entry.16705581', cb.value);
+                    if (cb.value === '__other_option__') fd.append('entry.16705581.other_option_response', v('field-lang-other'));
+                });
+
+                fd.append('entry.2037939668', v('field-source'));
+                fd.append('entry.1576290137', v('field-friend'));
+
+                // Page 2
+                fd.append('entry.35219500', v('field-role'));
+                fd.append('entry.1481012005', v('field-city'));
+                fd.append('entry.853275710', v('field-media'));
+                fd.append('entry.1396002114', v('field-events'));
+                fd.append('entry.1604769814', v('field-work'));
+
+                // Page 3
+                fd.append('entry.1120811493', rv('sec1'));
+                fd.append('entry.2010039939', rv('sec2'));
+
+                // Page 4 - Section-specific
+                const sec1Val = rv('sec1');
+
+                if (sec1Val === 'Partnerships Management') {
+                    // PM grid: 6 rows, entry IDs for each rank position
+                    const pmGridEntries = [196156119, 37063105, 1511915689, 662337102, 816544273, 1640671915];
+                    const pmTeams = ['pm-rank-halozat', 'pm-rank-nyari', 'pm-rank-belfoldi', 'pm-rank-piaci', 'pm-rank-gimik', 'pm-rank-esc'];
+                    const pmTeamNames = ['PM Hálózat projektcsapat', 'Nyári tábor projektcsapat', 'Belföldi pályázatok projektcsapat', 'Piaci láb projektcsapat', 'Gimik és belföldi partnerek projektcsapat', 'ESC projektcsapat'];
+                    pmTeams.forEach((name, i) => {
+                        const val = rv(name);
+                        if (val) {
+                            // Find which rank column this is (1.-6.)
+                            const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : val.startsWith('4.') ? 3 : val.startsWith('5.') ? 4 : 5;
+                            fd.append('entry.' + pmGridEntries[rankIdx], pmTeamNames[i]);
+                        }
+                    });
+                    fd.append('entry.198487230', v('field-pm-reason'));
+                    fd.append('entry.189521', v('field-pm-tasks'));
+                    fd.append('entry.1976711940', v('field-pm-hobby'));
+                } else if (sec1Val === 'Community Management') {
+                    const cmGridEntries = [930730033, 327423837, 2028851838, 343149257, 1537028220];
+                    const cmTeams = ['cm-rank-akkred', 'cm-rank-hr', 'cm-rank-hirlevel', 'cm-rank-toborz', 'cm-rank-csapat'];
+                    const cmTeamNames = ['Akkreditációs projektcsapat', 'HR projektcsapat', 'Hírlevél és naptár projektcsapat', 'Projekttoborzás projektcsapat', 'Csapatépítés projektcsapat'];
+                    cmTeams.forEach((name, i) => {
+                        const val = rv(name);
+                        if (val) {
+                            const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : val.startsWith('4.') ? 3 : 4;
+                            fd.append('entry.' + cmGridEntries[rankIdx], cmTeamNames[i]);
+                        }
+                    });
+                    fd.append('entry.1636520363', v('field-cm-reason'));
+                    fd.append('entry.356995588', v('field-cm-admin'));
+                    fd.append('entry.680693573', v('field-cm-inactive'));
+                } else if (sec1Val === 'Marketing Management') {
+                    const mmGridEntries = [1550682091, 339447160, 554764491, 1313074496];
+                    const mmTeams = ['mm-rank-video', 'mm-rank-social', 'mm-rank-web', 'mm-rank-szponz'];
+                    const mmTeamNames = ['Videóvágás és videóforgatás projektcsapat', 'Social Media projektcsapat', 'Weboldal és Tech projektcsapat', 'Termékszponzorációs projektcsapat'];
+                    mmTeams.forEach((name, i) => {
+                        const val = rv(name);
+                        if (val) {
+                            const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : 3;
+                            fd.append('entry.' + mmGridEntries[rankIdx], mmTeamNames[i]);
+                        }
+                    });
+                    fd.append('entry.1307439140', v('field-mm-reason'));
+                    fd.append('entry.1612341788', v('field-mm-idea'));
+                    fd.append('entry.988407353', v('field-mm-visual'));
+                } else if (sec1Val === 'Events Management') {
+                    const emGridEntries = [740525843, 884574169, 1451839287, 214064471];
+                    const emTeams = ['em-rank-belso', 'em-rank-nyilt', 'em-rank-cerv', 'em-rank-hok'];
+                    const emTeamNames = ['Belső képzések projektcsapat', 'Nyílt események projektcsapat', 'CERV projektcsapat', 'HÖK és DSZ események projektcsapat'];
+                    emTeams.forEach((name, i) => {
+                        const val = rv(name);
+                        if (val) {
+                            const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : 3;
+                            fd.append('entry.' + emGridEntries[rankIdx], emTeamNames[i]);
+                        }
+                    });
+                    fd.append('entry.1470936315', v('field-em-reason'));
+                    fd.append('entry.1603171264', v('field-em-event'));
+                    fd.append('entry.683512804', v('field-em-plan'));
+                }
+
+                // Page 5
+                document.querySelectorAll('input[name="interviews"]:checked').forEach(cb => {
+                    fd.append('entry.1183947394', cb.value);
+                });
+                fd.append('entry.961224011', v('field-comments'));
+                fd.append('entry.25596384', 'Igen');
+
+                fd.append('fvv', '1');
+                fd.append('pageHistory', '0');
+                fd.append('fbzx', '8110551122903026861');
+
+                fetch(GOOGLE_FORM_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: fd.toString()
+                }).then(() => {
+                    console.log('Submitted to Google Forms');
+                }).catch(err => {
+                    console.error('Error:', err);
+                }).finally(() => {
+                    formCard.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    formSuccess.classList.remove('hidden');
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+        }
+
+        // Smooth Page Transition Logic
+        (function () {
+            const content = document.getElementById('app-content');
+            setTimeout(() => {
+                if (content) content.classList.add('loaded');
+            }, 50);
+
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.endsWith('.html') && !href.startsWith('http') && !this.getAttribute('target') && !href.startsWith('#')) {
+                        e.preventDefault();
+                        if (content) content.classList.remove('loaded');
+                        setTimeout(() => {
+                            window.location.href = href;
+                        }, 150);
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <!-- Language Definitions -->
+    <script>
+        window.pageTitleEn = 'Apply | ABOVE Foundation';
+        window.pageTitleHu = 'Jelentkezés | ABOVE Foundation';
+        window.pageTranslations = {};
+    </script>
+    <script src="lang.js?v=1.2"></script>
+    <script src="cookie-consent.js"></script>
+</body>
+
+</html>
+

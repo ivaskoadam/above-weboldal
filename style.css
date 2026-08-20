@@ -547,7 +547,11 @@ body.light-mode div.bg-neon-cyan\/20 i {
 /* White text: only override specific non-overlay white text.
    Hero h1, card titles overlaid on photos must stay white — do NOT touch those.
    We only darken white text that sits directly on the light page bg. */
-body.light-mode footer .text-white {
+body.light-mode footer .text-white,
+body.light-mode .glass .text-white,
+body.light-mode .glass-strong .text-white,
+body.light-mode #form-card .text-white,
+body.light-mode #form-success .text-white {
     color: #0d1b2a !important;
 }
 
