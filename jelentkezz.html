@@ -825,8 +825,13 @@
                     <div class="w-20 h-20 rounded-full bg-neon-cyan/20 border-2 border-neon-cyan flex items-center justify-center mx-auto mb-6 text-neon-cyan text-4xl pulse-glow">
                         <i class="fas fa-check"></i>
                     </div>
+                    <div class="mb-4">
+                        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-xs uppercase tracking-wider">
+                            <i class="fas fa-check-circle"></i> Elküldve
+                        </span>
+                    </div>
                     <h2 class="text-3xl font-montserrat font-bold text-white mb-4">Sikeres Jelentkezés!</h2>
-                    <p class="text-gray-300 text-base leading-relaxed mb-8">Készénjük! A jelentkezési lapodat sikeresen továbbítottuk. Hamarosan felvesszük veled a kapcsolatot a megadott e-mail címen.</p>
+                    <p class="text-gray-300 text-base leading-relaxed mb-8">Köszönjük! A jelentkezési lapodat és a válaszaidat sikeresen elküldtük. Hamarosan felvesszük veled a kapcsolatot a megadott e-mail címen.</p>
                     <a href="/" class="inline-flex items-center gap-2 bg-neon-cyan text-dark-teal px-8 py-3.5 rounded-full font-bold hover:bg-white transition duration-300 text-sm shadow-md">
                         <i class="fas fa-home"></i>
                         <span>Vissza a kezdőlapra</span>
@@ -1302,7 +1307,44 @@
             updateProgress();
         })();
 
-        // ========== GOOGLE FORMS SUBMISSION ==========
+        // ========== GOOGLE FORMS SUBMISSION & PERSISTENCE ==========
+        const SUBMITTED_KEY = 'above_signup_submitted';
+
+        function showSuccessState(isAlreadySubmitted) {
+            const formCard = document.getElementById('form-card');
+            const formSuccess = document.getElementById('form-success');
+            const stepProgressContainer = document.getElementById('step-progress')?.parentElement?.parentElement;
+
+            if (formCard) formCard.style.display = 'none';
+            if (stepProgressContainer) stepProgressContainer.style.display = 'none';
+
+            if (formSuccess) {
+                formSuccess.style.display = 'block';
+                formSuccess.classList.remove('hidden');
+
+                if (isAlreadySubmitted) {
+                    const descEl = formSuccess.querySelector('p');
+                    if (descEl) {
+                        descEl.textContent = 'A jelentkezést már korábban elküldted. Egy jelentkező csak egyszer küldheti el a válaszokat. Köszönjük a türelmedet!';
+                    }
+                }
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            // Prevent browser back button from returning to wizard steps
+            history.pushState(null, '', location.href);
+            window.onpopstate = function () {
+                history.pushState(null, '', location.href);
+            };
+        }
+
+        // Check if user already submitted previously
+        if (localStorage.getItem(SUBMITTED_KEY) === 'true') {
+            document.addEventListener('DOMContentLoaded', () => {
+                showSuccessState(true);
+            });
+        }
+
         const signupForm = document.getElementById('google-signup-form');
         if (signupForm) {
             signupForm.addEventListener('submit', function (e) {
@@ -1317,13 +1359,15 @@
                 }
 
                 const submitBtn = document.getElementById('submit-btn');
-                const formCard = document.getElementById('form-card');
-                const formSuccess = document.getElementById('form-success');
+                const formErr = document.getElementById('form-error-msg');
+                if (formErr) formErr.classList.add('hidden');
 
-                errorMsg.classList.add('hidden');
-                submitBtn.disabled = true;
-                submitBtn.style.opacity = '0.7';
-                submitBtn.querySelector('span').textContent = 'Küldés...';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                    const btnSpan = submitBtn.querySelector('span');
+                    if (btnSpan) btnSpan.textContent = 'Küldés...';
+                }
 
                 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeomkM64UOj-FAgbSHkGoyPthXu9F5P2nZM056jphhpXQNd9Q/formResponse';
                 const fd = new URLSearchParams();
@@ -1367,14 +1411,12 @@
                 const sec1Val = rv('sec1');
 
                 if (sec1Val === 'Partnerships Management') {
-                    // PM grid: 6 rows, entry IDs for each rank position
                     const pmGridEntries = [196156119, 37063105, 1511915689, 662337102, 816544273, 1640671915];
                     const pmTeams = ['pm-rank-halozat', 'pm-rank-nyari', 'pm-rank-belfoldi', 'pm-rank-piaci', 'pm-rank-gimik', 'pm-rank-esc'];
                     const pmTeamNames = ['PM Hálózat projektcsapat', 'Nyári tábor projektcsapat', 'Belföldi pályázatok projektcsapat', 'Piaci láb projektcsapat', 'Gimik és belföldi partnerek projektcsapat', 'ESC projektcsapat'];
                     pmTeams.forEach((name, i) => {
                         const val = rv(name);
                         if (val) {
-                            // Find which rank column this is (1.-6.)
                             const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : val.startsWith('4.') ? 3 : val.startsWith('5.') ? 4 : 5;
                             fd.append('entry.' + pmGridEntries[rankIdx], pmTeamNames[i]);
                         }
@@ -1389,7 +1431,7 @@
                     cmTeams.forEach((name, i) => {
                         const val = rv(name);
                         if (val) {
-                            const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : val.startsWith('4.') ? 3 : 4;
+                            const rankIdx = val.startsWith('1.') ? 0 : val.startsWith('2.') ? 1 : val.startsWith('3.') ? 2 : 3;
                             fd.append('entry.' + cmGridEntries[rankIdx], cmTeamNames[i]);
                         }
                     });
@@ -1435,23 +1477,58 @@
 
                 fd.append('fvv', '1');
                 fd.append('pageHistory', '0');
-                fd.append('fbzx', '8110551122903026861');
+                // Mark submission in localStorage & clear draft
+                try {
+                    localStorage.setItem(SUBMITTED_KEY, 'true');
+                    if (window.clearSignupDraft) window.clearSignupDraft();
+                } catch(e) {}
 
-                fetch(GOOGLE_FORM_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: fd.toString()
-                }).then(() => {
-                    console.log('Submitted to Google Forms');
-                }).catch(err => {
-                    console.error('Error:', err);
-                }).finally(() => {
-                    formCard.style.display = 'none';
-                    formSuccess.style.display = 'block';
-                    formSuccess.classList.remove('hidden');
-                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                });
+                // Send via fetch (no-cors)
+                try {
+                    fetch(GOOGLE_FORM_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: fd.toString()
+                    }).catch(err => {
+                        console.error('Fetch submit error:', err);
+                    });
+                } catch(e) {
+                    console.error('Fetch exception:', e);
+                }
+
+                // Fallback / Dual submission via hidden iframe form post
+                try {
+                    let iframe = document.getElementById('hidden_gform_iframe');
+                    if (!iframe) {
+                        iframe = document.createElement('iframe');
+                        iframe.id = 'hidden_gform_iframe';
+                        iframe.name = 'hidden_gform_iframe';
+                        iframe.style.display = 'none';
+                        document.body.appendChild(iframe);
+                    }
+                    const hiddenForm = document.createElement('form');
+                    hiddenForm.method = 'POST';
+                    hiddenForm.action = GOOGLE_FORM_URL;
+                    hiddenForm.target = 'hidden_gform_iframe';
+                    hiddenForm.style.display = 'none';
+
+                    for (const [key, value] of fd.entries()) {
+                        const hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = key;
+                        hiddenInput.value = value;
+                        hiddenForm.appendChild(hiddenInput);
+                    }
+                    document.body.appendChild(hiddenForm);
+                    hiddenForm.submit();
+                    setTimeout(() => { hiddenForm.remove(); }, 2000);
+                } catch(e) {
+                    console.error('Iframe submit error:', e);
+                }
+
+                // Show success view & disable returning back
+                showSuccessState(false);
             });
         }
 
