@@ -400,8 +400,11 @@
             <div id="form-card" class="fade-in">
 
                 <!-- Title Card -->
-                <div class="glass-strong rounded-t-3xl p-6 md:p-10 border border-neon-cyan/30 border-b-0" style="border-top: 4px solid var(--neon-cyan);">
-                    <h1 class="text-2xl md:text-3xl font-montserrat font-extrabold gradient-text mb-5">Csatlakozz az ABOVE-hoz!</h1>
+                <div class="glass-strong rounded-t-3xl p-6 md:p-10 border border-neon-cyan/30 border-b-0 relative" style="border-top: 4px solid var(--neon-cyan);">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+                        <h1 class="text-2xl md:text-3xl font-montserrat font-extrabold gradient-text">Csatlakozz az ABOVE-hoz!</h1>
+                        <span class="text-xs md:text-sm font-montserrat font-bold px-3.5 py-1 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan self-start sm:self-auto shrink-0 shadow-sm">2026/27/1</span>
+                    </div>
                     <div class="text-gray-300 text-sm leading-relaxed space-y-3">
                         <p>Szeretnél egy olyan közösség része lenni, ahol a fiatalok nem csak beszélnek Európa jövőjéről, hanem aktívan formálják is azt? Az <strong class="text-white">ABOVE</strong> azért jött létre, hogy új perspektívákat nyisson, kritikus gondolkodásra ösztönözzön, és valódi, 21. századi készségekkel ruházza fel a fiatalokat.</p>
                         <p>Az ABOVE egy fiatalok által alapított, fiatalokért dolgozó szervezet, amely hisz abban, hogy a párbeszéd, az innováció és a cselekvés képes lebontani a határokat – legyenek azok kulturálisak, társadalmiak vagy gondolkodásbeliek. Tagjaink nemzetközi projektekben, képzéseken, workshopokon és közösségépítő eseményeken vehetnek részt, miközben valódi hatást gyakorolnak a környezetükre.</p>
@@ -437,27 +440,27 @@
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Név <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-name" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-name" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">E-mail <span class="text-red-400">*</span></label>
-                            <input type="email" id="field-email" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="email" id="field-email" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Telefonszám <span class="text-red-400">*</span></label>
-                            <input type="tel" id="field-phone" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="tel" id="field-phone" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Facebook link <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-facebook" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-facebook" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Életkor <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-age" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-age" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
@@ -465,28 +468,28 @@
                             <div class="space-y-2 pl-1">
                                 <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="Férfi" required class="accent-neon-cyan w-4 h-4"><span>Férfi</span></label>
                                 <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="Nő" class="accent-neon-cyan w-4 h-4"><span>Nő</span></label>
-                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="__other_option__" class="accent-neon-cyan w-4 h-4"><span>Egyéb:</span><input type="text" id="field-gender-other" class="ml-1 px-2 py-1 rounded bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan w-40"></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="radio" name="gender" value="__other_option__" class="accent-neon-cyan w-4 h-4"><span>Egyéb:</span><input type="text" id="field-gender-other" maxlength="1000" class="ml-1 px-2 py-1 rounded bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan w-40"></label>
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Egyetem neve <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-university" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-university" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Felvétel éve <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-year" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-year" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Szak megnevezése <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-major" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-major" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Neptun-kód <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-neptun" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-neptun" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
@@ -498,18 +501,18 @@
                                 <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Francia" class="accent-neon-cyan w-4 h-4"><span>Francia</span></label>
                                 <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Spanyol" class="accent-neon-cyan w-4 h-4"><span>Spanyol</span></label>
                                 <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="Olasz" class="accent-neon-cyan w-4 h-4"><span>Olasz</span></label>
-                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="__other_option__" class="accent-neon-cyan w-4 h-4"><span>Egyéb:</span><input type="text" id="field-lang-other" class="ml-1 px-2 py-1 rounded bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan w-40"></label>
+                                <label class="flex items-center gap-3 text-sm text-gray-300 cursor-pointer"><input type="checkbox" name="languages" value="__other_option__" class="accent-neon-cyan w-4 h-4"><span>Egyéb:</span><input type="text" id="field-lang-other" maxlength="1000" class="ml-1 px-2 py-1 rounded bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-neon-cyan w-40"></label>
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Honnan hallottál rólunk? <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-source" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-source" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Van olyan ismerősöd/barátod, aki tagja a szervezetünknek? Ha igen, kérjük, add meg a nevét/nevüket. <span class="text-red-400">*</span></label>
-                            <input type="text" id="field-friend" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-friend" required maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <!-- Navigation -->
@@ -528,27 +531,27 @@
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Milyen szerepben érzed magad erősebbnek: Ötletgazda, szervező, koordinátor, kommunikátor? és miért? <span class="text-red-400">*</span></label>
-                            <textarea id="field-role" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            <textarea id="field-role" rows="4" required maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Ha egy európai város lennél, melyik lennél és miért? <span class="text-red-400">*</span></label>
-                            <textarea id="field-city" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            <textarea id="field-city" rows="4" required maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Van-e bármilyen tapasztalatod videóvágás/videóforgatásban, kreatív anyagok elkészítésében? Ha igen akkor mit csináltál eddig? <span class="text-red-400">*</span></label>
-                            <textarea id="field-media" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            <textarea id="field-media" rows="4" required maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Van-e bármilyen tapasztalod eseményszervezésben? Ha igen, akkor milyen esemény szervezésénél segítettél? <span class="text-red-400">*</span></label>
-                            <textarea id="field-events" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            <textarea id="field-events" rows="4" required maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                         </div>
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Van munkatapasztalatod (és ha igen milyen)? <span class="text-red-400">*</span></label>
-                            <textarea id="field-work" rows="4" required class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                            <textarea id="field-work" rows="4" required maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                         </div>
 
                         <div class="flex justify-between items-center pt-4">
@@ -636,17 +639,17 @@
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
-                                <textarea id="field-pm-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-pm-reason" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">A Partnerships Management szekció munkája sokféle feladatból áll (projektötletek kidolgozása, pályázatírás, partnerkapcsolatok építése, projektmenedzsment, rendezvény- és táborszervezés, szervezeti adminisztráció, operatív feladatok, hivatalos ügyintézés, szervezeti fejlesztés). Ezek közül melyik áll hozzád a legközelebb, és miért? <span class="text-red-400">*</span></label>
-                                <textarea id="field-pm-tasks" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-pm-tasks" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Mit szeretsz csinálni a szabadidődben az iskola/egyetem mellett? Kérjük, emelj ki néhány olyan tevékenységet, hobbit vagy közösségi szerepvállalást, amely szerinted jól jellemez téged. <span class="text-red-400">*</span></label>
-                                <textarea id="field-pm-hobby" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-pm-hobby" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
                         </div>
 
@@ -676,17 +679,17 @@
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
-                                <textarea id="field-cm-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-cm-reason" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Milyen tapasztalatod van adminisztratív, koordinációs vagy csapatépítő jellegű tevékenységek kapcsán? (Melyik áll hozzád legközelebb és miért?) <span class="text-red-400">*</span></label>
-                                <textarea id="field-cm-admin" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-cm-admin" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Hogyan próbálnád megoldani, ha a tagság részéről inaktivitás fogad egy feladat kapcsán? (Milyen kommunikációt választanál, miként próbálnád motiválni vagy büntetni a tagságot és hogyan hatna ez rád?) <span class="text-red-400">*</span></label>
-                                <textarea id="field-cm-inactive" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-cm-inactive" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
                         </div>
 
@@ -715,17 +718,17 @@
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
-                                <textarea id="field-mm-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-mm-reason" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Ha korlátlan időd és eszközöd lenne, mit készítenél, amivel online sok emberhez el tudnál jutni? <span class="text-red-400">*</span></label>
-                                <textarea id="field-mm-idea" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-mm-idea" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Hogyan mutatnál be vizuálisan egy eseményt, ötletet vagy értéket úgy, hogy az szöveg nélkül is érthető és figyelemfelkeltő legyen? <span class="text-red-400">*</span></label>
-                                <textarea id="field-mm-visual" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-mm-visual" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
                         </div>
 
@@ -754,17 +757,17 @@
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Kérlek indokold meg a választásodat! <span class="text-red-400">*</span></label>
-                                <textarea id="field-em-reason" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-em-reason" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Idézz fel egy rendezvényt vagy eseményt, amin korábban részt vettél! Mi volt az az egy szervezői hiba vagy hiányosság, amit kiszúrtál, és írd le, te hogyan oldottad volna meg a problémát! <span class="text-red-400">*</span></label>
-                                <textarea id="field-em-event" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-em-event" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-semibold text-gray-200 mb-2">Tervezz meg egy saját eseményt a Corvinusra az ABOVE csapat tagjaként! Mi lenne a rendezvény témája, kit hívnál meg előadónak, és miért pont őt? <span class="text-red-400">*</span></label>
-                                <textarea id="field-em-plan" rows="4" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
+                                <textarea id="field-em-plan" rows="4" maxlength="32000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300 resize-y"></textarea>
                             </div>
                         </div>
 
@@ -794,7 +797,7 @@
 
                         <div>
                             <label class="block text-sm font-semibold text-gray-200 mb-2">Komment</label>
-                            <input type="text" id="field-comments" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
+                            <input type="text" id="field-comments" maxlength="1000" class="form-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-neon-cyan transition duration-300">
                         </div>
 
                         <div>
