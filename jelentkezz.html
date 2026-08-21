@@ -1347,12 +1347,17 @@
 
         const signupForm = document.getElementById('google-signup-form');
         if (signupForm) {
+            let isSubmitting = false;
             signupForm.addEventListener('submit', function (e) {
                 e.preventDefault();
+
+                if (isSubmitting) return;
 
                 if (window.validateAllPages && !window.validateAllPages()) {
                     return;
                 }
+
+                isSubmitting = true;
 
                 if (window.clearSignupDraft) {
                     window.clearSignupDraft();
@@ -1495,36 +1500,6 @@
                     });
                 } catch(e) {
                     console.error('Fetch exception:', e);
-                }
-
-                // Fallback / Dual submission via hidden iframe form post
-                try {
-                    let iframe = document.getElementById('hidden_gform_iframe');
-                    if (!iframe) {
-                        iframe = document.createElement('iframe');
-                        iframe.id = 'hidden_gform_iframe';
-                        iframe.name = 'hidden_gform_iframe';
-                        iframe.style.display = 'none';
-                        document.body.appendChild(iframe);
-                    }
-                    const hiddenForm = document.createElement('form');
-                    hiddenForm.method = 'POST';
-                    hiddenForm.action = GOOGLE_FORM_URL;
-                    hiddenForm.target = 'hidden_gform_iframe';
-                    hiddenForm.style.display = 'none';
-
-                    for (const [key, value] of fd.entries()) {
-                        const hiddenInput = document.createElement('input');
-                        hiddenInput.type = 'hidden';
-                        hiddenInput.name = key;
-                        hiddenInput.value = value;
-                        hiddenForm.appendChild(hiddenInput);
-                    }
-                    document.body.appendChild(hiddenForm);
-                    hiddenForm.submit();
-                    setTimeout(() => { hiddenForm.remove(); }, 2000);
-                } catch(e) {
-                    console.error('Iframe submit error:', e);
                 }
 
                 // Show success view & disable returning back
