@@ -1483,8 +1483,19 @@
                 fd.append('entry.961224011', v('field-comments'));
                 fd.append('entry.25596384', 'Igen');
 
+                let pageHistoryStr = '0,1,2,3,7';
+                if (sec1Val === 'Partnerships Management') {
+                    pageHistoryStr = '0,1,2,3,7';
+                } else if (sec1Val === 'Community Management') {
+                    pageHistoryStr = '0,1,2,4,7';
+                } else if (sec1Val === 'Marketing Management') {
+                    pageHistoryStr = '0,1,2,5,7';
+                } else if (sec1Val === 'Events Management') {
+                    pageHistoryStr = '0,1,2,6,7';
+                }
+
                 fd.append('fvv', '1');
-                fd.append('pageHistory', '0');
+                fd.append('pageHistory', pageHistoryStr);
                 // Mark submission in localStorage & clear draft
                 try {
                     localStorage.setItem(SUBMITTED_KEY, 'true');
