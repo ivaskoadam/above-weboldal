@@ -44,6 +44,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css?v=1.1">
+
     <script>
         tailwind.config = {
             theme: {
@@ -351,12 +354,12 @@
                     <p class="text-gray-400 text-lg">Válaszd ki a kategóriát a részletek megtekintéséhez!</p>
                 </div>
 
-                <!-- Project Categories -->
+                <!-- Project Categories (All 4 cards permanently visible) -->
                 <div class="grid md:grid-cols-2 gap-8">
 
                     <!-- Foreign Projects -->
                     <div id="foreignProjectsBtn"
-                        class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer">
+                        class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in visible relative group cursor-pointer">
                         <div class="relative h-96">
                             <img id="foreignBgImg" src="" alt="" aria-hidden="true"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -385,7 +388,7 @@
 
                     <!-- Domestic Projects -->
                     <div id="domesticProjectsBtn"
-                        class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative group cursor-pointer">
+                        class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in visible relative group cursor-pointer">
                         <div class="relative h-96">
                             <img id="domesticBgImg" src="" alt="" aria-hidden="true"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -413,14 +416,10 @@
                         </div>
                     </div>
 
-                </div>
-
-                <!-- Bottom row -->
-                <div class="grid md:grid-cols-2 gap-8 mt-16">
                     <!-- Future Projects -->
                     <a href="future-projects" id="futureProjectsBtn" class="block group">
                         <div
-                            class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative cursor-pointer h-full">
+                            class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in visible relative cursor-pointer h-full">
                             <div class="relative h-full min-h-[400px]">
                                 <img src="assets/images/vision_1.webp" alt="Jövőbeli Projektek" aria-hidden="true"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -450,7 +449,7 @@
                     <!-- Események (Events) -->
                     <a href="javascript:void(0)" id="eventsBtn" class="block group">
                         <div
-                            class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in relative cursor-pointer h-full">
+                            class="glass-strong rounded-3xl overflow-hidden hover-lift fade-in visible relative cursor-pointer h-full">
                             <div class="relative h-full min-h-[400px]">
                                 <img id="eventsBgImg" src="assets/images/events/szulinap_1.jpg" alt="Események"
                                     aria-hidden="true"
@@ -476,6 +475,7 @@
                             </div>
                         </div>
                     </a>
+
                 </div>
             </div>
         </section>
@@ -1867,29 +1867,65 @@
                         <div class="space-y-4">
                             <div>
                                 <h4 class="font-bold text-neon-cyan mb-1">Augusztus</h4>
-                                <p>Az elmúlt hónapokban aktívan zajlott a projekt fő eseményeinek tervezése és előkészítése. Egyeztettük a középiskolai látogatások időpontjait, véglegesítettük a workshopok helyszíneit, és megkezdtük az egyeztetéseket a tábor helyszínével is.</p>
+                                <p>Az elmúlt hónapokban aktívan zajlott a projekt fő eseményeinek tervezése és
+                                    előkészítése. Egyeztettük a középiskolai látogatások időpontjait, véglegesítettük a
+                                    workshopok helyszíneit, és megkezdtük az egyeztetéseket a tábor helyszínével is.</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-neon-cyan mb-1">Október</h4>
-                                <p>Sikeresen lezajlottak a projekt bemutató előadásai: a bonyhádi Petőfi Sándor Evangélikus Gimnáziumban, a székesfehérvári Vasvári Pál Gimnáziumban, a budapesti Német Nemzetiségi Gimnázium 12.b osztályában, valamint a veszprémi Lovassy László Gimnáziumban.</p>
+                                <p>Sikeresen lezajlottak a projekt bemutató előadásai: a bonyhádi Petőfi Sándor
+                                    Evangélikus Gimnáziumban, a székesfehérvári Vasvári Pál Gimnáziumban, a budapesti
+                                    Német Nemzetiségi Gimnázium 12.b osztályában, valamint a veszprémi Lovassy László
+                                    Gimnáziumban.</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-neon-cyan mb-1">December</h4>
-                                <p>Az elmúlt két hónapban nagyot léptünk előre a projekt megvalósításában. Sikeresen lezajlott mindkét érzékenyítő workshopunk, ahol a fiatalok játékos, non-formális feladatokon keresztül mélyültek el a környezeti fenntarthatóság és az erős intézményrendszerek összefüggéseiben, és aktívan megosztották egymással gondolataikat, tapasztalataikat. A workshopokon összegyűlt visszajelzésekre és felvetésekre építve pedig már megkezdtük a podcast sorozat előkészítését is.</p>
+                                <p>Az elmúlt két hónapban nagyot léptünk előre a projekt megvalósításában. Sikeresen
+                                    lezajlott mindkét érzékenyítő workshopunk, ahol a fiatalok játékos, non-formális
+                                    feladatokon keresztül mélyültek el a környezeti fenntarthatóság és az erős
+                                    intézményrendszerek összefüggéseiben, és aktívan megosztották egymással
+                                    gondolataikat, tapasztalataikat. A workshopokon összegyűlt visszajelzésekre és
+                                    felvetésekre építve pedig már megkezdtük a podcast sorozat előkészítését is.</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-neon-cyan mb-1">Február</h4>
-                                <p>Újabb mérföldkő megvalósítása indult el: elkezdődött a podcast sorozatunk forgatása és közzététele. Az első epizódokban Dr. Gondola Csabával, a körforgásos gazdaságért és klímapolitikáért felelős államtitkárral beszélgettünk, valamint felvételre került fiataljaink beszélgetése Dr. Wassen Barbarával, a Klímaügyekért és Klímadiplomáciáért felelős Utazó Nagykövettel, és Wettstein Annamáriával, az ENSZ senior ifjúsági klímaküldöttével is.</p>
+                                <p>Újabb mérföldkő megvalósítása indult el: elkezdődött a podcast sorozatunk forgatása
+                                    és közzététele. Az első epizódokban Dr. Gondola Csabával, a körforgásos gazdaságért
+                                    és klímapolitikáért felelős államtitkárral beszélgettünk, valamint felvételre került
+                                    fiataljaink beszélgetése Dr. Wassen Barbarával, a Klímaügyekért és
+                                    Klímadiplomáciáért felelős Utazó Nagykövettel, és Wettstein Annamáriával, az ENSZ
+                                    senior ifjúsági klímaküldöttével is.</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-neon-cyan mb-1">Április</h4>
-                                <p>Közzétételre került az utolsó két podcast epizódunk is: az egyikben fiataljaink zöld vállalkozókkal beszélgettek, a másikban pedig elnökünk a Budapesti Corvinus Egyetem Fenntarthatóságért Felelős Dékánjával járta körül a felsőoktatási intézmények szerepét a fenntartható jövő megteremtésében.</p>
-                                <p class="mt-2">Emellett sikeresen megvalósult a projektünk fő eseménye, a kétnapos aktivizáló és fejlesztő táborunk is, melynek során a fiatalokkal (köztük hátrányos helyzetű és ukrán résztvevők) a non-formális oktatás módszereivel dolgoztunk együtt. A résztvevők workshopok, viták és szerepjátékok keretében mélyültek el a környezeti fenntarthatóság és az erős intézményrendszerek összefüggéseiben, majd egy tapasztalt tartalomgyártó vezetésével digitális készségfejlesztő workshopon sajátították el a videókészítés, -szerkesztés és a kreatív történetmesélés alapjait. Ezt a tudást rögtön a gyakorlatban is kamatoztatták: kiscsoportokban saját videókat készítettek a projekt üzeneteinek terjesztésére, így a tábor végére a fiatalok multiplier- és innovátor-szintű bevonódását is elértük.</p>
+                                <p>Közzétételre került az utolsó két podcast epizódunk is: az egyikben fiataljaink zöld
+                                    vállalkozókkal beszélgettek, a másikban pedig elnökünk a Budapesti Corvinus Egyetem
+                                    Fenntarthatóságért Felelős Dékánjával járta körül a felsőoktatási intézmények
+                                    szerepét a fenntartható jövő megteremtésében.</p>
+                                <p class="mt-2">Emellett sikeresen megvalósult a projektünk fő eseménye, a kétnapos
+                                    aktivizáló és fejlesztő táborunk is, melynek során a fiatalokkal (köztük hátrányos
+                                    helyzetű és ukrán résztvevők) a non-formális oktatás módszereivel dolgoztunk együtt.
+                                    A résztvevők workshopok, viták és szerepjátékok keretében mélyültek el a környezeti
+                                    fenntarthatóság és az erős intézményrendszerek összefüggéseiben, majd egy tapasztalt
+                                    tartalomgyártó vezetésével digitális készségfejlesztő workshopon sajátították el a
+                                    videókészítés, -szerkesztés és a kreatív történetmesélés alapjait. Ezt a tudást
+                                    rögtön a gyakorlatban is kamatoztatták: kiscsoportokban saját videókat készítettek a
+                                    projekt üzeneteinek terjesztésére, így a tábor végére a fiatalok multiplier- és
+                                    innovátor-szintű bevonódását is elértük.</p>
                             </div>
                             <div>
                                 <h4 class="font-bold text-neon-cyan mb-1">Május</h4>
-                                <p>Projektünk a végéhez ért, nemcsak a résztvevők, hanem mi magunk is sokat tanultunk és fejlődtünk. A záró időszakban visszatértünk a középiskolákba, hogy a workshopokon és a táborban részt vevő fiatalok bevonásával (Multiplier–Innovator Engagement) megosszuk a projekt eredményeit. Ellátogattunk a veszprémi Ipari Technikum és a Vetési Albert Gimnáziumba, a bonyhádi Petőfi Sándor Evangélikus Gimnáziumba, a soproni Fáy András középiskolába, valamint a budapesti Német Nemzetiségi Gimnáziumba.</p>
-                                <p class="mt-2">A projektet közös reflexióval és értékeléssel zártuk: áttekintettük az elért eredményeket, a megszerzett tapasztalatokat és a tanulságokat, amelyekre a jövőbeli programjainkat is építeni tudjuk. Köszönjük mindenkinek résztvevőknek, partnereknek és támogatóknak, hogy részesei voltak ennek az útnak!</p>
+                                <p>Projektünk a végéhez ért, nemcsak a résztvevők, hanem mi magunk is sokat tanultunk és
+                                    fejlődtünk. A záró időszakban visszatértünk a középiskolákba, hogy a workshopokon és
+                                    a táborban részt vevő fiatalok bevonásával (Multiplier–Innovator Engagement)
+                                    megosszuk a projekt eredményeit. Ellátogattunk a veszprémi Ipari Technikum és a
+                                    Vetési Albert Gimnáziumba, a bonyhádi Petőfi Sándor Evangélikus Gimnáziumba, a
+                                    soproni Fáy András középiskolába, valamint a budapesti Német Nemzetiségi
+                                    Gimnáziumba.</p>
+                                <p class="mt-2">A projektet közös reflexióval és értékeléssel zártuk: áttekintettük az
+                                    elért eredményeket, a megszerzett tapasztalatokat és a tanulságokat, amelyekre a
+                                    jövőbeli programjainkat is építeni tudjuk. Köszönjük mindenkinek résztvevőknek,
+                                    partnereknek és támogatóknak, hogy részesei voltak ennek az útnak!</p>
                             </div>
                         </div>
 
@@ -5091,10 +5127,112 @@
                 title: "Raise Your Impact",
                 shortDescription: "A personal development training course in the Czech Republic designed to foster self-awareness, communication, and collaboration.",
                 description: "“Raise Your Impact” was a personal development training course held in the Czech Republic.\n\nDuring the eight days of the project, participants engaged in an intensive experimental program designed to foster self-awareness, encourage reflection on personal patterns and beliefs, and empower them to take action and make things happen. The program placed a strong emphasis on communication, collaboration, feedback, and working with others using an inclusive approach.\n\nThe project was organised by Brno Connected and co-funded by the European Union."
-            }
+            },
+
+            // Join Popup translations
+            'Jelentkezz': 'Apply',
+            'Jelentkezz!': 'Join Us!',
+            'Jelentkezz hozzánk!': 'Join Us!',
+            'Megnyílt a tagfelvétel a diákszervezetünkbe, gyere csatlakozz hozzánk és építsük közösen a jövőt!': 'Recruitment for our student organization is now open, come join us and build the future together!',
+            'Talán később..': 'Maybe later..',
+            'Jelentkezem': 'Apply Now',
         };
     </script>
+
+    <!-- Join Popup Overlay & Modal -->
+    <div id="join-popup-overlay" class="join-popup-overlay closing" style="display: none;">
+        <div id="join-popup-card" class="join-popup-card">
+            <button id="join-popup-close" class="join-popup-close-btn" aria-label="Bezárás">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2 class="join-popup-title">Jelentkezz hozzánk!</h2>
+            <p class="join-popup-text">
+                Megnyílt a tagfelvétel a diákszervezetünkbe, gyere csatlakozz hozzánk és építsük közösen a jövőt!
+            </p>
+            <div class="join-popup-buttons">
+                <button id="join-popup-later" class="join-btn-secondary">Talán később..</button>
+                <a href="jelentkezz.html" class="join-btn-primary">Jelentkezem</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Badge in Bottom-Left Corner -->
+    <div id="join-floating-badge" class="join-floating-badge visible-badge" title="Jelentkezz hozzánk!">
+        <div class="join-badge-icon">
+            <i class="fa-solid fa-paper-plane"></i>
+        </div>
+        <span class="join-badge-text">Jelentkezz!</span>
+    </div>
+
     <script src="lang.js?v=1.2"></script>
+
+    <!-- Join Popup & Floating Badge Handler Script -->
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                const overlay = document.getElementById('join-popup-overlay');
+                const closeBtn = document.getElementById('join-popup-close');
+                const laterBtn = document.getElementById('join-popup-later');
+                const badge = document.getElementById('join-floating-badge');
+
+                if (!overlay || !badge) return;
+
+                function closePopupToCorner() {
+                    overlay.classList.add('closing');
+                    badge.classList.remove('hidden-badge');
+                    badge.classList.add('visible-badge');
+
+                    setTimeout(function () {
+                        overlay.style.display = 'none';
+                    }, 400);
+                }
+
+                function openPopupFromCorner() {
+                    overlay.style.display = 'flex';
+                    // Force reflow
+                    void overlay.offsetWidth;
+                    overlay.classList.remove('closing');
+                    badge.classList.remove('visible-badge');
+                    badge.classList.add('hidden-badge');
+                }
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        closePopupToCorner();
+                    });
+                }
+
+                if (laterBtn) {
+                    laterBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        closePopupToCorner();
+                    });
+                }
+
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay) {
+                        closePopupToCorner();
+                    }
+                });
+
+                badge.addEventListener('click', function () {
+                    openPopupFromCorner();
+                });
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && !overlay.classList.contains('closing') && overlay.style.display !== 'none') {
+                        closePopupToCorner();
+                    }
+                });
+            });
+        })();
+    </script>
+
     <script src="cookie-consent.js"></script>
 
 </body>

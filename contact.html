@@ -5,10 +5,10 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z253S3MPDE"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z253S3MPDE');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Z253S3MPDE');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,6 +32,9 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css?v=1.1">
 
     <script>
         tailwind.config = {
@@ -238,8 +241,8 @@
                             (function () {
                                 document.currentScript.previousElementSibling.className =
                                     document.body.classList.contains('light-mode') ||
-                                    document.documentElement.classList.contains('light-mode')
-                                    ? 'fas fa-moon' : 'fas fa-sun';
+                                        document.documentElement.classList.contains('light-mode')
+                                        ? 'fas fa-moon' : 'fas fa-sun';
                             })();
                         </script>
                     </button>
@@ -293,15 +296,13 @@
                 </div>
                 <span>Tevékenységek</span>
             </a>
-            <a href="about"
-                class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
+            <a href="about" class="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition duration-300">
                 <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
                     <i class="fas fa-info-circle"></i>
                 </div>
                 <span>Rólunk</span>
             </a>
-            <a href="contact"
-                class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
+            <a href="contact" class="flex items-center gap-4 text-neon-cyan font-semibold transition duration-300">
                 <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center">
                     <i class="fas fa-envelope"></i>
                 </div>
@@ -310,7 +311,8 @@
         </div>
 
         <div class="mt-auto pt-10 border-t border-white/10 flex justify-center">
-            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo" class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
+            <img src="assets/images/vektoros-logo.svg" alt="ABOVE Foundation Logo"
+                class="mobile-menu-logo max-w-[150px] w-full h-auto opacity-80">
         </div>
     </div>
 
@@ -705,7 +707,7 @@
             // Smooth Page Transition Logic
             (function () {
                 const content = document.getElementById('app-content');
-                
+
                 setTimeout(() => {
                     if (content) content.classList.add('loaded');
                 }, 50);
@@ -752,9 +754,111 @@
                 'Együtt változtathatunk a világon. Támogasd munkánkat és légy részese a változásnak.': 'Together we can change the world. Support our work and be part of the change.',
                 'Támogatás': 'Donate',
                 'Önkéntes jelentkezés': 'Volunteer application',
+
+                // Join Popup translations
+                'Jelentkezz': 'Apply',
+                'Jelentkezz!': 'Join Us!',
+                'Jelentkezz hozzánk!': 'Join Us!',
+                'Megnyílt a tagfelvétel a diákszervezetünkbe, gyere csatlakozz hozzánk és építsük közösen a jövőt!': 'Recruitment for our student organization is now open, come join us and build the future together!',
+                'Talán később..': 'Maybe later..',
+                'Jelentkezem': 'Apply Now',
             };
         </script>
+
+        <!-- Join Popup Overlay & Modal -->
+        <div id="join-popup-overlay" class="join-popup-overlay closing" style="display: none;">
+            <div id="join-popup-card" class="join-popup-card">
+                <button id="join-popup-close" class="join-popup-close-btn" aria-label="Bezárás">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <h2 class="join-popup-title">Jelentkezz hozzánk!</h2>
+                <p class="join-popup-text">
+                    Megnyílt a tagfelvétel a diákszervezetünkbe, gyere csatlakozz hozzánk és építsük közösen a jövőt!
+                </p>
+                <div class="join-popup-buttons">
+                    <button id="join-popup-later" class="join-btn-secondary">Talán később..</button>
+                    <a href="jelentkezz.html" class="join-btn-primary">Jelentkezem</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Badge in Bottom-Left Corner -->
+        <div id="join-floating-badge" class="join-floating-badge visible-badge" title="Jelentkezz hozzánk!">
+            <div class="join-badge-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <span class="join-badge-text">Jelentkezz!</span>
+        </div>
+
         <script src="lang.js?v=1.2"></script>
+
+        <!-- Join Popup & Floating Badge Handler Script -->
+        <script>
+            (function () {
+                document.addEventListener('DOMContentLoaded', function () {
+                    const overlay = document.getElementById('join-popup-overlay');
+                    const closeBtn = document.getElementById('join-popup-close');
+                    const laterBtn = document.getElementById('join-popup-later');
+                    const badge = document.getElementById('join-floating-badge');
+
+                    if (!overlay || !badge) return;
+
+                    function closePopupToCorner() {
+                        overlay.classList.add('closing');
+                        badge.classList.remove('hidden-badge');
+                        badge.classList.add('visible-badge');
+
+                        setTimeout(function () {
+                            overlay.style.display = 'none';
+                        }, 400);
+                    }
+
+                    function openPopupFromCorner() {
+                        overlay.style.display = 'flex';
+                        // Force reflow
+                        void overlay.offsetWidth;
+                        overlay.classList.remove('closing');
+                        badge.classList.remove('visible-badge');
+                        badge.classList.add('hidden-badge');
+                    }
+
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            closePopupToCorner();
+                        });
+                    }
+
+                    if (laterBtn) {
+                        laterBtn.addEventListener('click', function (e) {
+                            e.stopPropagation();
+                            closePopupToCorner();
+                        });
+                    }
+
+                    overlay.addEventListener('click', function (e) {
+                        if (e.target === overlay) {
+                            closePopupToCorner();
+                        }
+                    });
+
+                    badge.addEventListener('click', function () {
+                        openPopupFromCorner();
+                    });
+
+                    document.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape' && !overlay.classList.contains('closing') && overlay.style.display !== 'none') {
+                            closePopupToCorner();
+                        }
+                    });
+                });
+            })();
+        </script>
+
         <script src="cookie-consent.js"></script>
 
     </div>
