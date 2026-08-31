@@ -1235,6 +1235,22 @@
             (function () {
                 const newsItems = [
                     {
+                        title: 'Green Voices Hungary',
+                        titleEn: 'Green Voices Hungary',
+                        date: '2026',
+                        dateEn: '2026',
+                        category: 'Kérdőív · Visszajelzés',
+                        categoryEn: 'Questionnaire · Feedback',
+                        description: 'Segítsd szervezetünket az alábbi kérdőív kitöltésével!<br><br>Az ABOVE Alapítvány arra kíváncsi, hogyan gondolkodnak a fiatalok a klímaváltozásról és a fenntarthatóságról, honnan tájékozódnak ezekben a témákban, milyen nehézségekkel találkoznak, és milyen programokban vennének részt szívesen.',
+                        descriptionEn: 'Help our organization by completing the questionnaire below!<br><br>The ABOVE Foundation is curious about how young people think about climate change and sustainability, where they get information on these topics, what difficulties they face, and what programs they would like to participate in.',
+                        images: [
+                            'assets/images/green_voices_hungary.png'
+                        ],
+                        link: 'https://docs.google.com/forms/d/e/1FAIpQLSfPdHz6HTyGJW9N-t_D0mvLTOUxpLSOIHssz0zJKejRoJJPJg/formResponse',
+                        btnText: 'Kérdőív kitöltése',
+                        btnTextEn: 'Fill out questionnaire'
+                    },
+                    {
                         title: 'Beszélgetés Vitézy Dáviddal',
                         titleEn: 'Talk with Dávid Vitézy',
                         date: '2026. Május 21.',
@@ -1340,7 +1356,9 @@
                         const date = (lang === 'en' && item.dateEn) ? item.dateEn : item.date;
                         const desc = (lang === 'en' && item.descriptionEn) ? item.descriptionEn : item.description;
                         const cat = (lang === 'en' && item.categoryEn) ? item.categoryEn : item.category;
-                        const btnText = lang === 'en' ? 'more...' : 'bővebben...';
+                        const defaultBtnText = lang === 'en' ? (item.link.startsWith('http') ? 'Fill form' : 'more...') : (item.link.startsWith('http') ? 'Kitöltés' : 'bővebben...');
+                        const btnText = item.btnText ? (lang === 'en' && item.btnTextEn ? item.btnTextEn : item.btnText) : defaultBtnText;
+                        const targetAttr = item.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
 
                         const imagesHtml = item.images.map((img, imgIdx) =>
                             `<img src="${img}" alt="${title} ${imgIdx + 1}" ${imgIdx === 0 ? 'class="active"' : ''}>`
@@ -1360,7 +1378,7 @@
                                 <h3 class="news-carousel-title">${title}</h3>
                                 <span class="news-carousel-date">${date}</span>
                                 <p class="news-carousel-desc">${desc}</p>
-                                <a href="${item.link}" class="news-carousel-btn">${btnText}</a>
+                                <a href="${item.link}" ${targetAttr} class="news-carousel-btn">${btnText}</a>
                             </div>
                         `;
                         track.appendChild(card);
