@@ -1405,6 +1405,38 @@
                 </div>
                 <div class="space-y-6">
 
+                    <!-- Event: Sziget, SZIN, Művészetek Völgye -->
+                    <div class="event-card fade-in" id="eventFesztivalok">
+                        <!-- Image Slideshow -->
+                        <div class="event-slideshow" id="fesztivalokSlideshow">
+                            <img src="assets/images/events/sziget2026_1.jpg" alt="Sziget, SZIN, Művészetek Völgye 1" class="active">
+                            <img src="assets/images/events/sziget2026_2.jpg" alt="Sziget, SZIN, Művészetek Völgye 2">
+                            <img src="assets/images/events/sziget2026_3.jpg" alt="Sziget, SZIN, Művészetek Völgye 3">
+                            <img src="assets/images/events/szin2026_1.jpeg" alt="Sziget, SZIN, Művészetek Völgye 4">
+                            <img src="assets/images/events/szin2026_2.jpg" alt="Sziget, SZIN, Művészetek Völgye 5">
+                            <img src="assets/images/events/szin2026_3.jpg" alt="Sziget, SZIN, Művészetek Völgye 6">
+                            <img src="assets/images/events/muvvolgy2026_1.jpg" alt="Sziget, SZIN, Művészetek Völgye 7">
+                            <img src="assets/images/events/muvvolgy2026_2.jpg" alt="Sziget, SZIN, Művészetek Völgye 8">
+                            <img src="assets/images/events/muvvolgy2026_3.jpg" alt="Sziget, SZIN, Művészetek Völgye 9">
+                            <div class="event-slideshow-label">
+                                <h4>Sziget, SZIN, Művészetek Völgye</h4>
+                                <p>Hazai rendezvény · 2026</p>
+                            </div>
+                            <div class="event-progress-bar">
+                                <div class="event-progress-fill" id="fesztivalokProgress"></div>
+                            </div>
+                        </div>
+
+                        <!-- Event Info -->
+                        <div class="event-info">
+                            <h3 class="event-title">Sziget, SZIN, Művészetek Völgye</h3>
+                            <span class="event-date">2026. Július - Augusztus</span>
+                            <p class="event-short-desc">Az ABOVE nyara: fesztiválok, találkozások és közös élmények. Idén nyáron az ABOVE több fesztiválon is jelen volt (SZIN, Sziget, Művészetek Völgye), ahol játékokkal, beszélgetésekkel és programokkal vártuk a fesztiválozókat...</p>
+                            <button class="event-details-btn"
+                                onclick="navigateTo('events/fesztivalok');">bővebben...</button>
+                        </div>
+                    </div>
+
                     <!-- Event: ABOVE 3. Szülinap -->
                     <div class="event-card fade-in" id="eventSzulinap">
                         <!-- Image Slideshow -->
@@ -1471,6 +1503,59 @@
             </div>
     </div>
     </section>
+
+    <!-- Event Modal: Sziget, SZIN, Művészetek Völgye -->
+    <div id="eventModalFesztivalok" class="event-modal-overlay hidden">
+        <div class="event-modal-content">
+            <button class="event-modal-close" onclick="navigateTo('events');">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-4 md:p-8">
+                <!-- Cover Image -->
+                <div class="rounded-2xl overflow-hidden mb-6">
+                    <img src="assets/images/events/sziget2026_1.jpg" alt="Sziget, SZIN, Művészetek Völgye"
+                        class="w-full h-72 object-cover object-center">
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Esemény</span>
+                        <p class="text-gray-400 text-sm">2026. Július - Augusztus</p>
+                    </div>
+                    <button onclick="copyEventLink('events/fesztivalok', this)"
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass hover:bg-neon-cyan/20 text-neon-cyan font-bold text-xs transition duration-300">
+                        <i class="fas fa-link"></i>
+                        <span>Link másolása</span>
+                    </button>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-montserrat font-bold gradient-text mb-6">Sziget, SZIN, Művészetek Völgye</h2>
+                <div class="space-y-6 text-gray-300 leading-relaxed">
+                    <div>
+                        <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Az ABOVE nyara: fesztiválok, találkozások és közös élmények</h3>
+                        <p>Idén nyáron az ABOVE több fesztiválon is jelen volt, hogy a közösséget még több emberhez eljuttassuk. A SZIN-en, a Szigeten és a Művészetek Völgyében is kitelepültünk, ahol játékokkal, beszélgetésekkel és különböző programokkal vártuk a fesztiválozókat.</p>
+                        <p class="mt-3">A fesztiválok alatt rengeteg új emberrel találkoztunk, meséltünk nekik az ABOVE-ról, a közösségünkről és arról, milyen lehetőségeket kínálunk a fiataloknak. Közben pedig mi is rengeteg új élménnyel és emlékkel gazdagodtunk.</p>
+                        <p class="mt-3">Három fesztivál, rengeteg találkozás, még több élmény – és egy közös cél: kapcsolódni, inspirálni és együtt építeni az ABOVE közösségét.</p>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <div>
+                        <h3 class="text-xl font-montserrat font-bold mb-4" style="color: #1099b3;">Fotógaléria</h3>
+                        <div class="event-modal-gallery" id="fesztivalokGallery">
+                            <img src="assets/images/events/sziget2026_1.jpg" alt="Sziget 2026 1" loading="lazy">
+                            <img src="assets/images/events/sziget2026_2.jpg" alt="Sziget 2026 2" loading="lazy">
+                            <img src="assets/images/events/sziget2026_3.jpg" alt="Sziget 2026 3" loading="lazy">
+                            <img src="assets/images/events/szin2026_1.jpeg" alt="SZIN 2026 1" loading="lazy">
+                            <img src="assets/images/events/szin2026_2.jpg" alt="SZIN 2026 2" loading="lazy">
+                            <img src="assets/images/events/szin2026_3.jpg" alt="SZIN 2026 3" loading="lazy">
+                            <img src="assets/images/events/muvvolgy2026_1.jpg" alt="Művészetek Völgye 2026 1" loading="lazy">
+                            <img src="assets/images/events/muvvolgy2026_2.jpg" alt="Művészetek Völgye 2026 2" loading="lazy">
+                            <img src="assets/images/events/muvvolgy2026_3.jpg" alt="Művészetek Völgye 2026 3" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Event Modal: Beszélgetés Vitézy Dáviddal -->
     <div id="eventModalVitezy" class="event-modal-overlay hidden">
@@ -3092,7 +3177,7 @@
             });
 
             // Close event modals
-            ['eventModalVitezy', 'eventModalSzulinap'].forEach(id => {
+            ['eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(id => {
                 const modal = document.getElementById(id);
                 if (modal) modal.classList.add('hidden');
             });
@@ -3194,6 +3279,18 @@
                 eventsView.classList.remove('hidden');
                 if (wasHidden) {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else if (route === 'events/fesztivalok' || route === 'fesztivalok' || route === 'events/sziget-szin-muvvolgy' || route === 'events/sziget') {
+                // Sziget, SZIN, Művészetek Völgye event modal view
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.add('hidden');
+                eventsView.classList.remove('hidden');
+
+                const modal = document.getElementById('eventModalFesztivalok');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
                 }
             } else if (route === 'events/vitezy' || route === 'vitezy') {
                 // Beszélgetés Vitézy Dáviddal event modal view
@@ -4421,11 +4518,35 @@
         }
 
         // Initialize event slideshows
+        setupEventSlideshow('fesztivalokSlideshow', 'fesztivalokProgress', 5000);
         setupEventSlideshow('vitezySlideshow', 'vitezyProgress', 3000);
         setupEventSlideshow('szulinapSlideshow', 'szulinapProgress', 5000);
 
-        // ── Event Modal: Gallery Lightbox (Vitézy & Szülinap) ────────────────────
+        // ── Event Modal: Gallery Lightbox (Fesztiválok, Vitézy & Szülinap) ──────
         (function () {
+            var fesztivalokPhotos = [
+                'assets/images/events/sziget2026_1.jpg',
+                'assets/images/events/sziget2026_2.jpg',
+                'assets/images/events/sziget2026_3.jpg',
+                'assets/images/events/szin2026_1.jpeg',
+                'assets/images/events/szin2026_2.jpg',
+                'assets/images/events/szin2026_3.jpg',
+                'assets/images/events/muvvolgy2026_1.jpg',
+                'assets/images/events/muvvolgy2026_2.jpg',
+                'assets/images/events/muvvolgy2026_3.jpg'
+            ];
+            var fesztivalokGallery = document.getElementById('fesztivalokGallery');
+            if (fesztivalokGallery) {
+                fesztivalokGallery.querySelectorAll('img').forEach(function (img, index) {
+                    img.addEventListener('click', function () {
+                        currentGalleryPhotos = fesztivalokPhotos;
+                        currentGalleryIndex = index;
+                        document.getElementById('lightboxImage').src = fesztivalokPhotos[index];
+                        document.getElementById('imageLightbox').classList.remove('hidden');
+                    });
+                });
+            }
+
             var vitezyPhotos = [
                 'assets/images/events/vitezy_1.jpg',
                 'assets/images/events/vitezy_2.jpg',
@@ -4467,7 +4588,7 @@
 
         // ── Event Modal: Close on outside click ──────────────────────────────────
         (function () {
-            ['eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
+            ['eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
                 var modal = document.getElementById(id);
                 if (modal) {
                     modal.addEventListener('click', function (e) {
@@ -4482,6 +4603,15 @@
         // ── Random Event Category Card Background Image ──────────────────────────
         (function () {
             var eventBgImages = [
+                'assets/images/events/sziget2026_1.jpg',
+                'assets/images/events/sziget2026_2.jpg',
+                'assets/images/events/sziget2026_3.jpg',
+                'assets/images/events/szin2026_1.jpeg',
+                'assets/images/events/szin2026_2.jpg',
+                'assets/images/events/szin2026_3.jpg',
+                'assets/images/events/muvvolgy2026_1.jpg',
+                'assets/images/events/muvvolgy2026_2.jpg',
+                'assets/images/events/muvvolgy2026_3.jpg',
                 'assets/images/events/szulinap_1.jpg',
                 'assets/images/events/szulinap_2.jpg',
                 'assets/images/events/szulinap_3.jpg',
@@ -4504,7 +4634,7 @@
         // ── Event Modal: ESC key close ───────────────────────────────────────────
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                ['eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
+                ['eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
                     var modal = document.getElementById(id);
                     if (modal && !modal.classList.contains('hidden')) {
                         navigateTo('events');
@@ -4586,6 +4716,13 @@
             // Events view translations
             'Események\n                    ': 'Events\n                    ',
             'Korábbi rendezvényeink és közösségi programjaink': 'Our past events and community programmes',
+            'Sziget, SZIN, Művészetek Völgye': 'Sziget, SZIN, Arts Valley',
+            '2026. Július - Augusztus': 'July - August 2026',
+            'Az ABOVE nyara: fesztiválok, találkozások és közös élmények. Idén nyáron az ABOVE több fesztiválon is jelen volt (SZIN, Sziget, Művészetek Völgye), ahol játékokkal, beszélgetésekkel és programokkal vártuk a fesztiválozókat...': 'ABOVE\'s summer: festivals, encounters and shared experiences. This summer ABOVE was present at several festivals (SZIN, Sziget, Arts Valley), welcoming festival-goers with games, talks and activities...',
+            'Az ABOVE nyara: fesztiválok, találkozások és közös élmények': 'ABOVE\'s summer: festivals, encounters and shared experiences',
+            'Idén nyáron az ABOVE több fesztiválon is jelen volt, hogy a közösséget még több emberhez eljuttassuk. A SZIN-en, a Szigeten és a Művészetek Völgyében is kitelepültünk, ahol játékokkal, beszélgetésekkel és különböző programokkal vártuk a fesztiválozókat.': 'This summer, ABOVE was present at several festivals to bring our community to even more people. We set up booths at SZIN, Sziget, and Arts Valley, welcoming festival-goers with games, talks, and various activities.',
+            'A fesztiválok alatt rengeteg új emberrel találkoztunk, meséltünk nekik az ABOVE-ról, a közösségünkről és arról, milyen lehetőségeket kínálunk a fiataloknak. Közben pedig mi is rengeteg új élménnyel és emlékkel gazdagodtunk.': 'During the festivals, we met countless new people, telling them about ABOVE, our community, and the opportunities we offer for young people. Meanwhile, we also gained a wealth of new experiences and memories.',
+            'Három fesztivál, rengeteg találkozás, még több élmény – és egy közös cél: kapcsolódni, inspirálni és együtt építeni az ABOVE közösségét.': 'Three festivals, countless encounters, even more experiences – and one shared goal: to connect, inspire, and build the ABOVE community together.',
             'Beszélgetés Vitézy Dáviddal': 'Talk with Dávid Vitézy',
             '2026. Május 21.': '21 May 2026',
             'Teltházas előadás Vitézy Dáviddal – a résztvevők első kézből hallhattak városfejlesztésről, felelősségvállalásról és a fiatalok szerepéről a közéletben, rengeteg inspiráló gondolattal.': 'A sold-out talk with Dávid Vitézy – participants heard first-hand about urban development, responsibility and the role of young people in public life, with many inspiring thoughts.',
