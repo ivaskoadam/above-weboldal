@@ -345,6 +345,24 @@
             </div>
         </section>
 
+        <!-- News Detail Modal (for ITW / EASY etc.) -->
+        <div class="news-detail-overlay" id="newsDetailOverlay" style="display:none;">
+            <div class="news-detail-card">
+                <button class="news-detail-close" id="newsDetailClose" aria-label="Bezárás">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <h2 class="news-detail-title" id="newsDetailTitle"></h2>
+                <span class="news-detail-date" id="newsDetailDate"></span>
+                <div class="news-detail-body" id="newsDetailBody"></div>
+                <div class="news-detail-actions" id="newsDetailActions" style="margin-top: 1.5rem; display: none;">
+                    <a href="#" id="newsDetailApplyBtn" target="_blank" rel="noopener noreferrer" class="news-carousel-btn" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-paper-plane"></i>
+                        <span id="newsDetailApplyText">Jelentkezés a projektre</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Mission & Core Goals Section -->
         <section id="mission-section" class="pt-16 md:pt-24 pb-24 px-6 relative overflow-hidden">
             <div class="max-w-7xl mx-auto">
@@ -1235,6 +1253,41 @@
             (function () {
                 const newsItems = [
                     {
+                        title: 'Into the Wild – Erasmus+ ifjúsági csere',
+                        titleEn: 'Into the Wild – Erasmus+ Youth Exchange',
+                        date: '2026. szeptember 16–23.',
+                        dateEn: 'September 16–23, 2026',
+                        category: 'Közelgő projekt · Erasmus+',
+                        categoryEn: 'Upcoming project · Erasmus+',
+                        description: 'Az Into the Wild egy Erasmus+ ifjúsági csere, amely 2026 szeptemberében 27 fiatalt hoz össze öt európai országból Badacsonyban, a Balaton-felvidék egyik legkülönlegesebb természeti környezetében.',
+                        descriptionEn: 'Into the Wild is an Erasmus+ youth exchange bringing together 27 young people from five European countries in Badacsony, one of the most unique natural environments of the Balaton Uplands, in September 2026.',
+                        images: [],
+                        modalContent: 'Az Into the Wild egy Erasmus+ ifjúsági csere, amely 2026 szeptemberében 27 fiatalt hoz össze öt európai országból Badacsonyban, a Balaton-felvidék egyik legkülönlegesebb természeti környezetében.<br><br>A projekt középpontjában a mentális egészség, a jóllét, a természethez való kapcsolódás és a fenntarthatóság áll. A program különlegessége, hogy a tanulási folyamat jelentős része a természetben zajlik: a résztvevők több közös túrán vesznek részt a Badacsony és a környező tanúhegyek térségében, miközben workshopokon, páros beszélgetéseken, reflexiós gyakorlatokon és közösségi programokon keresztül dolgozzák fel a projekt témáit.<br><br>Az Into the Wild célja, hogy a fiatalok új perspektívákat kapjanak a mentális egészségügyi kihívások kezelésére, tudatosabban kapcsolódjanak a természethez, miközben felfedezik a fenntartható életmód lehetőségeit is. A projekt emellett a kulturális csere és az interkulturális tanulás erős platformja: a résztvevők különböző országokból érkeznek, és a közös élmények révén nemcsak egymás kultúráját, hanem önmagukat is jobban megismerhetik.<br><br>A projektet az ABOVE Alapítvány pályázta és koordinálja.',
+                        modalContentEn: 'Into the Wild is an Erasmus+ youth exchange bringing together 27 young people from five European countries in Badacsony, one of the most unique natural environments of the Balaton Uplands, in September 2026.<br><br>The project focuses on mental health, well-being, connection to nature, and sustainability. The program is unique in that a significant part of the learning process takes place in nature: participants take part in several joint hikes in the Badacsony and surrounding witness mountains area, while processing the project topics through workshops, pair conversations, reflection exercises, and community programs.<br><br>Into the Wild aims to give young people new perspectives on dealing with mental health challenges, connect more consciously with nature, while also exploring the possibilities of a sustainable lifestyle. The project is also a strong platform for cultural exchange and intercultural learning: participants come from different countries and through shared experiences, they can get to know not only each other\'s cultures but also themselves better.<br><br>The project was applied for and is coordinated by the ABOVE Foundation.',
+                        icon: 'fas fa-mountain-sun',
+                        btnText: 'bővebben...',
+                        btnTextEn: 'read more...',
+                        applyLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeCcdl6KA3sbmd57XhAKsGHQvjGx1SZCy9LRAR9jo__jsgk-Q/viewform?pli=1',
+                        applyBtnText: 'Jelentkezés',
+                        applyBtnTextEn: 'Apply now'
+                    },
+                    {
+                        title: 'E.A.S.Y. – Erasmus+ ifjúsági csere',
+                        titleEn: 'E.A.S.Y. – Erasmus+ Youth Exchange',
+                        date: '2026. november',
+                        dateEn: 'November 2026',
+                        category: 'Közelgő projekt · Erasmus+',
+                        categoryEn: 'Upcoming project · Erasmus+',
+                        description: 'Az E.A.S.Y. (Entrepreneurial Attitudes Shaping Youth) egy Erasmus+ ifjúsági csere, amely 2026 őszén, a festői Csolnok községben valósul meg 30 fiatal részvételével, hat európai országból.',
+                        descriptionEn: 'E.A.S.Y. (Entrepreneurial Attitudes Shaping Youth) is an Erasmus+ youth exchange taking place in autumn 2026, in the picturesque village of Csolnok, with 30 young participants from six European countries.',
+                        images: [],
+                        modalContent: 'Az E.A.S.Y. (Entrepreneurial Attitudes Shaping Youth) egy Erasmus+ ifjúsági csere, amely 2026 őszén, a festői Csolnok községben valósul meg 30 fiatal részvételével, hat európai országból.<br><br>A projekt célja, hogy a résztvevők felfedezzék a vállalkozói szemléletet, megismerjék a kreatív problémamegoldás eszközeit, és inspirálódjanak a saját ötleteik megvalósítására. A program nem csupán elméleti tudást ad: a fiatalok interaktív workshopokon, szimulációs játékokon, csoportos kihívásokon és valós vállalkozói történeteken keresztül tapasztalhatják meg, hogyan születik egy ötletből működő projekt vagy kezdeményezés.<br><br>Az E.A.S.Y. emellett erős hangsúlyt fektet a soft skillek fejlesztésére is – a csapatmunka, a kommunikáció, a prezentációs készségek és az önismeret mind fontos elemei a programnak. A Csolnokon töltött napok során a résztvevők nemcsak szakmailag, hanem emberileg is közelebb kerülhetnek egymáshoz, miközben a közös programok és estékben bővelkedő hét felejthetetlen élményeket biztosít.<br><br>A projektet az ABOVE Alapítvány pályázta és koordinálja.',
+                        modalContentEn: 'E.A.S.Y. (Entrepreneurial Attitudes Shaping Youth) is an Erasmus+ youth exchange taking place in autumn 2026, in the picturesque village of Csolnok, with 30 young participants from six European countries.<br><br>The project aims to help participants discover entrepreneurial mindset, learn creative problem-solving tools, and get inspired to realize their own ideas. The program offers more than theoretical knowledge: young people can experience how an idea becomes a working project or initiative through interactive workshops, simulation games, group challenges, and real entrepreneurial stories.<br><br>E.A.S.Y. also places strong emphasis on developing soft skills – teamwork, communication, presentation skills, and self-awareness are all important elements of the program. During the days spent in Csolnok, participants can grow closer not only professionally but also personally, while the shared programs and event-filled week provides unforgettable experiences.<br><br>The project was applied for and is coordinated by the ABOVE Foundation.',
+                        icon: 'fas fa-lightbulb',
+                        btnText: 'bővebben...',
+                        btnTextEn: 'read more...'
+                    },
+                    {
                         title: 'Green Voices Hungary',
                         titleEn: 'Green Voices Hungary',
                         date: '2026',
@@ -1378,29 +1431,61 @@
                         const date = (lang === 'en' && item.dateEn) ? item.dateEn : item.date;
                         const desc = (lang === 'en' && item.descriptionEn) ? item.descriptionEn : item.description;
                         const cat = (lang === 'en' && item.categoryEn) ? item.categoryEn : item.category;
-                        const defaultBtnText = lang === 'en' ? (item.link.startsWith('http') ? 'Fill form' : 'more...') : (item.link.startsWith('http') ? 'Kitöltés' : 'bővebben...');
+                        const hasLink = item.link;
+                        const hasModal = item.modalContent;
+                        const defaultBtnText = lang === 'en' ? 'more...' : 'bővebben...';
                         const btnText = item.btnText ? (lang === 'en' && item.btnTextEn ? item.btnTextEn : item.btnText) : defaultBtnText;
-                        const targetAttr = item.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
 
-                        const imagesHtml = item.images.map((img, imgIdx) =>
-                            `<img src="${img}" alt="${title} ${imgIdx + 1}" ${imgIdx === 0 ? 'class="active"' : ''}>`
-                        ).join('');
+                        // Build slideshow or placeholder
+                        let slideshowHtml;
+                        if (item.images && item.images.length > 0) {
+                            const imagesHtml = item.images.map((img, imgIdx) =>
+                                `<img src="${img}" alt="${title} ${imgIdx + 1}" ${imgIdx === 0 ? 'class="active"' : ''}>`
+                            ).join('');
+                            slideshowHtml = `
+                                <div class="news-carousel-slideshow" data-card-index="${i}">
+                                    ${imagesHtml}
+                                    <div class="news-carousel-slideshow-label">
+                                        <h4>${title}</h4>
+                                        <p>${cat}</p>
+                                    </div>
+                                </div>`;
+                        } else {
+                            const icon = item.icon || 'fas fa-newspaper';
+                            slideshowHtml = `
+                                <div class="news-carousel-slideshow news-carousel-placeholder" data-card-index="${i}">
+                                    <div class="news-carousel-placeholder-icon"><i class="${icon}"></i></div>
+                                    <div class="news-carousel-slideshow-label">
+                                        <h4>${title}</h4>
+                                        <p>${cat}</p>
+                                    </div>
+                                </div>`;
+                        }
+
+                        // Build buttons
+                        let buttonsHtml = '<div class="news-carousel-btn-group">';
+                        if (item.applyLink) {
+                            const applyText = lang === 'en' ? (item.applyBtnTextEn || 'Apply now') : (item.applyBtnText || 'Jelentkezés');
+                            buttonsHtml += `<a href="${item.applyLink}" target="_blank" rel="noopener noreferrer" class="news-carousel-btn news-carousel-btn-apply" style="display: inline-flex; align-items: center; gap: 0.4rem;"><i class="fas fa-paper-plane text-xs"></i><span>${applyText}</span></a>`;
+                        }
+                        if (hasModal) {
+                            const modalBtnClass = item.applyLink ? 'news-carousel-btn news-carousel-btn-secondary' : 'news-carousel-btn';
+                            buttonsHtml += `<button class="${modalBtnClass}" data-news-modal="${i}">${btnText}</button>`;
+                        } else if (hasLink) {
+                            const targetAttr = item.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
+                            buttonsHtml += `<a href="${item.link}" ${targetAttr} class="news-carousel-btn">${btnText}</a>`;
+                        }
+                        buttonsHtml += '</div>';
 
                         const card = document.createElement('div');
                         card.className = 'news-carousel-card' + (i === 0 ? ' active' : '');
                         card.innerHTML = `
-                            <div class="news-carousel-slideshow" data-card-index="${i}">
-                                ${imagesHtml}
-                                <div class="news-carousel-slideshow-label">
-                                    <h4>${title}</h4>
-                                    <p>${cat}</p>
-                                </div>
-                            </div>
+                            ${slideshowHtml}
                             <div class="news-carousel-info">
                                 <h3 class="news-carousel-title">${title}</h3>
                                 <span class="news-carousel-date">${date}</span>
                                 <p class="news-carousel-desc">${desc}</p>
-                                <a href="${item.link}" ${targetAttr} class="news-carousel-btn">${btnText}</a>
+                                ${buttonsHtml}
                             </div>
                         `;
                         track.appendChild(card);
@@ -1411,6 +1496,15 @@
                         dot.setAttribute('aria-label', `${lang === 'en' ? 'Go to news' : 'Ugrás a hírhez'} ${i + 1}`);
                         dot.addEventListener('click', () => goToNews(i));
                         dotsContainer.appendChild(dot);
+                    });
+
+                    // Attach modal open listeners
+                    track.querySelectorAll('[data-news-modal]').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const idx = parseInt(btn.getAttribute('data-news-modal'));
+                            openNewsDetailModal(newsItems[idx]);
+                        });
                     });
                 }
 
@@ -1531,6 +1625,59 @@
                     startImageSlideshows();
                 };
             })();
+
+            // News Detail Modal logic
+            function openNewsDetailModal(item) {
+                const lang = localStorage.getItem('lang') || 'hu';
+                const overlay = document.getElementById('newsDetailOverlay');
+                const titleEl = document.getElementById('newsDetailTitle');
+                const dateEl = document.getElementById('newsDetailDate');
+                const bodyEl = document.getElementById('newsDetailBody');
+
+                titleEl.textContent = (lang === 'en' && item.titleEn) ? item.titleEn : item.title;
+                dateEl.textContent = (lang === 'en' && item.dateEn) ? item.dateEn : item.date;
+                bodyEl.innerHTML = (lang === 'en' && item.modalContentEn) ? item.modalContentEn : item.modalContent;
+
+                const actionsEl = document.getElementById('newsDetailActions');
+                const applyBtn = document.getElementById('newsDetailApplyBtn');
+                const applyTextEl = document.getElementById('newsDetailApplyText');
+                if (item.applyLink) {
+                    applyBtn.href = item.applyLink;
+                    applyTextEl.textContent = lang === 'en' ? 'Apply for project' : 'Jelentkezés a projektre';
+                    actionsEl.style.display = 'block';
+                } else {
+                    actionsEl.style.display = 'none';
+                }
+
+                overlay.style.display = 'flex';
+                requestAnimationFrame(() => {
+                    overlay.classList.add('open');
+                });
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeNewsDetailModal() {
+                const overlay = document.getElementById('newsDetailOverlay');
+                overlay.classList.remove('open');
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 400);
+            }
+
+            // Close button
+            document.getElementById('newsDetailClose').addEventListener('click', closeNewsDetailModal);
+            // Click outside to close
+            document.getElementById('newsDetailOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeNewsDetailModal();
+            });
+            // Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const overlay = document.getElementById('newsDetailOverlay');
+                    if (overlay.classList.contains('open')) closeNewsDetailModal();
+                }
+            });
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
