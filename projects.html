@@ -2475,10 +2475,16 @@
                             </div>
                             <div class="flex flex-wrap gap-3 w-full md:w-auto justify-end">
                                 <!-- View Button -->
-                                <a href="assets/Lépj ki, kapcsolódj be - Erasmus+ KA154 Guide.pdf" target="_blank"
-                                    class="px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal hover:shadow-[0_0_15px_rgba(0,188,212,0.5)] transition duration-300 font-bold text-sm flex items-center gap-2">
+                                <a href="assets/lepj-ki-guide.pdf" target="_blank" rel="noopener noreferrer"
+                                    class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition duration-300 font-bold text-sm flex items-center gap-2">
                                     <i class="fas fa-eye"></i>
                                     <span>Megtekintés</span>
+                                </a>
+                                <!-- Download Button -->
+                                <a href="assets/lepj-ki-guide.pdf" download="Lepj_ki_kapcsolodj_be_Guide.pdf"
+                                    class="px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal hover:shadow-[0_0_15px_rgba(0,188,212,0.5)] transition duration-300 font-bold text-sm flex items-center gap-2">
+                                    <i class="fas fa-download"></i>
+                                    <span>Letöltés</span>
                                 </a>
                             </div>
                         </div>
@@ -2901,11 +2907,16 @@
                             kreativitás és az együttműködés képes maradandó változást elindítani – ez nem a vég,
                             hanem sok új kezdeményezés kezdete volt.</p>
                     </div>
-                    <div class="border-t border-white/10 pt-4 flex flex-wrap gap-4 items-center justify-between">
-                        <a href="assets/EYES_Project_Article_FINAL.pdf" target="_blank"
-                            class="inline-flex items-center gap-2 px-6 py-3 bg-[#1099B3] text-white font-bold rounded-full hover:opacity-90 hover:shadow-[0_0_15px_rgba(16,153,179,0.5)] transition duration-300">
-                            <i class="fas fa-file-pdf"></i>
-                            <span>Projekt kiadvány angolul</span>
+                    <div class="border-t border-white/10 pt-4 flex flex-wrap gap-3 items-center">
+                        <a href="assets/EYES_Project_Article_FINAL.pdf" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full transition duration-300 text-sm">
+                            <i class="fas fa-eye"></i>
+                            <span>Megtekintés</span>
+                        </a>
+                        <a href="assets/EYES_Project_Article_FINAL.pdf" download="EYES_Project_Article_FINAL.pdf"
+                            class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1099B3] text-white font-bold rounded-full hover:opacity-90 hover:shadow-[0_0_15px_rgba(16,153,179,0.5)] transition duration-300 text-sm">
+                            <i class="fas fa-download"></i>
+                            <span>Projekt kiadvány letöltése (angolul)</span>
                         </a>
                     </div>
                     <!-- Photo Gallery -->
@@ -4445,7 +4456,7 @@
             if (modalLinks) {
                 if (hu.articlePdf) {
                     var btnText = (lang === 'en') ? 'Project article' : 'Projekt kiadvány angolul';
-                    modalLinks.innerHTML = '<a href="' + hu.articlePdf + '" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-[#1099B3] text-white font-bold rounded-full hover:opacity-90 hover:shadow-[0_0_15px_rgba(16,153,179,0.5)] transition duration-300"><i class="fas fa-file-pdf"></i>' + btnText + '</a>';
+                    modalLinks.innerHTML = '<a href="' + hu.articlePdf + '" target="_blank" rel="noopener noreferrer" download class="inline-flex items-center gap-2 px-6 py-3 bg-[#1099B3] text-white font-bold rounded-full hover:opacity-90 hover:shadow-[0_0_15px_rgba(16,153,179,0.5)] transition duration-300"><i class="fas fa-file-pdf"></i>' + btnText + '</a>';
                     modalLinks.classList.remove('hidden');
                 } else {
                     modalLinks.innerHTML = '';
@@ -4971,6 +4982,7 @@
             'Magyarország, Kékkút · 2025': 'Hungary, Kékkút · 2025',
             'Hazai ifjúsági projekt · 2024': 'Domestic youth project · 2024',
             'Projekt kiadvány angolul': 'Project article',
+            'Projekt kiadvány letöltése (angolul)': 'Download project publication (in English)',
             'Az EYES (Entrepreneurial Youth Education Seminar) Erasmus+ képzési kurzus múlt pénteken sikeresen lezárult, ezzel véget ért egy inspiráló és tanulságos hét. A program hét országból – Grúziából, Olaszországból, Portugáliából, Litvániából, Szlovéniából, Észtországból és Magyarországról – érkező fiatal szakembereket és ifjúsági munkásokat hozott össze, akik közösen tanultak, fejlődtek és inspiráló ötleteket dolgoztak ki.': 'The EYES (Entrepreneurial Youth Education Seminar) Erasmus+ training course successfully concluded last Friday, bringing an inspiring and instructive week to a close. The programme brought together young professionals and youth workers from seven countries — Georgia, Italy, Portugal, Lithuania, Slovenia, Estonia and Hungary — who learned, grew and developed inspiring ideas together.',
             'A képzés során a résztvevők fejlesztették vállalkozói készségeiket, és megtanulták, hogyan formálhatják kreatív ötleteiket valós, megvalósítható projektekké. Megismerkedtek olyan gyakorlati eszközökkel, mint a SWOT- és PESTLE-elemzés, a problématérkép, valamint projektmenedzsment technikákat is gyakoroltak – például Gantt-diagramok és cash-flow tervek készítését. Emellett fejlesztették kommunikációs és prezentációs képességeiket, miközben értékes nemzetközi kapcsolatokat építettek.': 'During the training, participants developed their entrepreneurial skills and learned how to shape creative ideas into real, implementable projects. They got to know practical tools such as SWOT and PESTLE analysis and problem mapping, and practised project management techniques including Gantt charts and cash flow plans. They also developed communication and presentation skills while building valuable international connections.',
             'A hét végére a csoport új szemlélettel, tudással és barátságokkal gazdagodott. Számos új projektötlet született, amelyek valódi hatást gyakorolhatnak az ifjúsági munkára Európa-szerte. Az EYES kurzus bebizonyította, hogy a tanulás, a kreativitás és az együttműködés képes maradandó változást elindítani – ez nem a vég, hanem sok új kezdeményezés kezdete volt.': 'By the end of the week the group had grown richer in new perspectives, knowledge and friendships. Numerous new project ideas were born that could have a real impact on youth work across Europe. The EYES course proved that learning, creativity and collaboration can initiate lasting change — this was not the end, but the beginning of many new initiatives.',
@@ -5101,6 +5113,7 @@
             'Lépj ki, kapcsolódj be! — Útmutató': 'Step Out, Connect! — Guide',
             'Erasmus+ KA154 Guide · PDF · 33.3 MB': 'Erasmus+ KA154 Guide · PDF · 33.3 MB',
             'Megtekintés': 'View',
+            'Letöltés': 'Download',
 
             // ── Youth Council Exchange modal ─────────────────────────────────────
             'Hazai ifjúsági projekt · 2026': 'Domestic youth project · 2026',
