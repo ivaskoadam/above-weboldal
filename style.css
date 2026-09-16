@@ -1311,6 +1311,7 @@ body.light-mode .news-carousel {
     flex-direction: column;
     gap: 0.75rem;
     min-width: 0;
+    align-self: stretch;
 }
 
 .news-carousel-info .news-carousel-title {
@@ -1383,12 +1384,48 @@ body.light-mode .news-carousel-btn:hover {
     box-shadow: 0 6px 20px rgba(0, 122, 154, 0.5);
 }
 
+.news-carousel-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.news-carousel-footer .news-carousel-btn-group {
+    margin-top: 0;
+}
+
 .news-carousel-btn-group {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem;
     margin-top: auto;
+}
+
+.news-carousel-upload-date {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: 0.02em;
+    font-family: inherit;
+    transition: color 0.3s ease;
+    margin-bottom: 0.25rem;
+}
+
+.news-carousel-upload-date:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+body.light-mode .news-carousel-upload-date {
+    color: rgba(0, 0, 0, 0.38);
+}
+
+body.light-mode .news-carousel-upload-date:hover {
+    color: rgba(0, 0, 0, 0.65);
 }
 
 .news-carousel-btn-secondary {
@@ -1417,6 +1454,32 @@ body.light-mode .news-carousel-btn-secondary:hover {
     border-color: #007a9a;
     color: #00566b;
     box-shadow: 0 4px 15px rgba(0, 122, 154, 0.15);
+}
+
+.news-carousel-btn-register {
+    background: linear-gradient(135deg, #00D2E5 0%, #00ABA0 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0, 210, 229, 0.38) !important;
+}
+
+.news-carousel-btn-register:hover {
+    background: linear-gradient(135deg, #1ae0f2 0%, #0ebdae 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(0, 210, 229, 0.55) !important;
+    transform: translateY(-2px);
+}
+
+body.light-mode .news-carousel-btn-register {
+    background: linear-gradient(135deg, #00C8DB 0%, #009E94 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 180, 195, 0.35) !important;
+}
+
+body.light-mode .news-carousel-btn-register:hover {
+    background: linear-gradient(135deg, #00d6ea 0%, #00aca0 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(0, 180, 195, 0.55) !important;
 }
 
 /* Progress bar at the bottom of the entire carousel card */
@@ -1514,10 +1577,24 @@ body.light-mode .news-carousel-dot.active {
         font-size: 1.1rem;
     }
 
+    .news-carousel-footer {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    .news-carousel-footer .news-carousel-btn-group,
     .news-carousel-btn-group {
         width: 100%;
         flex-direction: column;
         gap: 0.6rem;
+    }
+
+    .news-carousel-upload-date {
+        align-self: flex-end;
+        text-align: right;
+        margin-bottom: 0;
     }
 
     .news-carousel-btn {

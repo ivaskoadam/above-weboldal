@@ -1249,14 +1249,43 @@
 
             // ============================================
             // NEWS CAROUSEL
+            // Új hír hozzáadásakor a felrakás dátumát az 'uploadDate' mezőben add meg:
+            //   uploadDate: '2026. 09. 15.', // Megjelenik a kártya jobb alsó sarkában halvány szürkével
+            //   uploadDateEn: 'September 15, 2026' // Opcionális angol formátum
+            // (Ha nincs megadva, automatikusan az aktuális dátum jelenik meg a jobb alsó sarokban.)
             // ============================================
             (function () {
                 const newsItems = [
+                    {
+                        title: 'Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással',
+                        titleEn: 'Where is Moscow headed? – Panel discussion with Dr. András Rácz',
+                        date: '2026. szeptember 29.',
+                        dateEn: 'September 29, 2026',
+                        uploadDate: '2026. 09. 16.',
+                        uploadDateEn: 'September 16, 2026',
+                        category: 'Közelgő esemény · 2026',
+                        categoryEn: 'Upcoming event · 2026',
+                        description: 'Az ABOVE Alapítvány a Magyar Külügyi Intézettel együttműködve rendezi meg az őszi félév első kiemelt pódiumbeszélgetését, amelynek vendége Dr. Rácz András Oroszország-szakértő lesz. A részvétel ingyenes, regisztrációhoz kötött.',
+                        descriptionEn: 'The ABOVE Foundation, in collaboration with the Hungarian Institute of International Affairs, is organizing the first featured panel discussion of the autumn semester, with guest Dr. András Rácz, Russia expert. Free entry with registration.',
+                        images: [
+                            'assets/images/events/racz_andras.png'
+                        ],
+                        link: 'projects/events/racz-andras',
+                        applyLink: 'https://www.eventbrite.com/e/merre-tart-moszkva-podiumbeszelgetes-dr-racz-andrassal-tickets-2000249844129',
+                        applyBtnText: 'Regisztráció',
+                        applyBtnTextEn: 'Register',
+                        applyBtnIcon: 'fas fa-ticket-alt',
+                        applyBtnClass: 'news-carousel-btn-register',
+                        btnText: 'bővebben...',
+                        btnTextEn: 'read more...'
+                    },
                     {
                         title: 'Into the Wild – Erasmus+ ifjúsági csere',
                         titleEn: 'Into the Wild – Erasmus+ Youth Exchange',
                         date: '2026. szeptember 16–23.',
                         dateEn: 'September 16–23, 2026',
+                        uploadDate: '2026. 09. 09.',
+                        uploadDateEn: 'September 9, 2026',
                         category: 'Közelgő projekt · Erasmus+',
                         categoryEn: 'Upcoming project · Erasmus+',
                         description: 'Az Into the Wild egy Erasmus+ ifjúsági csere, amely 2026 szeptemberében 27 fiatalt hoz össze öt európai országból Badacsonyban, a Balaton-felvidék egyik legkülönlegesebb természeti környezetében.',
@@ -1276,6 +1305,8 @@
                         titleEn: 'E.A.S.Y. – Erasmus+ Youth Exchange',
                         date: '2026. november',
                         dateEn: 'November 2026',
+                        uploadDate: '2026. 09. 09.',
+                        uploadDateEn: 'September 9, 2026',
                         category: 'Közelgő projekt · Erasmus+',
                         categoryEn: 'Upcoming project · Erasmus+',
                         description: 'Az E.A.S.Y. (Entrepreneurial Attitudes Shaping Youth) egy Erasmus+ ifjúsági csere, amely 2026 őszén, a festői Csolnok községben valósul meg 30 fiatal részvételével, hat európai országból.',
@@ -1295,6 +1326,8 @@
                         titleEn: 'Green Voices Hungary',
                         date: '2026',
                         dateEn: '2026',
+                        uploadDate: '2026. 09. 02.',
+                        uploadDateEn: 'August 31, 2026',
                         category: 'Kérdőív · Visszajelzés',
                         categoryEn: 'Questionnaire · Feedback',
                         description: 'Segítsd szervezetünket az alábbi kérdőív kitöltésével!<br><br>Az ABOVE Alapítvány arra kíváncsi, hogyan gondolkodnak a fiatalok a klímaváltozásról és a fenntarthatóságról, honnan tájékozódnak ezekben a témákban, milyen nehézségekkel találkoznak, és milyen programokban vennének részt szívesen.',
@@ -1311,6 +1344,8 @@
                         titleEn: 'Sziget, SZIN, Arts Valley',
                         date: '2026. Július - Augusztus',
                         dateEn: 'July - August 2026',
+                        uploadDate: '2026. 09. 02.',
+                        uploadDateEn: 'September 2, 2026',
                         category: 'Hazai rendezvény · 2026',
                         categoryEn: 'Domestic event · 2026',
                         description: 'Az ABOVE nyara: fesztiválok, találkozások és közös élmények. Idén nyáron az ABOVE több fesztiválon is jelen volt (SZIN, Sziget, Művészetek Völgye), ahol játékokkal, beszélgetésekkel és programokkal vártuk a fesztiválozókat.',
@@ -1333,6 +1368,8 @@
                         titleEn: 'Talk with Dávid Vitézy',
                         date: '2026. Május 21.',
                         dateEn: 'May 21, 2026',
+                        uploadDate: '2026. 07. 31.',
+                        uploadDateEn: 'July 31, 2026',
                         category: 'Hazai rendezvény · 2026',
                         categoryEn: 'Domestic event · 2026',
                         description: 'Teltházas előadás Vitézy Dáviddal – a résztvevők első kézből hallhattak városfejlesztésről, felelősségvállalásról és a fiatalok szerepéről a közéletben, rengeteg inspiráló gondolattal.',
@@ -1352,6 +1389,8 @@
                         titleEn: 'ABOVE 3rd Birthday',
                         date: '2026. Június 12.',
                         dateEn: 'June 12, 2026',
+                        uploadDate: '2026. 07. 31.',
+                        uploadDateEn: 'July 31, 2026',
                         category: 'Hazai rendezvény · 2026',
                         categoryEn: 'Domestic event · 2026',
                         description: 'Pénteken ünnepeltük az ABOVE Alapítvány 3. születésnapját, amely egyben a félév lezáró eseménye is volt. 🎉 Az este során az elnök és a szekcióvezetők beszámoltak az elmúlt időszak eredményeiről...',
@@ -1370,6 +1409,8 @@
                         titleEn: 'Peace for a Peaceful Planet!',
                         date: '2025 – 2026',
                         dateEn: '2025 – 2026',
+                        uploadDate: '2026. 07. 31.',
+                        uploadDateEn: 'July 31, 2026',
                         category: 'Hazai Projekt',
                         categoryEn: 'Domestic Project',
                         description: 'Környezeti fenntarthatóság és aktív közösségi élmények a GEARUP program keretében.<br><br><strong>Hallgasd meg podcastjeinket!</strong> Vendégeink: Dr. Gondola Csaba, Dr. Ásványi Katalin, Peszlen Bálint, Takács Egon és sokan mások.',
@@ -1395,6 +1436,8 @@
                         titleEn: 'Step Out, Connect!',
                         date: '2025 – 2026',
                         dateEn: '2025 – 2026',
+                        uploadDate: '2026. 07. 31.',
+                        uploadDateEn: 'July 31, 2026',
                         category: 'Hazai Projekt',
                         categoryEn: 'Domestic Project',
                         description: 'Természetközeli élmények és közösségi szolgálat középiskolásoknak.<br><br>Sikeresen lezajlott a Corvinus Egyetemen rendezett kerekasztal-beszélgetés és az utánkövető workshop-sorozat döntéshozókkal és szakértőkkel, elkészült az összefoglaló Guide és lezárult az online kampány!',
@@ -1429,6 +1472,18 @@
                     track.innerHTML = '';
                     dotsContainer.innerHTML = '';
 
+                    // Helper to format today's date if uploadDate is missing for a future new item
+                    const getTodayFormatted = (isEn) => {
+                        const now = new Date();
+                        if (isEn) {
+                            return now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                        }
+                        const y = now.getFullYear();
+                        const m = String(now.getMonth() + 1).padStart(2, '0');
+                        const d = String(now.getDate()).padStart(2, '0');
+                        return `${y}. ${m}. ${d}.`;
+                    };
+
                     newsItems.forEach((item, i) => {
                         const title = (lang === 'en' && item.titleEn) ? item.titleEn : item.title;
                         const date = (lang === 'en' && item.dateEn) ? item.dateEn : item.date;
@@ -1438,6 +1493,12 @@
                         const hasModal = item.modalContent;
                         const defaultBtnText = lang === 'en' ? 'more...' : 'bővebben...';
                         const btnText = item.btnText ? (lang === 'en' && item.btnTextEn ? item.btnTextEn : item.btnText) : defaultBtnText;
+
+                        // Felrakás dátuma a jobb alsó sarokhoz (mindig megjelenik, automatikus tartalékkal)
+                        const uploadDate = (lang === 'en' && item.uploadDateEn)
+                            ? item.uploadDateEn
+                            : (item.uploadDate || getTodayFormatted(lang === 'en'));
+                        const uploadTooltip = lang === 'en' ? `Uploaded: ${uploadDate}` : `Felrakás dátuma: ${uploadDate}`;
 
                         // Build slideshow or placeholder
                         let slideshowHtml;
@@ -1469,14 +1530,21 @@
                         let buttonsHtml = '<div class="news-carousel-btn-group">';
                         if (item.applyLink) {
                             const applyText = lang === 'en' ? (item.applyBtnTextEn || 'Apply now') : (item.applyBtnText || 'Jelentkezés');
-                            buttonsHtml += `<a href="${item.applyLink}" target="_blank" rel="noopener noreferrer" class="news-carousel-btn news-carousel-btn-apply" style="display: inline-flex; align-items: center; gap: 0.4rem;"><i class="fas fa-paper-plane text-xs"></i><span>${applyText}</span></a>`;
+                            const isRegistration = (item.applyBtnText && item.applyBtnText.toLowerCase().includes('regisztráció')) ||
+                                                  (item.applyBtnClass && item.applyBtnClass.includes('register')) ||
+                                                  (item.applyBtnIcon && item.applyBtnIcon.includes('ticket'));
+                            const applyIcon = item.applyBtnIcon || (isRegistration ? 'fas fa-ticket-alt' : 'fas fa-paper-plane text-xs');
+                            const customClass = item.applyBtnClass ? ` ${item.applyBtnClass}` : (isRegistration ? ' news-carousel-btn-register' : '');
+                            const regInlineStyle = isRegistration ? 'background: linear-gradient(135deg, #00D2E5, #00ABA0); color: #fff; border: none; text-decoration: none;' : '';
+                            buttonsHtml += `<a href="${item.applyLink}" target="_blank" rel="noopener noreferrer" class="news-carousel-btn news-carousel-btn-apply${customClass}" style="display: inline-flex; align-items: center; gap: 0.4rem; ${regInlineStyle}"><i class="${applyIcon}"></i><span>${applyText}</span></a>`;
                         }
                         if (hasModal) {
                             const modalBtnClass = item.applyLink ? 'news-carousel-btn news-carousel-btn-secondary' : 'news-carousel-btn';
                             buttonsHtml += `<button class="${modalBtnClass}" data-news-modal="${i}">${btnText}</button>`;
                         } else if (hasLink) {
                             const targetAttr = item.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : '';
-                            buttonsHtml += `<a href="${item.link}" ${targetAttr} class="news-carousel-btn">${btnText}</a>`;
+                            const linkBtnClass = item.applyLink ? 'news-carousel-btn news-carousel-btn-secondary' : 'news-carousel-btn';
+                            buttonsHtml += `<a href="${item.link}" ${targetAttr} class="${linkBtnClass}">${btnText}</a>`;
                         }
                         buttonsHtml += '</div>';
 
@@ -1488,7 +1556,10 @@
                                 <h3 class="news-carousel-title">${title}</h3>
                                 <span class="news-carousel-date">${date}</span>
                                 <p class="news-carousel-desc">${desc}</p>
-                                ${buttonsHtml}
+                                <div class="news-carousel-footer">
+                                    ${buttonsHtml}
+                                    <span class="news-carousel-upload-date" title="${uploadTooltip}">${uploadDate}</span>
+                                </div>
                             </div>
                         `;
                         track.appendChild(card);

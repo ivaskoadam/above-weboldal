@@ -1423,6 +1423,33 @@
                 </div>
                 <div class="space-y-6">
 
+                    <!-- Event: Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással -->
+                    <div class="event-card fade-in" id="eventRaczAndras">
+                        <!-- Image (single) -->
+                        <div class="event-slideshow" id="raczandrasSlideshow">
+                            <img src="assets/images/events/racz_andras.png" alt="Dr. Rácz András pódiumbeszélgetés" class="active">
+                            <div class="event-slideshow-label">
+                                <h4>Merre tart Moszkva?</h4>
+                                <p>Közelgő esemény · 2026</p>
+                            </div>
+                        </div>
+
+                        <!-- Event Info -->
+                        <div class="event-info">
+                            <h3 class="event-title">Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással</h3>
+                            <span class="event-date">2026. szeptember 29.</span>
+                            <p class="event-short-desc">Az ABOVE Alapítvány a Magyar Külügyi Intézettel együttműködve rendezi meg az őszi félév első kiemelt pódiumbeszélgetését, amelynek vendége Dr. Rácz András Oroszország-szakértő lesz. A részvétel ingyenes, regisztrációhoz kötött.</p>
+                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-top: 0.75rem;">
+                                <a href="https://www.eventbrite.com/e/merre-tart-moszkva-podiumbeszelgetes-dr-racz-andrassal-tickets-2000249844129" target="_blank" rel="noopener noreferrer"
+                                    class="event-details-btn" style="display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #00D2E5, #00ABA0); color: #fff; border: none; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 210, 229, 0.38);">
+                                    <i class="fas fa-ticket-alt"></i> Regisztráció
+                                </a>
+                                <button class="event-details-btn"
+                                    onclick="navigateTo('events/racz-andras');">bővebben...</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Event: Sziget, SZIN, Művészetek Völgye -->
                     <div class="event-card fade-in" id="eventFesztivalok">
                         <!-- Image Slideshow -->
@@ -1797,6 +1824,69 @@
                                     </a>
                                 </div>
                             </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Modal: Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással -->
+    <div id="eventModalRaczAndras" class="event-modal-overlay hidden">
+        <div class="event-modal-content">
+            <button class="event-modal-close" onclick="navigateTo('events');">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="p-4 md:p-8">
+                <!-- Cover Image -->
+                <div class="rounded-2xl overflow-hidden mb-6">
+                    <img src="assets/images/events/racz_andras.png" alt="Dr. Rácz András pódiumbeszélgetés"
+                        class="w-full h-72 object-cover object-center">
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan text-sm font-bold">Közelgő esemény</span>
+                        <p class="text-gray-400 text-sm">2026. szeptember 29.</p>
+                    </div>
+                    <button onclick="copyEventLink('events/racz-andras', this)"
+                        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass hover:bg-neon-cyan/20 text-neon-cyan font-bold text-xs transition duration-300">
+                        <i class="fas fa-link"></i>
+                        <span>Link másolása</span>
+                    </button>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-montserrat font-bold gradient-text mb-6">Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással a Corvinuson</h2>
+                <div class="space-y-6 text-gray-300 leading-relaxed">
+                    <div>
+                        <p class="text-lg font-semibold" style="color: #00BCD4;">Megnyílt a regisztráció!</p>
+                    </div>
+                    <div>
+                        <p>Az ABOVE Alapítvány a Magyar Külügyi Intézettel együttműködve rendezi meg az őszi félév első kiemelt pódiumbeszélgetését, amelynek vendége Dr. Rácz András Oroszország-szakértő, a Magyar Külügyi Intézet vezérigazgató-helyettese lesz.</p>
+                        <p class="mt-3">Az esemény fókuszában a 2026-os oroszországi parlamenti választások eredményei, a kibontakozó belső hatalmi dinamikák, valamint azok közép-európai és hazai külpolitikai következményei állnak. A résztvevők első kézből kaphatnak betekintést a megújuló magyar külügyi stratégia feladataiba és kutatási irányaiba is. Az előadást egy 30 perces interaktív Q&A zárja, ahol a hallgatóság közvetlenül teheti fel kérdéseit az előadónak.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-montserrat font-bold mb-3" style="color: #1099b3;">Gyakorlati tudnivalók</h3>
+                        <ul class="space-y-2 list-none">
+                            <li><i class="fas fa-clock text-neon-cyan mr-2"></i><strong>Időpont:</strong> 2026. szeptember 29. (kedd), 18:00 – 19:30 (Kapunyitás: 17:00)</li>
+                            <li><i class="fas fa-map-marker-alt text-neon-cyan mr-2"></i><strong>Helyszín:</strong> Budapesti Corvinus Egyetem, Főépület, E.I-es előadóterem (1093 Budapest, Fővám tér 8.)</li>
+                            <li><i class="fas fa-users text-neon-cyan mr-2"></i><strong>Szervezők:</strong> ABOVE Alapítvány & Magyar Külügyi Intézet</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>A rendezvényen a részvétel ingyenes, azonban az előadóterem korlátozott befogadóképessége miatt előzetes regisztrációhoz kötött. A jegyek az Eventbrite felületén érhetők el a szabad helyek erejéig.</p>
+                        <a href="https://www.eventbrite.com/e/merre-tart-moszkva-podiumbeszelgetes-dr-racz-andrassal-tickets-2000249844129" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full text-white font-bold text-sm hover:shadow-[0_0_20px_rgba(0,188,212,0.5)] transition duration-300"
+                            style="background: linear-gradient(135deg, #00BCD4, #00897B);">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Regisztráció az Eventbrite-on</span>
+                        </a>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <div>
+                        <h3 class="text-xl font-montserrat font-bold mb-4" style="color: #1099b3;">Fotógaléria</h3>
+                        <div class="event-modal-gallery" id="raczandrasGallery">
+                            <img src="assets/images/events/racz_andras.png" alt="Dr. Rácz András" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -3312,7 +3402,7 @@
             });
 
             // Close event modals
-            ['eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(id => {
+            ['eventModalRaczAndras', 'eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(id => {
                 const modal = document.getElementById(id);
                 if (modal) modal.classList.add('hidden');
             });
@@ -3447,6 +3537,18 @@
                 eventsView.classList.remove('hidden');
 
                 const modal = document.getElementById('eventModalSzulinap');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            } else if (route === 'events/racz-andras' || route === 'racz-andras') {
+                // Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással
+                projectsLanding.classList.add('hidden');
+                foreignProjectsView.classList.add('hidden');
+                domesticProjectsView.classList.add('hidden');
+                eventsView.classList.remove('hidden');
+
+                const modal = document.getElementById('eventModalRaczAndras');
                 if (modal) {
                     modal.classList.remove('hidden');
                     document.body.style.overflow = 'hidden';
@@ -4741,11 +4843,26 @@
                     document.getElementById('imageLightbox').classList.remove('hidden');
                 });
             });
+
+            var raczandrasPhotos = [
+                'assets/images/events/racz_andras.png'
+            ];
+            var raczandrasGallery = document.getElementById('raczandrasGallery');
+            if (raczandrasGallery) {
+                raczandrasGallery.querySelectorAll('img').forEach(function (img, index) {
+                    img.addEventListener('click', function () {
+                        currentGalleryPhotos = raczandrasPhotos;
+                        currentGalleryIndex = index;
+                        document.getElementById('lightboxImage').src = raczandrasPhotos[index];
+                        document.getElementById('imageLightbox').classList.remove('hidden');
+                    });
+                });
+            }
         })();
 
         // ── Event Modal: Close on outside click ──────────────────────────────────
         (function () {
-            ['eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
+            ['eventModalRaczAndras', 'eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
                 var modal = document.getElementById(id);
                 if (modal) {
                     modal.addEventListener('click', function (e) {
@@ -4779,7 +4896,8 @@
                 'assets/images/events/vitezy_3.jpg',
                 'assets/images/events/vitezy_4.jpg',
                 'assets/images/events/vitezy_5.jpg',
-                'assets/images/events/vitezy_6.jpg'
+                'assets/images/events/vitezy_6.jpg',
+                'assets/images/events/racz_andras.png'
             ];
             var eventsBgImg = document.getElementById('eventsBgImg');
             if (eventsBgImg) {
@@ -4791,7 +4909,7 @@
         // ── Event Modal: ESC key close ───────────────────────────────────────────
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
-                ['eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
+                ['eventModalRaczAndras', 'eventModalFesztivalok', 'eventModalVitezy', 'eventModalSzulinap'].forEach(function (id) {
                     var modal = document.getElementById(id);
                     if (modal && !modal.classList.contains('hidden')) {
                         navigateTo('events');
@@ -4906,6 +5024,21 @@
             'Pénteken ünnepeltük az ABOVE Alapítvány 3. születésnapját, amely egyben a félév lezáró eseménye is volt.🎉 Az este során az elnök és a szekcióvezetők beszámoltak az elmúlt időszak eredményeiről...': 'On Friday we celebrated the 3rd birthday of the ABOVE Foundation, which was also the semester closing event. 🎉 During the evening the president and section leaders reported on the results of the past period...',
             'Az este során az elnök és a szekcióvezetők beszámoltak az elmúlt időszak eredményeiről, sikereiről és a közösen elért mérföldkövekről. Jó volt visszatekinteni arra, mennyi mindent valósítottunk meg együtt ebben a félévben. A beszámolók mellett külön öröm volt, hogy elismerhettük a legkiemelkedőbb teljesítményeket is. A szekciók legaktívabb tagjait külön díjjal tüntettük ki a féléves elkötelezett munkájukért.': 'During the evening, the president and section leaders reported on the achievements, successes and shared milestones of the recent period. It was great to look back at how much we accomplished together this semester. In addition to the reports, it was a special pleasure to recognize the most outstanding achievements. The most active members of each section were awarded for their semester-long dedication.',
             'A hivatalos rész után pedig természetesen a kikapcsolódás és a közös szórakozás sem maradhatott el. Köszönjük mindenkinek, aki hozzájárult ehhez az időszakhoz – találkozunk a következő félévben! 💙': 'After the official part, relaxation and fun together could naturally not be missed. Thank you to everyone who contributed to this period – see you next semester! 💙',
+            // Rácz András event translations
+            'Merre tart Moszkva?': 'Where is Moscow headed?',
+            'Közelgő esemény · 2026': 'Upcoming event · 2026',
+            'Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással': 'Where is Moscow headed? – Panel discussion with Dr. András Rácz',
+            '2026. szeptember 29.': '29 September 2026',
+            'Az ABOVE Alapítvány a Magyar Külügyi Intézettel együttműködve rendezi meg az őszi félév első kiemelt pódiumbeszélgetését, amelynek vendége Dr. Rácz András Oroszország-szakértő lesz. A részvétel ingyenes, regisztrációhoz kötött.': 'The ABOVE Foundation, in collaboration with the Hungarian Institute of International Affairs, is organizing the first featured panel discussion of the autumn semester, with guest Dr. András Rácz, Russia expert. Participation is free but requires registration.',
+            'Közelgő esemény': 'Upcoming event',
+            'Merre tart Moszkva? – Pódiumbeszélgetés Dr. Rácz Andrással a Corvinuson': 'Where is Moscow headed? – Panel discussion with Dr. András Rácz at Corvinus',
+            'Megnyílt a regisztráció!': 'Registration is now open!',
+            'Az ABOVE Alapítvány a Magyar Külügyi Intézettel együttműködve rendezi meg az őszi félév első kiemelt pódiumbeszélgetését, amelynek vendége Dr. Rácz András Oroszország-szakértő, a Magyar Külügyi Intézet vezérigazgató-helyettese lesz.': 'The ABOVE Foundation, in collaboration with the Hungarian Institute of International Affairs, is organizing the first featured panel discussion of the autumn semester, with guest Dr. András Rácz, Russia expert and Deputy Director General of the Hungarian Institute of International Affairs.',
+            'Az esemény fókuszában a 2026-os oroszországi parlamenti választások eredményei, a kibontakozó belső hatalmi dinamikák, valamint azok közép-európai és hazai külpolitikai következményei állnak. A résztvevők első kézből kaphatnak betekintést a megújuló magyar külügyi stratégia feladataiba és kutatási irányaiba is. Az előadást egy 30 perces interaktív Q&A zárja, ahol a hallgatóság közvetlenül teheti fel kérdéseit az előadónak.': 'The event focuses on the results of the 2026 Russian parliamentary elections, the unfolding internal power dynamics, and their Central European and Hungarian foreign policy implications. Participants will gain first-hand insight into the renewed Hungarian foreign policy strategy and research directions. The lecture concludes with a 30-minute interactive Q&A where the audience can ask questions directly.',
+            'Gyakorlati tudnivalók': 'Practical information',
+            'Regisztráció': 'Registration',
+            'Regisztráció az Eventbrite-on': 'Register on Eventbrite',
+            'A rendezvényen a részvétel ingyenes, azonban az előadóterem korlátozott befogadóképessége miatt előzetes regisztrációhoz kötött. A jegyek az Eventbrite felületén érhetők el a szabad helyek erejéig.': 'Participation is free, but due to the limited capacity of the lecture hall, prior registration is required. Tickets are available on Eventbrite while seats last.',
             // Project card locations
 
             // Project card locations with year (auto-generated)
