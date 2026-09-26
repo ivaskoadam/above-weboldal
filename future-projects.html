@@ -313,43 +313,19 @@
             <h1 class="text-4xl md:text-5xl font-montserrat font-bold text-center gradient-text mb-12">Jövőbeli Projektek</h1>
             
             <div class="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
-                <!-- Into the Wild Card -->
-                <div class="glass-strong rounded-3xl p-8 md:p-10 border border-neon-cyan/30 shadow-2xl relative overflow-hidden group fade-in">
-                    <!-- Status Badge -->
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                            Nyitott Jelentkezés
-                        </span>
-                        <span class="text-xs text-neon-cyan font-semibold">Erasmus+ Projekt</span>
+                <!-- Nincs aktív projekt állapot -->
+                <div class="glass-strong rounded-3xl p-10 md:p-12 border border-neon-cyan/30 shadow-2xl text-center fade-in visible">
+                    <div class="w-16 h-16 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan mx-auto mb-6">
+                        <i class="fas fa-compass text-3xl"></i>
                     </div>
-
-                    <!-- Project Title & Icon -->
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan shrink-0">
-                            <i class="fas fa-tree text-2xl"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-2xl md:text-3xl font-montserrat font-bold text-white">Into the Wild</h2>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <p class="text-gray-300 leading-relaxed mb-8 text-sm md:text-base">
-                        Ismerd meg a projekt részleteit az Infopack segítségével, és jelentkezz az alábbi űrlapon!
+                    <h2 class="text-2xl font-montserrat font-bold text-white mb-3">Hamarosan új lehetőségek!</h2>
+                    <p class="text-gray-300 leading-relaxed max-w-md mx-auto mb-8 text-sm md:text-base">
+                        Jelenleg nincs aktív jelentkezési időszak. Kövesd oldalunkat és közösségi felületeinket a legfrissebb felhívásokért!
                     </p>
-
-                    <!-- Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://drive.google.com/file/d/1tyBz6em2pyxPVLpss1UHKw7Ejkeja1Hj/view" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white px-6 py-3.5 rounded-full font-bold hover:bg-neon-cyan/20 hover:border-neon-cyan transition duration-300 text-sm">
-                            <i class="fas fa-file-pdf text-neon-cyan"></i>
-                            <span>Infopack megtekintése</span>
-                        </a>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeCcdl6KA3sbmd57XhAKsGHQvjGx1SZCy9LRAR9jo__jsgk-Q/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-neon-cyan text-dark-teal px-6 py-3.5 rounded-full font-bold hover:bg-white transition duration-300 text-sm shadow-lg shadow-neon-cyan/20">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Jelentkezés a projektre</span>
-                        </a>
-                    </div>
+                    <a href="projects" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal px-8 py-3.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(0,188,212,0.5)] transition duration-300 text-sm">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Vissza a tevékenységekhez</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -498,13 +474,9 @@
         window.pageTranslations = {
             'Közösségi média': 'Socials',
             'Jövőbeli Projektek': 'Future Projects',
-            'Nyitott Jelentkezés': 'Open Application',
-            'Erasmus+ Projekt': 'Erasmus+ Project',
-            'Into the Wild': 'Into the Wild',
-            'Ismerd meg a projekt részleteit az Infopack segítségével, és jelentkezz az alábbi űrlapon!': 'Check out the project details in the Infopack and apply using the form below!',
-            'Infopack megtekintése': 'View Infopack',
-            'Jelentkezés a projektre': 'Apply for Project',
-            'Vissza a tevékenységekhez': 'Back to Activities'
+            'Vissza a tevékenységekhez': 'Back to Activities',
+            'Hamarosan új lehetőségek!': 'New opportunities coming soon!',
+            'Jelenleg nincs aktív jelentkezési időszak. Kövesd oldalunkat és közösségi felületeinket a legfrissebb felhívásokért!': 'There are currently no active applications. Follow our website and social channels for the latest announcements!'
         };
     </script>
     <script src="lang.js?v=1.2"></script>
