@@ -248,9 +248,9 @@
 
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="jelentkezz.html" id="hero-btn-primary"
+                        <a href="projects" id="hero-btn-primary"
                             class="px-8 py-4 text-lg bg-gradient-to-r from-neon-cyan to-neon-teal text-dark-teal font-bold rounded-full hover:shadow-[0_0_30px_rgba(0,188,212,0.5)] transition duration-300 text-center">
-                            Jelentkezem
+                            Projektek
                         </a>
                         <a href="about" id="hero-btn-secondary"
                             class="px-8 py-4 text-lg glass-strong border border-neon-cyan/30 text-neon-cyan font-bold rounded-full hover:bg-neon-cyan/10 transition duration-300 text-center flex items-center justify-center gap-2">
@@ -1881,6 +1881,7 @@
                 'közösen.': 'together.',
                 'Az ABOVE célja, hogy új generációs európai vezetőket neveljen az ifjúsági részvétel és a vállalkozói gondolkodásmód erősítésével.': 'ABOVE aims to empower next-generation European leaders by strengthening youth participation and an entrepreneurial mindset.',
                 'Jelentkezem': 'Apply Now',
+                'Projektek': 'Projects',
                 'Hogyan működik?': 'How does it work?',
 
                 // News Carousel section
@@ -1965,7 +1966,10 @@
             };
         </script>
 
-        <!-- Join Popup Overlay & Modal -->
+        <!-- ========================================================
+             JELENTKEZÉS POPUP ÉS BAL ALSÓ LEBEGŐ GOMB (KIKOMMENTELVE)
+             Visszakapcsoláshoz csak távolítsd el a nyitó és záró komment jeleket innen és a lenti scriptből!
+        ========================================================
         <div id="join-popup-overlay" class="join-popup-overlay">
             <div id="join-popup-card" class="join-popup-card">
                 <button id="join-popup-close" class="join-popup-close-btn" aria-label="Bezárás">
@@ -1986,19 +1990,22 @@
             </div>
         </div>
 
-        <!-- Floating Badge in Bottom-Left Corner -->
         <div id="join-floating-badge" class="join-floating-badge hidden-badge" title="Jelentkezz hozzánk!">
             <div class="join-badge-icon">
                 <i class="fa-solid fa-paper-plane"></i>
             </div>
             <span class="join-badge-text">Jelentkezz!</span>
         </div>
+        ======================================================== -->
 
         <script src="lang.js?v=1.2"></script>
 
     </div>
 
-    <!-- Join Popup & Floating Badge Handler Script -->
+    <!-- ========================================================
+         JELENTKEZÉS POPUP & LEBEGŐ GOMB KEZELŐ SCRIPT (KIKOMMENTELVE)
+         Visszakapcsoláshoz csak távolítsd el a nyitó és záró komment jeleket!
+    ========================================================
     <script>
         (function () {
             document.addEventListener('DOMContentLoaded', function () {
@@ -2060,6 +2067,7 @@
             });
         })();
     </script>
+    ======================================================== -->
 
     <script src="cookie-consent.js"></script>
 </body>

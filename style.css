@@ -791,18 +791,21 @@ body.light-mode #cta-btn-primary:hover {
     box-shadow: 0 0 25px rgba(0, 122, 154, 0.5) !important;
 }
 
-body.light-mode #hero-btn-secondary {
+body.light-mode #hero-btn-secondary,
+body.light-mode #about-hero-btn-secondary {
     border-color: rgba(0, 122, 154, 0.4) !important;
     color: #007a9a !important;
 }
 
-body.light-mode #hero-btn-secondary i {
+body.light-mode #hero-btn-secondary i,
+body.light-mode #about-hero-btn-secondary i {
     color: #007a9a !important;
     -webkit-text-fill-color: #007a9a !important;
     /* overrides fontawesome text fill if inherited */
 }
 
-body.light-mode #hero-btn-secondary:hover {
+body.light-mode #hero-btn-secondary:hover,
+body.light-mode #about-hero-btn-secondary:hover {
     background: rgba(0, 122, 154, 0.1) !important;
 }
 

@@ -619,7 +619,14 @@
                             <span class="acrostic-letter">V</span>ersatile<br>
                             <span class="acrostic-letter">E</span>urope
                         </h1>
-                        <a href="jelentkezz.html" class="btn-primary inline-block">Jelentkezem</a>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="projects" class="btn-primary inline-block">Projektek</a>
+                            <a href="contact" id="about-hero-btn-secondary"
+                                class="px-8 py-3 text-base glass-strong border border-neon-cyan/30 text-neon-cyan font-bold rounded-full hover:bg-neon-cyan/10 hover:scale-105 transition duration-300 inline-flex items-center justify-center gap-2">
+                                <span>Kapcsolatfelvétel</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="fade-in">
                         <div class="relative">
@@ -1592,11 +1599,17 @@
             'Jelentkezz hozzánk!': 'Join Us!',
             'Megnyílt a tagfelvétel a diákszervezetünkbe, gyere csatlakozz hozzánk és építsük közösen a jövőt!': 'Recruitment for our student organization is now open, come join us and build the future together!',
             'Talán később..': 'Maybe later..',
+            'Projektek': 'Projects',
+            'Kapcsolatfelvétel': 'Get in Touch',
+            'Kapcsolat felvétel': 'Get in Touch',
             'Jelentkezem': 'Apply Now',
         };
     </script>
 
-    <!-- Join Popup Overlay & Modal -->
+    <!-- ========================================================
+         JELENTKEZÉS POPUP ÉS BAL ALSÓ LEBEGŐ GOMB (KIKOMMENTELVE)
+         Visszakapcsoláshoz csak távolítsd el a nyitó és záró komment jeleket innen és a lenti scriptből!
+    ========================================================
     <div id="join-popup-overlay" class="join-popup-overlay closing" style="display: none;">
         <div id="join-popup-card" class="join-popup-card">
             <button id="join-popup-close" class="join-popup-close-btn" aria-label="Bezárás">
@@ -1617,17 +1630,20 @@
         </div>
     </div>
 
-    <!-- Floating Badge in Bottom-Left Corner -->
     <div id="join-floating-badge" class="join-floating-badge visible-badge" title="Jelentkezz hozzánk!">
         <div class="join-badge-icon">
             <i class="fa-solid fa-paper-plane"></i>
         </div>
         <span class="join-badge-text">Jelentkezz!</span>
     </div>
+    ======================================================== -->
 
     <script src="lang.js?v=1.2"></script>
 
-    <!-- Join Popup & Floating Badge Handler Script -->
+    <!-- ========================================================
+         JELENTKEZÉS POPUP & LEBEGŐ GOMB KEZELŐ SCRIPT (KIKOMMENTELVE)
+         Visszakapcsoláshoz csak távolítsd el a nyitó és záró komment jeleket!
+    ========================================================
     <script>
         (function () {
             document.addEventListener('DOMContentLoaded', function () {
@@ -1689,6 +1705,7 @@
             });
         })();
     </script>
+    ======================================================== -->
 
     <script src="cookie-consent.js"></script>
 </body>
